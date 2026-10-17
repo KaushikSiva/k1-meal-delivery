@@ -1,0 +1,27 @@
+{
+  "exported_at_utc": "2026-10-17T22:30:24.344034+00:00",
+  "project_url": "https://wandb.ai/kaushik-siva88/k1-meal-delivery-20261017",
+  "project_access": "PRIVATE",
+  "historical_import": true,
+  "training_performed_by_export": false,
+  "runs": [
+    {
+      "kind": "ppo",
+      "url": "https://wandb.ai/kaushik-siva88/k1-meal-delivery-20261017/runs/k1-ppo-02-historical",
+      "id": "k1-ppo-02-historical",
+      "metric_rows": 100,
+      "manifest_sha256": "112ce5dddfe8bd2237080662c05802c631fc649cb345920605c09cca5b66c2fc",
+      "metrics_sha256": "3bb3aef1e323d29c63377a49aedfdb1704cea5753593ea9a3565c927e9fd7dd4",
+      "verified_remote_state": "finished"
+    },
+    {
+      "kind": "smolvla",
+      "url": "https://wandb.ai/kaushik-siva88/k1-meal-delivery-20261017/runs/smolvla-train-02-historical",
+      "id": "smolvla-train-02-historical",
+      "metric_rows": 200,
+      "manifest_sha256": "53c6c330ab2f2f018e3e69863d2b441878026099a778c21882c24b191b1b44df",
+      "metrics_sha256": "4b4f6c9762ab6cc48faecb1cdaac4c209118e9a15296be1bcf7cf45d0cc9343a",
+      "verified_remote_state": "finished"
+    }
+  ]
+}

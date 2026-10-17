@@ -20,3 +20,14 @@ If You.com access is missing, flag it to the user and continue code/interface wo
 The user cleared the previous goal and activated `end to end is the goal`; status verified active. GOAL.md supplies its concrete scope. Five-minute status updates apply while an agent is actively running. Markdown files alone do not schedule or keep a model running. Each agent loop must obey its status-update instruction and report when idle or waiting.
 
 Official references consulted through the OpenAI Docs skill: [Goals](https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex), [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
+
+## W&B training evidence (2026-10-17)
+
+User-authorized logging is in the private
+[training project](https://wandb.ai/kaushik-siva88/k1-meal-delivery-20261017).
+PPO02 and SmolVLA02 were retrospectively imported with original timestamps,
+metrics, configs and checkpoint/source hashes. They are explicitly tagged
+`historical-import`; these are not new training jobs. See
+[export evidence](../experiments/codex-20261017T2230-wandb-export/REPORT.md).
+Credentials remain outside Git. Export uploads only allowlisted manifests/metrics,
+with automatic code and Git collection disabled. No GR00T training result yet.
