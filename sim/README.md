@@ -58,3 +58,30 @@ world-to-base velocity, and rejection on the deployable input path. The macOS
 OpenGL backend reports `ARB_clip_control` unavailable, so depth precision is
 limited; the tested two-meter plane was within one centimeter at both samples.
 That check does not calibrate the physical camera or establish full-range accuracy.
+
+
+## Free tray carried in the hands
+
+The explicit hand-contact baseline has separate evidence from the older torso
+fixture and PPO experiments. All three payload bodies are free, and the original
+hand collision meshes support physical underside tray seats. See the
+[MuJoCo tuning report](../experiments/codex-20261017T2300-hand-carry/REPORT.md) and
+[Isaac café transfer](../experiments/codex-20261017T2305-hand-carry-isaac/REPORT.md).
+
+```sh
+sim/.venv/bin/python sim/run_k1_hand_carry.py --output runs/hand-repeat-new \
+  --duration 15 --speed .4 --nominal-arm-observation --handle-seats \
+  --gravity-compensation --feet-on-floor
+# Run on the pinned Isaac/L40S environment with MuJoCo3.16 installed for
+# inverse-dynamics calculations only; PhysX integrates all motion:
+.venv/bin/python sim/run_k1_hand_carry_isaac.py --output runs/hand-isaac-new \
+  --duration 15 --speed .4 --tracking-evaluator
+```
+
+These are preloaded, scripted carrying diagnostics without VLA, PPO residual or
+vision guidance. A sealed rigid can is modeled; there is no liquid solver.
+Joint torque limits remain active. Nominal arm observations in the frozen walking
+actor are an explicit ablation; the physical arms use measured encoder feedback.
+The evaluation-only tracking camera reads robot position to frame the footage;
+its position is not supplied to the controller. Do not actuate a physical K1 from
+this diagnostic runner.

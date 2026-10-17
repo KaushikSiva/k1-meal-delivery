@@ -5,13 +5,13 @@ box and drink. The system combines RGB-D perception, explicit scene memory,
 search/navigation, a pretrained walking policy and a newly trained PPO carrying
 residual. Physical robot performance is not yet verified.
 
-![K1 with supported tray and cup holder after a scripted carrying trial](experiments/codex-20261017T2150-k1-appearance-repeat/evaluator_final_recorded.png)
+![K1 supporting the free tray in its hands in the Isaac café](experiments/codex-20261017T2305-hand-carry-isaac/attempt04/payload_closeup_initial.png)
 
-*Actual final frame: PPO residual plus an explicit cup holder completed a
-15-second, 3.56-metre scripted carrying trial within the current stability limits.
-The tray is attached to a modeled torso bracket. This is one simulation trial;
-camera-guided loaded delivery remains unfinished.
-[Measured result and limitations](experiments/codex-20261017T2150-k1-appearance-repeat/REPORT.md).*
+*Actual Isaac render: a free tray rests on physical hand contacts, with a pizza
+box and sealed Coke can. A 15-second scripted carry covered 2.19 m with no drop
+and 8 mm maximum payload movement. This hand-contact baseline uses arm torque
+control and the frozen walking actor; PPO/VLA and camera guidance are separate
+experiments. [Physics and measured result](experiments/codex-20261017T2305-hand-carry-isaac/REPORT.md).*
 
 ![Isaac Sim café environment](experiments/codex-20261017T2008-cafe-lit-preview/hero.png)
 
@@ -35,7 +35,7 @@ No robot is present in this environment-preview frame.*
 | SmolVLA fine-tuning | [200 actual optimizer updates](experiments/codex-20261017T2215-smolvla-training/REPORT.md); three training episodes, one validation episode, frozen backbone unchanged; offline imitation only |
 | SmolVLA closed-loop comparison | [Executive2/4; trainedVLA2/4](experiments/codex-20261017T2230-vla-closed-loop/REPORT.md); eight unloaded simulator runs, no overall improvement |
 | GR00T N1.7 pilot | [20 actual updates and saved-checkpoint inference](experiments/codex-20261017T2245-groot-pilot/REPORT.md); closed-loop performance unmeasured |
-| Free tray supported in both hands | [15s,2.036m,3.295mm payload shift](experiments/codex-20261017T2300-hand-carry/REPORT.md); real MuJoCo contacts, no torso support/weld, scripted baseline without PPO/VLA |
+| Free tray supported in both hands | [MuJoCo:15s,2.036m,3.295mm shift](experiments/codex-20261017T2300-hand-carry/REPORT.md); [Isaac café:15s,2.193m,8.038mm shift](experiments/codex-20261017T2305-hand-carry-isaac/REPORT.md); no torso support/weld, scripted baseline without PPO/VLA |
 | Integrated loaded camera-guided delivery; hardware delivery | Not completed |
 
 These results are separate experiments. An integrated, learned, camera-guided

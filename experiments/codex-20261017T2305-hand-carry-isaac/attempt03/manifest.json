@@ -1,0 +1,464 @@
+{
+  "status": "tested",
+  "started_at_utc": "2026-10-17T23:02:06.463259+00:00",
+  "evidence_kind": "isaac_free_tray_hand_contact_development",
+  "fixed_base": false,
+  "gravity_enabled": true,
+  "walking_policy_executed": true,
+  "training_performed": false,
+  "robot_payload_present": true,
+  "delivery_success": null,
+  "source_hashes": {
+    "sim/run_k1_hand_carry_isaac.py": "b1ac38cd68ec0e76e152cdf25a81f8b433b76863d0e64c7d607feb5acc046342",
+    "sim/vendor/booster_assets/robots/K1/K1_22dof.urdf": "834e17faf4681e5fcae116130a9da6d81b696c7f8278b95f281cec0551ca6124",
+    "sim/k1_isaac_nominal.json": "df59fe718d993db80b8738f97417cbafddcb3819cf8029e8c83bb6e64c19cdd3",
+    "sim/cafe_scene.py": "1f74d6a8ddb6ed238ce9f4e68e51568ed34ed64825a22e0d1d9f283264e0e203",
+    "sim/k1_isaac_policy.py": "3b42e47ae37ad392a0e2b484b0ff97411bb79dbce69cd88bf4c8ab0411c2b655",
+    "sim/k1_appearance.py": "9bbc49a07022893533ee1bce83fddbbea31fb1a8a41cfe87fdb0d4c4caccb243",
+    "sim/k1_payload_visuals.py": "a48530b0c0e7a032c88ba13ec9324c9f44f21143c1f7852e9efd391a863f64a9",
+    "sim/assets/payload/coca-cola-wordmark.png": "360469e0de59b0da8b9b06f29a36965e4be801b8b240b9196b939ae9174b9f30",
+    "sim/assets/payload/coke-wrap.png": "e530a3cebdcd22e487da7b2d39c1abe1f482d365aa7c28cd254a22bd431546c7",
+    "sim/assets/payload/pizza-lid.png": "e201a61a4c0df3172f563d6f44382e82c338700847f5db3311d3a7558cc6daae",
+    "sim/assets/payload/pizza-side.png": "62259ee74a0b760c0bf539a8f5065325c83a761dae7baeb8d5567136f48c1ef1",
+    "sim/k1_hand_isaac.py": "b09123cc50e65e7ae086097869bba7eb8e10267d8ad54ae67835734522c14141",
+    "sim/k1_hand_carry.py": "505a89a099ea413a9254cbcc84b861ee7ed079bd4e72663c6e46c70b4caec277"
+  },
+  "duration_requested_s": 15.0,
+  "speed_command_m_s": 0.4,
+  "checkpoint_sha256": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5",
+  "actor_inputs": [
+    "joint_positions",
+    "joint_velocities",
+    "body_gyro",
+    "quaternion_projected_gravity",
+    "velocity_command",
+    "last_action"
+  ],
+  "evaluation_only": [
+    "world_position",
+    "height",
+    "tilt"
+  ],
+  "appearance": {
+    "reference_page": "https://www.booster.tech/booster-k1/",
+    "reference_photo": "https://fe-cdn.booster.tech/booster-official-website/release-0.1.4/_astro/robot.CSH3ZJyt.webp",
+    "scope": "approximate per-link surface colors",
+    "physics_changed": false,
+    "rgb_changed": true,
+    "assigned": [
+      {
+        "path": "/World/K1/trunk/visuals/Trunk/node_STL_BINARY_/mesh",
+        "material": "silver"
+      },
+      {
+        "path": "/World/K1/aahead_yaw_link/visuals/Head_1/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/aahead_pitch_link/visuals/Head_2/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/aaleft_shoulder_pitch_link/visuals/Left_Arm_1/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/left_shoulder_roll_link/visuals/Left_Arm_2/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/left_elbow_pitch_link/visuals/Left_Arm_3/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/left_elbow_yaw_link/visuals/Left_Arm_4/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/aaright_shoulder_pitch_link/visuals/Right_Arm_1/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/right_shoulder_roll_link/visuals/Right_Arm_2/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/right_elbow_pitch_link/visuals/Right_Arm_3/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/right_elbow_yaw_link/visuals/Right_Arm_4/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/left_hip_pitch_link/visuals/Left_Hip_Pitch/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/left_hip_roll_link/visuals/Left_Hip_Roll/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/left_hip_yaw_link/visuals/Left_Hip_Yaw/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/left_knee_pitch_link/visuals/Left_Shank/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/left_ankle_pitch_link/visuals/Left_Ankle_Cross/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/left_ankle_roll_link/visuals/Left_Foot/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/right_hip_pitch_link/visuals/Right_Hip_Pitch/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/right_hip_roll_link/visuals/Right_Hip_Roll/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/right_hip_yaw_link/visuals/Right_Hip_Yaw/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/right_knee_pitch_link/visuals/Right_Shank/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/right_ankle_pitch_link/visuals/Right_Ankle_Cross/node_STL_BINARY_/mesh",
+        "material": "dark"
+      },
+      {
+        "path": "/World/K1/right_ankle_roll_link/visuals/Right_Foot/node_STL_BINARY_/mesh",
+        "material": "dark"
+      }
+    ],
+    "limits": [
+      "no exact surface segmentation",
+      "no orange accents or new logo textures"
+    ]
+  },
+  "payload_appearance": {
+    "scope": "render-only shells; approximate branded packaging",
+    "physics_changed": false,
+    "rgb_changed": true,
+    "hidden_proxy_visuals": [
+      "/World/Carried_box/pizza_box_geom",
+      "/World/Carried_drink/drink_geom"
+    ],
+    "raised_lip_collision": false,
+    "attachment": "free hand-contact tray",
+    "references": [
+      "https://media.dominos.com/stories/recycling-pizza-boxes/",
+      "https://www.coca-cola.com/us/en/brands/coca-cola/products/original"
+    ]
+  },
+  "evaluator_camera": {
+    "position_m": [
+      5.5,
+      -3.2,
+      2.0
+    ],
+    "euler_degrees": [
+      0,
+      18,
+      133
+    ],
+    "purpose": "evaluation only; excluded from actor"
+  },
+  "hand_setup": {
+    "tray_center": [
+      0.305,
+      0,
+      0.699
+    ],
+    "tray_size": [
+      0.34,
+      0.5,
+      0.015
+    ],
+    "tray_mass_kg": 0.68,
+    "box_mass_kg": 0.8,
+    "drink_mass_kg": 0.5,
+    "arm_pose": {
+      "aaleft_shoulder_pitch_joint": -0.7878273143,
+      "left_shoulder_roll_joint": -1.4451597945,
+      "left_elbow_pitch_joint": -0.1240584698,
+      "left_elbow_yaw_joint": -0.7750652153,
+      "aaright_shoulder_pitch_joint": -0.7878273143,
+      "right_shoulder_roll_joint": 1.4451597945,
+      "right_elbow_pitch_joint": -0.1240584698,
+      "right_elbow_yaw_joint": 0.7750652153
+    },
+    "arm_kp": 80.0,
+    "arm_kd": 3.0,
+    "arm_effort_limit_Nm": 14.0,
+    "support": "unconstrained contact with original left/right terminal hand meshes",
+    "physical_underside_handle_seats": true,
+    "tray_fixed_joint": false,
+    "torso_bracket": false,
+    "friction": 0.7
+  },
+  "walking_actor_arm_inputs": "nominal arm position/zero velocity ablation",
+  "contact_filter_paths": [
+    "/World/K1/trunk",
+    "/World/K1/aahead_yaw_link",
+    "/World/K1/aahead_pitch_link",
+    "/World/K1/aaleft_shoulder_pitch_link",
+    "/World/K1/left_shoulder_roll_link",
+    "/World/K1/left_elbow_pitch_link",
+    "/World/K1/left_elbow_yaw_link",
+    "/World/K1/aaright_shoulder_pitch_link",
+    "/World/K1/right_shoulder_roll_link",
+    "/World/K1/right_elbow_pitch_link",
+    "/World/K1/right_elbow_yaw_link",
+    "/World/K1/left_hip_pitch_link",
+    "/World/K1/left_hip_roll_link",
+    "/World/K1/left_hip_yaw_link",
+    "/World/K1/left_knee_pitch_link",
+    "/World/K1/left_ankle_pitch_link",
+    "/World/K1/left_ankle_roll_link",
+    "/World/K1/right_hip_pitch_link",
+    "/World/K1/right_hip_roll_link",
+    "/World/K1/right_hip_yaw_link",
+    "/World/K1/right_knee_pitch_link",
+    "/World/K1/right_ankle_pitch_link",
+    "/World/K1/right_ankle_roll_link"
+  ],
+  "hand_contact_steps": [
+    7496,
+    7497
+  ],
+  "max_hand_contact_loss_s": [
+    0.006,
+    0.006
+  ],
+  "other_robot_contact_steps": {},
+  "max_arm_torque_Nm": 7.391465187072754,
+  "max_tray_tilt_deg": 4.369284629821777,
+  "joint_names": [
+    "aahead_yaw_joint",
+    "aaleft_shoulder_pitch_joint",
+    "aaright_shoulder_pitch_joint",
+    "left_hip_pitch_joint",
+    "right_hip_pitch_joint",
+    "aahead_pitch_joint",
+    "left_shoulder_roll_joint",
+    "right_shoulder_roll_joint",
+    "left_hip_roll_joint",
+    "right_hip_roll_joint",
+    "left_elbow_pitch_joint",
+    "right_elbow_pitch_joint",
+    "left_hip_yaw_joint",
+    "right_hip_yaw_joint",
+    "left_elbow_yaw_joint",
+    "right_elbow_yaw_joint",
+    "left_knee_pitch_joint",
+    "right_knee_pitch_joint",
+    "left_ankle_pitch_joint",
+    "right_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_ankle_roll_joint"
+  ],
+  "body_names": [
+    "trunk",
+    "aahead_yaw_link",
+    "aaleft_shoulder_pitch_link",
+    "aaright_shoulder_pitch_link",
+    "left_hip_pitch_link",
+    "right_hip_pitch_link",
+    "aahead_pitch_link",
+    "left_shoulder_roll_link",
+    "right_shoulder_roll_link",
+    "left_hip_roll_link",
+    "right_hip_roll_link",
+    "left_elbow_pitch_link",
+    "right_elbow_pitch_link",
+    "left_hip_yaw_link",
+    "right_hip_yaw_link",
+    "left_elbow_yaw_link",
+    "right_elbow_yaw_link",
+    "left_knee_pitch_link",
+    "right_knee_pitch_link",
+    "left_ankle_pitch_link",
+    "right_ankle_pitch_link",
+    "left_ankle_roll_link",
+    "right_ankle_roll_link"
+  ],
+  "camera_links": [
+    "/World/K1/aahead_pitch_link/head_realsense_rgb_link"
+  ],
+  "joint_mapping_verified": true,
+  "limits": [
+    "scripted velocity, not vision-guided delivery",
+    "no PPO residual or VLA in this trial",
+    "preloaded tray with physical underside seats and cup holder",
+    "sealed rigid drink, no fluid simulation",
+    "model-based arm gravity/load compensation via joint torques",
+    "material/geometry assumptions, no hardware verification"
+  ],
+  "armature": {
+    "aahead_yaw_joint": 0.002,
+    "aahead_pitch_joint": 0.002,
+    "aaleft_shoulder_pitch_joint": 0.001,
+    "left_shoulder_roll_joint": 0.001,
+    "left_elbow_pitch_joint": 0.001,
+    "left_elbow_yaw_joint": 0.001,
+    "aaright_shoulder_pitch_joint": 0.001,
+    "right_shoulder_roll_joint": 0.001,
+    "right_elbow_pitch_joint": 0.001,
+    "right_elbow_yaw_joint": 0.001,
+    "left_hip_pitch_joint": 0.0478125,
+    "left_hip_roll_joint": 0.0339552,
+    "left_hip_yaw_joint": 0.0282528,
+    "left_knee_pitch_joint": 0.095625,
+    "left_ankle_pitch_joint": 0.0565,
+    "left_ankle_roll_joint": 0.0565,
+    "right_hip_pitch_joint": 0.0478125,
+    "right_hip_roll_joint": 0.0339552,
+    "right_hip_yaw_joint": 0.0282528,
+    "right_knee_pitch_joint": 0.095625,
+    "right_ankle_pitch_joint": 0.0565,
+    "right_ankle_roll_joint": 0.0565
+  },
+  "body_masses_kg": [
+    6.499999523162842,
+    0.30000001192092896,
+    0.5,
+    0.5,
+    0.6899999976158142,
+    0.6899999976158142,
+    0.699999988079071,
+    0.09000000357627869,
+    0.09000000357627869,
+    0.12999999523162842,
+    0.12999999523162842,
+    0.800000011920929,
+    0.800000011920929,
+    1.649999976158142,
+    1.649999976158142,
+    0.1899999976158142,
+    0.1899999976158142,
+    1.5,
+    1.5,
+    0.039000000804662704,
+    0.039000000804662704,
+    0.49399998784065247,
+    0.49399998784065247
+  ],
+  "total_mass_kg": 19.665999464690685,
+  "expected_urdf_mass_kg": 19.666,
+  "actor_steps": 750,
+  "termination": "duration_complete",
+  "last_recorded_frame_time_s": 15.0,
+  "simulated_seconds": 15.0,
+  "final_root_xyz": [
+    3.1931259632110596,
+    0.08837782591581345,
+    0.546176016330719
+  ],
+  "peak_tilt_deg": 4.814454817875355,
+  "net_x_m": 2.1931259632110596,
+  "video_fps": 25,
+  "video_frames": 375,
+  "max_payload_displacement_xy_m": 0.008037860505282879,
+  "payload_drop": false,
+  "final_root_speed_m_s": 0.018496964126825333,
+  "finished_at_utc": "2026-10-17T23:03:25.148428+00:00",
+  "artifacts": {
+    "evaluator_final_recorded.png": {
+      "sha256": "ceaecf108b33d513c8239ab45264a8cd9de842a70b379b5766ac98261f855693",
+      "bytes": 624172
+    },
+    "evaluator-0250.png": {
+      "sha256": "72b73866ca3f577b3df48af52f4b8203b2886b5259c0b04a46679440ee7366ce",
+      "bytes": 624511
+    },
+    "robot_camera-0125.png": {
+      "sha256": "4ce0367a3e56c9e38ed600e0e37761f4e92f2684bf8314baacbd9f715208ccb7",
+      "bytes": 269869
+    },
+    "robot_camera-0250.png": {
+      "sha256": "f812fc416419954e5d7101386d267f90abbd7a0cf839e7100659a923845934cc",
+      "bytes": 258579
+    },
+    "robot_camera_final_recorded.png": {
+      "sha256": "6c583eb92e6fd22d376d83782b907ebff3719f4b2bf5fda25ae65bc922823fd7",
+      "bytes": 261777
+    },
+    "hand-model.xml": {
+      "sha256": "0e7db89f603312fcc836353f5cf3f8a463dbed6a9da61639dcd0d9d8ec6f653e",
+      "bytes": 20726
+    },
+    "evaluator-0000.png": {
+      "sha256": "8670532f47883b7867092baa516c665232a4b108616f2b7d4e48acbf2549652e",
+      "bytes": 619017
+    },
+    "frame_times.csv": {
+      "sha256": "028c70b49d172467fe0ea040c5573183572620fbf406136a862f38aa9f1fa57a",
+      "bytes": 9386
+    },
+    "evaluator.mp4": {
+      "sha256": "c0fe08447941ad811e187ee410970ca62889800ce95c9ae58319ed773ae70906",
+      "bytes": 563824
+    },
+    "robot_camera.mp4": {
+      "sha256": "c2464d15a8904b3070d331001405212ddf99100ca1d83c139576a1c4118f5d98",
+      "bytes": 757138
+    },
+    "trajectory.csv": {
+      "sha256": "e74ad6ac2ddd595fc37c0b2535a0dca759e997bddd0c6c3c0aa3d46fa3ff1e08",
+      "bytes": 150077
+    },
+    "payload_contacts.csv": {
+      "sha256": "c2aeeab1d846b21c34e8e44a5d67365f57bf4dcc1afd040beddc8be378b0a720",
+      "bytes": 678063
+    },
+    "evaluator-0125.png": {
+      "sha256": "bb19db09f579304a9182e6b654b1163fe2b64c07ccf3987e4c2de1e653aa1a26",
+      "bytes": 628340
+    },
+    "robot_camera-0000.png": {
+      "sha256": "458fcc5768eab5d7a7ae680d37e7dce487f4ae78bcf2598c2fd1beb0d47aeb45",
+      "bytes": 302467
+    },
+    "payload_closeup_initial.png": {
+      "sha256": "d54019a19e5b2b0fb8855b27c1a13c8dbc586e23a5940fdfc8a7df6c526957d7",
+      "bytes": 1347553
+    },
+    "converted/K1_22dof.usd": {
+      "sha256": "b6916a519d4b8b8a068e4e2e67238367992a042e4565a5a4fb269e83110d569c",
+      "bytes": 1456
+    },
+    "converted/config.yaml": {
+      "sha256": "4364193435be0fbbdf747369249e44404228ace8990505af01baa0fa90fa8ed1",
+      "bytes": 1700
+    },
+    "converted/.asset_hash": {
+      "sha256": "b1859cbb16c9c6383c89aeeacbc8dfb8dbc259bfcc48ec250daaaa5cdb6c6160",
+      "bytes": 32
+    },
+    "converted/configuration/K1_22dof_physics.usd": {
+      "sha256": "b6b64dc301183a98208f112523e58e74c817eca710f38d08b65e1038dbaeca43",
+      "bytes": 8146
+    },
+    "converted/configuration/K1_22dof_robot.usd": {
+      "sha256": "80a617701b05ec799fccdbcf69deff20b1fc27cb59b7a66944cea18a595db2fa",
+      "bytes": 2393
+    },
+    "converted/configuration/K1_22dof_base.usd": {
+      "sha256": "18fc80df96cf5efea026fc879eb0e465695dd19127019edaa90b40b1504ee592",
+      "bytes": 17263668
+    },
+    "converted/configuration/K1_22dof_sensor.usd": {
+      "sha256": "2c66af515fb4adecf4126e586d1c469c51d188caafc4520f91ee827dc70880f9",
+      "bytes": 642
+    }
+  }
+}
