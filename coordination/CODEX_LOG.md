@@ -63,3 +63,9 @@ Café04 rendered four1280x720 PNGs on L40S; all hashes verified after download. 
 ## 2026-10-17T20:40:55.982580+00:00 — corrected Isaac walking verified
 
 Walk04:19.666kg,15s,750 actor calls,2.91964m,4.36846deg peak tilt, no fall. Ten evidence hashes and two375-frame/15s videos verified; head camera view visually corrected. No PPO/VLA update. CL5 eleven frozen hashes verified; independent offline detector rerun agreed with3/4targets and documented counter mislabel. Next: supported tray and loaded baseline.
+
+## 2026-10-17T20:58:06.750094+00:00 — actual carrying PPO and negative evaluation
+
+Added explicit0.95kg torsofixture and1.3kgfreepayload; loadedbaseline droppeddrink6.442s/1.2463m whilebodyupright. Pilot8env1024transitions/eightupdates verifiedactor+criticchanges. PPO02trained32env/100iterations,204800transitions/1600updates in293.295s;663episodes (449drops,214timeouts,0falls). Baseactorhashunchanged. FinalresidualCPUexport exacton32testinputs. Firstmatchedcaféfinal-checkpoint evaluation stillFAILEDdrinkdrop12.126s/3.22968m,bodytilt4.003deg. Singledevelopmentcomparison,notrepeatedorheld-outimprovement. Rawvideos+weights preservedoutsideGit.
+
+Newtests:2payloadgeometry/mass,1batched-upstreamactorhistory/reset equivalence,2PPOGAE/update,1CPUexport equivalence allpassed. READMErewrittenwithrealpictures,currentresults/failures,andarchitectureusingCL6proposalasinput. Claude localizationfreeze remainsunintegratedpendingidentitymerge/goalshortcutreview.

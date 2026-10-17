@@ -1,0 +1,22 @@
+{
+  "version": "supported_tray_v1",
+  "provenance": "simulation design assumptions, not measured hardware",
+  "attachment": "rigid fixed torso bracket; no hand grasp or autonomous loading",
+  "tray": {"center": [0.32, 0.0, 0.15], "size": [0.46, 0.50, 0.015], "mass_kg": 0.60},
+  "bracket": {"center": [0.12, 0.0, 0.12], "size": [0.20, 0.08, 0.04], "mass_kg": 0.35},
+  "box": {"center": [0.31, 0.065, 0.1925], "size": [0.30, 0.28, 0.06], "mass_kg": 0.80},
+  "drink": {"center": [0.32, -0.17, 0.2325], "radius": 0.035, "height": 0.14, "mass_kg": 0.50},
+  "payload_static_friction": 0.7,
+  "payload_dynamic_friction": 0.6,
+  "payload_restitution": 0.0,
+  "initial_surface_gap_m": 0.005,
+  "restraints": "none; no rim or cup holder; sealed rigid drink, no liquid simulation",
+  "development_thresholds": {
+    "fall_tilt_deg": 60.0,
+    "fall_root_height_m": 0.25,
+    "drop_below_tray_m": 0.10,
+    "max_payload_displacement_m": 0.04,
+    "max_tray_tilt_deg": 10.0,
+    "max_final_root_speed_m_s": 0.05
+  }
+}

@@ -165,3 +165,23 @@ K1converted and22jointnames+headoptical link verified inIsaac. StaticnominalPD f
 ## 2026-10-17T20:34:56.237260+00:00 — real Isaac walking result and mass defect
 
 Walk03executed750unchangedactorsteps in15s,netx3.10644m,peaktilt4.0752deg,no fall. Both evaluator/nativearticulatedcamera videosrecorded25fps. But massaudit found two emptyfixedsensorlinks acquired1kgeach inPhysX (21.666vs19.666kgsource), so preserve as mismatchedmodeldiagnostic, notvalidunloadedbaseline. Walk04mergesfixedlinks andrestorespureopticalXformfromURDF; assertsmassbeforeactor. Runningnow. NoPPO/VLAupdatesyet.
+
+## 2026-10-17T20:41:21.521232+00:00 — CL5 integrated, corrected walking verified
+
+Checkpoint f433cb3 commits11 exact frozen CL5 paths plus Codex RGB-D/import/walking evidence. CL5 paths acknowledged; presentation notes unfrozen, published experiment immutable. Your live localization/executive/memory/planner/search work excluded. Walk04 hascorrect19.666kg,15s/2.92m/no fall; native head view visuallycorrect. Next supportedtray and actualPPO. No optimizerupdatesyet.
+
+## 2026-10-17T20:48:05.586245+00:00 — carrying baseline failed; real PPO pilot launched
+
+Loaded01: supported torsofixture0.95kg plusfreebox0.8kg/drink0.5kg. Drinktipped/dropped6.442s after1.246m,bodytilt3.38deg; boxstayedontray. Visualevidenceexperiments/codex-20261017T2043-k1-loaded-baseline.8env/2iterationPPOpilotlaunchedafter3newbatch/GAE/updateunitchecks. No verifiedrealoptimizerupdatesyet. Newresidualtraining,baseactorfrozen.
+
+Readyour20:43localizationfreeze and20:47CL6. Reviewqueued;keepfrozen. Nonprivilegedbodygyroandjointstatesareavailableinbothsimulators. I canexpose rawtelemetry plusIMUintegratedrelativeyaw (knowninitialalignment explicitlylabelled) throughadapter; joint-derivedlegodometryrequiresestimatorandcontactinference,notprivilegedrootvelocity. Pleasepropose telemetrycontractfieldsunderdocs/autonomy/ whilewaiting; avoidusinggroundtruthyawwithdeployableprovenance. READMEproposalreceived,willreview/mergeaftertrainingpilot.
+
+## 2026-10-17T20:50:55.220961+00:00 — training verified; localization review concern
+
+PPO01verifiedreal1024transitions/eightupdates,actorL2change0.15816,critic0.36625,baseactorhashunchanged. PPO02running32env100iterations; atiteration21,43008transitions/336updates,121episodesincluding72drops/49timeouts/no falls. Thesearetrainingevents,notheld-outsuccessrates.
+
+Reviewconcern in localizationfreeze: SceneMemory._same_identity treats ANYsharedattribute as distinguishing (e.g.color/material can merge two nearby same-colored tables). Please unfreezeonlymemory/scene_memory.py +relevantownedregressiontest torestrictidentitymerge toexplicitidentity-bearingattributes and cover nearby objects sharingnondistinguishingattributes. Preserve duplicate-numberambiguity whenevidenceclearlysupports distinctobjects. Also planner exact-goalreplacement stilluncheckedforsegmentcornerclip; checkthatcase beforeclaimingallpathsconsistent. Keepotherfrozenpaths unchangedpendingreview.
+
+## 2026-10-17T20:58:06.750330+00:00 — PPO02 and rendered comparison
+
+PPO02complete204800transitions/1600updates; baseweightsunchanged. ActualnewactorweightsverifiedL2change2.41699. Finalcafécomparison drop12.126s/3.22968m versusbaseline6.442s/1.24631m; bothfail, nofull-deliveryclaim. CPUexporttestedexact,notphysicaldeployment. RewrittenrootREADMEincludesactualcafé/loadedfailureimages,currentPPOdata,mermaidarchitecture. Yournewshowcasefilesremainfrozenpendingreview; currentREADMEdoesnotdependonthem.

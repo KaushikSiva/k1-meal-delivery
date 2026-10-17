@@ -1,23 +1,80 @@
 # K1 meal delivery
 
-Vision-guided Booster K1 meal delivery with explicit memory, search, real policy training and measured progress toward hardware deployment.
+A Booster K1 simulation project working toward vision-guided delivery of a pizza
+box and drink. The system combines RGB-D perception, explicit scene memory,
+search/navigation, a pretrained walking policy and a newly trained PPO carrying
+residual. Physical robot performance is not yet verified.
 
-**Current state:** the official unloaded K1 walking policy runs in CPU MuJoCo; a 15-second diagnostic reproduced exactly but showed poor command tracking. The reviewed autonomy baseline passes 34 synthetic software tests after fixes for localization, stale observations and motion limits; camera/control integration remains pending. No integrated vision-guided delivery, project training or physical robot result exists yet. A Crusoe L40S is provisioning through Brev; hardware remains unavailable.
+![K1 walking with a supported tray in the Isaac café](experiments/codex-20261017T2043-k1-loaded-baseline/evaluator-0125.png)
 
-- [Goal and acceptance requirements](GOAL.md)
-- [Team instructions](AGENTS.md)
-- [Path ownership](coordination/OWNERSHIP.md)
-- [Codex status](coordination/CODEX_STATUS.md) / [Claude status](coordination/CLAUDE_STATUS.md)
-- [Initial Claude prompt](coordination/CLAUDE_START.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Milestones](docs/ROADMAP.md)
-- [Experiment protocol](docs/EVALUATION.md)
-- [Resources and access](docs/RESOURCES.md)
-- [Run the K1 MuJoCo diagnostic](sim/README.md)
+*Actual Isaac Sim frame from the first loaded baseline. The drink has tipped;
+this run subsequently dropped it. The tray is attached to a modeled torso bracket,
+not held by the hands. [Failure report](experiments/codex-20261017T2043-k1-loaded-baseline/REPORT.md).*
 
-CPU autonomy test setup (Python 3.12):
+![Isaac Sim café environment](experiments/codex-20261017T2008-cafe-lit-preview/hero.png)
+
+*RTX café preview with Poly Haven CC0 furniture, materials and lighting assets.
+No robot is present in this environment-preview frame.*
+
+## Measured progress
+
+| Component | Current evidence |
+| --- | --- |
+| Unloaded K1 walking in Isaac | [15 s, 2.92 m forward, 4.37° peak tilt, no fall](experiments/codex-20261017T2035-k1-isaac-walk-corrected/REPORT.md); corrected 19.666 kg model, scripted commands |
+| Camera → autonomy → walking in MuJoCo | [Two completed diagnostic approaches and one stalled trial](experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/REPORT.md); privileged localization, numbered signs, no payload |
+| Table detection in the realistic café | [3/4 targets detected in six offline RGB-D captures](experiments/claude-20261017T2023Z-cafe-tabletop-offline/REPORT.md); known missed table and counter/payload mislabel retained |
+| Supported tray + free box/drink | [Drink dropped at 6.442 s](experiments/codex-20261017T2043-k1-loaded-baseline/REPORT.md); robot remained upright |
+| Real PPO updates | [204,800 physics transitions, 1,600 optimizer updates](experiments/codex-20261017T2054-ppo-training/REPORT.md); new residual weights changed, original actor frozen |
+| First trained café comparison | [3.23 m before drink drop vs 1.25 m baseline](experiments/codex-20261017T2055-ppo-cafe-evaluation/REPORT.md); both failed, one development pair |
+| Memory, search, obstacle handling, bounded VLA interface | Software-tested components; see [autonomy design](docs/autonomy/DESIGN.md) |
+| Deployable localization | In development; estimated-pose closed loop remains a known failure |
+| VLA fine-tuning and hardware delivery | Not completed |
+
+These results are separate experiments. An integrated, learned, camera-guided
+loaded delivery has not yet been demonstrated. Simulator-only inputs are labeled
+and kept out of deployment policy observations. Raw recordings and weights stay
+outside Git; reports retain hashes, provenance and storage references.
+
+## Architecture
+
+```mermaid
+flowchart LR
+  RGBD[Head RGB-D] --> PER[Perception]
+  PER --> MEM[Scene memory]
+  RGBD --> LOC[Localization under development]
+  RGBD --> OBS[Depth obstacles]
+  INSTR[Delivery instruction] --> EXEC[Task executive]
+  MEM --> EXEC
+  LOC --> EXEC
+  EXEC --> NAV[Search and navigation]
+  OBS --> NAV
+  VLA[VLA proposal interface: no trained model] -. bounded subgoals .-> EXEC
+  NAV --> CMD[Velocity command]
+  IMU[IMU and joints] --> WALK[Frozen official K1 actor]
+  CMD --> WALK
+  IMU --> PPO[PPO carrying residual]
+  CMD --> PPO
+  WALK --> PD[Joint targets and PD control]
+  PPO -. being evaluated .-> PD
+  PD --> ROBOT[Simulated K1]
+```
+
+The executive owns task completion and rejects invalid or stale action proposals.
+The VLA interface is implemented; no VLA training is implied by its presence.
+The PPO residual uses joint/IMU/command signals. True simulated velocity and
+payload state affect training rewards, not actor observations.
+
+[System architecture](docs/ARCHITECTURE.md) · [Autonomy contracts](docs/autonomy/CONTRACTS.md) ·
+[Carrying training](training/CARRYING_PLAN.md) · [Evaluation protocol](docs/EVALUATION.md)
+
+## Reproduce
+
+Use [sim/README.md](sim/README.md) for pinned Booster assets and the isolated
+MuJoCo environment, and [sim/CAFE.md](sim/CAFE.md) for the Isaac café. GPU jobs use
+the recorded source/config hashes in each experiment manifest.
 
 ```sh
+# Create this environment only if it does not already exist.
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -r requirements-dev.txt
 .venv/bin/python -m pytest tests/autonomy -q -p no:cacheprovider
@@ -25,11 +82,20 @@ python3 -m unittest discover -s tests/integration -v
 python3 -m unittest discover -s tests/evaluation -v
 ```
 
-Use the explicit interpreter paths: the shell's `python3` may not have the test
-dependencies. Do not recreate an environment while another process is using it.
+The shell's Python may differ from the project environments. Do not recreate an
+environment another process is using. A successful software test is not a robot
+performance result.
 
-Private remote: https://github.com/KaushikSiva/k1-meal-delivery
+## Development
 
-Local workspace: `/Users/kaushiksivakumar/workspace/k1-meal-delivery`.
+Codex handles simulation, control, training, evaluation and Git integration;
+Claude handles perception, memory, navigation and the VLA interface. Shared work
+uses explicit path ownership and reviewed Markdown handoffs.
 
-Read the per-agent status files for current work; this README is not a live performance dashboard.
+[Goal](GOAL.md) · [Roadmap](docs/ROADMAP.md) · [Team rules](AGENTS.md) ·
+[Codex status](coordination/CODEX_STATUS.md) · [Claude status](coordination/CLAUDE_STATUS.md)
+
+Robot assets and base policy: BoosterRobotics, pinned in
+[sim/upstream-lock.json](sim/upstream-lock.json). Café assets: Poly Haven, CC0.
+Tools and infrastructure: NVIDIA Isaac Sim/Isaac Lab, Crusoe GPU through Brev,
+and You.com research. The repository remains private.

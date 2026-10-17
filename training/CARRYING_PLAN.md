@@ -1,10 +1,13 @@
-# Carrying-control training plan — not a completed training run
+# Carrying-control plan and current evidence
 
-Status: implementation plan, 2026-10-17. No optimizer update or project-trained
-checkpoint exists yet. The current walking model is the unchanged official
+Status at 2026-10-17T20:58Z: actual residual PPO completed 204,800 physics
+transitions and 1,600 optimizer updates. The first matched café comparison
+carried farther before dropping the drink (3.23 m vs 1.25 m); both failed.
+See experiments/codex-20261017T2055-ppo-cafe-evaluation/REPORT.md.
+The base walking model remains the unchanged official
 `k1_walk.pt` (SHA-256 `2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5`).
 
-## Next executable milestone
+## Implementation sequence
 
 1. Verify that the unchanged actor can run in Isaac with named joint mapping,
    500 Hz explicit PD and 50 Hz policy inference. Compare real imported mass,
@@ -21,6 +24,14 @@ checkpoint exists yet. The current walking model is the unchanged official
    a distinct empty-scene training environment for throughput; evaluate in the
    realistic café separately. Photoreal rendering is not needed at every low-level
    control step, but physics and telemetry must remain real simulation outputs.
+
+Steps1–3 now have actual Isaac evidence: corrected19.666kg unloaded model walked
+15s; supported0.95kg fixture +1.3kg free payload baseline dropped the drink at
+6.442s. Step4 completed a 100-iteration run with real resets and exported the residual
+to CPU TorchScript. A first matched development comparison still dropped the
+drink. Current fixture and thresholds are versioned in sim/k1_payload.json.
+Next: repeat with a wider evaluator camera, quantify variability, and investigate
+carrying improvements before integrating camera-guided loaded navigation.
 
 ## Candidate PPO design
 

@@ -1,0 +1,9 @@
+{
+  "metrics_sha256": "3bb3aef1e323d29c63377a49aedfdb1704cea5753593ea9a3565c927e9fd7dd4",
+  "plot_sha256": "09f3d409620b9998d4c6ab471e93d25fda3a280caf3cdaa89e74b2efce051227",
+  "script_sha256": "476ee17e877ebe915011e0ebabf21aa57242935e0f83d3e28cf1575121fb7fa6",
+  "matplotlib_version": "3.10.7",
+  "iterations": 100,
+  "smoothing": "none",
+  "limits": "training measurements; time limit is not a successful delivery"
+}

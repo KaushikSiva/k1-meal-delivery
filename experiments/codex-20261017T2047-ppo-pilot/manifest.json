@@ -1,0 +1,126 @@
+{
+  "status": "trained",
+  "started_at_utc": "2026-10-17T20:47:37.071651+00:00",
+  "training_kind": "new bounded residual PPO around frozen official actor",
+  "base_actor_finetuned": false,
+  "vla_trained": false,
+  "base_actor_sha256": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5",
+  "source_hashes": {
+    "training/train_carrying.py": "75949fa41c3d1fc281908636373ed441d117ea363f8ed9b8605986f46565d524",
+    "training/ppo_core.py": "9d7edf0444928b30d742e9a5f7ab0a8bf2f5f25dfa15f47a5b9e8969985a93d9",
+    "sim/k1_batch_policy.py": "bb261b0413653376282573b8f921cd0b5b2fb6a2288b89626ea3ac2b555ab93a",
+    "sim/k1_payload.py": "aed10136bc84fb5c3adffa14680bd0da788b003c22ec099acf2739a2217dcdb7",
+    "sim/k1_payload.json": "db1aaaa3b052e7739853bd604f65a10753eb93401300f6bf2bfffaa9b8db7ad6",
+    "sim/k1_isaac_nominal.json": "df59fe718d993db80b8738f97417cbafddcb3819cf8029e8c83bb6e64c19cdd3"
+  },
+  "seed": 7101,
+  "num_envs": 8,
+  "iterations_requested": 2,
+  "horizon": 64,
+  "environment_steps": 1024,
+  "physics_steps": 1280,
+  "optimizer_steps": 8,
+  "iterations_completed": 2,
+  "residual_bound_rad": 0.08,
+  "actor_observations": "69 deployable K1 signals +20 previous residuals",
+  "privileged_inputs": "reward/termination: true velocity, root height, payload pose; excluded from actor and critic",
+  "scenario": "development flat floor; 8s episodes,2s stand/4s move/2s stop; speed0.30\u20130.40m/s",
+  "limits": [
+    "fixed provisional payload/attachment",
+    "no navigation or vision training",
+    "not a held-out evaluation",
+    "no hardware validation"
+  ],
+  "payload_config": {
+    "version": "supported_tray_v1",
+    "provenance": "simulation design assumptions, not measured hardware",
+    "attachment": "rigid fixed torso bracket; no hand grasp or autonomous loading",
+    "tray": {
+      "center": [
+        0.32,
+        0.0,
+        0.15
+      ],
+      "size": [
+        0.46,
+        0.5,
+        0.015
+      ],
+      "mass_kg": 0.6
+    },
+    "bracket": {
+      "center": [
+        0.12,
+        0.0,
+        0.12
+      ],
+      "size": [
+        0.2,
+        0.08,
+        0.04
+      ],
+      "mass_kg": 0.35
+    },
+    "box": {
+      "center": [
+        0.31,
+        0.065,
+        0.1925
+      ],
+      "size": [
+        0.3,
+        0.28,
+        0.06
+      ],
+      "mass_kg": 0.8
+    },
+    "drink": {
+      "center": [
+        0.32,
+        -0.17,
+        0.2325
+      ],
+      "radius": 0.035,
+      "height": 0.14,
+      "mass_kg": 0.5
+    },
+    "payload_static_friction": 0.7,
+    "payload_dynamic_friction": 0.6,
+    "payload_restitution": 0.0,
+    "initial_surface_gap_m": 0.005,
+    "restraints": "none; no rim or cup holder; sealed rigid drink, no liquid simulation",
+    "development_thresholds": {
+      "fall_tilt_deg": 60.0,
+      "fall_root_height_m": 0.25,
+      "drop_below_tray_m": 0.1,
+      "max_payload_displacement_m": 0.04,
+      "max_tray_tilt_deg": 10.0,
+      "max_final_root_speed_m_s": 0.05
+    }
+  },
+  "verified_robot_mass_kg": 20.61600112915039,
+  "verified_instances": 8,
+  "robot_view_paths": [
+    "/World/envs/env_0/K1/trunk",
+    "/World/envs/env_1/K1/trunk",
+    "/World/envs/env_2/K1/trunk",
+    "/World/envs/env_3/K1/trunk",
+    "/World/envs/env_4/K1/trunk",
+    "/World/envs/env_5/K1/trunk",
+    "/World/envs/env_6/K1/trunk",
+    "/World/envs/env_7/K1/trunk"
+  ],
+  "initial_parameter_sha256": "a099e9fc4328f28cbadd0cfd0bc6b96c0ada14bf6ce67ea0e392a3f744be76ba",
+  "initial_checkpoint_sha256": "f2304ec12e196cb64c1367256e2355e33f50f12232b884a07e3c99e6527885f9",
+  "episodes_completed": 0,
+  "falls": 0,
+  "payload_drops": 0,
+  "timeouts": 0,
+  "elapsed_training_s": 5.413247779999892,
+  "latest_checkpoint_sha256": "2d2d0111d86f0b67aa9ddd592fe3b4db2d88d9aa4993410c28dee384eb4ae196",
+  "finished_at_utc": "2026-10-17T20:47:50.226485+00:00",
+  "final_parameter_sha256": "43db3102203be210c36c5532c133e9e0fb37fcdfb8032cfad94fe5d5163b5391",
+  "parameter_change_l2": 0.3990132510662079,
+  "final_checkpoint_sha256": "85aac853c0f3d1a4182d6ee650dca33d140dab413c735d7972e02ecdf9542470",
+  "base_actor_sha256_after": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5"
+}
