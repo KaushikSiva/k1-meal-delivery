@@ -32,3 +32,25 @@ def test_verdicts():
     spec = parse_instruction("to table 3")
     v = {tuple(np.round(c.obj.position[:2]).astype(int)): c.verdict for c in match_candidates(spec, mem)}
     assert v == {(1, 1): Verdict.CONFIRMED, (5, 1): Verdict.REJECTED, (9, 1): Verdict.POSSIBLE}
+
+
+def test_identity_merge_uses_only_identity_attributes():
+    """Codex review 20:50Z: shared appearance (color) must not merge two nearby tables; a shared
+    table number within 1.2 m still merges (same physical table seen from two sides); duplicate
+    numbers farther apart stay separate (-> ambiguity)."""
+    mem = SceneMemory()
+    obs = Observation(0.0, None, None)
+    # two red tables 0.9 m apart, small partial footprints (no overlap)
+    mem.update(obs, [_det("table", (1.0, 1.0), {"color": ("red", 0.9)}),
+                     _det("table", (1.9, 1.0), {"color": ("red", 0.9)})])
+    assert len(mem.query("table")) == 2
+    # same table number seen from two sides 0.6 m apart -> one track
+    mem2 = SceneMemory()
+    mem2.update(obs, [_det("table", (5.0, 1.0), {"table_number": ("3", 0.9)})])
+    mem2.update(Observation(1.0, None, None), [_det("table", (5.6, 1.0), {"table_number": ("3", 0.9)}, t=1.0)])
+    assert len(mem2.query("table")) == 1
+    # duplicate number far apart -> two tracks (executive reports AMBIGUOUS)
+    mem3 = SceneMemory()
+    mem3.update(obs, [_det("table", (1.0, 1.0), {"table_number": ("3", 0.9)}),
+                      _det("table", (5.0, 1.0), {"table_number": ("3", 0.9)})])
+    assert len(mem3.query("table")) == 2

@@ -107,10 +107,44 @@ def simplify_path(free: np.ndarray, cells: list[tuple[int, int]]) -> list[tuple[
 
 
 def _line_free(free: np.ndarray, a, b) -> bool:
-    n = int(max(abs(b[0] - a[0]), abs(b[1] - a[1]))) * 2 + 1
-    rs = np.round(np.linspace(a[0], b[0], n)).astype(int)
-    cs = np.round(np.linspace(a[1], b[1], n)).astype(int)
-    return bool(free[rs, cs].all())
+    """Exact line of sight between cell centers: visits EVERY cell the segment touches
+    (Amanatides-Woo traversal). Any point a sampling checker (Navigator.path_is_free) can hit on
+    this segment therefore lies in a cell verified here; sampled line-of-sight let shortcuts clip
+    blocked cell corners, which the checker then rejected -> endless replanning."""
+    return all(free[rc] for rc in _traverse((a[0] + 0.5, a[1] + 0.5), (b[0] + 0.5, b[1] + 0.5), free.shape))
+
+
+def _traverse(p0, p1, shape):
+    """Cells (row, col) intersected by the segment p0->p1 given in continuous cell coordinates."""
+    r, c = int(np.floor(p0[0])), int(np.floor(p0[1]))
+    r1, c1 = int(np.floor(p1[0])), int(np.floor(p1[1]))
+    dr, dc = p1[0] - p0[0], p1[1] - p0[1]
+    sr, sc = (1 if dr > 0 else -1), (1 if dc > 0 else -1)
+    t_r = ((r + (sr > 0)) - p0[0]) / dr if dr != 0 else np.inf
+    t_c = ((c + (sc > 0)) - p0[1]) / dc if dc != 0 else np.inf
+    d_r = abs(1.0 / dr) if dr != 0 else np.inf
+    d_c = abs(1.0 / dc) if dc != 0 else np.inf
+    cells = [(r, c)]
+    for _ in range(abs(r1 - r) + abs(c1 - c) + 2):
+        if (r, c) == (r1, c1):
+            break
+        if abs(t_r - t_c) < 1e-12:  # exactly through a corner: include both neighbours
+            cells += [(r + sr, c), (r, c + sc)]
+            r, c, t_r, t_c = r + sr, c + sc, t_r + d_r, t_c + d_c
+        elif t_r < t_c:
+            r, t_r = r + sr, t_r + d_r
+        else:
+            c, t_c = c + sc, t_c + d_c
+        cells.append((r, c))
+    H, W = shape
+    return [(rr, cc) for rr, cc in cells if 0 <= rr < H and 0 <= cc < W]  # endpoints are in-bounds centers
+
+
+def _world_segment_free(grid: OccupancyGrid, free: np.ndarray, a, b) -> bool:
+    """Exact (every touched cell) check for a world-frame segment; sampling can miss corner clips."""
+    to_cc = lambda p: ((p[1] - grid.origin[1]) / grid.resolution, (p[0] - grid.origin[0]) / grid.resolution)
+    cells = _traverse(to_cc(a), to_cc(b), free.shape)
+    return bool(cells) and all(free[rc] for rc in cells)
 
 
 def plan_path(
@@ -129,10 +163,21 @@ def plan_path(
     pts = [tuple(map(float, grid.cell_to_world(c))) for c in simplify_path(free, cells)]
     # Start at the true start (not the snapped cell center) so re-planning every tick doesn't
     # pull the robot back to a cell center; end at the exact goal when its cell is free.
-    pts[0] = (float(start_xy[0]), float(start_xy[1]))
+    sx, sy = float(start_xy[0]), float(start_xy[1])
+    if len(pts) > 1 and _world_segment_free(grid, free, (sx, sy), pts[1]):
+        pts[0] = (sx, sy)
+    else:
+        pts.insert(0, (sx, sy))  # keep the snapped start-cell center as a waypoint
+    gx, gy = float(goal_xy[0]), float(goal_xy[1])
     gr = grid.world_to_cell(goal_xy)
     if grid.in_bounds(gr) and free[gr]:
-        pts[-1] = (float(goal_xy[0]), float(goal_xy[1]))
+        # Use the exact goal only if the final segment is clear (same exact-cell check as the start);
+        # otherwise keep the snapped goal-cell center and append the exact goal only if reachable.
+        prev = pts[-2] if len(pts) > 1 else pts[0]
+        if _world_segment_free(grid, free, prev, (gx, gy)):
+            pts[-1] = (gx, gy)
+        elif _world_segment_free(grid, free, pts[-1], (gx, gy)):
+            pts.append((gx, gy))
     return pts
 
 

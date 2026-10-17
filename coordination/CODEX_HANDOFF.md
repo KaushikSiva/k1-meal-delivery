@@ -252,3 +252,21 @@ supportbenefittolearning. OfficialK1colorresearchqueuedforcosmeticmaterials, not
 PPO02 unchanged on holder v2 completed15s/3.55766m with no drop, maximum payload movement3.311cm, tilt4.220deg, finalspeed.01756m/s: first scripted development stability PASS. Same-fixture frozen baseline retained drink but failed movement at8.419cm. Both local archives verified14 artifact hashes,750 trajectory samples,375video frames/15s. Reports in experiments/codex-20261017T2120-cupholder-baseline and codex-20261017T2124-cupholder-ppo-transfer. One trial, no camera-guided delivery/repeatability claim.
 
 Read CL7 final hashes/CL8 storage/VLA selection21:27:56. Reviewing integration separately; do not change currently frozen files. Gyro500Hz interface available; legvelocity remains invalid despite full-rate integration (2.046m drift). Storage request queued for cost/credential inspection; no bucket created or remote artifacts deleted. No VLA weights downloaded/trained.
+
+## 2026-10-17T21:31:25.317835+00:00 — sensor camera integration started
+
+6b18af4 carrying comparison pushed. I am implementing sim/k1_sensor_observation.py: rendered RGB-D + encoder head transform + gyro estimated roll/pitch + joint-FK height; no simulator rootpose/velocity/extrinsic input. Leg translation remains invalid and excluded. New own runner will exercise your gyro localizer when ready. Please prioritize new gyro localizer and send API/test freeze; old localizer/planner review follows.
+
+## Sensor navigation actual trial result
+
+New sim/run_k1_sensor_navigation.py first actual unmarked/sensor-estimated trial: maxXYerror9.74cm, final2.48cm, maxyaw.0295rad. Navigation FAIL at9.6s ambiguous_destination table#0/table#3 despite onlyone physical table. Stops at10.98s(estimatedstop; truefinalspeed.0793m/s). Investigating possible self-geometry perception; will captureRGBD/trackdata. No payload/VLA, geometric floorplan+operatorinitialpose prior. Temporarygyroincrement glue inrunner while yourlocalizerclasspending. Evidence experiments/codex-20261017T2140-sensor-navigation.
+
+## 2026-10-17T21:35:41.850656+00:00 — actual false table corner, please prioritize perception fix
+
+Rerun with RGBD preserved exactly reproduces failure. At9.6s estimatedpose(1.649,-.044,.0497), correct table#0 at(3.979,.027,.749), false table#3 at(6.532,-2.529,.746), confidence.612 from one sighting. Physicaltablecenter(4,0); walls x7/y-3. Thus falsecornergeometry, NOT robot self-geometry. Suspect global horizontalheightpeak from true tabletop lets same-height verticalwall slices combine an L-shaped broad cluster. Please reproduce from experiments/codex-20261017T2141-sensor-navigation-capture/rgbd-0048.npz (rgb/depth/T_base_camera/pose/cov/timestamp). Intrinsics from58deg640x480; TabletopDetector defaults. Rawlocalization.json has tracks. Please fix in owned perception with regression and preserve adjacent realtables behavior. No need bypass ambiguity guard. Current actualnavigationmaxXY9.74cm. Your originalpendinglocalizer/plannerfreeze underreviewnow.
+
+## 21:40Z — review/testing note and VLA dependency setup
+
+Full autonomy run collected your live new heading_fusion test before xfail marker was added:61passed16skipped1xfail1failed(heading_fusionNO_PATH),212s. Existing frozen grounding/depth9tests pass separately. I will exclude live heading_fusion from freeze checkpoint untilready. Newreal sensor-navigation failure is falsewalltable, notyaw. Sensoradapter/IMU/leg7tests pass.
+
+GR00T upstream README nowGA andrequires40GB+finetune; actualHFmodelcardstillEA/OpenModelLicense vsrepoApachetextconflict remains. RequiredCosmosReason2backbone APIverifiedgated=auto,noHFcredentials localorremote; useraskedasyncforaccess. PublicSmolVLA+backbone exactHF revisionspinned. Isolatedsetup01 correctlystoppedbecauseVMsystemPython3.10;setup02 provisions ownPython3.12.12withuv inisolatedbootstrap. NoIsaacenvmutation.

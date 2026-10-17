@@ -157,6 +157,7 @@ class DeliveryExecutive:
         self.last_obs_t: float | None = None
         self._degraded = False
         self._resumed = False
+        self._planned_map_version: dict[float, int] = {}
 
     # ================================================================== main entry
     def step(self, obs: Observation | None, feedback: ControlFeedback | None = None,
@@ -524,6 +525,11 @@ class DeliveryExecutive:
         a = self.active
         if a is None or a.goal_pose is None or a.kind not in (CommandKind.NAVIGATE, CommandKind.FINAL_APPROACH):
             return None
+        # Only re-check when the obstacle map changed since this command's path was planned; a path
+        # the planner just produced is by definition consistent with the current map.
+        if self._planned_map_version.get(a.issued_at) == self.nav.map_version:
+            return None
+        self._planned_map_version[a.issued_at] = self.nav.map_version
         pose = obs.pose.pose
         ahead = list(a.path or ()) + [tuple(a.goal_pose.xy())]
         if self.nav.path_is_free(ahead, pose.xy()):
@@ -574,6 +580,7 @@ class DeliveryExecutive:
 
     def _issue(self, kind: CommandKind, goal: Pose2D | None, path, speed: float, reason: str,
                scan_yaw: float = 0.0, ttl: float | None = None) -> AutonomyCommand:
+        self._planned_map_version = {self.now: self.nav.map_version}  # path consistent with current map
         if self._degraded:
             speed = min(speed, self.cfg.degraded_speed)  # single choke point for the uncertainty cap
         self.active = AutonomyCommand(

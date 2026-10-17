@@ -111,3 +111,33 @@ def test_obstacle_appearing_after_planning_triggers_replan_before_contact():
     assert any("observed obstacle" in e.msg for e in ex.events)
     assert not any("blocked" in e.msg for e in ex.events)
     assert_delivered_at(room, ex, 13)
+
+
+def test_shortcut_paths_pass_the_same_check_used_for_revalidation():
+    """Regression (found in the estimated-pose closed loop): planner line-of-sight rounding let
+    shortcuts graze inflated corners that Navigator.path_is_free rejected -> endless replanning."""
+    rng = np.random.default_rng(3)
+    room = restaurant()
+    nav = Navigator(room.grid())
+    mask = np.zeros_like(nav.dynamic)
+    for _ in range(25):  # random live obstacles
+        r, c = rng.integers(5, mask.shape[0] - 5), rng.integers(5, mask.shape[1] - 5)
+        mask[r - 1:r + 2, c - 1:c + 2] = True
+    nav.set_dynamic_obstacles(mask)
+    checked = 0
+    for _ in range(300):
+        s = (rng.uniform(0.5, 9.5), rng.uniform(0.5, 7.5))
+        g = (rng.uniform(0.5, 9.5), rng.uniform(0.5, 7.5))
+        path = nav.plan(s, g)
+        if path is None or not nav.free[nav.grid.world_to_cell(s)]:
+            continue
+        checked += 1
+        assert nav.path_is_free(path, path[0]), (s, g, path)  # executive call pattern: full path incl. start
+        # every segment incl. the exact start and exact goal segments, sampled densely, no skip
+        for a, b in zip(path, path[1:]):
+            a, b = np.asarray(a), np.asarray(b)
+            for t in np.linspace(0, 1, int(np.ceil(np.linalg.norm(b - a) / 0.01)) + 1):
+                rc = nav.grid.world_to_cell(a + t * (b - a))
+                if np.linalg.norm(a + t * (b - a) - np.asarray(path[0])) > 0.31:  # start may sit in a margin
+                    assert nav.free[rc], (s, g, path, a + t * (b - a))
+    assert checked > 20

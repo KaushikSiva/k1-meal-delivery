@@ -30,7 +30,7 @@ No robot is present in this environment-preview frame.*
 | First trained café comparison | [3.23 m before drink drop vs 1.25 m baseline](experiments/codex-20261017T2055-ppo-cafe-evaluation/REPORT.md); both failed, one development pair |
 | Cup-holder fixture + trained residual | [15 s, 3.56 m, no drops, 3.31 cm maximum payload movement](experiments/codex-20261017T2124-cupholder-ppo-transfer/REPORT.md); one scripted stability pass. Same-fixture baseline failed the 4 cm movement limit |
 | Memory, search, obstacle handling, bounded VLA interface | Software-tested components; see [autonomy design](docs/autonomy/DESIGN.md) |
-| Deployable localization | In development; estimated-pose closed loop remains a known failure |
+| Sensor-estimated navigation | [Actual K1 trial: maximum XY error 9.74 cm](experiments/codex-20261017T2140-sensor-navigation/REPORT.md), no marker or simulator pose input to navigation; false wall-table detection stopped delivery |
 | VLA fine-tuning and hardware delivery | Not completed |
 
 These results are separate experiments. An integrated, learned, camera-guided

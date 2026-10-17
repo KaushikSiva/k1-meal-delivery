@@ -1,0 +1,71 @@
+{
+  "status": "tested",
+  "started_at_utc": "2026-10-17T21:21:09.275129+00:00",
+  "evidence_kind": "actual_mujoco_gyro_heading_turn_diagnostic",
+  "hardware_verified": false,
+  "sensor_sample_rate_hz": 500,
+  "gyro_noise_std_rad_s": 0.005,
+  "gyro_bias_rad_s": [
+    0.0,
+    0.0,
+    0.0015
+  ],
+  "seed": 8101,
+  "initial_world_yaw_rad": 0.7,
+  "initial_world_yaw_usage": "simulation setup/evaluation only; estimator starts identity",
+  "estimator_inputs": [
+    "native gyro sensor",
+    "timestamps",
+    "declared noise variance"
+  ],
+  "evaluation_only": [
+    "absolute free-base orientation"
+  ],
+  "protocol": {
+    "duration_s": 20.0,
+    "stand_s": 2.0,
+    "stop_s": 2.0,
+    "turn_command_rad_s": 0.35,
+    "max_heading_error_rad": 0.08
+  },
+  "source_hashes": {
+    "sim/check_k1_imu.py": "b22464694d07912c1eb76236d96ca5e9381c4db0c962ab5193de7d894d726103",
+    "sim/k1_imu.py": "52134be692799937b5a580459d53f2eac4c956b25bca890e6658b185e25717ec",
+    "contracts/robot_telemetry.py": "583714ed627ed4756b5f707d17dc71bab0fdea442f5f9104c629768910df0a82",
+    "sim/run_k1_baseline.py": "cc1020fc622f609ad8c9cda7345e485d97d43b6ffb306ed829e0850b8a368392",
+    "deployment/k1_leg_estimator.py": "251b4f06b34c02c8240380786682bede6b1bb902f07695c53b6e252dbd985985"
+  },
+  "forward_trial": false,
+  "checkpoint_sha256": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5",
+  "versions": {
+    "mujoco": "3.16.0",
+    "torch": "2.14.1"
+  },
+  "termination": "duration_complete",
+  "leg_velocity_rmse_m_s": [
+    0.055739601641447395,
+    0.028863805013494337
+  ],
+  "leg_height_rmse_m": 0.0023934268268997858,
+  "leg_final_xy_error_m": 0.015849497249066074,
+  "leg_max_xy_error_m": 0.09834633598998091,
+  "samples": 1000,
+  "simulated_seconds": 19.999999999999794,
+  "final_relative_yaw_rad": 6.68828366879207,
+  "final_error_rad": 0.030437989002412458,
+  "max_abs_error_rad": 0.030437989002412458,
+  "same_trajectory_50hz_max_abs_error_rad": 2.360492432181033,
+  "passed": true,
+  "limits": [
+    "single unloaded turning trial",
+    "ideal joint encoders",
+    "assumed explicit gyro noise/bias",
+    "level initial reference assumption",
+    "no translational odometry or complete localization"
+  ],
+  "finished_at_utc": "2026-10-17T21:21:10.124390+00:00",
+  "artifacts": {
+    "leg_trajectory.csv": "e8b3d678da0a9133df6d7f773f9ba26b013026139b8e3e94163c5c69bd114804",
+    "imu_trajectory.csv": "c284c8f3dbae7853362a25d1a06f51879ffc7613d4c148314090279956dc26d7"
+  }
+}

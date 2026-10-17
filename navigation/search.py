@@ -31,6 +31,7 @@ class Navigator:
         self.coverage = CoverageMap(grid, max_range=view_range)
         self.blocked = np.zeros(grid.data.shape, bool)  # contact-reported obstacles (persist)
         self.dynamic = np.zeros(grid.data.shape, bool)  # live depth layer (replaced every update)
+        self.map_version = 0  # bumps whenever blocked/dynamic layers change
         self._visited: list[np.ndarray] = []
         self._refresh()
 
@@ -46,6 +47,7 @@ class Navigator:
         H, W = self.blocked.shape
         self.blocked[max(0, rc[0] - r):min(H, rc[0] + r + 1), max(0, rc[1] - r):min(W, rc[1] + r + 1)] = True
         self._refresh()
+        self.map_version += 1
 
     def set_dynamic_obstacles(self, mask: np.ndarray) -> bool:
         """Replace the live (depth-derived) obstacle layer. Returns True if the map changed."""
@@ -56,6 +58,7 @@ class Navigator:
             return False
         self.dynamic = mask.copy()
         self._refresh()
+        self.map_version += 1
         return True
 
     def path_is_free(self, path, robot_xy, skip_m: float | None = None) -> bool:
@@ -65,11 +68,24 @@ class Navigator:
         if not path:
             return True
         skip = self.robot_radius + self.grid.resolution if skip_m is None else skip_m
-        pts = [np.asarray(robot_xy, float)] + [np.asarray(q, float) for q in path]
-        # start from the closest path vertex ahead of the robot
-        dists = [np.linalg.norm(q - pts[0]) for q in pts[1:]]
-        k = int(np.argmin(dists))
-        seq = [pts[0]] + pts[1 + k:]
+        r = np.asarray(robot_xy, float)
+        verts = [np.asarray(q, float) for q in path]
+        if len(verts) == 1:
+            seq = [r, verts[0]]
+        else:
+            # Continue from the robot's projection onto the nearest path SEGMENT. (Jumping to the
+            # nearest vertex picked a late vertex on paths that curve back near the robot and then
+            # "checked" a straight line through walls.)
+            best_i, best_q, best_d = 0, verts[0], np.inf
+            for i in range(len(verts) - 1):
+                a, b = verts[i], verts[i + 1]
+                ab = b - a
+                u = float(np.clip(np.dot(r - a, ab) / max(np.dot(ab, ab), 1e-12), 0.0, 1.0))
+                q = a + u * ab
+                d = float(np.linalg.norm(q - r))
+                if d < best_d:
+                    best_i, best_q, best_d = i, q, d
+            seq = [r, best_q] + verts[best_i + 1:]
         travelled = 0.0
         step = self.grid.resolution * 0.5
         for a, b in zip(seq, seq[1:]):

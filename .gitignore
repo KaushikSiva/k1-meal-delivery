@@ -39,3 +39,4 @@ experiments/**/payload_trajectory.csv
 experiments/**/loaded.urdf
 experiments/**/imu_trajectory.csv
 experiments/**/leg_trajectory.csv
+experiments/**/localization.json

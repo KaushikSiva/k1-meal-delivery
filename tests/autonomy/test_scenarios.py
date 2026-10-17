@@ -153,10 +153,14 @@ def test_hidden_obstacle_blocks_path_and_executive_replans():
 
 
 def test_fully_blocked_route_reports_no_path():
-    room = restaurant(start=Pose2D(2.0, 6.0, np.deg2rad(-20)))
-    room.boxes.append(Box(60, "barrier", np.array([3.6, 4.5, 0.0]), np.array([4.6, 7.95, 0.9]), in_map=False))
+    room = restaurant(start=Pose2D(3.2, 5.0, np.deg2rad(-14)))  # west of the barrier, table 3 within 6 m sensing range
+    # Low barrier (0.5 m): the 1.1 m camera sees table 3 over it, but the robot cannot pass.
+    # (A 0.9 m barrier hid the tabletop, making the outcome depend on whether exploration ever
+    # glimpsed table 3: DESTINATION_NOT_FOUND is then the correct answer, not NO_PATH.)
+    room.boxes.append(Box(60, "barrier", np.array([3.6, 4.5, 0.0]), np.array([4.6, 7.95, 0.5]), in_map=False))
     ex = make(room, ocr_range=10.0)
     stop, _, _ = run(ex, room)
+    assert any("approach" in e.msg for e in ex.events), "premise: destination was confirmed"
     assert ex.outcome == Outcome.NO_PATH
 
 

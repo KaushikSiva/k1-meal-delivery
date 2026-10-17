@@ -79,6 +79,13 @@ class SceneMemory:
         self.objects: dict[str, TrackedObject] = {}
         self.aliases: dict[str, str] = {}  # merged-away key -> surviving key
         self.footprint_margin = 0.15
+        # Two same-label tracks that confidently share a distinguishing attribute (e.g. both read
+        # table_number "3") within this distance are one object seen from different sides; genuinely
+        # duplicated numbers farther apart stay separate (and the executive reports ambiguity).
+        self.same_attr_merge_m = 1.2
+        # Only attributes that identify a single object instance may justify a merge. Shared
+        # appearance attributes (color, material, shape) do NOT: two red tables are two tables.
+        self.identity_attributes = {"table_number"}
         self._ids = itertools.count()
         self.now = 0.0
 
@@ -178,7 +185,9 @@ class SceneMemory:
     def _overlap(self, a: TrackedObject, b: TrackedObject) -> bool:
         if a.lo is None or b.lo is None:
             return False
-        m = self.footprint_margin
+        # margin grows with position uncertainty (which includes the pose estimate's covariance), so
+        # jitter of an estimated pose doesn't split one object into two tracks
+        m = self.footprint_margin + 2.0 * float(np.sqrt(max(a.position_var, b.position_var)))
         return bool(np.all(a.lo - m <= b.hi) and np.all(b.lo - m <= a.hi))
 
     def _merge_overlapping(self) -> None:
@@ -187,7 +196,9 @@ class SceneMemory:
             if a.key not in self.objects:
                 continue
             for b in objs[i + 1:]:
-                if b.key not in self.objects or a.label != b.label or not self._overlap(a, b):
+                if b.key not in self.objects or a.label != b.label:
+                    continue
+                if not (self._overlap(a, b) or self._same_identity(a, b)):
                     continue
                 if any(self._conflict_values(a, b, n) for n in set(a.attributes) & set(b.attributes)):
                     continue
@@ -204,6 +215,16 @@ class SceneMemory:
                         tgt[v] = 1 - (1 - tgt.get(v, 0.0)) * (1 - c)
                 self.aliases[b.key] = a.key
                 del self.objects[b.key]
+
+    def _same_identity(self, a: TrackedObject, b: TrackedObject, conf: float = 0.6) -> bool:
+        if np.linalg.norm(a.position[:2] - b.position[:2]) > self.same_attr_merge_m:
+            return False
+        for name in (set(a.attributes) & set(b.attributes)) & self.identity_attributes:
+            va, ca = a.attribute(name)
+            vb, cb = b.attribute(name)
+            if va is not None and va == vb and ca >= conf and cb >= conf:
+                return True
+        return False
 
     @staticmethod
     def _conflict_values(a: TrackedObject, b: TrackedObject, name: str, conf: float = 0.6) -> bool:
