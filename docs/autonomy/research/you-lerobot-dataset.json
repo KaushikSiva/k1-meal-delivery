@@ -1,0 +1,44 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T19:00:55+00:00",
+  "query": "LeRobotDataset v2 format parquet episodes video features",
+  "include_domains": [
+    "huggingface.co"
+  ],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "LeRobotDataset v3.0 · Hugging Face",
+      "url": "https://huggingface.co/docs/lerobot/lerobot-dataset-v3",
+      "description": "LeRobotDataset v3.0 is a standardized format for robot learning data. It provides unified access to multi-modal time-series data, sensorimotor signals and multi‑camera video, as well as rich metadata for indexing, search, and visualization on the Hugging Face Hub. ... File-based storage: Many episodes per Parquet/MP4 file (v2 ...",
+      "snippets": [
+        "LeRobotDataset v3.0 is a standardized format for robot learning data. It provides unified access to multi-modal time-series data, sensorimotor signals and multi‑camera video, as well as rich metadata for indexing, search, and visualization on the Hugging Face Hub. ... File-based storage: Many episodes per Parquet/MP4 file (v2 used one file per episode).",
+        "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+        "Without calling finalize(), your parquet files will be incomplete and the dataset won’t load properly. Lance is a useful format for multimodal AI datasets, especially for large-scale training requiring high performance IO and random access. The lerobot-lancedb package implements LeRobotLanceDataset (for JPEG images) and LeRobotLanceVideoDataset (for mp4 videos). Those two storage layouts both subclass LeRobotDataset and can provide data loading speed ups.",
+        "data/: frame‑by‑frame Parquet shards; each file typically contains many episodes. videos/: MP4 shards per camera; each file typically contains many episodes. LeRobotDataset returns Python dictionaries of PyTorch tensors and integrates with torch.utils.data.DataLoader."
+      ]
+    },
+    {
+      "title": "`LeRobotDataset:v3.0`: Bringing large-scale datasets to `lerobot`",
+      "url": "https://huggingface.co/blog/lerobot-datasets-v3",
+      "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+      "snippets": [
+        "In our previous LeRobotDataset:v2 release, we stored one episode per file, hitting file-system limitations when scaling datasets to millions of episodes. LeRobotDataset:v3 packs multiple episodes in a single file, using relational metadata to retrieve information at the individual episode level from multi-episode files. The new format also natively supports accessing datasets in streaming mode, allowing to process large datasets on the fly.We provide a one-liner util to convert all datasets in the LeRobotDataset format to the new format, and are very excited to share this milestone with the community ahead of our next stable release!",
+        "LeRobotDataset:v3.0 will be released with lerobot-v0.4.0, together with the possibility to easily convert any dataset currently hosted on the Hugging Face Hub to the new v3.0 using: python -m lerobot.datasets.v30.convert_dataset_v21_to_v30--repo-id= We are very excited about sharing this new format early with the community!",
+        "A core design choice behind LeRobotDataset is separating the underlying data storage from the user-facing API. This allows for efficient serialization and storage while presenting the data in an intuitive, ready-to-use format. Datasets are organized into three main components: Tabular Data: Low-dimensional, high-frequency data such as joint states, and actions are stored in efficient Apache Parquet files, and typically offloaded to the more mature datasets library, providing fast, memory-mapped access or streaming-based access.",
+        "The conversion script convert_dataset_v21_to_v30.py aggregates the multiple episodes episode-0000.mp4, episode-0001.mp4, episode-0002.mp4, .../episode-0000.parquet, episode-0001.parquet, episode-0002.parquet, episode-0003.parquet, ..."
+      ]
+    },
+    {
+      "title": "prehj/robocasa-demospeedup-slow1-fast2-lerobot-v20-20260919 · ...",
+      "url": "https://huggingface.co/datasets/prehj/robocasa-demospeedup-slow1-fast2-lerobot-v20-20260919",
+      "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+      "snippets": [
+        "Format: LeRobot v2.0 (episode parquet + episode MP4 + global stats), not v3. Actual official loader tested: lerobot==0.3.3, including image decoding. precision stride 1 / casual stride 2; existing entropy labels reused. from huggingface_hub import snapshot_download from lerobot.datasets.lerobot_dataset import LeRobotDataset repo = \"prehj/robocasa-demospeedup-slow1-fast2-lerobot-v20-20260919\" root = snapshot_download(repo, repo_type=\"dataset\", revision=\"v2.0\") ds = LeRobotDataset(repo, root=root, revision=\"v2.0\", video_backend=\"pyav\") frame = ds[0]",
+        "Use a LeRobot release supporting v2 datasets (tested 0.3.3); newer v3-only loaders may require their official conversion tooling. No tar extraction is needed. Video feature declarations and paths use observation.images.* consistently; LIBERO video features are marked video rather than the old inline-image declaration. Global index is contiguous and frame_index is contiguous within each episode (added for RoboCasa). Numeric feature dtypes match the actual parquet columns.",
+        "Index statistics are recalculated; action/state statistics remain those computed from the transformed demonstrations. Global numeric stats are provided; no fabricated per-episode or image-channel statistics are added. All non-index parquet columns, including action, state, timestamps and task IDs, were compared across every episode and preserved exactly."
+      ]
+    }
+  ]
+}

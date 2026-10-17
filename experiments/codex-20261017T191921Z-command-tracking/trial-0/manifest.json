@@ -1,0 +1,130 @@
+{
+  "started_at_utc": "2026-10-17T19:19:22+00:00",
+  "evidence_kind": "mujoco_scripted_velocity_locomotion_diagnostic",
+  "vision_guided": false,
+  "training_performed": false,
+  "hardware_tested": false,
+  "payload_present": false,
+  "delivery_success": null,
+  "command_source": "scripted: stand 2 s, forward until last 2 s, stop 2 s",
+  "duration_requested_s": 15.0,
+  "forward_command_m_s": 0.0,
+  "seed": 0,
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "versions": {
+    "python": "3.11.13",
+    "mujoco": "3.16.0",
+    "torch": "2.14.1",
+    "numpy": "2.4.6"
+  },
+  "upstream_lock": {
+    "captured_at_utc": "2026-10-17T18:58:19+00:00",
+    "status": "source_revisions_pinned_compatibility_not_yet_tested",
+    "repositories": [
+      {
+        "repository": "https://github.com/BoosterRobotics/booster_assets",
+        "commit": "12a97516f57469078707afb587a5f84c1cb110d1",
+        "commit_date": "2026-09-26T15:03:15Z"
+      },
+      {
+        "repository": "https://github.com/BoosterRobotics/booster_deploy",
+        "commit": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+        "commit_date": "2026-09-13T14:18:34Z"
+      },
+      {
+        "repository": "https://github.com/BoosterRobotics/booster_train",
+        "commit": "8bb5b53824e0fbcfe69a5cb78a81f4bddb3e2a6e",
+        "commit_date": "2026-09-26T14:59:03Z"
+      }
+    ]
+  },
+  "checkpoint": {
+    "path": "sim/vendor/booster_deploy/tasks/locomotion/robots/k1/models/k1_walk.pt",
+    "sha256": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5"
+  },
+  "runner_sha256": "cc1020fc622f609ad8c9cda7345e485d97d43b6ffb306ed829e0850b8a368392",
+  "model_sha256": "1f1a1cdd451f777600c66fc30ad8d7537198ee7bc51f8ed20d67a51b5001a651",
+  "policy_dt_s": 0.02,
+  "physics_dt_s": 0.002,
+  "joint_order": [
+    "aahead_yaw_joint",
+    "aahead_pitch_joint",
+    "aaleft_shoulder_pitch_joint",
+    "left_shoulder_roll_joint",
+    "left_elbow_pitch_joint",
+    "left_elbow_yaw_joint",
+    "aaright_shoulder_pitch_joint",
+    "right_shoulder_roll_joint",
+    "right_elbow_pitch_joint",
+    "right_elbow_yaw_joint",
+    "left_hip_pitch_joint",
+    "left_hip_roll_joint",
+    "left_hip_yaw_joint",
+    "left_knee_pitch_joint",
+    "left_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_hip_pitch_joint",
+    "right_hip_roll_joint",
+    "right_hip_yaw_joint",
+    "right_knee_pitch_joint",
+    "right_ankle_pitch_joint",
+    "right_ankle_roll_joint"
+  ],
+  "joint_order_verified": true,
+  "actor_observations": [
+    "body_angular_velocity",
+    "projected_gravity",
+    "velocity_command",
+    "joint_position_offsets",
+    "scaled_joint_velocities",
+    "previous_action"
+  ],
+  "evaluation_only": [
+    "world_position",
+    "world_displacement",
+    "base_height"
+  ],
+  "render_requested": true,
+  "render_error": null,
+  "robotics_claim": "single unloaded locomotion diagnostic only",
+  "finished_at_utc": "2026-10-17T19:19:28+00:00",
+  "termination": "completed_requested_duration",
+  "elapsed_sim_s": 15.000000000001679,
+  "wall_time_s": 5.736878416995751,
+  "initial_position_m": [
+    0.0,
+    0.0,
+    0.6000000238418579
+  ],
+  "final_position_m": [
+    -0.0073723171532130444,
+    -0.002030771085507358,
+    0.5505468423749293
+  ],
+  "forward_displacement_m": -0.0073723171532130444,
+  "minimum_base_height_m": 0.5477067815098143,
+  "maximum_base_tilt_deg": 1.3238212947582393,
+  "video_frames": 375,
+  "artifacts": {
+    "frame-00500.png": {
+      "sha256": "4cb8a3e29fe94a8a1719b8e3023313ea9b5b94cec0dbb4b17846044d9911131b",
+      "bytes": 94741
+    },
+    "frame-00000.png": {
+      "sha256": "cc3ec483e1c0fbca35f6502129126a56507f1d9bdc322062b66e04d02908dc23",
+      "bytes": 94478
+    },
+    "trial.mp4": {
+      "sha256": "111f92fb0c45aea4abc72f9cd4c04adcbc54c6d9a7bc767ea0424f5990691105",
+      "bytes": 128438
+    },
+    "trajectory.csv": {
+      "sha256": "78db183e85109e37beb472735f55f6cb8a234e9313e1ae86abc9483cf4ab0679",
+      "bytes": 429516
+    },
+    "frame-00250.png": {
+      "sha256": "7be9383f2968dab2bdd288692e70e8b48a9d53749ce4242978a915fb88044e65",
+      "bytes": 94646
+    }
+  }
+}

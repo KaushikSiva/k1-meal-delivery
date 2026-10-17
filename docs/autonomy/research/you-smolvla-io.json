@@ -1,0 +1,67 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T19:00:52+00:00",
+  "query": "SmolVLA action chunk size observation image resolution state dimension lerobot",
+  "include_domains": [
+    "huggingface.co"
+  ],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "SmolVLA: Efficient Vision-Language-Action Model trained on Lerobot ...",
+      "url": "https://huggingface.co/blog/smolvla",
+      "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+      "snippets": [
+        "Share SmolVLA with fellow researchers, developers, or educators interested in efficient, real-time robotic policies. 📫 Stay in touch: Follow the LeRobot organization and Discord server for updates, tutorials, and new releases. Together, we can make real-world robotics more capable, more affordable, and more open. ✨ ... How does the asynchronous inference mechanism works if the state keeps changing between the observation and the action generation?",
+        "Today, we introduce SmolVLA, a compact (450M), open-source Vision-Language-Action model for robotics that runs on consumer hardware. Pretrained only on compatibly licensed, open-source community-shared datasets under the lerobot tag.",
+        "We further isolate the contributions of community dataset pretraining and multitask finetuning. Without pretraining on the LeRobot community datasets, SmolVLA initially achieves 51.7% success on SO100. After pretraining on community-collected data, performance jumps to 78.3%, a +26.6% absolute improvement.",
+        "I had translated my mobile aloha dataset into lerobot' s format for using it in Pi0, can I use it for this project? ... Great work! If we want to use this model on an SO-101 arm, I assume we need to do some fine-tuning since each arm has its own calibration? (i.e. the model can't be used as-is, right?) ... Hi, Really nice work . I was wondering how do you manage to apply smolvla which requires 6DOF as input (trained on SO100 dataset) on the Libero dataset which has 7 DOF ( trained on panda franka)."
+      ]
+    },
+    {
+      "title": "SmolVLA · Hugging Face",
+      "url": "https://huggingface.co/docs/lerobot/en/smolvla",
+      "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+      "snippets": [
+        "Designed for easy fine-tuning on LeRobot datasets, it helps accelerate your development! Figure 1. SmolVLA takes as input (i) multiple cameras views, (ii) the robot’s current sensorimotor state, and (iii) a natural language instruction, encoded into contextual features used to condition the action expert when generating an action chunk.",
+        "If you want to test your installation, run the following command where we use one of the datasets we collected for the SmolVLA Paper. ... cd lerobot && lerobot-train \\ --policy.path=lerobot/smolvla_base \\ --dataset.repo_id=${HF_USER}/mydataset \\ --batch_size=64 \\ --steps=20000 \\ --output_dir=outputs/train/my_smolvla \\ --job_name=my_smolvla_training \\ --policy.device=cuda \\ --wandb.enable=true",
+        "We tried similar dataset with 25 episodes, and it was not enough leading to a bad performance. So, the data quality and quantity is definitely a key. After you have your dataset available on the Hub, you are good to go to use our finetuning script to adapt SmolVLA to your application.",
+        "Use smolvla_base, our pretrained 450M model, and fine-tune it on your data. Training the model for 20k steps will roughly take ~4 hrs on a single A100 GPU."
+      ]
+    },
+    {
+      "title": "zhengfe/2026-10-40-single-action-smolvla · Hugging Face",
+      "url": "https://huggingface.co/zhengfe/2026-10-40-single-action-smolvla",
+      "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+      "snippets": [
+        "The model produces a (batch, 50, 16) action chunk. Apply the saved postprocessor exactly once to return native-scale actions. The configured 10-step prefix is about 0.33 seconds at 30Hz; it does not guarantee 30Hz inference. Joint units and gripper command semantics must be matched against the deployment controller. Gripper feedback and 0–1 action commands are not interchangeable. Use a training-compatible environment, including lerobot[smolvla]==0.4.4 and an appropriate PyTorch build.",
+        "from pathlib import Path from huggingface_hub import snapshot_download from lerobot.policies.smolvla.configuration_smolvla import SmolVLAConfig from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy from lerobot.policies.factory import make_pre_post_processors import lerobot.policies.smolvla.processor_smolvla # Register the saved newline processor.",
+        "The upstream SmolVLA and SmolVLM2 model cards identify their assets as Apache-2.0. Attribution and the upstream license text are included in THIRD_PARTY_NOTICES.md and licenses/Apache-2.0.txt.",
+        "repo_id = \"zhengfe/2026-10-40-single-action-smolvla\" folder = Path(snapshot_download(repo_id)) backbone = folder / \"backbone\" / \"SmolVLM2-500M-Video-Instruct\" device = \"cpu\" # Set to \"cuda\" on a compatible inference machine. cfg = SmolVLAConfig.from_pretrained( str(folder), cli_overrides=[f\"--device={device}\", \"--use_amp=false\"] ) cfg.vlm_model_name = str(backbone) policy = SmolVLAPolicy.from_pretrained( str(folder), config=cfg, local_files_only=True ).eval() preprocess, postprocess = make_pre_post_processors( cfg, pretrained_path=str(folder), preprocessor_overrides={ \"device_processor\": {\"device\": device}, \"tokenizer_processor\": {\"tokenizer_name\": str(backbone)}, }, postprocessor_overrides={\"device_processor\": {\"device\": \"cpu\"}}, ) # frame must contain the three correctly mapped CHW image tensors, # observation.state (16 values in the trained feedback scale), and task text."
+      ]
+    },
+    {
+      "title": "lerobot/smolvla_base · Hugging Face",
+      "url": "https://huggingface.co/lerobot/smolvla_base",
+      "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+      "snippets": [
+        "SmolVLA is a compact, efficient Vision-Language-Action (VLA) model designed for affordable robotics, trainable on a single GPU and deployable on consumer hardware, while matching the performance of much larger VLAs through community-driven data.",
+        "Use your trainer script (lerobot-train) for full training loops.",
+        "You can use the record script from lerobot-record with a policy checkpoint as input, to run inference and evaluate your policy.",
+        "import torch from lerobot.datasets.lerobot_dataset import LeRobotDataset from lerobot.policies.factory import make_pre_post_processors # Swap this import per-policy from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy # load a policy model_id = \"lerobot/smolvla_base\" # <- swap checkpoint device = torch.device(\"cuda\" if torch.cuda.is_available() else \"cpu\") policy = SmolVLAPolicy.from_pretrained(model_id).to(device).eval() preprocess, postprocess = make_pre_post_processors( policy.config, model_id, preprocessor_overrides={\"device_processor\": {\"device\": str(device)}}, ) # load a l"
+      ]
+    },
+    {
+      "title": "digas99/smolvla_so101_screwdriver_box · Hugging Face",
+      "url": "https://huggingface.co/digas99/smolvla_so101_screwdriver_box",
+      "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+      "snippets": [
+        "SmolVLA (450 M parameter vision-language-action model) fine-tuned from lerobot/smolvla_base on digas99/so101_screwdriver_box: a LeRobot SO-101 follower arm picking one of four objects off a table and dropping it in a box.",
+        "SmolVLA resizes with padding to 512x512 internally, so other resolutions load, but changing the cameras means a different distribution. Dataset action std per joint, for sanity-checking magnitudes: [31.9, 53.3, 51.8, 15.9, 35.7, 9.0]. Same environment as training: pip install \"lerobot[smolvla]==0.6.1\" (other torch versions are fine; the config schema is tied to the lerobot minor version).",
+        "observation.state float32 (6,) shoulder_pan.pos, shoulder_lift.pos, elbow_flex.pos, wrist_flex.pos, wrist_roll.pos, gripper.pos observation.images.top uint8 HWC (480, 640, 3) RGB fixed camera looking down at the table observation.images.wrist uint8 HWC (480, 640, 3) RGB camera on the gripper task str one of the four strings above, character for character action float32 (6,) same joint order and units as observation.state · Joint values are whatever lerobot-record produced with the robot configuration used for recording (the SO-101 in degrees mode: state ranges roughly -115..100).",
+        "Dataset: 201 episodes, 86,560 frames at 30 fps, two cameras (fixed top camera and a wrist camera on the gripper), LeRobot format v3.0, robot_type: so_follower. Box position is fixed in the first 50 episodes, then varied; from episode ~137 several objects lie on the table and the instruction selects the target. Some episodes contain natural recoveries (missed grasp, re-approach) and were kept on purpose. Camera mapping during training: observation.images.top -> camera1, observation.images.wrist -> camera2 (smolvla_base's third camera slot is unused)."
+      ]
+    }
+  ]
+}

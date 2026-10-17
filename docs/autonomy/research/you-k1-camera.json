@@ -1,0 +1,63 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T19:00:54+00:00",
+  "query": "Booster K1 head camera RGB-D sensor specifications",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Booster K1 Robot: Price, Specs & Editions (2026) - Humanoza",
+      "url": "https://humanoza.com/robots/booster-k1",
+      "description": "The K1 is a 95cm education robot from Booster Robotics starting near $4,999, and a RoboCup 2025 champion. A full 2026 guide to price, specs and the editions.",
+      "snippets": [
+        "Verified specs, availability and real price ranges for every humanoid robot on the US market.",
+        "Run team-written control policies compiled against Booster's Python and C++ SDK, proven by 38 of the 59 teams at RoboCup 2026 competing on Booster hardware · Sense with an RGB-D camera, a nine-axis IMU and a microphone array, and respond through a speaker and a 2-DOF articulated head · Play competitive humanoid soccer at championship level — K1s took the top three places in the Middle division at RoboCup 2026 (30 June-6 July 2026, Incheon)",
+        "At RoboCup 2026 in Incheon (30 June-6 July 2026) the Middle division's top three — B-Human, HTWK Robots and Rhoban — all competed on K1s, and 38 of 59 teams overall used Booster hardware. The K1 also won the 2025 KidSize league taking both first and second place. The robots are a shared platform; the winning software belongs to the teams. ... Walk at around 0.4 m/s, balance through contact, get up after falling, track with an RGB-D camera and 2-DOF head, hear through a microphone array, speak, dance, and run whatever control policy you write for it.",
+        "The K1 walks at roughly 0.4 m/s with force-controlled joints and stays upright through contact — which, in the RoboCup context, means being shoved by other robots at speed. It gets itself back on its feet after a fall. Its two-degree-of-freedom head tracks with an RGB-D camera."
+      ]
+    },
+    {
+      "title": "BOOSTER K1 - Entry level General Purpose Humanoid Robot - PRO",
+      "url": "https://www.mzxrobotics.com/Booster-Robotics/Robotic/BST-K1-PRO/BOOSTER-K1-Entry-level-General-Purpose-Humanoid-Robot",
+      "description": "Meet the K1, the compact humanoid robot from Booster Robotics, built to make advanced robotics and embodied AI accessible and mobile. Standing under one meter and weighing just 19.5 kg, the K1 delivers impressive mobility, perception and onboard computing power in a form that can travel easily ...",
+      "snippets": [
+        "Meet the K1, the compact humanoid robot from Booster Robotics, built to make advanced robotics and embodied AI accessible and mobile. Standing under one meter and weighing just 19.5 kg, the K1 delivers impressive mobility, perception and onboard computing power in a form that can travel easily between labs, classrooms",
+        "K1 comes equipped with a versatile sensor suite enabling multimodal interaction and perception: • RGB-D (depth) camera: allows depth perception and 3D vision — useful for navigation, object detection, obstacle avoidance, environment understanding. • 9-axis IMU (Inertial Measurement Unit): for balance control, motion sensing, pose estimation, necessary for stable walking and reacting to disturbances.",
+        "Powered by an NVIDIA Jetson Orin NX offering up to 117 TOPS, the K1 can run real-time vision, navigation and AI inference without relying on external compute. Its RGB-D camera and 9-axis IMU give it spatial awareness and balance, while built-in microphones and a speaker support natural interaction.",
+        "Booster Robotics markets the K1 as an “entry-level” — but “high-end” — platform for embodied AI and robotics development: accessible enough for classrooms and labs, yet powerful enough for serious AI perception, control experiments, and competitive robotics. ... this includes joints in legs, arms, and head — enabling human-like posture, walking, balancing, head/neck movement, and arm articulation."
+      ]
+    },
+    {
+      "title": "BOOSTER K1 - Entry level General Purpose Humanoid Robot - EDU",
+      "url": "https://www.mzxrobotics.com/en/Booster-Robotics/Robotic/BST-K1-EDU/BOOSTER-K1-Entry-level-General-Purpose-Humanoid-Robot",
+      "description": "Meet the K1, the compact humanoid robot from Booster Robotics, built to make advanced robotics and embodied AI accessible and mobile. Standing under one meter and weighing just 19.5 kg, the K1 delivers impressive mobility, perception and onboard computing power in a form that can travel easily ...",
+      "snippets": [
+        "Meet the K1, the compact humanoid robot from Booster Robotics, built to make advanced robotics and embodied AI accessible and mobile. Standing under one meter and weighing just 19.5 kg, the K1 delivers impressive mobility, perception and onboard computing power in a form that can travel easily between labs, classrooms",
+        "K1 comes equipped with a versatile sensor suite enabling multimodal interaction and perception: • RGB-D (depth) camera: allows depth perception and 3D vision — useful for navigation, object detection, obstacle avoidance, environment understanding. • 9-axis IMU (Inertial Measurement Unit): for balance control, motion sensing, pose estimation, necessary for stable walking and reacting to disturbances.",
+        "Powered by an NVIDIA Jetson Orin NX offering up to 117 TOPS, the K1 can run real-time vision, navigation and AI inference without relying on external compute. Its RGB-D camera and 9-axis IMU give it spatial awareness and balance, while built-in microphones and a speaker support natural interaction.",
+        "Booster Robotics markets the K1 as an “entry-level” — but “high-end” — platform for embodied AI and robotics development: accessible enough for classrooms and labs, yet powerful enough for serious AI perception, control experiments, and competitive robotics. ... this includes joints in legs, arms, and head — enabling human-like posture, walking, balancing, head/neck movement, and arm articulation."
+      ]
+    },
+    {
+      "title": "Booster K1 | Introductory Embodied Development Platform",
+      "url": "https://www.booster.tech/booster-k1/",
+      "description": "Booster K1, introductory embodied AI platform. RoboCup 2025 champion robot.",
+      "snippets": [
+        "Computing & Sensors · GPU: 48 TOPS (Dense) AI performance · Camera: Stereo Depth Camera · IMU: 9-axis IMU · Audio: Circular 3-Mic Array + speaker · Computing & Sensors · GPU: 117 TOPS AI performance · Camera: Stereo Depth Camera · IMU: 9-axis IMU · Audio: Circular 3-Mic Array + speaker ·",
+        "Computing & Sensors · GPU: 200 TOPS AI performance · Camera: Stereo Depth Camera · IMU: 9-axis IMU · Audio: Circular 3-Mic Array + speaker · Others · Battery: 2Ah · Battery Life: 30min (walking 0.4m/s) Wi-Fi: Supported · Bluetooth 5.2: Supported · Buttons: Power×1, Interaction×3 ·"
+      ]
+    },
+    {
+      "title": "Booster K1 - Robot Details, Use Case and Specifications | Aparobot",
+      "url": "https://www.aparobot.com/robots/booster-k1",
+      "description": "Discover about Booster K1 use cases in various industries and scenarios, and it's detailed specification on Aparobot.com - the world's largest robotics platform.",
+      "snippets": [
+        "The Booster K1 features a compact body with 22 dynamically controlled joints, including hips, knees, ankles, arms, and head. It employs full-force-controlled joints with dual encoders enabling precise motion control in torque, velocity, and position. Its sensor suite includes a 3D depth camera, 9-axis IMU for balance, microphone array for audio input, and touch sensors for safe interaction.",
+        "Equipped with an RGBD camera, microphone array, 9-axis IMU, and speaker, supporting depth perception, audio interaction, and precise balance control. Max Op. time ... Booster K1 is a lightweight, compact humanoid robot developed by Booster Robotics with a design focused on education, research, and robotics competitions such as RoboCup.",
+        "Booster K1 is a 95 cm humanoid robot with 22 DoF and AI-powered agility, designed for education, research, and robotics competitions. ... Supports secondary development, providing interfaces for low-level joints and sensors as well as high-level motion interfaces, and is compatible with the ROS2 communication protocol.",
+        "Performs real-time obstacle avoidance and navigation with integrated sensors."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T19:00:53+00:00",
+  "query": "SmolVLA paper action expert flow matching chunk 50 parameters",
+  "include_domains": [
+    "arxiv.org"
+  ],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Guided Action Flow: Value-Guided Sampling forFrozen Vision-Lan...",
+      "url": "https://arxiv.org/html/2607.02092",
+      "description": "Proprioceptive state, visual features, and the 50-step action chunk are projected into a common token space, processed by a Transformer encoder, and mapped from the classification ([CLS]) token to the scalar action-value estimate ... Q_{\\phi}(s,z,a). The frozen SmolVLA sampler follows a reverse-time flow convention. For the flow-matching ...",
+      "snippets": [
+        "Proprioceptive state, visual features, and the 50-step action chunk are projected into a common token space, processed by a Transformer encoder, and mapped from the classification ([CLS]) token to the scalar action-value estimate ... Q_{\\phi}(s,z,a). The frozen SmolVLA sampler follows a reverse-time flow convention. For the flow-matching parameterization used here, the training interpolation and target velocity are",
+        "(C) At each reverse-time flow step, the critic gradient at the estimated action chunk adjusts the sampling velocity. The VLA parameters remain fixed throughout (B) and (C); the value model is used only during training. We first obtain the policy by supervised fine-tuning SmolVLA on human expert demonstrations, as illustrated in Fig. 2(A). We use 50 expert teleoperation demonstrations for each task, with 40 used for supervised fine-tuning and 10 held out for validation.",
+        "GAF instantiates this interface for a flow-matching VLA. It learns an observation-conditioned Q critic that takes proprioception, visual features, and a candidate action chunk as input. During reverse-time sampling, the critic gradient supplies a local correction to the action-generation velocity while the supervised-fine-tuned SmolVLA parameters remain fixed.",
+        "Candidate-based methods generate multiple proposals and use a learned evaluator to rerank or select them, as in value-guided policy steering [40, 7]. Gradient-based flow guidance instead modifies an intermediate sample during iterative generation and can obtain a critic gradient at an estimate of the completed action without differentiating through the full sampling trajectory [8]. GAF applies this interface to a multimodal flow-matching VLA, using a task-rollout-trained critic conditioned on visual features, proprioception, and action chunks, and evaluates it on robot manipulation tasks. Fig. 2 summarizes the GAF pipeline. Human demonstrations first initialize the task policy. The resulting SmolVLA policy is then kept fixed while robot task rollouts provide the data for an observation-conditioned action critic."
+      ]
+    },
+    {
+      "title": "arXiv:2506.01844v1 [cs.LG] 2 Jun 2025 SmolVLA: A vision-langua...",
+      "url": "https://arxiv.org/pdf/2506.01844",
+      "description": "arXiv:2506.01844v1 [cs.LG] 2 Jun 2025 · SmolVLA: A vision-language-action model",
+      "snippets": [
+        "allowing higher control rates with chunked action generation."
+      ]
+    },
+    {
+      "title": "SmolVLA: A vision-language-action model for affordable and efficient ...",
+      "url": "https://arxiv.org/html/2506.01844v1",
+      "description": "SmolVLA is a lightweight VLA composed of a compact pretrained VLM, and an action expert trained with flow matching. Given multiple images and a language instruction describing the task, the model outputs a chunk of actions. It is first pretrained with imitation learning on community-collected ...",
+      "snippets": [
+        "SmolVLA is a lightweight VLA composed of a compact pretrained VLM, and an action expert trained with flow matching. Given multiple images and a language instruction describing the task, the model outputs a chunk of actions. It is first pretrained with imitation learning on community-collected datasets, then evaluated across both real-world and simulated environments.",
+        "For real-world evaluation, we perform synchronous inference: the model samples new observations only after executing the full chunk of actions. In simulation, we perform inference by sampling new observations and predicting a new action after each executed action. During inference, the flow matching is fixed to 10 steps. We train only the action expert module, keeping the VLM frozen. Our main model, contains 450 million parameters, with approximately 100 million dedicated to the action expert.",
+        "(2024) Table 10 shows that flow matching significantly outperforms regression, suggesting flow matching provides better inductive bias for modeling complex, multimodal action distributions. We compare two variants: (i) feeding the sensorimotor states to the VLM (by projecting them into token space), and (ii) passing them directly to the action expert. Table 11 indicates including state information in the VLM leads to significantly better performance for both the CA and SA variants. Table 12: Action chunk size.",
+        "The remaining layers embed three inputs: (i) language instruction, (ii) RGB image(s), and (iii) robot sensorimotor state. Their merged tokens feed an Action Expert of alternating cross-attention (gold) and self-attention (light yellow) blocks, trained with flow matching to output"
+      ]
+    }
+  ]
+}

@@ -31,3 +31,4 @@ vendor/
 *.usda
 *.usdc
 *.usdz
+experiments/**/trajectory.csv

@@ -23,3 +23,24 @@ Tray payload capacity, stable carrying posture, attachment design, camera calibr
 5. Prepare read-only arrival-day telemetry and mapping checks before any physical actuation.
 
 Readiness state: preparation in progress. No simulated or physical carrying capability has been demonstrated.
+
+## 2026-10-17 continuation audit
+
+The inventory above describes the bootstrap interpreter. An isolated sim/.venv
+now runs MuJoCo 3.16.0 and PyTorch 2.14.1 with the official pinned K1 walking
+actor. Five 15-second unloaded scripted diagnostics completed (including one
+exact repeat); low-command tracking and stop residual motion remain issues.
+See [simulation setup](../../sim/README.md) and experiment reports. This is not
+loaded carrying or vision-guided delivery evidence.
+
+Both camera mounts were checked against the pinned MJCF at six head/camera
+combinations, plus the neutral optical convention. There is no camera element
+in that MJCF; rendering and calibrated intrinsics remain integration work.
+
+Upstream repository license headers inspected at pinned revisions: assets
+contains BSD-3-Clause; deploy and train contain Apache-2.0 with third-party notices.
+No weights or vendored assets are redistributed in this repository checkpoint.
+
+Brev API authentication and organization match verified. One Crusoe L40S instance
+was created at the user-approved $1.74/hour; boot and NVIDIA runtime checks are
+pending. See [Brev access and runtime plan](BREV.md).

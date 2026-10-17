@@ -1,0 +1,55 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T18:58:04+00:00",
+  "query": "BoosterRobotics booster_deploy K1 locomotion policy checkpoint onnx",
+  "include_domains": [
+    "github.com"
+  ],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "GitHub - BoosterRobotics/booster_deploy: An easy-to-use deployment ...",
+      "url": "https://github.com/BoosterRobotics/booster_deploy",
+      "description": "An easy-to-use deployment framework that enables seamlessly running the same policy code in both simulation and on real robots. - BoosterRobotics/booster_deploy",
+      "snippets": [
+        "Set it independently in each robot configuration (T1, T2, or K1): \"walking\" (default): read the current joint positions from /low_state, publish one position-hold command using the robot's prepare_state kp/kd, switch to Custom, then start the matching robot locomotion policy with all velocity commands masked to zero.",
+        "With prepare_mode=\"walking\", X starts zero-command locomotion preparation and A/r starts the selected task policy. With prepare_mode=\"standing\", X first performs the one-second transition to prepare_state.joint_pos, and A/r then starts the selected task policy. Stop the deployment with Ctrl+C. booster_deploy/ ├─ booster_deploy/ # Controllers, policies, utilities │ └─ robots/ # Robot model configurations │ ├─ k1.py # K1 configuration │ ├─ t1.py # T1 23-DOF configuration │ ├─ t2.py # T2 31-DOF configuration │ ├─ __init__.py # Public configuration exports │ └─ booster.py # Backward-compatible import path ├─ scripts/ # Entry-point scripts (deploy.py) ├─ tasks/ # Task registry and configs └─ requirements.txt # Python dependencies",
+        "Place policy checkpoints under models/ and reference the path in the config. Register your ControllerCfg config in the task registry (see existing tasks for the registration pattern). ... .onnx: ONNX Runtime with the CPU execution provider make sure onnxruntime is installed in the deployment environment.",
+        "tasks/my_task/ ├─ __init__.py # registers the task via utils.register.register_task ├─ task.py # Policy and ControllerCfg implementation ├─ models/ # optional policy checkpoints └─ motions/ # optional motion primitives or recordings"
+      ]
+    },
+    {
+      "title": "GitHub - nicolejrkim/booster_deploy: An easy-to-use deployment ...",
+      "url": "https://github.com/nicolejrkim/booster_deploy",
+      "description": "An easy-to-use deployment framework that enables seamlessly running the same policy code in both simulation and on real robots. - nicolejrkim/booster_deploy",
+      "snippets": [
+        "Set it independently in each robot configuration (T1, T2, or K1): \"walking\" (default): read the current joint positions from /low_state, publish one position-hold command using the robot's prepare_state kp/kd, switch to Custom, then start the matching robot locomotion policy with all velocity commands masked to zero.",
+        "With prepare_mode=\"walking\", X starts zero-command locomotion preparation and A/r starts the selected task policy. With prepare_mode=\"standing\", X first performs the one-second transition to prepare_state.joint_pos, and A/r then starts the selected task policy. Stop the deployment with Ctrl+C. booster_deploy/ ├─ booster_deploy/ # Controllers, policies, utilities │ └─ robots/ # Robot model configurations │ ├─ k1.py # K1 configuration │ ├─ t1.py # T1 23-DOF configuration │ ├─ t2.py # T2 31-DOF configuration │ ├─ __init__.py # Public configuration exports │ └─ booster.py # Backward-compatible import path ├─ scripts/ # Entry-point scripts (deploy.py) ├─ tasks/ # Task registry and configs └─ requirements.txt # Python dependencies",
+        "Place policy checkpoints under models/ and reference the path in the config. Register your ControllerCfg config in the task registry (see existing tasks for the registration pattern). ... .onnx: ONNX Runtime with the CPU execution provider make sure onnxruntime is installed in the deployment environment.",
+        "tasks/my_task/ ├─ __init__.py # registers the task via utils.register.register_task ├─ task.py # Policy and ControllerCfg implementation ├─ models/ # optional policy checkpoints └─ motions/ # optional motion primitives or recordings"
+      ]
+    },
+    {
+      "title": "GitHub - BoosterRobotics/booster_train: This repository provides ...",
+      "url": "https://github.com/BoosterRobotics/booster_train",
+      "description": "This repository provides a set of reinforcement learning tasks for Booster robots using Isaac Lab. - BoosterRobotics/booster_train",
+      "snippets": [
+        "Currently it includes the fabulous BeyondMimic motion tracking framework adapted to Booster K1 robots. This repository follows the standard Isaac Lab project structure, and is tested with IsaacLab 2.2 and Isaac Sim 5.0. Install Isaac Lab by following the installation guide. We recommend using the conda installation as it simplifies calling Python scripts from the terminal. Clone or copy this project/repository separately from the Isaac Lab installation (i.e. outside the IsaacLab directory): git clone https://github.com/BoosterRobotics/booster_train.git",
+        "# use 'FULL_PATH_TO_isaaclab.sh|bat -p' instead of 'python' if Isaac Lab is not installed in Python venv or conda python scripts/rsl_rl/play.py --task= --checkpoint= This script also exports the trained policy to a TorchScript/ONNX file for deployment on real robots in logs/rsl_rl///exported/.",
+        "# use 'FULL_PATH_TO_isaaclab.sh|bat -p' instead of 'python' if Isaac Lab is not installed in Python venv or conda python scripts/csv_to_npz.py --headless --input_file=/motions/K1/.csv --input_fps= --output_name=/motions/K1/.npz"
+      ]
+    },
+    {
+      "title": "GitHub - Robot-create-it/dancer_boosterdeploy · GitHub",
+      "url": "https://github.com/Robot-create-it/dancer_boosterdeploy",
+      "description": "Contribute to Robot-create-it/dancer_boosterdeploy development by creating an account on GitHub.",
+      "snippets": [
+        "With prepare_mode=\"walking\", X starts zero-command locomotion preparation and A/r starts the selected task policy. With prepare_mode=\"standing\", X first performs the one-second transition to prepare_state.joint_pos, and A/r then starts the selected task policy. Stop the deployment with Ctrl+C. booster_deploy/ ├─ booster_deploy/ # Controllers, policies, utilities │ └─ robots/ # Robot model configurations │ ├─ k1.py # K1 configuration │ ├─ t1.py # T1 23-DOF configuration │ ├─ t2.py # T2 31-DOF configuration │ ├─ __init__.py # Public configuration exports │ └─ booster.py # Backward-compatible import path ├─ scripts/ # Entry-point scripts (deploy.py) ├─ tasks/ # Task registry and configs └─ requirements.txt # Python dependencies",
+        "Set it independently in each robot configuration (T1, T2, or K1): \"walking\" (default): read the current joint positions from /low_state, publish one position-hold command using the robot's prepare_state kp/kd, switch to Custom, then start the matching robot locomotion policy with all velocity commands masked to zero.",
+        "source .venv/bin/activate source /opt/booster/BoosterRos2Interface/install/setup.bash · Create a subfolder under tasks/ for your task. Implement a Policy/PolicyCfg and provide a ControllerCfg referencing the policy. Place policy checkpoints under models/ and reference the path in the config. Register your ControllerCfg config in the task registry (see existing tasks for the registration pattern). ... .onnx: ONNX Runtime with the CPU execution provider make sure onnxruntime is installed in the deployment environment.",
+        "K1 三模型行走任务：python scripts/deploy.py --task k1_loco --mujoco。 模型来源、迁移实现、Windows 启动方式与验证结果见 K1 loco 迁移说明。 K1 实机三模型部署：在机器人 ROS 2 环境执行 python scripts/deploy.py --task k1_loco， 具体启动步骤、PD 参数和离线验证范围见 K1 loco 实机部署。 · 中文源码导读：代码解读与运控数据流，包含阅读路线、实机与仿真控制链路、策略观测与关节映射、启动切换流程及调试定位。 · Booster Deploy is a lightweight deployment framework that supports running control policies on Booster robots (sim2real) and MuJoCo (sim2sim)."
+      ]
+    }
+  ]
+}

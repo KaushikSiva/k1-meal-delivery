@@ -1,0 +1,65 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T19:17:05+00:00",
+  "query": "Booster K1 head camera Intel RealSense model D435 field of view",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Intel RealSense D435",
+      "url": "https://store.intelrealsense.com/buy-intel-realsense-depth-camera-d435.html",
+      "description": "The Intel® RealSense™ Depth Camera D400 Series uses stereo vision to calculate depth. The D435 is a USB-powered depth camera and consists of a pair of depth sensors, RGB sensor, and infrared projector. It is ideal for makers and developers to add depth perception capability to their prototype.",
+      "snippets": [
+        "Buy Intel® RealSense™ Depth Camera D435 from Intel. High-quality depth, free cross-platform SDK, ideal for fast-moving depth applications. Fast shipping.",
+        "With the global image shutter and wide field of view (85.2° x 58° x 94°), Intel® RealSense™ Depth Camera D435 offers accurate depth perception when object is moving or device is in motion, and it covers more area, minimizing “blind spots”.",
+        "Intel® RealSense™ Depth Camera D435 is designed to best fit your prototype.",
+        "Support for the cross-platform, open-source Intel® RealSense™ SDK 2.0."
+      ]
+    },
+    {
+      "title": "Intel RealSense D435 Guide: Wide-FOV 3D Camera Review – OpenELAB ...",
+      "url": "https://openelab.io/blogs/learn/intel-realsense-d435-depth-camera-guide-fast-wide-fov-3d-scanning-and-tracking",
+      "description": "Complete guide to Intel RealSense D435 depth camera with global shutter, wide FOV, and fast tracking. Perfect for robotics and 3D scanning applications.",
+      "snippets": [
+        "What is Intel RealSense D435? The Intel RealSense D435 Depth Camera is a high-performance stereo depth camera designed for fast wide-FOV 3D scanning and tracking applications. Built on Intel's advanced RealSense technology, the D435 combines global-shutter depth sensors with an 87° × 58° field of view to deliver exceptional performance in dynamic environments.",
+        "The Intel RealSense D435 represents a significant advancement in depth sensing technology. Unlike traditional depth cameras using rolling shutter sensors, the D435 employs global shutter technology for both depth sensors, ensuring every pixel is captured simultaneously.",
+        "One common question when selecting a RealSense depth camera concerns the difference between D435 and D435i models. The primary distinction is the inclusion of an Inertial Measurement Unit (IMU) in the D435i variant.",
+        "For applications requiring visual-inertial odometry or SLAM, the D435if with IMU would be more appropriate. The IMU provides crucial motion data complementing visual tracking, particularly during rapid movements where visual features may become blurred. The Intel RealSense D435 employs global shutter sensors for depth acquisition, critical for capturing fast-moving objects accurately."
+      ]
+    },
+    {
+      "title": "D430 Series Archives - RealSense",
+      "url": "https://realsenseai.com/products/depth-camera-d435i/",
+      "description": "Our widest field of view with a global shutter, built for fast motion and robotics.",
+      "snippets": [
+        "Combines the D435f IR-pass depth configuration with an integrated IMU for applications that require both enhanced depth performance and motion awareness. ... For custom integration. The D430 optical module paired with a RealSense Vision Processor D4 board gives developers the core wide-FOV stereo-depth architecture for integration into their own enclosure and product design.",
+        "Early access to beta features, including enhanced close-range performance, visual-inertial odometry, and person detection – executed on host with RealSense SDK2.0. Registration required. ... Global-shutter stereo imagers capture an entire frame simultaneously, making the D430 architecture well suited to moving robots, moving objects and rapidly changing viewpoints. For applications that also need inertial data, D435i, D435if and D436 integrate an IMU directly into the camera.",
+        "* The D430 family has an ideal operating range of 0.3 m to 3 m. Stereo depth can operate beyond that range depending on scene and conditions; specified D435 depth accuracy is <2% at 2 m. The RealSense™ D430 Series brings wide-field-of-view, global-shutter stereo depth to one of our most flexible camera families.",
+        "D435 is a stereo solution, offering quality depth for a variety of applications."
+      ]
+    },
+    {
+      "title": "Intel® RealSense Depth Camera D435 (with tripod)",
+      "url": "https://www.generationrobots.com/en/403757-intel-realsense-depth-camera-d435-with-tripod.html",
+      "description": "This Intel® RealSense D435 depth camera has a wide field of view and long range for capturing up to 90 frames per second!",
+      "snippets": [
+        "This RealSense camera combines a depth sensor and an RG sensor in an extremely compact and lightweight format. The D435 stands out in particular for its depth sensor’s wide field of view, which reaches up to 86° x 57°",
+        "The RealSense D435 is a depth camera with a wide field of view and a maximum range of up to 10 metres.",
+        "The D435 stereo camera belongs to the new D400 series of depth cameras equipped with the D4 vision processor by RealSense.",
+        "The D435 comes with version 2.0 of the RealSense software development kit."
+      ]
+    },
+    {
+      "title": "Intel RealSense D435 camera",
+      "url": "https://www.intelrealsense.com/depth-camera-d435/",
+      "description": "Depth Camera D435 offers the widest field of view of all our cameras, global shutter on the depth sensor that is ideal for fast moving applications.",
+      "snippets": [
+        "The Intel® RealSense™ depth camera D435 is a stereo solution, offering quality depth for a variety of applications. It's wide field of view is perfect for applications such as robotics or augmented and virtual reality, where seeing as much of the scene as possible is vitally important.",
+        "With a range up to 10m, this small form factor camera can be integrated into any solution with ease, and comes complete with our Intel RealSense SDK 2.0 and cross-platform support. The D435 continues our commitment to developing cutting-edge vision sensing products.",
+        "The Intel® RealSense™ D435 offers the widest field of view of all our cameras, along with a global shutter on the depth sensor that is ideal for fast moving applications.",
+        "Depth camera D435 is part of the Intel® RealSense™ D400 series of cameras, a lineup that takes Intel’s latest depth‑sensing hardware and software packages them into easy‑to‑integrate products."
+      ]
+    }
+  ]
+}

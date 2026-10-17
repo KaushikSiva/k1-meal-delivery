@@ -1,0 +1,30 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T18:58:04+00:00",
+  "query": "Isaac Sim 5.1 GPU requirements RTX A100 H100 L40S",
+  "include_domains": [
+    "docs.isaacsim.omniverse.nvidia.com"
+  ],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Isaac Sim Requirements — Isaac Sim Documentation",
+      "url": "https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/requirements.html",
+      "description": "GPUs without RT Cores (A100, H100) are not supported.",
+      "snippets": []
+    },
+    {
+      "title": "Workstation Installation — Isaac Sim Documentation",
+      "url": "https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_workstation.html",
+      "description": "The workstation installation is recommended if you want to run Isaac Sim as a GUI application on Windows or Linux with a GPU · Isaac Sim Launch Scripts for additional scripts like the warmup script to pre-warm the shader cache before running Isaac Sim · Omniverse Launcher, Nucleus Workstation, ...",
+      "snippets": []
+    },
+    {
+      "title": "Isaac Sim Benchmarks — Isaac Sim Documentation",
+      "url": "https://docs.isaacsim.omniverse.nvidia.com/latest/reference_material/benchmarks.html",
+      "description": "This page contains key performance indicators (KPIs) for Isaac Sim, captured across different reference hardware and measured using the isaacsim.benchmark.services extension. It also contains a guide on how to collect the same KPIs on your hardware, to compare to our published performance specs ...",
+      "snippets": []
+    }
+  ]
+}

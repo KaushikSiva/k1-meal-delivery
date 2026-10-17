@@ -2,10 +2,10 @@
 
 | Resource | Intended use | Current verified access |
 | --- | --- | --- |
-| GitHub | Private code/document checkpoints | Repository created; first push pending at bootstrap |
+| GitHub | Private code/document checkpoints | Private origin/main verified; bootstrap checkpoint 3d30864 pushed |
 | You.com | Real-world specifications, physical priors, asset references | Live Web Search API verified; local credential in ignored .env; shared client tools/you_search.py |
-| NVIDIA Isaac Sim / Isaac Lab | K1 physics, sensors, PPO training | No installed working stack verified |
-| Crusoe GPU VM | Simulator and training | No VM, budget or GPU capacity verified |
+| NVIDIA Isaac Sim / Isaac Lab | K1 physics, sensors, PPO training | No installed working stack verified; separate CPU MuJoCo diagnostic verified, see sim/README.md |
+| Crusoe GPU VM via Brev | Simulator and training | One L40S created at $1.74/hour; user authorized next 5–6 hours including 17:15–18:30 PDT demo; boot/runtime verification pending |
 | Crusoe Managed Inference | Experiment-agent inference | Credentials unverified |
 | Physical K1 | Calibration and transfer evaluation | Not available now; prepare for later arrival |
 

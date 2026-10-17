@@ -1,0 +1,147 @@
+{
+  "requested": 3,
+  "started": 3,
+  "completed": 3,
+  "excluded": 0,
+  "protocol_sha256": "64c89eea80773112c6b1e79a25d90dfd08d26756bfb65038499e1deb55b49770",
+  "trials": [
+    {
+      "trial": "trial-0",
+      "command_m_s": 0.0,
+      "net_dx_m": -0.0073723171532130444,
+      "forward_mean_world_vx_m_s": 5.773780962567246e-05,
+      "stop_rms_world_xy_speed_m_s": 2.52819757330944e-05,
+      "peak_base_tilt_deg": 1.3238212947582393,
+      "termination": "completed_requested_duration",
+      "audit": {
+        "evidence_kind": "audited_unloaded_scripted_locomotion_diagnostic",
+        "run": "trial-0",
+        "termination": "completed_requested_duration",
+        "artifact_hashes_verified": true,
+        "trajectory_rows": 750,
+        "delivery_success": null,
+        "payload_stability": null,
+        "collision_count": null,
+        "velocity_method": "world-position finite differences; world-X command comparison is a proxy (no yaw trace)",
+        "phases": {
+          "initial_stand": {
+            "duration_s": 2.0000000000000013,
+            "dx_world_m": -0.007990082326764627,
+            "dy_world_m": -0.0007011156528098254,
+            "mean_world_vx_m_s": -0.003995041163382311,
+            "rms_world_xy_speed_m_s": 0.017233582715939076,
+            "world_x_command_proxy_rmse_m_s": 0.017164165824107975
+          },
+          "forward": {
+            "duration_s": 11.000000000001009,
+            "dx_world_m": 0.0006351159058824553,
+            "dy_world_m": -0.0012824299078018203,
+            "mean_world_vx_m_s": 5.773780962567246e-05,
+            "rms_world_xy_speed_m_s": 0.0002877398935980255,
+            "world_x_command_proxy_rmse_m_s": 0.00024979529467883063
+          },
+          "stop": {
+            "duration_s": 2.000000000000668,
+            "dx_world_m": -1.7350732330873204e-05,
+            "dy_world_m": -4.7225524895712096e-05,
+            "mean_world_vx_m_s": -8.675366165433705e-06,
+            "rms_world_xy_speed_m_s": 2.52819757330944e-05,
+            "world_x_command_proxy_rmse_m_s": 8.675410565203709e-06
+          }
+        }
+      }
+    },
+    {
+      "trial": "trial-1",
+      "command_m_s": 0.35,
+      "net_dx_m": 2.5959836843272224,
+      "forward_mean_world_vx_m_s": 0.23625640663522293,
+      "stop_rms_world_xy_speed_m_s": 0.07673117165340322,
+      "peak_base_tilt_deg": 4.921187109638291,
+      "termination": "completed_requested_duration",
+      "audit": {
+        "evidence_kind": "audited_unloaded_scripted_locomotion_diagnostic",
+        "run": "trial-1",
+        "termination": "completed_requested_duration",
+        "artifact_hashes_verified": true,
+        "trajectory_rows": 750,
+        "delivery_success": null,
+        "payload_stability": null,
+        "collision_count": null,
+        "velocity_method": "world-position finite differences; world-X command comparison is a proxy (no yaw trace)",
+        "phases": {
+          "initial_stand": {
+            "duration_s": 2.0000000000000013,
+            "dx_world_m": -0.007990082326764627,
+            "dy_world_m": -0.0007011156528098254,
+            "mean_world_vx_m_s": -0.003995041163382311,
+            "rms_world_xy_speed_m_s": 0.017233582715939076,
+            "world_x_command_proxy_rmse_m_s": 0.017164165824107975
+          },
+          "forward": {
+            "duration_s": 11.000000000001009,
+            "dx_world_m": 2.5988204729876907,
+            "dy_world_m": -0.05103727853461994,
+            "mean_world_vx_m_s": 0.23625640663522293,
+            "rms_world_xy_speed_m_s": 0.26845391870210283,
+            "world_x_command_proxy_rmse_m_s": 0.13165589278550377
+          },
+          "stop": {
+            "duration_s": 2.000000000000668,
+            "dx_world_m": 0.005153293666296577,
+            "dy_world_m": 0.016852681038712264,
+            "mean_world_vx_m_s": 0.002576646833147428,
+            "rms_world_xy_speed_m_s": 0.07673117165340322,
+            "world_x_command_proxy_rmse_m_s": 0.06880441851283711
+          }
+        }
+      }
+    },
+    {
+      "trial": "trial-2",
+      "command_m_s": 0.5,
+      "net_dx_m": 4.57584371355522,
+      "forward_mean_world_vx_m_s": 0.4118990505394582,
+      "stop_rms_world_xy_speed_m_s": 0.11569409096311054,
+      "peak_base_tilt_deg": 4.106470772118084,
+      "termination": "completed_requested_duration",
+      "audit": {
+        "evidence_kind": "audited_unloaded_scripted_locomotion_diagnostic",
+        "run": "trial-2",
+        "termination": "completed_requested_duration",
+        "artifact_hashes_verified": true,
+        "trajectory_rows": 750,
+        "delivery_success": null,
+        "payload_stability": null,
+        "collision_count": null,
+        "velocity_method": "world-position finite differences; world-X command comparison is a proxy (no yaw trace)",
+        "phases": {
+          "initial_stand": {
+            "duration_s": 2.0000000000000013,
+            "dx_world_m": -0.007990082326764627,
+            "dy_world_m": -0.0007011156528098254,
+            "mean_world_vx_m_s": -0.003995041163382311,
+            "rms_world_xy_speed_m_s": 0.017233582715939076,
+            "world_x_command_proxy_rmse_m_s": 0.017164165824107975
+          },
+          "forward": {
+            "duration_s": 11.000000000001009,
+            "dx_world_m": 4.530889555934456,
+            "dy_world_m": -0.11831170218798968,
+            "mean_world_vx_m_s": 0.4118990505394582,
+            "rms_world_xy_speed_m_s": 0.4387711026269083,
+            "world_x_command_proxy_rmse_m_s": 0.11688932451090302
+          },
+          "stop": {
+            "duration_s": 2.000000000000668,
+            "dx_world_m": 0.05294423994752773,
+            "dy_world_m": 0.0036619762482681534,
+            "mean_world_vx_m_s": 0.026472119973755023,
+            "rms_world_xy_speed_m_s": 0.11569409096311054,
+            "world_x_command_proxy_rmse_m_s": 0.11021301818100622
+          }
+        }
+      }
+    }
+  ]
+}

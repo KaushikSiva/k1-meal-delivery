@@ -1,0 +1,32 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T19:25:39+00:00",
+  "query": "site.docs.isaacsim.omniverse.nvidia.com 5.1 requirements L40S RTX RT cores Linux driver RAM",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Isaac Sim Requirements - NVIDIA",
+      "url": "https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/requirements.html",
+      "description": "By installing Isaac Sim, you can run the Isaac Sim Compatibility Checker lightweight app to check if your machine meets the system requirements and compatibility · More RAM and VRAM is recommended for advanced usage of Isaac Sim. Isaac Lab usage will require additional RAM and VRAM for training ...",
+      "snippets": [
+        "GPUs without RT Cores (A100, H100) are not supported."
+      ]
+    },
+    {
+      "title": "Isaac Sim Requirements — Isaac Sim Documentation",
+      "url": "https://docs.isaacsim.omniverse.nvidia.com/5.0.0/installation/requirements.html",
+      "description": "Before installing Isaac Sim, install and run the lightweight app Isaac Sim Compatibility Checker to check if the machine meets the system requirements and compatibility · An Internet connection is required to access the Isaac Sim assets online and to run some extensions · Due to VRAM constraints, ...",
+      "snippets": [
+        "GPUs without RT Cores (A100, H100) are not supported."
+      ]
+    },
+    {
+      "title": "What Is Isaac Sim? — Isaac Sim Documentation - NVIDIA",
+      "url": "https://docs.isaacsim.omniverse.nvidia.com/",
+      "description": "Please follow this link to access the latest version of the Isaac Sim Documentation",
+      "snippets": []
+    }
+  ]
+}

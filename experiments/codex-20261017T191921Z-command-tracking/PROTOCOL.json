@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-10-17T19:19:21.810476+00:00",
+  "purpose": "development diagnostic of unloaded command response, not held-out delivery evaluation",
+  "speeds_m_s": [
+    0.0,
+    0.35,
+    0.5
+  ],
+  "duration_s": 15,
+  "seed": 0,
+  "payload": null,
+  "command_schedule": "stand 2 seconds, forward 11 seconds, stop 2 seconds",
+  "measurements": [
+    "completion or explicit termination",
+    "base height and tilt",
+    "world-X displacement",
+    "world-X velocity proxy RMSE",
+    "stop-phase RMS world XY speed"
+  ],
+  "success_thresholds": null,
+  "acceptance_claim": "none; all attempts retained, no policy tuning in this diagnostic",
+  "prior_observation": "0.2 m/s run and exact reproduction moved 0.2802458334 m total; known before this development sweep"
+}

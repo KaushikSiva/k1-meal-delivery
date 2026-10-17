@@ -1,0 +1,21 @@
+{
+  "captured_at_utc": "2026-10-17T18:58:19+00:00",
+  "status": "source_revisions_pinned_compatibility_not_yet_tested",
+  "repositories": [
+    {
+      "repository": "https://github.com/BoosterRobotics/booster_assets",
+      "commit": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "commit_date": "2026-09-26T15:03:15Z"
+    },
+    {
+      "repository": "https://github.com/BoosterRobotics/booster_deploy",
+      "commit": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "commit_date": "2026-09-13T14:18:34Z"
+    },
+    {
+      "repository": "https://github.com/BoosterRobotics/booster_train",
+      "commit": "8bb5b53824e0fbcfe69a5cb78a81f4bddb3e2a6e",
+      "commit_date": "2026-09-26T14:59:03Z"
+    }
+  ]
+}
