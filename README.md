@@ -10,7 +10,7 @@ residual. Physical robot performance is not yet verified.
 *Actual final frame: PPO residual plus an explicit cup holder completed a
 15-second, 3.56-metre scripted carrying trial within the current stability limits.
 The tray is attached to a modeled torso bracket. This is one simulation trial;
-camera-guided delivery remains unfinished.
+camera-guided loaded delivery remains unfinished.
 [Measured result and limitations](experiments/codex-20261017T2150-k1-appearance-repeat/REPORT.md).*
 
 ![Isaac Sim café environment](experiments/codex-20261017T2008-cafe-lit-preview/hero.png)
@@ -31,8 +31,10 @@ No robot is present in this environment-preview frame.*
 | Cup-holder fixture + trained residual | [15 s, 3.56 m, no drops, 3.31 cm maximum payload movement](experiments/codex-20261017T2124-cupholder-ppo-transfer/REPORT.md); one scripted stability pass. Same-fixture baseline failed the 4 cm movement limit |
 | Memory, search, obstacle handling, bounded VLA interface | Software-tested components; see [autonomy design](docs/autonomy/DESIGN.md) |
 | Sensor-estimated navigation | [One unloaded approach completed in 19 s](experiments/codex-20261017T2152-sensor-navigation-surface-fix/REPORT.md); no markers or simulator pose input to navigation, 9.74 cm maximum XY error, 0.00124 m/s final true speed |
-| SmolVLA GPU compatibility | [Pinned checkpoint loaded; custom inputs and backward pass verified](experiments/codex-20261017T2155-smolvla-probe/REPORT.md); synthetic probe, zero optimizer updates |
-| VLA fine-tuning and hardware delivery | Not completed |
+| Varied sensor-guided teacher collection | [4 completed / 10 unloaded attempts](experiments/codex-20261017T2210-sensor-demo-pilot/REPORT.md); six timeouts, one contact trial, translation drift remains a major limitation |
+| SmolVLA fine-tuning | [200 actual optimizer updates](experiments/codex-20261017T2215-smolvla-training/REPORT.md); three training episodes, one validation episode, frozen backbone unchanged; offline imitation only |
+| GR00T prerequisites | [Pinned weights downloaded, isolated environment verified](experiments/codex-20261017T2215-groot-setup/REPORT.md); no GR00T inference or training yet |
+| Trained VLA in closed-loop delivery; hardware delivery | Not completed |
 
 These results are separate experiments. An integrated, learned, camera-guided
 loaded delivery has not yet been demonstrated. Simulator-only inputs are labeled
@@ -52,7 +54,7 @@ flowchart LR
   LOC --> EXEC
   EXEC --> NAV[Search and navigation]
   OBS --> NAV
-  VLA[VLA proposal interface: no trained model] -. bounded subgoals .-> EXEC
+  VLA[SmolVLA pilot: trained, integration pending] -. bounded subgoals .-> EXEC
   NAV --> CMD[Velocity command]
   IMU[IMU and joints] --> WALK[Frozen official K1 actor]
   CMD --> WALK
@@ -64,7 +66,8 @@ flowchart LR
 ```
 
 The executive owns task completion and rejects invalid or stale action proposals.
-The VLA interface is implemented; no VLA training is implied by its presence.
+The VLA interface is implemented and a small SmolVLA pilot is trained; its
+closed-loop navigation contribution remains unmeasured.
 The PPO residual uses joint/IMU/command signals. True simulated velocity and
 payload state affect training rewards, not actor observations.
 

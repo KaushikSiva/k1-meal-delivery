@@ -1,0 +1,127 @@
+{
+  "started_at_utc": "2026-10-17T22:07:17.971848+00:00",
+  "training_performed": false,
+  "purpose": "isolated GR00T import and pinned model download, not inference",
+  "source_revision": "dac54b313160c201c450f97df0fd74ebd379c892",
+  "torch": "2.9.0+cu128",
+  "models": {
+    "nvidia/GR00T-N1.7-3B": {
+      "revision": "2fc962b973bccdd5d8ce4f67cc63b264d6886495",
+      "local_path": "/home/ubuntu/workspace/k1-runtime/models/groot_n1_7",
+      "artifacts": {
+        "statistics.json": {
+          "bytes": 4293096,
+          "sha256": "c97b1b07a82a8a8858771d56d278732d97dd8eae506032c146c77eb53828afc9"
+        },
+        "processor_config.json": {
+          "bytes": 21137,
+          "sha256": "85c1b4690ae090559e79a45193e598b65d6146eedf14750884da65e6d31032be"
+        },
+        "config.json": {
+          "bytes": 2071,
+          "sha256": "54c0367060cd310d0b3343fe72a589860a8b6e8173810164a4ffd6253f52e689"
+        },
+        "LICENSE": {
+          "bytes": 4063,
+          "sha256": "fdc54058d8b52bbb3b06c924326ff95a15687b08b15f92bc63adabc291638c89"
+        },
+        "model-00001-of-00002.safetensors": {
+          "bytes": 4990519232,
+          "sha256": "8a1a1d8a33c99103c7c80c136073c5bb8bfe9ca8f7a970c93c033ea89742906d"
+        },
+        "model.safetensors.index.json": {
+          "bytes": 104985,
+          "sha256": "407804ea5a62f4f8823f48811ae0edbb82fac101e9cf4d7273e6e2f692bb4d59"
+        },
+        "trainer_state.json": {
+          "bytes": 3228995,
+          "sha256": "81effe8b866d8ce0971a75f201ae3f56421ab6fc9fb79097d0e5549eb96c684e"
+        },
+        "embodiment_id.json": {
+          "bytes": 2145,
+          "sha256": "abc4a749389837416a102d9455a8c089336f2e417afb18565703b9944974bc35"
+        },
+        "model-00002-of-00002.safetensors": {
+          "bytes": 1919980184,
+          "sha256": "c3f61940deb2007ba1ad7743013b57f0f8462356151db9655175d7aca2d40661"
+        },
+        "README.md": {
+          "bytes": 13111,
+          "sha256": "7d0a4423a5a5bc7ac35f9ab4c1f64eb3f74f7592418a8dc5c80702b48455c788"
+        },
+        "wandb_config.json": {
+          "bytes": 200,
+          "sha256": "477dbe1fef39a622c1724f3d7b271f90e3891799e9e0949f934da1f1a4165f59"
+        },
+        "zero_to_fp32.py": {
+          "bytes": 33270,
+          "sha256": "e8a2553b434ac043ec63b022db1e768277acf8d4e70f10a2842db6d238977135"
+        },
+        "experiment_cfg/dataset_statistics.json": {
+          "bytes": 4293095,
+          "sha256": "c3316e2e4adb98a7068047405541096983a5414215d71bdf27573f6afc88d150"
+        },
+        "experiment_cfg/final_processor_config.json": {
+          "bytes": 43389,
+          "sha256": "042302b825045f52175253121872ce46437a45b59a61bfae07ea21a568590a0a"
+        },
+        "experiment_cfg/final_model_config.json": {
+          "bytes": 1523,
+          "sha256": "eff2c474e71e86810b8532202cfa3eed23876af652acb7df0a0d24a721ec0976"
+        }
+      }
+    },
+    "nvidia/Cosmos-Reason2-2B": {
+      "revision": "9ce19a195e423419c349abfc86fd07178b230561",
+      "local_path": "/home/ubuntu/workspace/k1-runtime/models/cosmos_reason2",
+      "artifacts": {
+        "tokenizer.json": {
+          "bytes": 7032403,
+          "sha256": "a5d85b6dcc535e6b93115a9ef287e6132fdbf30270da6218194ba742261173c7"
+        },
+        "model.safetensors": {
+          "bytes": 4877470304,
+          "sha256": "fa5a6e6ef4fce40216b185cc48a3b24d31637ac3e2ba69c107ed1f389c1e6ede"
+        },
+        "vocab.json": {
+          "bytes": 2776833,
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+        },
+        "tokenizer_config.json": {
+          "bytes": 10868,
+          "sha256": "c2da771801886ad9ae98181793ffd3dfb7f1af30f6f7c6a4e15d7dbba52e2399"
+        },
+        "generation_config.json": {
+          "bytes": 269,
+          "sha256": "1e241830b48b397cb0900101421df5450baddc7adf01e5fc86b5615865f3bae4"
+        },
+        "video_preprocessor_config.json": {
+          "bytes": 385,
+          "sha256": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13"
+        },
+        "config.json": {
+          "bytes": 1505,
+          "sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b"
+        },
+        "merges.txt": {
+          "bytes": 1671839,
+          "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+        },
+        "preprocessor_config.json": {
+          "bytes": 390,
+          "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516"
+        },
+        "README.md": {
+          "bytes": 35046,
+          "sha256": "1b0428109d3cf7d8d209c7ad3b31afe037689bfd9d25589f0f6335bb56223fab"
+        },
+        "chat_template.json": {
+          "bytes": 5502,
+          "sha256": "6f8a6a55027e3da5160105556cda5dd69f6423f1c32645f6730d32de7773d0c4"
+        }
+      }
+    }
+  },
+  "status": "downloaded_import_verified",
+  "finished_at_utc": "2026-10-17T22:09:15.808308+00:00"
+}

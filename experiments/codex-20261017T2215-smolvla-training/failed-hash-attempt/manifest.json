@@ -1,0 +1,14 @@
+{
+  "status": "failed",
+  "started_at_utc": "2026-10-17T22:06:42.609144+00:00",
+  "training_performed": false,
+  "optimizer_updates": 0,
+  "hardware_verified": false,
+  "scope": "tiny unloaded K1 simulator teacher-imitation pilot",
+  "source_sha256": "0ccdd5e975abf8fbe0de37f26146dcab9fe017e1082cd45c8699db28c2ec8085",
+  "dataset_sha256": "df58ed0734e4be6583b5c524bccf1100f7b0415cceb62b6747291980bb43a92d",
+  "error": "Got unsupported ScalarType BFloat16",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/ubuntu/workspace/k1-runtime/smolvla-train-01-input/training/finetune_smolvla.py\", line 107, in main\n    initial_trainable_sha256=fingerprint(True),initial_frozen_sha256=fingerprint(False),\n                             ^^^^^^^^^^^^^^^^^\n  File \"/home/ubuntu/workspace/k1-runtime/smolvla-train-01-input/training/finetune_smolvla.py\", line 84, in fingerprint\n    h.update(name.encode());h.update(p.detach().cpu().contiguous().numpy().tobytes())\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: Got unsupported ScalarType BFloat16\n",
+  "finished_at_utc": "2026-10-17T22:07:00.293098+00:00",
+  "wall_seconds": 17.683781186999113
+}

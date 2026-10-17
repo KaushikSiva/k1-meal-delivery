@@ -1,0 +1,188 @@
+{
+  "frozen_at_utc": "2026-10-17T22:00:27.766319+00:00",
+  "scope": "small unloaded simulator teacher imitation pilot; not full delivery validation",
+  "duration_s": 40,
+  "camera_hz": 5,
+  "training_inclusion": "delivered, no room contact, no privileged feature rows; retain other episodes as failures",
+  "split_unit": "entire episode; validation geometry/configurations not used for training or normalization",
+  "training_budget": {
+    "optimizer_steps": 200,
+    "batch_size": 4,
+    "learning_rate": 0.0001,
+    "seed": 8601,
+    "chunk_size": 10
+  },
+  "acceptance": "finite training, nonzero weight change; no task improvement claim without closed-loop matched evaluation",
+  "episodes": [
+    {
+      "id": "train-00",
+      "split": "train",
+      "table": [
+        3.6,
+        0,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        0,
+        0
+      ],
+      "seed": 8400
+    },
+    {
+      "id": "train-01",
+      "split": "train",
+      "table": [
+        4.0,
+        0.2,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        0,
+        0.05
+      ],
+      "seed": 8401
+    },
+    {
+      "id": "train-02",
+      "split": "train",
+      "table": [
+        4.3,
+        -0.2,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        0,
+        -0.05
+      ],
+      "seed": 8402
+    },
+    {
+      "id": "train-03",
+      "split": "train",
+      "table": [
+        3.8,
+        0.35,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        0.15,
+        0
+      ],
+      "seed": 8403
+    },
+    {
+      "id": "train-04",
+      "split": "train",
+      "table": [
+        4.2,
+        -0.35,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        -0.15,
+        0
+      ],
+      "seed": 8404
+    },
+    {
+      "id": "train-05",
+      "split": "train",
+      "table": [
+        4.0,
+        0,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        0.25,
+        -0.08
+      ],
+      "seed": 8405
+    },
+    {
+      "id": "train-06",
+      "split": "train",
+      "table": [
+        4.4,
+        0.15,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        -0.1,
+        0.08
+      ],
+      "seed": 8406
+    },
+    {
+      "id": "train-07",
+      "split": "train",
+      "table": [
+        3.7,
+        -0.15,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        0.1,
+        -0.04
+      ],
+      "seed": 8407
+    },
+    {
+      "id": "validation-00",
+      "split": "validation",
+      "table": [
+        4.1,
+        0.3,
+        0.45,
+        0.45,
+        0.72
+      ],
+      "start": [
+        0,
+        -0.15,
+        0.06
+      ],
+      "seed": 8500
+    },
+    {
+      "id": "validation-01",
+      "split": "validation",
+      "table": [
+        3.9,
+        -0.3,
+        0.45,
+        0.45,
+        0.72
+      ],
+      "start": [
+        0,
+        0.15,
+        -0.06
+      ],
+      "seed": 8501
+    }
+  ]
+}

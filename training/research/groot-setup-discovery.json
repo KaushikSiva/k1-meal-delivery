@@ -1,0 +1,43 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T22:01:54+00:00",
+  "query": "site.github.com/NVIDIA/Isaac-GR00T N1.7 installation finetuning new embodiment",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "GitHub - NVIDIA/Isaac-GR00T: NVIDIA Isaac GR00T N1.7 - A Foundation ...",
+      "url": "https://github.com/NVIDIA/Isaac-GR00T",
+      "description": "NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots. - NVIDIA/Isaac-GR00T",
+      "snippets": [
+        "VLA Workflow — finetuning Isaac-GR00T N1.7 on collected data and deploying the policy · VLA Inference — running the PolicyServer + SONIC decoder for real-time control · Note: The UNITREE_G1 embodiment tag is compatible with the decoupled WBC controller, but the end-to-end collect-finetune-deploy workflow is only supported for GEAR-SONIC (UNITREE_G1_SONIC).",
+        "The neural network architecture of GR00T N1.7 is a combination of vision-language foundation model and diffusion transformer head that denoises continuous actions. Here is a schematic diagram of the architecture: Prepare data — Collect robot demonstrations (video, state, action) and convert them to the GR00T LeRobot format. Demo datasets are included for quick testing. Run inference — Try zero-shot inference with the base model on pretrain embodiments, or use a finetuned checkpoint for benchmark tasks.",
+        "GR00T N1.7 builds on N1.6 with a new VLM backbone and code-level improvements. Relative EEF Action Space — N1.7 adopts a relative end-effector action space shared across robot and human embodiments. Representing actions as deltas from the current pose (rather than absolute targets) improves generalization and is a key factor in the model's cross-embodiment performance. See getting_started/finetune_new_embodiment.md for guidance on configuring relative EEF for your own robot.",
+        "GR00T N1.7 is also available through Hugging Face LeRobot via the groot policy type. Use the LeRobot GR00T documentation for LeRobot-native training, evaluation, and rollout workflows. Use this repository for the reference GR00T implementation, model internals, deployment tooling, and benchmark-specific examples. ... Every inference or finetuning command requires an --embodiment-tag."
+      ]
+    },
+    {
+      "title": "Isaac-GR00T/README.md at main · NVIDIA/Isaac-GR00T",
+      "url": "https://github.com/NVIDIA/Isaac-GR00T/blob/main/README.md",
+      "description": "NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots. - Isaac-GR00T/README.md at main · NVIDIA/Isaac-GR00T",
+      "snippets": [
+        "NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots. - NVIDIA/Isaac-GR00T",
+        "The neural network architecture of GR00T N1.7 is a combination of vision-language foundation model and diffusion transformer head that denoises continuous actions. Here is a schematic diagram of the architecture: Prepare data — Collect robot demonstrations (video, state, action) and convert them to the GR00T LeRobot format. Demo datasets are included for quick testing. Run inference — Try zero-shot inference with the base model on pretrain embodiments, or use a finetuned checkpoint for benchmark tasks.",
+        "GR00T N1.7 builds on N1.6 with a new VLM backbone and code-level improvements. Relative EEF Action Space — N1.7 adopts a relative end-effector action space shared across robot and human embodiments. Representing actions as deltas from the current pose (rather than absolute targets) improves generalization and is a key factor in the model's cross-embodiment performance. See getting_started/finetune_new_embodiment.md for guidance on configuring relative EEF for your own robot.",
+        "GR00T N1.7 is also available through Hugging Face LeRobot via the groot policy type. Use the LeRobot GR00T documentation for LeRobot-native training, evaluation, and rollout workflows. Use this repository for the reference GR00T implementation, model internals, deployment tooling, and benchmark-specific examples. ... Every inference or finetuning command requires an --embodiment-tag."
+      ]
+    },
+    {
+      "title": "GitHub - lupin4/isaac-gr00t: NVIDIA Isaac GR00T N1.7 - A Foundation ...",
+      "url": "https://github.com/lupin4/isaac-gr00t",
+      "description": "NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots. - lupin4/isaac-gr00t",
+      "snippets": [
+        "The neural network architecture of GR00T N1.7 is a combination of vision-language foundation model and diffusion transformer head that denoises continuous actions. Here is a schematic diagram of the architecture: Prepare data — Collect robot demonstrations (video, state, action) and convert them to the GR00T LeRobot format. Demo datasets are included for quick testing. Run inference — Try zero-shot inference with the base model on pretrain embodiments, or use a finetuned checkpoint for benchmark tasks.",
+        "The included demo_data/droid_sample dataset works with the base model out of the box — no finetuning or checkpoint download needed: uv run python scripts/deployment/standalone_inference_script.py \\ --model-path nvidia/GR00T-N1.7-3B \\ --dataset-path demo_data/droid_sample \\ --embodiment-tag OXE_DROID_RELATIVE_EEF_RELATIVE_JOINT \\ --traj-ids 1 2 \\ --inference-mode pytorch \\ --action-horizon 8",
+        "For posttrain embodiments, use a finetuned checkpoint. Most finetuned checkpoints (e.g., DROID, SimplerEnv) have a flat file structure and can be passed directly as a HuggingFace model ID — no manual download needed: uv run python scripts/deployment/standalone_inference_script.py \\ --model-path nvidia/GR00T-N1.7-DROID \\ --dataset-path demo_data/droid_sample \\ --embodiment-tag OXE_DROID_RELATIVE_EEF_RELATIVE_JOINT \\ --traj-ids 1 2 \\ --inference-mode pytorch \\ --action-horizon 8",
+        "To finetune GR00T on your own robot data and configuration, follow the detailed tutorial at getting_started/finetune_new_embodiment.md. Ensure your input data follows the GR00T LeRobot format, and specify your modality configuration via --modality-config-path. ... CUDA_VISIBLE_DEVICES=0 uv run python \\ gr00t/experiment/launch_finetune.py \\ --base-model-path nvidia/GR00T-N1.7-3B \\ --dataset-path demo_data/cube_to_bowl_5 \\ --embodiment-tag NEW_EMBODIMENT \\ --modality-config-path examples/SO100/so100_config.py \\ --num-gpus 1 \\ --output-dir /tmp/test_finetune \\ --max-steps 2000 \\ --global-batch-size 32 \\ --dataloader-num-workers 4"
+      ]
+    }
+  ]
+}

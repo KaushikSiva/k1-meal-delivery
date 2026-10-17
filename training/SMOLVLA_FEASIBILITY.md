@@ -1,7 +1,10 @@
 # VLA prerequisite check
 
-Status: pinned models downloaded and GPU shape/gradient probe passed,
-**no K1 VLA fine-tuning yet**. See the [actual probe report](../experiments/codex-20261017T2155-smolvla-probe/REPORT.md).
+Status: **200 actual imitation-learning updates completed** on three sensor-only
+K1 simulator episodes. The frozen backbone stayed unchanged. See the
+[training report](../experiments/codex-20261017T2215-smolvla-training/REPORT.md).
+The earlier [synthetic probe](../experiments/codex-20261017T2155-smolvla-probe/REPORT.md)
+performed zero optimizer updates; it is a separate experiment.
 The genuine PPO carrying updates are a separate model and training objective.
 
 Official model revisions and access flags are pinned in vla-model-lock.json.
@@ -30,8 +33,8 @@ GR00T remains a candidate. Its official setup instructions require access to the
 gated Cosmos-Reason2-2B backbone. We independently verified the gate through the
 Hugging Face API and found no configured local or remote Hugging Face credential.
 The user supplied a credential later in the session. An authenticated request for
-the pinned gated backbone config returned HTTP 200. Isolated GR00T setup is now
-running; that access check alone does not establish a downloaded or usable model.
+the pinned gated backbone config returned HTTP 200. Isolated GR00T setup subsequently completed with pinned model downloads and a
+clean dependency check; actual GR00T inference remains untested.
 The GR00T repository and model card disagree about release/license wording, so
 we retain the exact sources rather than treating the metadata as resolved.
 
@@ -44,7 +47,14 @@ The pinned policy loaded strictly on the L40S. A synthetic probe produced finite
 1 × 10 × 5 actions and nonzero finite gradients, with 1.458 GB peak allocated
 GPU memory during backward. It performed zero optimizer updates.
 
-Next evidence gates: collect valid sensor-only demonstrations; run real updates
-with weight-change evidence; evaluate separately
-on held-out layouts against the executive-only baseline. A failed teacher trial
-must not be relabeled a successful delivery demonstration.
+The first collection produced four completed deliveries out of ten unloaded
+attempts. Three successful training episodes supplied 262 frames; one separate
+validation episode supplied 149 frames. Six failed attempts remain recorded.
+The trained action expert changed 122 parameter tensors, and saved checkpoint
+hashes were independently checked. Offline sampled validation action MSE fell
+from 0.5953 to 0.1690; this does not measure robot delivery performance.
+
+Next evidence gates: collect substantially more varied valid demonstrations;
+run the trained checkpoint through the bounded adapter; compare closed-loop
+behavior on held-out layouts against the executive-only baseline. A failed
+teacher trial must not be relabeled a successful delivery demonstration.

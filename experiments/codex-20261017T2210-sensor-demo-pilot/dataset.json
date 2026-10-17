@@ -1,0 +1,369 @@
+{
+  "created_at_utc": "2026-10-17T22:05:32.841752+00:00",
+  "scope": "tiny unloaded simulator imitation pilot; no task performance claim",
+  "collection_sha256": "859514c5825c09154152e9cb8e1564e36f92c1e7cd674ff0d0272639c1c0ad2d",
+  "protocol": {
+    "frozen_at_utc": "2026-10-17T22:00:27.766319+00:00",
+    "scope": "small unloaded simulator teacher imitation pilot; not full delivery validation",
+    "duration_s": 40,
+    "camera_hz": 5,
+    "training_inclusion": "delivered, no room contact, no privileged feature rows; retain other episodes as failures",
+    "split_unit": "entire episode; validation geometry/configurations not used for training or normalization",
+    "training_budget": {
+      "optimizer_steps": 200,
+      "batch_size": 4,
+      "learning_rate": 0.0001,
+      "seed": 8601,
+      "chunk_size": 10
+    },
+    "acceptance": "finite training, nonzero weight change; no task improvement claim without closed-loop matched evaluation",
+    "episodes": [
+      {
+        "id": "train-00",
+        "split": "train",
+        "table": [
+          3.6,
+          0,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          0,
+          0
+        ],
+        "seed": 8400
+      },
+      {
+        "id": "train-01",
+        "split": "train",
+        "table": [
+          4.0,
+          0.2,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          0,
+          0.05
+        ],
+        "seed": 8401
+      },
+      {
+        "id": "train-02",
+        "split": "train",
+        "table": [
+          4.3,
+          -0.2,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          0,
+          -0.05
+        ],
+        "seed": 8402
+      },
+      {
+        "id": "train-03",
+        "split": "train",
+        "table": [
+          3.8,
+          0.35,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          0.15,
+          0
+        ],
+        "seed": 8403
+      },
+      {
+        "id": "train-04",
+        "split": "train",
+        "table": [
+          4.2,
+          -0.35,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          -0.15,
+          0
+        ],
+        "seed": 8404
+      },
+      {
+        "id": "train-05",
+        "split": "train",
+        "table": [
+          4.0,
+          0,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          0.25,
+          -0.08
+        ],
+        "seed": 8405
+      },
+      {
+        "id": "train-06",
+        "split": "train",
+        "table": [
+          4.4,
+          0.15,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          -0.1,
+          0.08
+        ],
+        "seed": 8406
+      },
+      {
+        "id": "train-07",
+        "split": "train",
+        "table": [
+          3.7,
+          -0.15,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          0.1,
+          -0.04
+        ],
+        "seed": 8407
+      },
+      {
+        "id": "validation-00",
+        "split": "validation",
+        "table": [
+          4.1,
+          0.3,
+          0.45,
+          0.45,
+          0.72
+        ],
+        "start": [
+          0,
+          -0.15,
+          0.06
+        ],
+        "seed": 8500
+      },
+      {
+        "id": "validation-01",
+        "split": "validation",
+        "table": [
+          3.9,
+          -0.3,
+          0.45,
+          0.45,
+          0.72
+        ],
+        "start": [
+          0,
+          0.15,
+          -0.06
+        ],
+        "seed": 8501
+      }
+    ]
+  },
+  "episodes": [
+    {
+      "id": "train-00",
+      "split": "train",
+      "outcome": null,
+      "manifest_sha256": "383290a6d3aff458999f68d85fbbb4418504c05f38e61fef0a3e8d9b4c23d206",
+      "included": false,
+      "exclusion": "not delivered",
+      "final_xy_error_m": 2.30287114278403,
+      "final_true_speed_m_s": 0.00013801103163271625
+    },
+    {
+      "id": "train-01",
+      "split": "train",
+      "outcome": "delivered",
+      "manifest_sha256": "63564f101a4a39051898d97ec70cfb84dc6035ddf387455abf5fcf0cadf9b379",
+      "included": true,
+      "exclusion": null,
+      "final_xy_error_m": 0.06368046732988528,
+      "final_true_speed_m_s": 0.0004612191235092138,
+      "file": "train-01.npz",
+      "sha256": "8997a969e10046be0cb0cf75659b989c35376fae625a934e85aac1f8209daa62",
+      "frames": 87
+    },
+    {
+      "id": "train-02",
+      "split": "train",
+      "outcome": null,
+      "manifest_sha256": "673270a90c22bdca52d7a34c0193a7fbaa9a35bcf110ff6c6197c5576d483cb6",
+      "included": false,
+      "exclusion": "not delivered",
+      "final_xy_error_m": 1.2503663596546915,
+      "final_true_speed_m_s": 0.0011360926703312118
+    },
+    {
+      "id": "train-03",
+      "split": "train",
+      "outcome": null,
+      "manifest_sha256": "b37d27c100481bde021d2432d614b3c3377cc2a233f32d44e77049db36aa5f24",
+      "included": false,
+      "exclusion": "not delivered",
+      "final_xy_error_m": 1.809078711037816,
+      "final_true_speed_m_s": 0.0077085079833657455
+    },
+    {
+      "id": "train-04",
+      "split": "train",
+      "outcome": "delivered",
+      "manifest_sha256": "7bfe0f827755a000ef217b76e0ae37bb1b0d2d6fea3498c5ddcc45f8c6453a3c",
+      "included": true,
+      "exclusion": null,
+      "final_xy_error_m": 0.020810476675398457,
+      "final_true_speed_m_s": 0.0009263488837356918,
+      "file": "train-04.npz",
+      "sha256": "50e84f32e4feb7ec2e70cb7ca36791c50b42f8f7b977b132aec887ac4321ff69",
+      "frames": 93
+    },
+    {
+      "id": "train-05",
+      "split": "train",
+      "outcome": null,
+      "manifest_sha256": "8ccd7398b4ae080ff60d4301d8a35d63d17ef2b62c7040e815152b63ed910d4c",
+      "included": false,
+      "exclusion": "not delivered",
+      "final_xy_error_m": 3.372806174881847,
+      "final_true_speed_m_s": 0.0001742295056422649
+    },
+    {
+      "id": "train-06",
+      "split": "train",
+      "outcome": null,
+      "manifest_sha256": "429cc8279caf5338fda3e178db20f61066bbc1273ad34652c9735c429649c4a5",
+      "included": false,
+      "exclusion": "not delivered",
+      "final_xy_error_m": 1.4568060047019087,
+      "final_true_speed_m_s": 0.1231987772016048
+    },
+    {
+      "id": "train-07",
+      "split": "train",
+      "outcome": "delivered",
+      "manifest_sha256": "afc21fdff5a03ee991970bfe823f9c03542a8373a2f102a61818bcdf5d18b7f0",
+      "included": true,
+      "exclusion": null,
+      "final_xy_error_m": 0.02543730238754486,
+      "final_true_speed_m_s": 0.00030867597737868266,
+      "file": "train-07.npz",
+      "sha256": "d0d81a2ff34dd1fb3a27cf79d5bf80fe2cbd354b0c1cd5a7e4f97824d2c9a37c",
+      "frames": 82
+    },
+    {
+      "id": "validation-00",
+      "split": "validation",
+      "outcome": "delivered",
+      "manifest_sha256": "4c2d685802ff16c2ae8557be9f4acfbb7f68353b0dc7a7894d679d6fd42f5aed",
+      "included": true,
+      "exclusion": null,
+      "final_xy_error_m": 0.04708376848349789,
+      "final_true_speed_m_s": 0.0001371555311047078,
+      "file": "validation-00.npz",
+      "sha256": "32c0adb3d517e35b62030b2ae2b86c0acf9b47af6dcd5371a3cd9453f3aff837",
+      "frames": 149
+    },
+    {
+      "id": "validation-01",
+      "split": "validation",
+      "outcome": null,
+      "manifest_sha256": "1ebb6a3b14af5af8d90cc341a2b1b4a5114fd6db48d47cd8270f4094b51e6007",
+      "included": false,
+      "exclusion": "not delivered",
+      "final_xy_error_m": 3.6185256532183563,
+      "final_true_speed_m_s": 0.00019940127530020357
+    }
+  ],
+  "quality_filter": "delivered, no room contact, no privileged features; all rejected trials retained",
+  "source_sha256": "1e50cf91bfc17e33b9b0d976bc7f950f9dfd53918a40ac9535496be18e76ccfe",
+  "source_hashes": {
+    "sim/run_k1_sensor_navigation.py": "2e497903872115187e01d2dad58cf65d44f8a0754f8b15e50346f7a0527de64f",
+    "sim/k1_sensor_observation.py": "c5a7d8c33c4669af684fd73ed975801bace84786cd021fb5c0482dc8a94c6663",
+    "sim/k1_imu.py": "52134be692799937b5a580459d53f2eac4c956b25bca890e6658b185e25717ec",
+    "sim/k1_observation.py": "7b251f78cab063132ea140b91c4997f30c833462991c78b4b1ba9daa425a8e21",
+    "contracts/robot_telemetry.py": "668195226186cee69520b62b0d650cbe01981dc06c23002ab886224e7b8af27f",
+    "deployment/k1_leg_estimator.py": "251b4f06b34c02c8240380786682bede6b1bb902f07695c53b6e252dbd985985",
+    "perception/k1_camera.py": "6c155bd444667127a44c4e882f966216dc14f1dbb80ef584e962e9960b8c3e26",
+    "perception/tabletop.py": "1399a2071d4e7411b162c00c7fa4f4fef9b237ba1cfd7dfafabf65a5b202379f",
+    "navigation/localization.py": "96c954397326249842be58803a57de2ea2844bb50f41b0d92aa2614dd92047f5",
+    "autonomy/session.py": "a68dd346013a7940672703f588da4534d62be8e4ce2ae55bb6e1d550add0fef8",
+    "autonomy/executive.py": "c31095d2556fbf45d416268211af8b958f403b03fcf87734bebd006496725e26",
+    "navigation/follower.py": "b0de96990252b5e5517110375e0237c37312b28bf624a5b42e97bde7f2786324",
+    "navigation/planner.py": "36c67e654162e5b21408623b9d7f931d39dbe25aa77d70d03dd58e0a2c840f29",
+    "navigation/search.py": "d5ef1a85c7345912d45b8d1223b6d669f38da53a5e685a338f6776d152d1b0fd",
+    "memory/scene_memory.py": "2af2eab020bbb945acbda7aacd10a2c90692b3ebe494e07e1d2a288c8fa2b163",
+    "vla/inputs.py": "baa4e6f4bb2cd107be0ee4054a051567aa766e1020c12332e17dcc750a57a7e6",
+    "vla/recorder.py": "9f93f11bf40bf69bccd8b5c3b4da437e938fad82aa05cd88c8d51579627338c0",
+    "vla/action_space.py": "b74e2edb349b938496b2274f639ad94926d393ab18f9323d1d5c8625e3d3fa94"
+  },
+  "normalization": {
+    "mean": [
+      0.9847328066825867,
+      2.186582326889038,
+      -0.05064307153224945,
+      2.194903612136841,
+      0.9567871689796448,
+      0.00016539440548513085,
+      0.9770992398262024,
+      0.06792210787534714,
+      1.0,
+      0.17279405891895294,
+      0.00024006424064282328,
+      -0.0015957168070599437,
+      0.022900763899087906,
+      0.0,
+      0.7290076613426208,
+      0.24809160828590393
+    ],
+    "std": [
+      0.1226138025522232,
+      1.071406602859497,
+      0.25117433071136475,
+      1.0849449634552002,
+      0.16973082721233368,
+      0.05000000074505806,
+      0.14958728849887848,
+      0.05000000074505806,
+      0.05000000074505806,
+      0.11004053801298141,
+      0.05000000074505806,
+      0.10383516550064087,
+      0.14958728849887848,
+      0.05000000074505806,
+      0.444472074508667,
+      0.431905597448349
+    ],
+    "source": "training episodes only",
+    "minimum_std": 0.05
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "status": "trained",
+  "started_at_utc": "2026-10-17T22:08:15.611246+00:00",
+  "training_performed": true,
+  "optimizer_updates": 200,
+  "hardware_verified": false,
+  "scope": "tiny unloaded K1 simulator teacher-imitation pilot",
+  "source_sha256": "4ca401289465fa6779bee27fbd9a7ebe2160e45e7c2414ca5f6e15a5b2154e58",
+  "dataset_sha256": "df58ed0734e4be6583b5c524bccf1100f7b0415cceb62b6747291980bb43a92d",
+  "gpu": "NVIDIA L40S",
+  "torch": "2.9.0+cu128",
+  "parameters": 450046176,
+  "trainable_parameters": 99880992,
+  "data_frames": {
+    "train": 262,
+    "validation": 149
+  },
+  "budget": {
+    "optimizer_steps": 200,
+    "batch_size": 4,
+    "learning_rate": 0.0001,
+    "seed": 8601,
+    "chunk_size": 10
+  },
+  "initial_trainable_sha256": "15f449f6822f2cb125041c679b2998b4da29dac62c7a3b66c580fcd48b3fc039",
+  "initial_frozen_sha256": "6148eb3eddf9c349431fac0e316d67be81ef4557057cb2e7bbd216c56b089896",
+  "initial_evaluation": {
+    "train": {
+      "sampled_rows": 16,
+      "flow_loss": 1.39607372879982,
+      "first_action_normalized_mse": 0.9863876905292273
+    },
+    "validation": {
+      "sampled_rows": 16,
+      "flow_loss": 0.9927101135253906,
+      "first_action_normalized_mse": 0.5953014390543103
+    }
+  },
+  "evaluation_scope": "16 evenly spaced rows per split, fixed RNG; offline imitation only",
+  "optimizer": {
+    "name": "AdamW",
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "weight_decay": 0.01,
+    "max_grad_norm": 10.0
+  },
+  "training_seconds": 20.264443629001107,
+  "peak_allocated_gpu_bytes": 2088941568,
+  "final_evaluation": {
+    "train": {
+      "sampled_rows": 16,
+      "flow_loss": 0.1759277507662773,
+      "first_action_normalized_mse": 0.07793689682148397
+    },
+    "validation": {
+      "sampled_rows": 16,
+      "flow_loss": 0.2554342430084944,
+      "first_action_normalized_mse": 0.16904237610287964
+    }
+  },
+  "final_trainable_sha256": "6730985398d54ff7261c04ceb31cbca40ec7f7490f188a876154ed75d90183c6",
+  "final_frozen_sha256": "6148eb3eddf9c349431fac0e316d67be81ef4557057cb2e7bbd216c56b089896",
+  "changed_parameter_tensors": 122,
+  "trainable_delta_l2": 7.312824241911891,
+  "frozen_weights_unchanged": true,
+  "checkpoint_files": {
+    "policy/model.safetensors": "ca7e0eb430bc5896ee0639a880a3cef05f4fb0a684bb72a7c4f57ecce1907f53",
+    "policy/config.json": "2d4ef36c9430d9d7b841420d4a4d5c570fb55bf4ceeda39eedac37d204afee62"
+  },
+  "limits": [
+    "tiny demonstration dataset",
+    "one training seed",
+    "unloaded simple MuJoCo room only",
+    "no closed-loop VLA evaluation",
+    "no hardware validation"
+  ],
+  "finished_at_utc": "2026-10-17T22:09:01.449291+00:00",
+  "wall_seconds": 45.83787838799981
+}

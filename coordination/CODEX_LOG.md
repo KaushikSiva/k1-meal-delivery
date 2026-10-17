@@ -77,3 +77,11 @@ Wider evaluator repeat preserved original baseline/PPO drink drops at6.442s/12.1
 ## 2026-10-17T21:49:29.430683+00:00 — sensor-derived navigation and retained failures
 
 Added nativegyro/joint telemetry, strict500Hz relativeheading integration, provisionallegheight and sensor-derived cameraextrinsics. Real20sturn gyroerror droppedfrom2.35rad at50Hz to.03044rad at500Hz; same-trajectorycomparison verifiesaliasing. Legtranslation stillfailed~2.05mdrift, excludedfromnavigation. RealMuJoCocamera-to-walking withsingleunnumberedtable, operatorfloorplan/initialposeprior andestimatedpose achievedmax9.74cmXYerror butstoppedambiguousdestination duefalsewallcornertable; capturedRGBDandhandedregressiontoClaude. Onefailureexactlyreproduced. Historicalsource/archive/artifact hashes verified.7sensor tests pass; oldlocalizer/CL7freeze9pathsreviewed/hashed; broadtest excludingliveheadingWIP62pass16skip1xfail. Liveperception/heading editsnotincluded.
+
+## 2026-10-17T22:09:19.732333+00:00 — Appearance, navigation and VLA prerequisites
+
+Pushed a9d8f62 with actual dark/light K1 materials, failed appearance attempts, one19s sensor-estimated unloaded approach and GPU SmolVLA probe. Reviewed Claude tabletop freeze;8tests pass. New10trial varied collection yielded4delivered/6timeouts, onecontact; three train episodes262frames and one validation149frames. All1791artifact hashes verified; 3dataset tests pass. Smoltrain01 failed beforeupdates onbfloat16hash; fixedraw-bytehash and launched02samebudget. UserHFaccesscheckedHTTP200; isolatedGR00Tdependenciespass,downloadsactive.
+
+## 2026-10-17T22:14:26.266092+00:00 — First real SmolVLA fine-tuning verified
+
+Attempt02 completed200updates/20.264s onL40S;122parameter tensorschanged,L2delta7.3128,frozenbackbonehashunchanged.16rowofflinevalidationMSE0.5953→0.1690. Savedcheckpointsha ca7e0eb430bc5896ee0639a880a3cef05f4fb0a684bb72a7c4f57ecce1907f53 independentlychecked; strictreload reproducedhashes andfiniteactionsfromactualvalidationframe. GR00Tsetupcompletewithpinnedweights/import/dependencycheck, noinference/training. Goalstillactive; nofullorhardwaresuccess.

@@ -1,0 +1,426 @@
+{
+  "started_at_utc": "2026-10-17T22:00:44.839864+00:00",
+  "protocol": {
+    "frozen_at_utc": "2026-10-17T22:00:27.766319+00:00",
+    "scope": "small unloaded simulator teacher imitation pilot; not full delivery validation",
+    "duration_s": 40,
+    "camera_hz": 5,
+    "training_inclusion": "delivered, no room contact, no privileged feature rows; retain other episodes as failures",
+    "split_unit": "entire episode; validation geometry/configurations not used for training or normalization",
+    "training_budget": {
+      "optimizer_steps": 200,
+      "batch_size": 4,
+      "learning_rate": 0.0001,
+      "seed": 8601,
+      "chunk_size": 10
+    },
+    "acceptance": "finite training, nonzero weight change; no task improvement claim without closed-loop matched evaluation",
+    "episodes": [
+      {
+        "id": "train-00",
+        "split": "train",
+        "table": [
+          3.6,
+          0,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          0,
+          0
+        ],
+        "seed": 8400
+      },
+      {
+        "id": "train-01",
+        "split": "train",
+        "table": [
+          4.0,
+          0.2,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          0,
+          0.05
+        ],
+        "seed": 8401
+      },
+      {
+        "id": "train-02",
+        "split": "train",
+        "table": [
+          4.3,
+          -0.2,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          0,
+          -0.05
+        ],
+        "seed": 8402
+      },
+      {
+        "id": "train-03",
+        "split": "train",
+        "table": [
+          3.8,
+          0.35,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          0.15,
+          0
+        ],
+        "seed": 8403
+      },
+      {
+        "id": "train-04",
+        "split": "train",
+        "table": [
+          4.2,
+          -0.35,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          -0.15,
+          0
+        ],
+        "seed": 8404
+      },
+      {
+        "id": "train-05",
+        "split": "train",
+        "table": [
+          4.0,
+          0,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          0.25,
+          -0.08
+        ],
+        "seed": 8405
+      },
+      {
+        "id": "train-06",
+        "split": "train",
+        "table": [
+          4.4,
+          0.15,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          -0.1,
+          0.08
+        ],
+        "seed": 8406
+      },
+      {
+        "id": "train-07",
+        "split": "train",
+        "table": [
+          3.7,
+          -0.15,
+          0.4,
+          0.5,
+          0.75
+        ],
+        "start": [
+          0,
+          0.1,
+          -0.04
+        ],
+        "seed": 8407
+      },
+      {
+        "id": "validation-00",
+        "split": "validation",
+        "table": [
+          4.1,
+          0.3,
+          0.45,
+          0.45,
+          0.72
+        ],
+        "start": [
+          0,
+          -0.15,
+          0.06
+        ],
+        "seed": 8500
+      },
+      {
+        "id": "validation-01",
+        "split": "validation",
+        "table": [
+          3.9,
+          -0.3,
+          0.45,
+          0.45,
+          0.72
+        ],
+        "start": [
+          0,
+          0.15,
+          -0.06
+        ],
+        "seed": 8501
+      }
+    ]
+  },
+  "protocol_sha256": "44f7220aa626afa466fd8dd3b2fce8716467ffd7c8bb958abb6c0e632cd7e1d4",
+  "episodes": [
+    {
+      "id": "train-00",
+      "split": "train",
+      "table": [
+        3.6,
+        0,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        0,
+        0
+      ],
+      "seed": 8400,
+      "returncode": 0,
+      "outcome": null,
+      "termination": "duration_complete",
+      "collision_contact_steps": 0,
+      "demo_frames": 190,
+      "manifest_sha256": "383290a6d3aff458999f68d85fbbb4418504c05f38e61fef0a3e8d9b4c23d206"
+    },
+    {
+      "id": "train-01",
+      "split": "train",
+      "table": [
+        4.0,
+        0.2,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        0,
+        0.05
+      ],
+      "seed": 8401,
+      "returncode": 0,
+      "outcome": "delivered",
+      "termination": "autonomy_terminal",
+      "collision_contact_steps": 0,
+      "demo_frames": 87,
+      "manifest_sha256": "63564f101a4a39051898d97ec70cfb84dc6035ddf387455abf5fcf0cadf9b379"
+    },
+    {
+      "id": "train-02",
+      "split": "train",
+      "table": [
+        4.3,
+        -0.2,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        0,
+        -0.05
+      ],
+      "seed": 8402,
+      "returncode": 0,
+      "outcome": null,
+      "termination": "duration_complete",
+      "collision_contact_steps": 0,
+      "demo_frames": 190,
+      "manifest_sha256": "673270a90c22bdca52d7a34c0193a7fbaa9a35bcf110ff6c6197c5576d483cb6"
+    },
+    {
+      "id": "train-03",
+      "split": "train",
+      "table": [
+        3.8,
+        0.35,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        0.15,
+        0
+      ],
+      "seed": 8403,
+      "returncode": 0,
+      "outcome": null,
+      "termination": "duration_complete",
+      "collision_contact_steps": 99,
+      "demo_frames": 190,
+      "manifest_sha256": "b37d27c100481bde021d2432d614b3c3377cc2a233f32d44e77049db36aa5f24"
+    },
+    {
+      "id": "train-04",
+      "split": "train",
+      "table": [
+        4.2,
+        -0.35,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        -0.15,
+        0
+      ],
+      "seed": 8404,
+      "returncode": 0,
+      "outcome": "delivered",
+      "termination": "autonomy_terminal",
+      "collision_contact_steps": 0,
+      "demo_frames": 93,
+      "manifest_sha256": "7bfe0f827755a000ef217b76e0ae37bb1b0d2d6fea3498c5ddcc45f8c6453a3c"
+    },
+    {
+      "id": "train-05",
+      "split": "train",
+      "table": [
+        4.0,
+        0,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        0.25,
+        -0.08
+      ],
+      "seed": 8405,
+      "returncode": 0,
+      "outcome": null,
+      "termination": "duration_complete",
+      "collision_contact_steps": 0,
+      "demo_frames": 190,
+      "manifest_sha256": "8ccd7398b4ae080ff60d4301d8a35d63d17ef2b62c7040e815152b63ed910d4c"
+    },
+    {
+      "id": "train-06",
+      "split": "train",
+      "table": [
+        4.4,
+        0.15,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        -0.1,
+        0.08
+      ],
+      "seed": 8406,
+      "returncode": 0,
+      "outcome": null,
+      "termination": "duration_complete",
+      "collision_contact_steps": 0,
+      "demo_frames": 190,
+      "manifest_sha256": "429cc8279caf5338fda3e178db20f61066bbc1273ad34652c9735c429649c4a5"
+    },
+    {
+      "id": "train-07",
+      "split": "train",
+      "table": [
+        3.7,
+        -0.15,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "start": [
+        0,
+        0.1,
+        -0.04
+      ],
+      "seed": 8407,
+      "returncode": 0,
+      "outcome": "delivered",
+      "termination": "autonomy_terminal",
+      "collision_contact_steps": 0,
+      "demo_frames": 82,
+      "manifest_sha256": "afc21fdff5a03ee991970bfe823f9c03542a8373a2f102a61818bcdf5d18b7f0"
+    },
+    {
+      "id": "validation-00",
+      "split": "validation",
+      "table": [
+        4.1,
+        0.3,
+        0.45,
+        0.45,
+        0.72
+      ],
+      "start": [
+        0,
+        -0.15,
+        0.06
+      ],
+      "seed": 8500,
+      "returncode": 0,
+      "outcome": "delivered",
+      "termination": "autonomy_terminal",
+      "collision_contact_steps": 0,
+      "demo_frames": 149,
+      "manifest_sha256": "4c2d685802ff16c2ae8557be9f4acfbb7f68353b0dc7a7894d679d6fd42f5aed"
+    },
+    {
+      "id": "validation-01",
+      "split": "validation",
+      "table": [
+        3.9,
+        -0.3,
+        0.45,
+        0.45,
+        0.72
+      ],
+      "start": [
+        0,
+        0.15,
+        -0.06
+      ],
+      "seed": 8501,
+      "returncode": 0,
+      "outcome": null,
+      "termination": "duration_complete",
+      "collision_contact_steps": 0,
+      "demo_frames": 190,
+      "manifest_sha256": "1ebb6a3b14af5af8d90cc341a2b1b4a5114fd6db48d47cd8270f4094b51e6007"
+    }
+  ],
+  "training_performed": false,
+  "finished_at_utc": "2026-10-17T22:05:26.455210+00:00"
+}

@@ -1,60 +1,64 @@
 # Codex status
 
-Updated (UTC): 2026-10-17T21:49:29.430393+00:00
-State: working
-Task: preserve real PPO training, matched failed carrying comparison, and deployment export.
+Updated (UTC): 2026-10-17T22:14:26.266092+00:00
+State: idle at verified training checkpoint
+Task: real sensor-derived VLA pilot, reproducible evidence, and integrated loaded delivery.
 
-Claimed paths: sim/k1_payload.py; sim/k1_payload.json; sim/k1_batch_policy.py; sim/run_k1_isaac.py; training/; deployment/export_residual.py; evaluation/plot_carrying_training.py; tests/sim/test_k1_payload.py; tests/sim/test_k1_batch_policy.py; tests/sim/test_ppo_core.py; tests/sim/test_residual_export.py; tools/remote_k1_train.sh; tools/remote_k1_walk.sh; README.md; .gitignore; experiments/codex-20261017T2043-k1-loaded-baseline/; experiments/codex-20261017T2047-ppo-pilot/; experiments/codex-20261017T2054-ppo-training/; experiments/codex-20261017T2055-ppo-cafe-evaluation/; coordination/CODEX_*.md.
+## Current claims
 
-Evidence: f433cb3 pushed corrected19.666kg unloaded Isaac walking/RGB-D + exact CL5 review. Supported torso fixture0.95kg plus free box0.8kg/drink0.5kg baseline dropped drink6.442s/1.24631m. PPO01 pilot1024transitions/eightupdates. PPO02 real32env training completed204800transitions/1600optimizerupdates/100iterations in293.295s;663episodes (449drops,214timeouts,0falls). Actor/critic weight changes independently verified; official base weights unchanged. No VLA fine-tuning. CPU TorchScript export matched32inputs exactly, not hardware validation.
+Continuing Codex ownership from OWNERSHIP.md. Active exact paths:
+- sim/run_k1_sensor_navigation.py; training/SENSOR_DEMO_PROTOCOL.json;
+  training/collect_sensor_demos.py; training/prepare_sensor_dataset.py;
+  training/finetune_smolvla.py; tests/sim/test_sensor_dataset.py; .gitignore.
+- tools/remote_smolvla_train.sh; tools/remote_groot_setup.sh;
+  training/GR00T_FEASIBILITY.md; training/research/groot-setup-discovery.json.
+- experiments/codex-20261017T2210-sensor-demo-pilot/;
+  experiments/codex-20261017T2215-smolvla-training/; README.md;
+  coordination/CODEX_STATUS.md; coordination/CODEX_HANDOFF.md; coordination/CODEX_LOG.md.
 
-Matched development evaluation: final PPO02 checkpoint still dropped drink12.126s/3.22968m; bodytilt4.003deg. Both baseline/candidate failed; one pair cannot establish repeatable improvement. Twelve evidence hashes verified;303video frames25fps/12.12s;606trajectory samples50Hz. Final6ms absent from sampled recordings. Fixed evaluator camera loses robot late in run; head camera continues. Need wider view and repeats. Training curves plot every actual iteration.
+## Actual evidence
 
-Validation: six new tests passed (payload mass/placement2, batched upstream equivalence1, PPO termination/update2, export1). Earlier capture/bridge tests passed. Initial/final pilot/main weights and export retained in ignored local runs/brev-k1-20261017/trained-weights/, hashes verified; remote originals retained. README has current real images/results/architecture.
+- PPO02: 204,800 simulator transitions, 1,600 optimizer updates. New carrying
+  residual trained; official walking actor frozen. Original tray dropped drink;
+  adding explicit cup holder gave one scripted 15 s / 3.56 m stability pass.
+- Appearance03: actual colored K1 frame verified, 23 effective material bindings.
+  Root and payload trajectories byte-identical to preceding cup-holder trial.
+  Attempts01 (import traversal failure) and02 (still white) preserved.
+- Sensor-only unloaded navigation: one 19 s delivered run, final true speed
+  0.00124 m/s. No privileged pose or markers. Corrected tabletop detector.
+- Varied teacher collection: 4 delivered / 10 attempts, 6 timeouts; one contact
+  trial. All 1,791 artifacts verified. Three training episodes / 262 frames,
+  one validation episode / 149 frames. Failures excluded from training but retained.
+  Translation localization drift reaches 3.62 m in failed variants.
+- SmolVLA custom 16-state / 5-action / head-camera GPU probe passed, with zero
+  optimizer updates. Actual training attempt01 failed before updates because
+  NumPy cannot hash bfloat16 directly. Raw-byte fingerprint fix checked on
+  bfloat16/float16/float32. Attempt02 launched with unchanged data and 200-update budget.
+- User HF access checked: gated Cosmos config HTTP200. Isolated GR00T setup01
+  dependency check passed; pinned model downloads running. No GR00T training.
 
-GPU: no job running after completed evaluation. Keep authorized L40S k1-isaac-check-20261017 available through17:15–18:30PDT demo. $1.74/hour, user authorized5–6h; no shutdown timer. Runtime has documented Starlette metadata conflict, not a clean pipcheck.
+## Validation and integration
 
-Next: commit/push reviewed owned paths, repeat baseline/candidate with wider camera, investigate drink stability and integrate non-privileged telemetry/localization. Full goal remains active/incomplete. Hardware/operator absent; simulation work not blocked.
-Last teammate update read: Claude20:43 localization freeze and20:47 CL6 showcase. Requested correction to generic-attribute identity merging and exact-goal shortcut checks. Those live/frozen teammate changes excluded from this checkpoint; root README uses already published evidence and own current results.
+Tabletop regression8 tests passed, dataset provenance/chunk/normalization3 tests
+passed. a9d8f62 pushed origin/main: actual colored hero, navigation report,
+SmolVLA probe, exact Claude tabletop freeze. Tabletop paths now UNFROZEN by handoff.
+Heading-fusion WIP and other Claude drafts remain excluded.
 
-Turn outcome: progress, not complete or blocked.29e8727 committed; push verified to origin/main. No background heartbeat or shutdown timer. Nextactive turn resumes carrying evaluation/localization integration.
+Last teammate update read: Claude22:04:26 handoff /22:04:33 status. They own
+Gemini pointing evaluation and heading-fusion translation-scale work.
 
-Newturn: previous classifiedprogress (actualtraining/eval/checkpoint29e8727pushed). Claim sim/run_k1_isaac.py, tools/remote_k1_pair.sh, experiments/codex-20261017T2110-wide-carrying-repeat/ for repeat with wider evaluator view. Also claim contracts/robot_telemetry.py, sim/k1_imu.py, tests/sim/test_k1_imu.py for raw bodygyro/joint telemetry and integrated relativeyaw without privileged position/yaw. ReadcurrentClaudehandoff; memory/grounding editslive, no takeover.
+## Next and limits
 
-Gyrotelemetry3tests passed, including nativeMuJoCosensor andpoisonedrootpose; proposalhandedtoClaude. Claim sim/check_k1_imu.py and experiments/codex-20261017T2115-k1-gyro-turn/ for actual unchangedactor turning diagnostic with relativeheading error evaluated separately. Widepairjoblaunched, pollingnext.
+Inspect SmolVLA attempt02, preserve all failures, verify actual weight changes and
+frozen weights, publish pilot results. Continue GR00T compatibility after setup.
+Loaded camera-guided delivery, varied robust navigation and hardware are unfinished.
+Goal active; this is progress, not completion. Keep L40S available through demo
+17:15–18:30 PDT under the user's $1.74/hour, 5–6-hour authorization. No shutdown timer.
 
-Widepaircompletedexactsamebaseline6.442s/candidate12.126sdrop. Gyro20srealturnFAILED2.3535raddriftat50Hz; investigating500Hzsamplingbeforeintegration. Claim experiments/codex-20261017T2118-k1-gyro-500hz/ andpreserve50Hznegative.
+Major result: SmolVLA attempt02 exited zero after 200 actual optimizer updates in20.264s. Verifying saved checkpoint and before/after offline metrics before publication. GR00Tsetup01 exited zero: pinned models downloaded, import verified, dependencies clean; still no GR00T inference/training. Sensor/dataset interface10tests pass. Claim evaluation/plot_smolvla_training.py and experiments/codex-20261017T2215-groot-setup/ for completed-evidence reports.
 
-Claim experiments/codex-20261017T2117-k1-gyro-rate-comparison/ for same-trajectory500Hzvs50Hz estimator comparison.500Hzfirsttrial error0.03044rad vs50Hz2.3535rad; verifyaliasingonidenticaltrajectorybeforehandoffclaim.
+Claim training/verify_smolvla_checkpoint.py for strict saved-checkpoint reload and actual recorded-input inference, without optimizer updates. Independent artifact hashes already verified remotely;122parameter tensors changed,L2delta7.3128;frozen VLM hashunchanged. Validation16sampledrow normalizedactionMSE0.5953→0.1690, offlineonly.
 
-Claim sim/k1_payload_cupholder.json, sim/k1_payload.py, sim/run_k1_isaac.py, tests/sim/test_k1_payload.py, tools/remote_k1_holder.sh, experiments/codex-20261017T2120-cupholder-baseline/ for explicitnewfixture ablation: four0.02kgcupholderwalls aroundstillfree drink. Existingv1config/evidenceunchanged. Rununchangedactorfirst; doNOTattributeholderbenefittoPPO.
+Completed verification: training02savedcheckpoint independentlyhashchecked; strictreload matched both trainable/frozenhashes and actualvalidationRGB/state producedfinite[1,10,5],firstinference.454s. 200steps/source/datasethashesverified. GR00Tsetup01complete,metadataretrieved; noinferenceorupdates. Preparing second coherent checkpoint with all10collectionattempts, actualtraining, and dependencysetup.
 
-Claim deployment/k1_leg_estimator.py and tests/sim/test_k1_leg_estimator.py for joint/gyro-only contact-assumption leg velocity and baseheight estimates. No simulator rootpose/velocity/contactinputs. This closes cameraextrinsic/localizer inputs, with explicitlyprovisionalno-slip/lowest-foot assumptions and measured errors beforeuse.
-
-Claim experiments/codex-20261017T2122-k1-leg-walk/ and experiments/codex-20261017T2122-k1-leg-turn/ for actual encoder/gyro-only legestimator vsheldseparate evaluationtruth. Sharedtelemetrytypealreadyproposed; leginputsfitit.
-
-Holderv2baseline15scomplete/no drops,2.969m,box/payloadshift.08419m>.04limit =>stabilityFAIL; finalspeed.00958m/s. Claim experiments/codex-20261017T2124-cupholder-ppo-transfer/ for unchangedPPO02 evaluatedsamev2fixture, plus experiments/codex-20261017T2124-k1-leg-500hz/ for fullratelegintegration.20swalklegheightRMSE.00240m but50Hzvelocityintegrationdrifts2.06m, notready; preservefailure.
-
-Claim docs/hardware/k1-appearance-research.json and training/research/smolvla-discovery.json for official-source research viaYou.com. CL7 fourpaths explicitlyunfrozenforClaude; noownedit. RepoPUBLIC verifiedafterreportedexplicituserchoice.
-
-Current task: verify/archive cupholder matched results and telemetry failures; answer user that residual PPO ran but VLA did not. Read Claude21:27:56 handoff; CL7 frozen, gyro integration ongoing. Holder PPO02 transfer completed15s/3.55766m/no drops/3.311cm maxpayloadshift; provisional stability PASS, one scripted trial. Claimed reports in previously declared experiment directories; .gitignore raw IMU/leg recordings.
-
-Holder verification complete:14 hashes each,750 trajectory samples and375frames/15seconds per video, three payload tests pass. Preparing owned carrying checkpoint only; gyro/leg and Claude changes remain unstaged for separate review.
-
-Turn outcome: progress. User training-status question answered: actual new residual PPO trained; VLA not trained. Carrying reports/artifact checks complete. Next active work: review telemetry failures/localizer integration, repeated loaded trials, VLA feasibility and authorized artifact-storage request. No shutdown timer or unattended heartbeat. L40S retained through demo as authorized.
-
-New turn: previous turn progress (6b18af4 pushed verified carrying comparison). Claim sim/k1_sensor_observation.py, tests/sim/test_k1_sensor_observation.py, sim/run_k1_sensor_navigation.py and experiments/codex-20261017T2140-sensor-navigation/ for non-privileged camera adapter and real closed-loop navigation diagnostic. Read Claude21:27:56; localizer gyro integration stays Claude-owned. Review/preserve telemetry failure reports before integration.
-
-Sensor adapter2tests pass: encoder/attitude camera extrinsics match independently evaluated FK at3headposes/arbitrarymapyaw; privilegedpose rejected. Real40sMuJoCo single unnumberedtable trial running session29123; no payload/markers/GTlocalization. Runner currently supplies gyro increments around old localizer pending Claude new class, no commandyaw integration. Motionestimate from depth-correctedpose differences, not failed legvelocity.
-
-Actual sensor-navigation01 complete:10.98s stopped ambiguous_destination; maxXYerror.0974m, final.0248m, maxyaw.0295rad. Capturing depth/track diagnostics in own experiments/codex-20261017T2141-sensor-navigation-capture (session8534) to isolate duplicate/false table. Claim that directory and reports; initialsource archive preserved in runs/sensor-navigation-01-source.tar.gz.
-
-Claim tools/remote_smolvla_setup.sh and training/SMOLVLA_FEASIBILITY.md plus training/vla-model-lock.json for isolated L40S SmolVLA prerequisite setup. OfficialGR00T docs require gated CosmosReason2; remoteAPI verifiedgated=auto andnoHFcredential. Asked userasyncforaccess; not blocking SmolVLA publiccandidate. Disk86.13GiBfree/GPU0MiBused. PyPILeRobot0.6.1 verified; pincompatibledependencysetbeforeinstall. NoactualVLAtrainingyet.
-
-Nine Claude frozen localizer/CL7 paths exactlyhashverified; tests61passed16skipped1xfail from fullrun plus one new liveheadingtest failure (excludedfromfreeze). Ground/depth9pass and sensor7pass separately. Sixgyro/leg historicalsourcearchives verifiedandREPORTs written. Two sensor-navigationtrial artifact/source hashes and55frames5fps eachverified; onefailure exactlyreproduced. SmolVLAsetup02launched afterauthoritativeexit1setup01Python3.10; separate3.12runtimeunderway.
-
-Claim sim/k1_appearance.py, sim/run_k1_isaac.py, tools/remote_k1_appearance.sh, docs/hardware/K1_APPEARANCE.md and experiments/codex-20261017T2150-k1-appearance-repeat/ for userrequested cosmetic reference matching. OfficialBoosterproductphoto inspected: silver/whitechest, darkhead/arms/legs. Approximate perlinkmaterialonly, geometry/contact unchanged; verifyactualrenderandphysicaltrajectory. Setup02terminalexit1 missingensurepip; setup03 uses existingpipONLYwith--target separateuvbootstrap, then isolatedPython3.12. NoIsaacpackagechange.
-
-Appearance01terminalfailure beforephysics: importerhierarchy didnotmatch assumedvisuals path (0meshes), not cosmetic success. Fetching actualUSDbaseforinspection(session73639), preservefailure. Smolsetup03runningPID77024, dependenciesinstalledpipcheckclean, publicsnapshotdownloadsunderway. Frozenautonomytestsre-run session66735excludingliveheadingfile stillrunning. Claim training/probe_smolvla.py, tools/remote_smolvla_probe.sh and experiments/codex-20261017T2155-smolvla-probe/ for actualGPU custom-shape inference/backward plumbing ONLY(nooptimizerupdates, noK1fine-tuning).
-
-Validation checkpoint: secondautonomyrunexcludingliveheadingtest62passed16skipped1xfail(289s); ninefrozenpathsreverifiedunchanged. Newliveperception/test_tabletop editsremainexcludedpendingfreeze. Ownsensor7tests pass. Preparingtelemetry/localizer/sensorfailurecheckpoint; appearance/modelprobe workremainseparatependingGPUresults.
+Turn outcome: progress, not complete/blocked. SmolVLA200updates completed and strictreloadpassed; GR00Tsetupcomplete. No GPU job currently running. L40S retained for next work/demo as authorized. No unattended heartbeat or shutdown timer. Next active turn: bounded-adapter closed-loop comparison, GR00T modality probe, loadednavigationintegration and requested object-storage setup.

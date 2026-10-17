@@ -34,12 +34,12 @@ BOUNDS = (-1., -3., 7., 4.)
 TABLE = (4., 0., .4, .5, .75)
 
 
-def scene_and_map():
+def scene_and_map(table=TABLE):
     spec = sensor_spec(MODEL)
     wb = spec.worldbody
     wb.add_light(pos=[2, 0, 4], dir=[0, 0, -1], diffuse=[.7, .7, .7])
     x0, y0, x1, y1 = BOUNDS
-    objects = [(TABLE[0], TABLE[1], TABLE[2], TABLE[3], TABLE[4])]
+    objects = [tuple(table)]
     # Physical walls match the supplied floor plan; no fictitious boundary hits.
     objects += [((x0+x1)/2, y0, (x1-x0)/2, .05, 2.),
                 ((x0+x1)/2, y1, (x1-x0)/2, .05, 2.),
@@ -57,16 +57,22 @@ def scene_and_map():
 
 
 class SensorController(ScriptedCommandController):
-    def __init__(self, cfg, spec):
+    def __init__(self, cfg, spec, start=(0.,0.,0.), seed=8201):
         super().__init__(cfg)
         initial = self.mj_data.qpos.copy()
         self.mj_model = spec.compile(); self.mj_model.opt.timestep = cfg.mujoco.physics_dt
         self.mj_data = mujoco.MjData(self.mj_model)
         self.mj_data.qpos[:] = initial
+        self.mj_data.qpos[:2] = start[:2]
+        self.mj_data.qpos[3:7] = [np.cos(start[2]/2),0,0,np.sin(start[2]/2)]
+        self.room_geom_ids = {i for i in range(self.mj_model.ngeom)
+            if (mujoco.mj_id2name(self.mj_model,mujoco.mjtObj.mjOBJ_GEOM,i) or "").startswith("room_object_")}
+        self.collision_pairs = set()
+        self.collision_contact_steps = 0
         mujoco.mj_forward(self.mj_model, self.mj_data)
         self._ghost_mj_data = mujoco.MjData(self.mj_model)
         self.imu = MujocoHeadingAdapter(self.mj_model, cfg.robot.joint_names,
-                                       noise_std_rad_s=.005, bias_rad_s=(0,0,.0015), seed=8201)
+                                       noise_std_rad_s=.005, bias_rad_s=(0,0,.0015), seed=seed)
         self.imu.sample(self.mj_data)
 
     def ctrl_step(self, targets):
@@ -78,45 +84,61 @@ class SensorController(ScriptedCommandController):
             mujoco.mj_step(self.mj_model, data)
             mujoco.mj_forward(self.mj_model, data)
             self.imu.sample(data)
+            hit = False
+            for contact in data.contact:
+                pair = tuple(sorted((int(contact.geom1),int(contact.geom2))))
+                if contact.dist < 0 and bool(set(pair) & self.room_geom_ids) and not set(pair) <= self.room_geom_ids:
+                    self.collision_pairs.add(pair); hit = True
+            self.collision_contact_steps += int(hit)
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--output', type=Path, required=True)
     ap.add_argument('--duration', type=float, default=40.)
+    ap.add_argument('--table', type=float, nargs=5, default=TABLE, metavar=('X','Y','HX','HY','HEIGHT'))
+    ap.add_argument('--start', type=float, nargs=3, default=(0.,0.,0.))
+    ap.add_argument('--seed', type=int, default=8201)
+    ap.add_argument('--record-demo', action='store_true')
     args = ap.parse_args(); out = args.output.resolve(); out.mkdir(parents=True, exist_ok=False)
     report = dict(status='started', started_at_utc=datetime.now(timezone.utc).isoformat(),
         evidence_kind='mujoco_sensor_estimated_navigation_development', payload_present=False,
         markers_present=False, training_performed=False, hardware_verified=False,
         navigation_privileged_inputs=[], evaluation_only=['world pose', 'root speed', 'body tilt'],
-        prior='operator floor plan with geometry only; initial pose(0,0,0), sigma(.1,.1,.05)',
+        prior={'source':'operator floor plan and initial pose', 'initial_pose':args.start, 'sigma':[.1,.1,.05]},
         assumptions=['level initial attitude', 'flat floor', 'stance foot for height', 'ideal encoders',
                      'gyro noise .005rad/s and z bias .0015rad/s', 'camera FOV58deg'],
         protocol=dict(duration_s=args.duration, camera_hz=5, policy_hz=50, physics_hz=500,
-                      payload='none', destination='single unnumbered table', seed=8201),
+                      payload='none', destination='single unnumbered table', seed=args.seed,
+                      table=args.table,start=args.start,record_demo=args.record_demo),
         limits=['development trial, not held-out', 'linear prediction uses commanded velocity',
                 'scan matching must constrain drift', 'no payload or VLA', 'not hardware tested'])
     files = ['sim/run_k1_sensor_navigation.py','sim/k1_sensor_observation.py','sim/k1_imu.py',
              'sim/k1_observation.py','contracts/robot_telemetry.py','deployment/k1_leg_estimator.py',
              'perception/k1_camera.py','perception/tabletop.py','navigation/localization.py',
              'autonomy/session.py','autonomy/executive.py','navigation/follower.py',
-             'navigation/planner.py','navigation/search.py','memory/scene_memory.py']
+             'navigation/planner.py','navigation/search.py','memory/scene_memory.py',
+             'vla/inputs.py','vla/recorder.py','vla/action_space.py']
     report['source_hashes'] = {f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files}
     (out/'manifest.json').write_text(json.dumps(report,indent=2))
     torch.set_num_threads(1); torch.manual_seed(0)
     cfg = K1WalkTaskCfg(); cfg.mujoco.log_states = None
     cfg.policy.checkpoint_path = str(DEPLOY/'tasks/locomotion/robots/k1/models/k1_walk.pt')
     report['checkpoint_sha256'] = hashlib.sha256(Path(cfg.policy.checkpoint_path).read_bytes()).hexdigest()
-    spec, grid = scene_and_map(); ctrl = SensorController(cfg,spec)
+    spec, grid = scene_and_map(args.table); ctrl = SensorController(cfg,spec,args.start,args.seed)
     model,data = ctrl.mj_model,ctrl.mj_data
     adapter = SensorObservationAdapter(model, MODEL)
     evaluator = mujoco.Renderer(model,height=480,width=640)
-    localizer = ScanMatchLocalizer(grid, Pose2D(0.,0.,0.), max_points=200)
+    localizer = ScanMatchLocalizer(grid, Pose2D(*args.start), max_points=200)
     task = DeliveryTask('deliver the pizza and drink to the table',
                         parse_instruction('deliver the pizza and drink to the table'), 0., args.duration)
-    session = AutonomySession(task,grid,TabletopDetector(),[Region('dining',(3.3,0.),2.,('dining',))],
+    session = AutonomySession(task,grid,TabletopDetector(),[Region('dining',((BOUNDS[0]+BOUNDS[2])/2,(BOUNDS[1]+BOUNDS[3])/2),3.,('dining',))],
         config=ExecutiveConfig(final_speed=.35, approach_speed=.35, search_speed=.35),
         limits=FollowerLimits(min_walk_cmd=.35,final_accel=.25),deployable=True)
+    from vla.recorder import DemoRecorder
+    recorder = DemoRecorder(out.name, {"source":"mujoco", "detector":"RGB-D tabletop",
+        "privileged_inputs":[], "initial_pose_prior":args.start, "floor_plan":"operator supplied",
+        "payload_present":False}) if args.record_demo else None
     import imageio.v2 as iio
     videos={name:iio.get_writer(str(out/(name+'.mp4')),fps=5,codec='libx264')
             for name in ['evaluator','robot_camera']}
@@ -166,6 +188,9 @@ def main():
             command=np.array(session.tick(obs,t,cfg.policy_dt)) if t>=2. else np.zeros(3)
             if obs is not None:
                 observations[-1]['tracks']=session.executive.memory.summary()
+                if recorder is not None and session.cmd is not None:
+                    recorder.record(obs,session.executive,session.cmd,
+                                    image_ref=f'rgbd-{len(frame_times)-1:04d}.npz')
             ctrl.vel_command.lin_vel_x,ctrl.vel_command.lin_vel_y,ctrl.vel_command.ang_vel_yaw=command
             ctrl.update_state(); target=ctrl.policy_step()
             if not ctrl.is_running:termination='upstream_fall_fallback';break
@@ -201,6 +226,14 @@ def main():
                           final_true_xy=a[-1,1:3].tolist())
         np.savetxt(out/'frame_times.csv',frame_times,delimiter=',',header='sim_time_s',comments='')
         (out/'localization.json').write_text(json.dumps(observations,indent=2))
+        report['collision_contact_steps'] = ctrl.collision_contact_steps
+        report['collision_geom_pairs'] = [list(p) for p in sorted(ctrl.collision_pairs)]
+        report['collision_scope'] = 'room-object vs robot contacts at 500Hz; no self-contact scoring'
+        if recorder is not None:
+            recorder.finish(out/'demonstrations', report.get('outcome') or report.get('termination','failed'))
+            report['demo_frames'] = len(recorder.rows)
+            report['demo_files'] = {p.name:hashlib.sha256(p.read_bytes()).hexdigest()
+                                   for p in (out/'demonstrations').iterdir() if p.is_file()}
         report.update(simulated_seconds=float(data.time),wall_seconds=time.monotonic()-started,
                       video_fps=5,video_frames=len(frame_times),
                       finished_at_utc=datetime.now(timezone.utc).isoformat())

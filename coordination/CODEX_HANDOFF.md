@@ -270,3 +270,33 @@ Rerun with RGBD preserved exactly reproduces failure. At9.6s estimatedpose(1.649
 Full autonomy run collected your live new heading_fusion test before xfail marker was added:61passed16skipped1xfail1failed(heading_fusionNO_PATH),212s. Existing frozen grounding/depth9tests pass separately. I will exclude live heading_fusion from freeze checkpoint untilready. Newreal sensor-navigation failure is falsewalltable, notyaw. Sensoradapter/IMU/leg7tests pass.
 
 GR00T upstream README nowGA andrequires40GB+finetune; actualHFmodelcardstillEA/OpenModelLicense vsrepoApachetextconflict remains. RequiredCosmosReason2backbone APIverifiedgated=auto,noHFcredentials localorremote; useraskedasyncforaccess. PublicSmolVLA+backbone exactHF revisionspinned. Isolatedsetup01 correctlystoppedbecauseVMsystemPython3.10;setup02 provisions ownPython3.12.12withuv inisolatedbootstrap. NoIsaacenvmutation.
+
+## 2026-10-17T21:50:02.093409+00:00 — checkpoint0173eea / release frozen paths
+
+Committed reviewed ninefrozen paths (autonomy/executive,memory/scene_memory,navigation/{localization,planner,search},tests/autonomy/{test_localization,test_depth_obstacles,test_grounding,test_scenarios}) exactlyperhash. Thosepathsare UNFROZEN foryourcontinuedwork. Owntelemetry/gyro/legheight/cameraadapter/actualsensortrialreportsincluded. Broadtests excludingyourliveheadingWIP62passed16skipped1xfail; ownsensor7pass. Liveperception/tabletop andheading_fusion excludedpendingyourfreeze.
+
+SmolVLAisolatedsetup03completedexit0, dependenciescleanandpublicmodel/backbone pinned/downloaded; customshapeGPUinference/backwardprobequeuedwithNOoptimizerstep. Notactualfinetuningyet. Appearance01failedinstanceproxytraversal; actualUSDinspectedand23meshcolorassignmentsverifiedlocally. Appearance02renderedrepeat running withonlyvisualsubtree deinstancing/materialchanges.
+
+## 2026-10-17T21:51:43.364968+00:00 — actual sensor-navigation SUCCESS with your current tabletop patch
+
+Readonly runagainstcurrentperception/tabletop.py hash1399a2071d4e7411b162c00c7fa4f4fef9b237ba1cfd7dfafabf65a5b202379f completed19s, executiveDELIVERED. Actualtrueposition(3.059705,-.055795), tablefront3.6 =>edge0.540295m; truefinalspeed.001236m/s. MaxXYerror.097408m, final.048138m, yawmax.029523rad; peaktilt4.274765deg. No payload, no markers, estimatedpose/gyro/jointcameraextrinsics; operatorgeometricmap/startprior. Evidence experiments/codex-20261017T2152-sensor-navigation-surface-fix. Sourcehashesstillmatchworktreeandarchivedruns/sensor-navigation-surface-fix-source.tar.gz. Pleasefreeze tabletop/test_tabletop afteryourtests; we canintegratewithrealtrial. Needvariedstarts/layouts andloadednavnext.
+
+SmolVLAactualL40Sprobe PASSED strictload450Mparams, custom16state5action1camera10chunk; warmed.136s/inference, finitebackwardgrad1.458GBpeak, ZEROoptimizersteps/synthetictensorsonly. Appearance02completed15s identical3.5576558mphysicaloutcome/stabilityPASS; renderingretrievalunderway.
+
+## 2026-10-17T21:58:30.581483+00:00 — SmolVLA probe passed; demo collection starting
+
+User chose public SmolVLA preparation while they configure GR00T access. GPU custom16state/5action/headcamera probe passed, zero optimizer updates. Starting sensor-only teacher recording through your existing vla/inputs.py and recorder.py (readonly); own sim/training paths only. Actual19s unloaded success/report available in experiments/codex-20261017T2152-sensor-navigation-surface-fix. Please freeze the tested tabletop fix (1399a207...) and its regression test when ready; still excluded from staging. Do not freeze heading WIP until ready.
+
+## 2026-10-17T22:06:42.012207+00:00 — CL-9 received; tabletop accepted for checkpoint
+
+Reviewed exact1399a207 tabletop andaf2157d5test freeze; independently8tabletoptests passed including actualcapture regression. Appearance02 was stillwhite despite bindings; caught visually. Appearance03 nowcorrectdarkhead/limbs,lightchest;23effectivebindingsasserted,actualframeinspected,root/payloadCSVsbyte-identical. READMEheroalreadyupdatedandcheckpointpreparing. UserHFcredential nowconfigured; gatedCosmosconfigHTTP200;isolatedGR00Tprerequisitesrunning. SmolVLA200updatepilotlaunching from3sensor-onlysuccessfultrain episodes262frames and1validation149frames; frozen10attemptcollectionhad4DELIVERED/6timeouts,onecontact. Badtranslationdriftup to3.62m retained; no robustnessclaim. See runs/sensor-demos-01/collection.json and source snapshot.
+
+## 2026-10-17T22:07:42.331417+00:00 — a9d8f62 tabletop/material/probe checkpoint committed
+
+Your exact two frozen tabletop paths committed in a9d8f62. UNFROZEN now. README has actualAppearance03coloredhero and sensor19s/probe rows. No heading WIP staged. Latest demo collection4/10executivedelivered,6timeouts,onecontact; source/data/manifestsunder runs/sensor-demos-01 and experiments/codex-20261017T2210-sensor-demo-pilot. Three successful trainingepisodes262frames; one validation149frames. All finaltruepositions/speeds of these4 independently inspected near intendedtable; finalposeerror2.1–6.4cm. ActualSmol200updatejobnowlaunched.
+
+## 2026-10-17T22:13:42.489284+00:00 — Actual SmolVLA fine-tuning completed; GR00T downloaded
+
+SmolVLA attempt02 completed200optimizerupdates on3sensor-onlytrainingepisodes262frames; validation1episode149frames.122parameter tensors changed,L2delta7.3128,frozenVLMhashunchanged.20.264sactualupdates,45.838stotal,2.089GBpeakallocated.16sampledvalidationrow actionMSE0.5953→0.1690,offlineonly. Separate strict saved-checkpoint reload matchedhashes andproducedfinite[1,10,5] fromrealvalidationframe. NoVLAclosed-loopdeliveryyet. Reportsin experiments/codex-20261017T2215-smolvla-training/; checkpointremoteevidence/smolvla-train-02/policy/model.safetensors SHAca7e0eb430bc5896ee0639a880a3cef05f4fb0a684bb72a7c4f57ecce1907f53. Failedattempt01zero-updatespreserved.
+
+GR00TandgatedCosmossnapshotsdownloaded; isolateduvlockinstall/import/pipcheckpass. NoGROOTinferenceortrainingyet. Usercredentialstaysignored. Next: custommodalityprobe and learnedVLAthroughboundedadapter; navigationtranslationdriftstillmajorlimitation.

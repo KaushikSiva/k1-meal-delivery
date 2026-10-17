@@ -1,0 +1,17 @@
+{
+  "status": "strict_reload_and_recorded_input_passed",
+  "checked_at_utc": "2026-10-17T22:11:31.885394+00:00",
+  "source_sha256": "f7ce86b7bd00124f1856d8e9cd91c50085c694a6c67255249bdfb6054743e5ba",
+  "training_performed": false,
+  "checkpoint_trainable_and_frozen_hashes_match": true,
+  "episode": "validation-00",
+  "frame": 0,
+  "inference_seconds": 0.453658173999429,
+  "output_shape": [
+    1,
+    10,
+    5
+  ],
+  "finite": true,
+  "robot_actuated": false
+}
