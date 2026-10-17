@@ -98,4 +98,3 @@ class DepthObstacleLayer:
 
     def apply_to(self, navigator) -> bool:
         return navigator.set_dynamic_obstacles(self.occupied)
-

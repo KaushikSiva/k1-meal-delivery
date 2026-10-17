@@ -1,0 +1,35 @@
+{
+  "finished_at_utc": "2026-10-17T20:09:11+00:00",
+  "evidence_kind": "mujoco_privileged_diagnostic_autonomy_trial",
+  "privileged_inputs": [
+    "map_pose(sim_gt)",
+    "base_attitude_height",
+    "base_twist",
+    "floor_plan_furniture_footprints"
+  ],
+  "perception": "TabletopDetector(depth) + PlacardReader(RGB, restricted placard diagnostic)",
+  "payload_present": false,
+  "instruction": "deliver the pizza and drink to table 3",
+  "deadband_compensation": 0.3,
+  "termination": "autonomy_terminal",
+  "outcome": "delivered",
+  "sim_time_s": 23.239999999998,
+  "wall_s": 9.38448120799876,
+  "final_xy": [
+    3.1359254967532517,
+    -0.0356950172720392
+  ],
+  "dist_to_table3_edge_m": 0.46407450324674837,
+  "max_tilt_deg": 6.968247012956329,
+  "events": [
+    "6.2 search: search -> verify",
+    "7.0 verify: verify table#0: confirmed",
+    "7.0 verify: verify -> search",
+    "7.0 search: search -> approach",
+    "13.4 approach: approach -> final_approach",
+    "17.4 final_approach: final_approach -> settle",
+    "21.2 settle: settle -> done",
+    "21.2 done: delivered at table#0: pos_err=0.082 m yaw_err=0.006 rad speed=0.002"
+  ],
+  "checkpoint_sha256": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5"
+}
