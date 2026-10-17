@@ -1,0 +1,36 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:23:43+00:00",
+  "query": "Booster K1 humanoid official robot product photos",
+  "include_domains": [
+    "booster.tech"
+  ],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Booster K1 | Introductory Embodied Development Platform",
+      "url": "https://www.booster.tech/booster-k1/",
+      "description": "Booster K1, introductory embodied AI platform. RoboCup 2025 champion robot.",
+      "snippets": []
+    },
+    {
+      "title": "Booster Robotics Official Website | Made for Developers | Made ...",
+      "url": "https://www.booster.tech/",
+      "description": "Booster Robotics hopes to promote productivity change by creating humanoid robot products and uniting global developers.",
+      "snippets": [
+        "Booster K1 · RoboCup 2025 Champion Edition · Buy Now Learn More · Flagship Embodied Development Platform · Learn More · Introductory Embodied Development Platform · Learn More · Your browser does not support the video tag. Humanoid Robots · Buy Now Learn More ·",
+        "In the competition of the IEEE-RAS Humanoids conference, Booster Robotics won the first place in both the racing competition and the obstacle avoidance and door opening competition."
+      ]
+    },
+    {
+      "title": "Official Open Source | Booster Robotics",
+      "url": "https://www.booster.tech/open-source/",
+      "description": "Explore and contribute to innovative open-source projects from Booster Robotics.",
+      "snippets": [
+        "Booster Robot is a humanoid robot development platform for developers and general users. It combines lightweight design, flexibility, and toughness, making it highly resistant to falls. T1 Manual K1 Manual · Booster Robotics SDK is an integration development suite used to support secondary development based on Booster robots.",
+        "Booster robot models and data repository."
+      ]
+    }
+  ]
+}

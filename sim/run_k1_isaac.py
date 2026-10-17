@@ -20,6 +20,7 @@ parser.add_argument('--loaded', action='store_true', help='Explicit supported tr
 parser.add_argument('--residual-checkpoint', type=Path, help='Trusted project-trained residual checkpoint for evaluation')
 parser.add_argument('--wide-evaluator', action='store_true', help='Wider fixed view covering the full straight route')
 parser.add_argument('--payload-config', type=Path, default=ROOT/'sim/k1_payload.json')
+parser.add_argument('--reference-colors', action='store_true', help='Approximate official-photo surface colors only')
 args = parser.parse_args()
 assert 5 <= args.duration <= 60 and 0 <= args.speed <= .5
 assert args.residual_checkpoint is None or args.loaded, 'Residual evaluation requires declared supported payload'
@@ -90,6 +91,10 @@ try:
             damping={n:float(v['damping']) for n,v in joints.items()},
             effort_limit_sim={n:float(v['effort_limit']) for n,v in joints.items()})})
     robot = Articulation(cfg)
+    if args.reference_colors:
+        from sim.k1_appearance import apply_k1_appearance
+        report['appearance']=apply_k1_appearance(sim.stage)
+        report['source_hashes']['sim/k1_appearance.py']=hashlib.sha256((ROOT/'sim/k1_appearance.py').read_bytes()).hexdigest()
     payload=spawn_payload((1.,0.,.6),payload_config) if args.loaded else {}
     evaluator_position=[5.5,-3.2,2.0] if args.wide_evaluator else [3.2,-2.0,1.45]
     evaluator_angles=[0,18,133] if args.wide_evaluator else [0,15,138]

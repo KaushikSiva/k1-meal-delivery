@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-10-17T21:37:37.665801+00:00",
+  "models": {
+    "lerobot/smolvla_base": {
+      "revision": "5e8d12a6e2975b0e5e5fce7c8caf47c371d257b6",
+      "gated": false,
+      "source": "https://huggingface.co/lerobot/smolvla_base",
+      "license_metadata": "apache-2.0"
+    },
+    "HuggingFaceTB/SmolVLM2-500M-Video-Instruct": {
+      "revision": "7b375e1b73b11138ff12fe22c8f2822d8fe03467",
+      "gated": false,
+      "source": "https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct",
+      "license_metadata": "apache-2.0"
+    },
+    "nvidia/GR00T-N1.7-3B": {
+      "revision": "2fc962b973bccdd5d8ce4f67cc63b264d6886495",
+      "gated": false,
+      "source": "https://huggingface.co/nvidia/GR00T-N1.7-3B",
+      "license_metadata": null
+    },
+    "nvidia/Cosmos-Reason2-2B": {
+      "revision": "9ce19a195e423419c349abfc86fd07178b230561",
+      "gated": "auto",
+      "source": "https://huggingface.co/nvidia/Cosmos-Reason2-2B",
+      "license_metadata": "other"
+    }
+  }
+}

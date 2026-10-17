@@ -1,0 +1,14 @@
+{
+  "scope": "post-run evaluator summaries; no additional success criterion",
+  "source_sha256": "553c0c747ea99167bd40f1b1245192cd64be4700848c035bfbcc2be86db2ec66",
+  "trajectory_sha256": "b0712aa445550c3d4f66bf4b9e2014adc099ed87f3658be28ee1ea391d7a21cb",
+  "samples": 951,
+  "last_sample_time_s": 19.000000000000348,
+  "final_distance_to_table_edge_m": 0.5402945841079312,
+  "last_1p5s_max_true_xy_speed_m_s": 0.012997327709545446,
+  "last_1p5s_net_xy_drift_m": 0.005584216131524688,
+  "collision_count": null,
+  "collision_count_reason": "not instrumented in these historical trials",
+  "payload_present": false,
+  "hardware_verified": false
+}

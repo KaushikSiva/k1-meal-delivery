@@ -1,0 +1,104 @@
+{
+  "started_at_utc": "2026-10-17T21:45:00.456441+00:00",
+  "training_performed": false,
+  "purpose": "isolated dependency import and public pretrained snapshot download",
+  "torch": "2.9.0+cu128",
+  "cuda": "12.8",
+  "gpu": "NVIDIA L40S",
+  "models": {
+    "lerobot/smolvla_base": {
+      "revision": "5e8d12a6e2975b0e5e5fce7c8caf47c371d257b6",
+      "local_path": "/home/ubuntu/workspace/k1-runtime/models/smolvla_base",
+      "artifacts": {
+        "model.safetensors": {
+          "bytes": 906712520,
+          "sha256": "7cd549ac2351fb069c0ddb3c34ad2d09cfc92b56a15dccdfc2e41467aaca01eb"
+        },
+        "policy_preprocessor_step_5_normalizer_processor.safetensors": {
+          "bytes": 640,
+          "sha256": "490ab239d96e263687c0b2e386a0afbc235a2eceb9857c36ed32f2f162a3e7c8"
+        },
+        "policy_postprocessor_step_0_unnormalizer_processor.safetensors": {
+          "bytes": 640,
+          "sha256": "490ab239d96e263687c0b2e386a0afbc235a2eceb9857c36ed32f2f162a3e7c8"
+        },
+        "policy_postprocessor.json": {
+          "bytes": 660,
+          "sha256": "2b78bb742065288df2ec63b0ee35f97a1f6950171cf2272f7e34b1fe3873b17b"
+        },
+        "config.json": {
+          "bytes": 2299,
+          "sha256": "650584b56c104720f7a3c91d1ec6bec9e8de8ac11e60c92ba2fa82d93eda147d"
+        },
+        "policy_preprocessor.json": {
+          "bytes": 1872,
+          "sha256": "7683d648280a72f0d51e869fb8dd1596beed90b7f84849330cf1bc26634a4bd6"
+        },
+        "README.md": {
+          "bytes": 4680,
+          "sha256": "1c4eab155e159a5fd3fd6c4d5f770c43f056665d73e11c0584e47f8b824d3c98"
+        }
+      }
+    },
+    "HuggingFaceTB/SmolVLM2-500M-Video-Instruct": {
+      "revision": "7b375e1b73b11138ff12fe22c8f2822d8fe03467",
+      "local_path": "/home/ubuntu/workspace/k1-runtime/models/smolvlm2",
+      "artifacts": {
+        "tokenizer.json": {
+          "bytes": 3548256,
+          "sha256": "5ece781dc8d2b2f3e2f289ca0ae50b17cfc27dd27bfe7971bb8241e0b964331a"
+        },
+        "model.safetensors": {
+          "bytes": 2029990624,
+          "sha256": "b9bfd456c9472c0acd5719d6e514c4b859891af205ee1a736552fd3497b8b0c3"
+        },
+        "vocab.json": {
+          "bytes": 800662,
+          "sha256": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+        },
+        "added_tokens.json": {
+          "bytes": 4739,
+          "sha256": "74135b8664b56088c0006f1c8e848d79a8eba003411f72ebf1dc2ee96227be3a"
+        },
+        "tokenizer_config.json": {
+          "bytes": 28626,
+          "sha256": "dd9ce2ab89a3dd881bd9378f1a79b943a064b9275a7e1706d5b7b47b68977913"
+        },
+        "generation_config.json": {
+          "bytes": 136,
+          "sha256": "34835060c9f0f74d1acb456cc72ca32746d3843d9eb5f578f9cbffac1d2eb840"
+        },
+        "processor_config.json": {
+          "bytes": 67,
+          "sha256": "f3ad45028447b3562b4752be0d5916d6806c1ef589091a469608dcf0faa1737c"
+        },
+        "config.json": {
+          "bytes": 3767,
+          "sha256": "ea6bc1237e96247f6258de3e202e2e62b93d6f386dc47e7b36b5588bf3a15e17"
+        },
+        "special_tokens_map.json": {
+          "bytes": 868,
+          "sha256": "2dfea2a426162316ff1567c82bc6d36d9690cd9f90455f075c77daca78b45c60"
+        },
+        "merges.txt": {
+          "bytes": 466391,
+          "sha256": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510"
+        },
+        "preprocessor_config.json": {
+          "bytes": 599,
+          "sha256": "149e315d9410368e5491455bb06e0f763426e9e56cca731c13b24404a29b6374"
+        },
+        "README.md": {
+          "bytes": 10865,
+          "sha256": "afc4bf5f519438b221a84292979a9eac3de4b9726e5baaa82033c55f59f9f7a5"
+        },
+        "chat_template.json": {
+          "bytes": 430,
+          "sha256": "b585e3598909a5687f9f9d738d35223724dedef256b9b274e1cbfb32b13c74bf"
+        }
+      }
+    }
+  },
+  "status": "downloaded_import_verified",
+  "finished_at_utc": "2026-10-17T21:45:16.200662+00:00"
+}

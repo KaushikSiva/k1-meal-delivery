@@ -5,13 +5,13 @@ box and drink. The system combines RGB-D perception, explicit scene memory,
 search/navigation, a pretrained walking policy and a newly trained PPO carrying
 residual. Physical robot performance is not yet verified.
 
-![K1 with supported tray and cup holder after a scripted carrying trial](experiments/codex-20261017T2124-cupholder-ppo-transfer/evaluator_final_recorded.png)
+![K1 with supported tray and cup holder after a scripted carrying trial](experiments/codex-20261017T2150-k1-appearance-repeat/evaluator_final_recorded.png)
 
 *Actual final frame: PPO residual plus an explicit cup holder completed a
 15-second, 3.56-metre scripted carrying trial within the current stability limits.
 The tray is attached to a modeled torso bracket. This is one simulation trial;
 camera-guided delivery remains unfinished.
-[Measured result and limitations](experiments/codex-20261017T2124-cupholder-ppo-transfer/REPORT.md).*
+[Measured result and limitations](experiments/codex-20261017T2150-k1-appearance-repeat/REPORT.md).*
 
 ![Isaac Sim café environment](experiments/codex-20261017T2008-cafe-lit-preview/hero.png)
 
@@ -30,7 +30,8 @@ No robot is present in this environment-preview frame.*
 | First trained café comparison | [3.23 m before drink drop vs 1.25 m baseline](experiments/codex-20261017T2055-ppo-cafe-evaluation/REPORT.md); both failed, one development pair |
 | Cup-holder fixture + trained residual | [15 s, 3.56 m, no drops, 3.31 cm maximum payload movement](experiments/codex-20261017T2124-cupholder-ppo-transfer/REPORT.md); one scripted stability pass. Same-fixture baseline failed the 4 cm movement limit |
 | Memory, search, obstacle handling, bounded VLA interface | Software-tested components; see [autonomy design](docs/autonomy/DESIGN.md) |
-| Sensor-estimated navigation | [Actual K1 trial: maximum XY error 9.74 cm](experiments/codex-20261017T2140-sensor-navigation/REPORT.md), no marker or simulator pose input to navigation; false wall-table detection stopped delivery |
+| Sensor-estimated navigation | [One unloaded approach completed in 19 s](experiments/codex-20261017T2152-sensor-navigation-surface-fix/REPORT.md); no markers or simulator pose input to navigation, 9.74 cm maximum XY error, 0.00124 m/s final true speed |
+| SmolVLA GPU compatibility | [Pinned checkpoint loaded; custom inputs and backward pass verified](experiments/codex-20261017T2155-smolvla-probe/REPORT.md); synthetic probe, zero optimizer updates |
 | VLA fine-tuning and hardware delivery | Not completed |
 
 These results are separate experiments. An integrated, learned, camera-guided

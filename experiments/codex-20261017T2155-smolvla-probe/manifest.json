@@ -1,0 +1,47 @@
+{
+  "status": "passed_plumbing_probe",
+  "started_at_utc": "2026-10-17T21:49:27.980571+00:00",
+  "evidence_kind": "synthetic_tensor_gpu_feasibility_only",
+  "training_performed": false,
+  "optimizer_updates": 0,
+  "robot_actuated": false,
+  "source_sha256": "d9b433aed1b50627c47d12c433367ada667dba39d235252e5b4603cb467cbb7c",
+  "load_seconds": 13.36919021400081,
+  "gpu": "NVIDIA L40S",
+  "torch": "2.9.0+cu128",
+  "cuda": "12.8",
+  "parameter_count": 450046176,
+  "trainable_parameters": 99880992,
+  "config": {
+    "state_dim": 16,
+    "action_dim": 5,
+    "camera_count": 1,
+    "chunk_size": 10,
+    "denoising_steps": 10
+  },
+  "strict_pretrained_load": true,
+  "inference_seconds": [
+    0.4510815840003488,
+    0.1376735819994792,
+    0.13637815400034015,
+    0.13641328500034433
+  ],
+  "output_shape": [
+    1,
+    10,
+    5
+  ],
+  "output_finite": true,
+  "inference_peak_allocated_bytes": 1264648704,
+  "synthetic_loss": 0.27206143736839294,
+  "gradient_norm": 17.902347564697266,
+  "backward_seconds": 0.11189778199968714,
+  "backward_peak_allocated_bytes": 1457997312,
+  "limits": [
+    "synthetic tensors only",
+    "no optimizer step",
+    "no trained K1 VLA",
+    "no task-performance claim"
+  ],
+  "finished_at_utc": "2026-10-17T21:49:45.422728+00:00"
+}

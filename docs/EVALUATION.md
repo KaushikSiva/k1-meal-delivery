@@ -1,6 +1,6 @@
 # Experiment and evidence protocol
 
-Current robotics metrics: **unmeasured**. There are no project training runs or physical trials yet.
+Simulation and PPO training measurements are recorded in the [progress table](../README.md#measured-progress) and linked experiment reports. Hardware delivery remains unmeasured. Separate component results do not establish integrated loaded delivery.
 
 ## Freeze before evaluating
 

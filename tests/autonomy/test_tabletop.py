@@ -120,3 +120,30 @@ def test_taint_propagates_from_privileged_pose_or_camera_to_detections_and_memor
     obs.camera.rgb = rgb
     lifted = BoxLifter(PlacardReader()).detect(obs)
     assert lifted and all(d.provenance == Provenance.SIM_PRIVILEGED for d in lifted)
+
+
+# ----------------------------------------------------------------------------- wall-corner false table
+def test_codex_sensor_nav_capture_frame_48_has_no_false_table():
+    """Regression (Codex sensor-nav trial 21:35Z, real MuJoCo K1 head-camera capture): the real
+    tabletop's height peak is global, so slices of two walls meeting in a corner at that height
+    formed an L-shaped 'table'. A local check (points 0.35-1.0 m above the cluster's own cells)
+    rejects wall slices but keeps tops. (A low-res fixture could not reproduce the corner, so the
+    real capture is the regression; it skips if the git-ignored npz is absent.)"""
+    from pathlib import Path
+    from autonomy.contracts import CameraFrame, CameraIntrinsics, Observation, PoseEstimate
+
+    f = Path(__file__).resolve().parents[2] / "experiments/codex-20261017T2141-sensor-navigation-capture/rgbd-0048.npz"
+    if not f.exists():
+        pytest.skip("Codex capture not present (npz is git-ignored)")
+    z = np.load(f, allow_pickle=True)
+    depth = z["depth"].astype(np.float32)
+    H, W = depth.shape
+    t = float(z["timestamp"])
+    obs = Observation(t, CameraFrame(t, CameraIntrinsics.from_fovy(58, W, H), z["T_base_camera"], rgb=z["rgb"],
+                                     depth=depth),
+                      PoseEstimate(Pose2D(*map(float, z["pose"])), z["cov"], t, "replay", Provenance.ESTIMATED))
+    dets = TabletopDetector().detect(obs)
+    assert len(dets) == 1 and np.hypot(dets[0].position[0] - 4.0, dets[0].position[1]) < 0.2
+    # discriminating: without the local above-check the wall corner (x 7, y -3) is reported as a table
+    old = TabletopDetector(max_above_ratio=np.inf).detect(obs)
+    assert any(np.hypot(d.position[0] - 6.53, d.position[1] + 2.53) < 0.3 for d in old)

@@ -4,7 +4,8 @@ Horizontal surfaces are found without any appearance model:
   1. back-project depth pixels to the map frame (estimated camera pose);
   2. height histogram per class band; a horizontal surface is a *prominent* peak (>= min_prominence x
      the density 4-10 cm above it: nothing sits just above a tabletop). Vertical faces (walls, people, table sides) have no prominence;
-  3. peak points are clustered in xy; thin strips (a face sliced at the peak height) are rejected;
+  3. peak points are clustered in xy; thin strips (a face sliced at the peak height) and clusters
+     with many points directly above them (wall slices, incl. L-shaped corners) are rejected;
   4. table-sized clusters become detections (ESTIMATED).
 
 Height bands are priors (dining tables ~0.70-0.78 m, counters ~0.9-1.1 m), not measurements of a
@@ -46,12 +47,13 @@ class TabletopDetector:
 
     def __init__(self, classes=DEFAULT_CLASSES, cell: float = 0.1, stride: int = 1, max_range: float = 5.0,
                  z_bin: float = 0.01, z_tol: float = 0.02, min_peak_pts: int = 25, min_cells: int = 3,
-                 min_short_side: float = 0.2, min_prominence: float = 4.0):
+                 min_short_side: float = 0.2, min_prominence: float = 4.0, max_above_ratio: float = 0.5):
         self.classes = classes
         self.cell, self.stride, self.max_range = cell, stride, max_range
         self.z_bin, self.z_tol, self.min_peak_pts = z_bin, z_tol, min_peak_pts
         self.min_cells, self.min_short_side = min_cells, min_short_side
         self.min_prominence = min_prominence
+        self.max_above_ratio = max_above_ratio
 
     def detect(self, obs: Observation) -> list[Detection]:
         cam = obs.camera
@@ -106,6 +108,19 @@ class TabletopDetector:
                     lo, hi = sp[:, :2].min(0), sp[:, :2].max(0)
                     if min(hi - lo) < self.min_short_side:
                         continue  # measured (not cell-padded) extent is a thin strip
+                    # LOCAL prominence: the height peak is global to the image, so slices of walls
+                    # at the same height (e.g. two walls meeting in a corner -> an L-shaped cluster)
+                    # can pass the size checks. A real top has (almost) nothing directly above it in
+                    # its own floor cells; a wall continues upward.
+                    # band 0.35-1.0 m above the top: walls continue there; chair backs (~0.25 m
+                    # above a dining top), mugs/trays and ceiling lamps (> 1 m above) do not
+                    ab = pts[(pts[:, 2] > zc + 0.35) & (pts[:, 2] < zc + 1.0)]
+                    if len(ab):
+                        ac = np.floor((ab[:, 0] - ox) / self.cell).astype(int)
+                        ar = np.floor((ab[:, 1] - oy) / self.cell).astype(int)
+                        above = sum((r, c) in cellset for r, c in zip(ar.tolist(), ac.tolist()))
+                        if above > self.max_above_ratio * len(sp):
+                            continue
                     conf = float(np.clip(len(sp) / (len(sp) + 60.0), 0.3, 0.95))
                     rng = float(np.linalg.norm(sp.mean(0) - T[:3, 3]))
                     out.append(Detection(
