@@ -1,0 +1,87 @@
+{
+  "status": "tested",
+  "started_at_utc": "2026-10-17T22:50:41.452800+00:00",
+  "setup": {
+    "tray_center": [
+      0.305,
+      0,
+      0.699
+    ],
+    "tray_size": [
+      0.34,
+      0.5,
+      0.015
+    ],
+    "tray_mass_kg": 0.68,
+    "box_mass_kg": 0.8,
+    "drink_mass_kg": 0.5,
+    "arm_pose": {
+      "aaleft_shoulder_pitch_joint": -0.7878273143,
+      "left_shoulder_roll_joint": -1.4451597945,
+      "left_elbow_pitch_joint": -0.1240584698,
+      "left_elbow_yaw_joint": -0.7750652153,
+      "aaright_shoulder_pitch_joint": -0.7878273143,
+      "right_shoulder_roll_joint": 1.4451597945,
+      "right_elbow_pitch_joint": -0.1240584698,
+      "right_elbow_yaw_joint": 0.7750652153
+    },
+    "arm_kp": 80.0,
+    "arm_kd": 3.0,
+    "arm_effort_limit_Nm": 14.0,
+    "support": "unconstrained contact with original left/right terminal hand meshes",
+    "physical_underside_handle_seats": true,
+    "tray_fixed_joint": false,
+    "torso_bracket": false,
+    "friction": 0.7,
+    "initial_height_adjustment_m": 0.02097352623939508,
+    "initial_foot_clearance_corrected_m": 0.05288523380879767,
+    "gravity_and_known_load_feedforward": true
+  },
+  "scope": "hand-supported loaded baseline; scripted velocity; no VLA or PPO residual",
+  "gravity": [
+    0.0,
+    0.0,
+    -9.81
+  ],
+  "equality_constraints": 0,
+  "source_hashes": {
+    "sim/run_k1_hand_carry.py": "d00a6920dd6debedb5373fbfbe3cdcebacba3ce4c73152827c4d1ceed92860e0",
+    "sim/k1_hand_carry.py": "505a89a099ea413a9254cbcc84b861ee7ed079bd4e72663c6e46c70b4caec277"
+  },
+  "walking_actor_arm_inputs": "nominal position/zero velocity ablation",
+  "hand_contact_steps": [
+    7497,
+    7498
+  ],
+  "torso_contact_steps": 0,
+  "other_robot_tray_contact_steps": {},
+  "max_payload_relative_xy_m": 0.0006883082569469048,
+  "max_arm_torque_Nm": 5.622622609559172,
+  "payload_drop": false,
+  "robot_fall": false,
+  "initial_tray_penetration_m": 0.0,
+  "simulated_seconds": 15.000000000001679,
+  "physics_steps": 7500,
+  "final_tray_xyz": [
+    0.22979889895184108,
+    0.0033949857165260014,
+    0.6828124996303351
+  ],
+  "final_root_xyz": [
+    -0.0686653367297538,
+    -0.0017801455769690805,
+    0.5465843522965583
+  ],
+  "final_root_speed_m_s": 0.011047035224585649,
+  "net_forward_m": -0.0686653367297538,
+  "max_tray_tilt_deg": 3.9368174477106854,
+  "artifacts": {
+    "final.png": "5a8f3df766c3ecf7d65a8b1899bc3fdd2b70c95a3231c277cc2a13a085276fde",
+    "contacts.csv": "96aba72e98b735f5715ff9e28fccb5784a5cef59d5eb18d1fb20efd9f28fcf2f",
+    "diagnostics.json": "7bd942f8d24d3686fc8681ac693eeb4fcebe6090a9ac549860ab2e9f5f877659",
+    "evaluator.mp4": "ae15b310ef237880850375484413c79c599f7d6cc20fbaf6d854a3c1dc163f12",
+    "initial.png": "6053307622e87f5da4628a98987838969c9cb430a30ad4b90d776254fe8f646f",
+    "initial_before_physics.png": "fd3208bad767f1d1e18a5ef56f33510f9e8e498d8562a1a8c22b14b239c10c16",
+    "scene.xml": "77980b2c357053811d051f6f79c7763257e6f1374402fe386a0f31e0b2e0bc36"
+  }
+}

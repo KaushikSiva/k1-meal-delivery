@@ -1,0 +1,42 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T22:25:07+00:00",
+  "query": "Coca Cola original taste can packaging",
+  "include_domains": [
+    "coca-cola.com"
+  ],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Coca-Cola® Original Soda: Explore Nutrition Facts & Ingredients ...",
+      "url": "https://www.coca-cola.com/us/en/brands/coca-cola/products/original",
+      "description": "Enjoy a refreshing and classic cola like Coca-Cola® Original, Coca-Cola Caffeine-Free, and Coca-Cola Mexico. Explore nutrition facts, ingredients, and more.",
+      "snippets": [
+        "Since 1886, Coca‑Cola has been more than soda—it’s a symbol of refreshment, optimism, and togetherness. Every sip delivers the classic cola taste you know and love. Learn more about our original soda, as well as caffeine-free options and cane sugar blends.",
+        "Coca‑Cola Mexico is made with real cane sugar for a taste that’s rich, smooth, and refreshing. Grab this classic Mexican soda when you’re savoring a meal or sharing special moments. ... CARBONATED WATER, CANE SUGAR, CARAMEL COLOR, PHOSPHORIC ACID, NATURAL FLAVORS, CAFFEINE. ... Yes, Coca‑Cola Original and Coca‑Cola Mexico contain caffeine.",
+        "A can of Coke contains 140 calories. If you’re looking for a zero-calorie soda, you’ll love Coca‑Cola Zero Sugar. Coca‑Cola Caffeine Free offers the same great taste as Coca‑Cola Original, just without the caffeine.",
+        "Enjoy the crisp and refreshing taste of Coca‑Cola Original with no caffeine. Coca‑Cola Caffeine Free is perfect for when you’re trying to wind down and relax."
+      ]
+    },
+    {
+      "title": "Coca-Cola® Original Soda: Explore Nutrition Facts & Ingredients ...",
+      "url": "https://us.coca-cola.com/products/coca-cola",
+      "description": "Enjoy a refreshing and classic cola like Coca-Cola® Original, Coca-Cola Caffeine-Free, and Coca-Cola Mexico. Explore nutrition facts, ingredients, and more.",
+      "snippets": [
+        "Since 1886, Coca‑Cola has been more than soda—it’s a symbol of refreshment, optimism, and togetherness. Every sip delivers the classic cola taste you know and love. Learn more about our original soda, as well as caffeine-free options and cane sugar blends.",
+        "Coca‑Cola Mexico is made with real cane sugar for a taste that’s rich, smooth, and refreshing. Grab this classic Mexican soda when you’re savoring a meal or sharing special moments. ... CARBONATED WATER, CANE SUGAR, CARAMEL COLOR, PHOSPHORIC ACID, NATURAL FLAVORS, CAFFEINE. ... Yes, Coca‑Cola Original and Coca‑Cola Mexico contain caffeine.",
+        "A can of Coke contains 140 calories. If you’re looking for a zero-calorie soda, you’ll love Coca‑Cola Zero Sugar. Coca‑Cola Caffeine Free offers the same great taste as Coca‑Cola Original, just without the caffeine.",
+        "Enjoy the crisp and refreshing taste of Coca‑Cola Original with no caffeine. Coca‑Cola Caffeine Free is perfect for when you’re trying to wind down and relax."
+      ]
+    },
+    {
+      "title": "Coca-Cola - The Original Taste | Coca-Cola GB",
+      "url": "https://www.coca-cola.com/gb/en/brands/coca-cola-original-taste",
+      "description": "Discover all information about Coca-Cola Original Taste. Description of the product, nutritional information, and ingredients included. Buy Coca-Cola online.",
+      "snippets": [
+        "Coca‑Cola Original Taste is the world’s favourite soft drink and has been enjoyed since 1886."
+      ]
+    }
+  ]
+}

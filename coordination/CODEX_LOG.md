@@ -85,3 +85,8 @@ Pushed a9d8f62 with actual dark/light K1 materials, failed appearance attempts, 
 ## 2026-10-17T22:14:26.266092+00:00 — First real SmolVLA fine-tuning verified
 
 Attempt02 completed200updates/20.264s onL40S;122parameter tensorschanged,L2delta7.3128,frozenbackbonehashunchanged.16rowofflinevalidationMSE0.5953→0.1690. Savedcheckpointsha ca7e0eb430bc5896ee0639a880a3cef05f4fb0a684bb72a7c4f57ecce1907f53 independentlychecked; strictreload reproducedhashes andfiniteactionsfromactualvalidationframe. GR00Tsetupcompletewithpinnedweights/import/dependencycheck, noinference/training. Goalstillactive; nofullorhardwaresuccess.
+
+## 2026-10-17T22:32:40.588434+00:00 — payload realism, comparison, W&B
+You.com official packaging research saved; original Domino’s-inspired box textures and official Coke wordmark applied to non-colliding USD render shells. Local stage construction and six control/payload checks pass. ActualrenderqueuedafterVLAcomparison. Comparison01 importfailure retained;02runningaftermissing pinnedassetpackageinitializerdeployed. PrivateW&B historicalexportcompleted,alloriginalmanifest/metricshashesmatchlocal,evidencein92ca2f2.
+
+2026-10-17T22:55:52.388482+00:00: hand09 .4m/s commanded trial achieved2.036m net with freehandcontact support, no drop/fall; hand08 .25 didnotwalk. Preserve alldevelopmentattempts.

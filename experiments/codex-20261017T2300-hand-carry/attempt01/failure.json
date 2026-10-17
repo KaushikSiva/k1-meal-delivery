@@ -1,0 +1,6 @@
+{
+  "status": "preflight_failed",
+  "error": "MuJoCo renderer width960 exceeded initial offscreen framebuffer width640",
+  "physics_steps": 0,
+  "evidence_kind": "operator-recorded failure note; original terminal output not archived"
+}

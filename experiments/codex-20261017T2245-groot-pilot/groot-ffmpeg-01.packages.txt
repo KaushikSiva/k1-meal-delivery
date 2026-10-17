@@ -1,0 +1,4 @@
+ffmpeg	7:4.4.2-0ubuntu0.22.04.1
+libavcodec58:amd64	7:4.4.2-0ubuntu0.22.04.1
+libavformat58:amd64	7:4.4.2-0ubuntu0.22.04.1
+libavutil56:amd64	7:4.4.2-0ubuntu0.22.04.1

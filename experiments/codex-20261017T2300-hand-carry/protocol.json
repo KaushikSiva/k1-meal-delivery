@@ -1,0 +1,31 @@
+{
+  "frozen_at_utc": "2026-10-17T22:59:20.155325+00:00",
+  "scope": "development repetition and cross-simulator transfer after MuJoCo tuning01\u201309; not a held-out reliability estimate",
+  "duration_s": 15,
+  "command": {
+    "forward_m_s": 0.4,
+    "active_window_s": [
+      2,
+      13
+    ]
+  },
+  "criteria": {
+    "min_forward_distance_m": 2.0,
+    "max_payload_relative_xy_m": 0.04,
+    "max_tray_tilt_deg": 10.0,
+    "max_final_root_speed_m_s": 0.05,
+    "max_continuous_hand_contact_loss_s": 0.1,
+    "max_arm_effort_Nm": 14.0,
+    "robot_fall": false,
+    "payload_drop": false,
+    "other_robot_tray_contacts": 0
+  },
+  "assumptions": [
+    "preloaded tray",
+    "visible underside handle seats",
+    "cup holder",
+    "sealed rigid can; no liquid simulation",
+    "friction0.7 assumed",
+    "nominal-arm observation ablation for frozen walking actor"
+  ]
+}

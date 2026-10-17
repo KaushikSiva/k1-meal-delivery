@@ -1,0 +1,398 @@
+{
+  "started_at_utc": "2026-10-17T22:25:27.213471+00:00",
+  "protocol": {
+    "frozen_at_utc": "2026-10-17T22:19:04.715352+00:00",
+    "scope": "unloaded MuJoCo development comparison; not final reliability evaluation",
+    "checkpoint_sha256": "ca7e0eb430bc5896ee0639a880a3cef05f4fb0a684bb72a7c4f57ecce1907f53",
+    "duration_s": 40,
+    "policy_seed": 9101,
+    "modes": [
+      "executive",
+      "smolvla"
+    ],
+    "acceptance": {
+      "executive_outcome": "delivered",
+      "no_room_contact": true,
+      "no_fall": true,
+      "front_edge_distance_m": [
+        0.3,
+        0.8
+      ],
+      "lateral_error_max_m": 0.3,
+      "last_1p5s_max_true_speed_m_s": 0.03,
+      "max_body_tilt_deg": 10
+    },
+    "latency": "measured full propose call applied to simulated availability; reject older than0.6s; not real-time hardware",
+    "episodes": [
+      {
+        "id": "prior-validation-00",
+        "prior_use": "one successful offline-validation episode",
+        "table": [
+          4.1,
+          0.3,
+          0.45,
+          0.45,
+          0.72
+        ],
+        "start": [
+          0,
+          -0.15,
+          0.06
+        ],
+        "seed": 8500
+      },
+      {
+        "id": "prior-validation-01",
+        "prior_use": "failed collection, no training or offline-validation rows",
+        "table": [
+          3.9,
+          -0.3,
+          0.45,
+          0.45,
+          0.72
+        ],
+        "start": [
+          0,
+          0.15,
+          -0.06
+        ],
+        "seed": 8501
+      },
+      {
+        "id": "new-layout-00",
+        "prior_use": "unseen configuration",
+        "table": [
+          4.25,
+          0.4,
+          0.45,
+          0.5,
+          0.76
+        ],
+        "start": [
+          0,
+          -0.2,
+          0.08
+        ],
+        "seed": 9200
+      },
+      {
+        "id": "new-layout-01",
+        "prior_use": "unseen configuration",
+        "table": [
+          3.85,
+          -0.25,
+          0.42,
+          0.48,
+          0.73
+        ],
+        "start": [
+          0,
+          0.1,
+          -0.07
+        ],
+        "seed": 9201
+      }
+    ]
+  },
+  "protocol_sha256": "616aec9a118b3167532ffab24a2c909aee06d0443bf0945e6aed955ef2810130",
+  "source_sha256": "2bf0caaca767049e819549bae86cdff7e7fea150daba734afe41e735ebefa83a",
+  "training_performed": false,
+  "payload_present": false,
+  "hardware_verified": false,
+  "trials": [
+    {
+      "id": "prior-validation-00-executive",
+      "config": "prior-validation-00",
+      "mode": "executive",
+      "returncode": 0,
+      "outcome": null,
+      "termination": "duration_complete",
+      "collision_contact_steps": 0,
+      "max_xy_error_m": 1.845010994084069,
+      "vla_summary": null,
+      "physical_delivery_pass": false,
+      "checks": {
+        "executive_delivered": false,
+        "no_room_contact": true,
+        "no_fall": true,
+        "front_distance": false,
+        "lateral_error": false,
+        "stable_stop": true,
+        "body_tilt": true
+      },
+      "front_edge_distance_m": 1.3680172188539612,
+      "lateral_error_m": 0.8465741194118905,
+      "last_1p5s_max_true_speed_m_s": 0.0003050748335570754,
+      "last_1p5s_net_drift_m": 0.0003929132756721832,
+      "manifest_sha256": "04b09e65f1d703933065f441a232f23284381e1b454aa2225fa4c5adc7b0bc58"
+    },
+    {
+      "id": "prior-validation-00-smolvla",
+      "config": "prior-validation-00",
+      "mode": "smolvla",
+      "returncode": 0,
+      "outcome": "delivered",
+      "termination": "autonomy_terminal",
+      "collision_contact_steps": 0,
+      "max_xy_error_m": 0.4360706634935603,
+      "vla_summary": {
+        "inference_calls": 26,
+        "inference_failures": 0,
+        "control_ticks_by_owner": {
+          "executive": 651,
+          "vla": 520
+        },
+        "decision_reasons": {
+          "no proposal": 24,
+          "accepted": 520,
+          "proposal expired on control clock": 569,
+          "subgoal in occupied/inflated cell": 46,
+          "executive-only state final_approach": 11,
+          "no executive command": 1
+        },
+        "latency_s": {
+          "min": 0.13821501799975522,
+          "max": 0.46755779999875813,
+          "mean": 0.15359427969220774
+        },
+        "timing": "measured synchronous inference delay applied to simulated proposal availability",
+        "hardware_runtime": false
+      },
+      "physical_delivery_pass": true,
+      "checks": {
+        "executive_delivered": true,
+        "no_room_contact": true,
+        "no_fall": true,
+        "front_distance": true,
+        "lateral_error": true,
+        "stable_stop": true,
+        "body_tilt": true
+      },
+      "front_edge_distance_m": 0.4405799611553598,
+      "lateral_error_m": 0.022737934358285916,
+      "last_1p5s_max_true_speed_m_s": 0.009388082587149956,
+      "last_1p5s_net_drift_m": 0.004588141874863364,
+      "manifest_sha256": "54888b0096c4e35b5f3182cf31d907ef21e91dd88a3980bd67fd3bfd420d47f3"
+    },
+    {
+      "id": "prior-validation-01-executive",
+      "config": "prior-validation-01",
+      "mode": "executive",
+      "returncode": 0,
+      "outcome": null,
+      "termination": "duration_complete",
+      "collision_contact_steps": 0,
+      "max_xy_error_m": 3.12042909416779,
+      "vla_summary": null,
+      "physical_delivery_pass": false,
+      "checks": {
+        "executive_delivered": false,
+        "no_room_contact": true,
+        "no_fall": true,
+        "front_distance": false,
+        "lateral_error": false,
+        "stable_stop": false,
+        "body_tilt": false
+      },
+      "front_edge_distance_m": 2.5829781038451984,
+      "lateral_error_m": 1.049278221911323,
+      "last_1p5s_max_true_speed_m_s": 0.4007144633609693,
+      "last_1p5s_net_drift_m": 0.4185322220699939,
+      "manifest_sha256": "9ca8a39cbd52471726f5a176abcf8c86bb1318c6a59619458a4c925b97c7b183"
+    },
+    {
+      "id": "prior-validation-01-smolvla",
+      "config": "prior-validation-01",
+      "mode": "smolvla",
+      "returncode": 0,
+      "outcome": null,
+      "termination": "duration_complete",
+      "collision_contact_steps": 0,
+      "max_xy_error_m": 1.2640948455511662,
+      "vla_summary": {
+        "inference_calls": 30,
+        "inference_failures": 0,
+        "control_ticks_by_owner": {
+          "executive": 1257,
+          "vla": 643
+        },
+        "decision_reasons": {
+          "no proposal": 24,
+          "accepted": 631,
+          "proposal expired on control clock": 1212,
+          "subgoal in occupied/inflated cell": 10,
+          "vla hold": 12,
+          "executive-only state final_approach": 11
+        },
+        "latency_s": {
+          "min": 0.13868639999964216,
+          "max": 0.4695419760009827,
+          "mean": 0.1564925475666314
+        },
+        "timing": "measured synchronous inference delay applied to simulated proposal availability",
+        "hardware_runtime": false
+      },
+      "physical_delivery_pass": false,
+      "checks": {
+        "executive_delivered": false,
+        "no_room_contact": true,
+        "no_fall": true,
+        "front_distance": false,
+        "lateral_error": false,
+        "stable_stop": true,
+        "body_tilt": true
+      },
+      "front_edge_distance_m": 1.95699053126021,
+      "lateral_error_m": 0.7567916518459552,
+      "last_1p5s_max_true_speed_m_s": 0.0001904930111623904,
+      "last_1p5s_net_drift_m": 0.000253300948961831,
+      "manifest_sha256": "709fda089c198ec56e7a8dc5d3910d499b539882eb6df34065394525aa1a5262"
+    },
+    {
+      "id": "new-layout-00-executive",
+      "config": "new-layout-00",
+      "mode": "executive",
+      "returncode": 0,
+      "outcome": "delivered",
+      "termination": "autonomy_terminal",
+      "collision_contact_steps": 0,
+      "max_xy_error_m": 0.10567247188173179,
+      "vla_summary": null,
+      "physical_delivery_pass": true,
+      "checks": {
+        "executive_delivered": true,
+        "no_room_contact": true,
+        "no_fall": true,
+        "front_distance": true,
+        "lateral_error": true,
+        "stable_stop": true,
+        "body_tilt": true
+      },
+      "front_edge_distance_m": 0.5417877405012366,
+      "lateral_error_m": 0.1603657535679048,
+      "last_1p5s_max_true_speed_m_s": 0.019536561717753004,
+      "last_1p5s_net_drift_m": 0.008365155673578215,
+      "manifest_sha256": "304737b2369871a1aff42c98ff8ea3a2bba9c602e5008c9f83ff12ad1cb85fca"
+    },
+    {
+      "id": "new-layout-00-smolvla",
+      "config": "new-layout-00",
+      "mode": "smolvla",
+      "returncode": 0,
+      "outcome": null,
+      "termination": "duration_complete",
+      "collision_contact_steps": 0,
+      "max_xy_error_m": 0.5150142253469129,
+      "vla_summary": {
+        "inference_calls": 26,
+        "inference_failures": 0,
+        "control_ticks_by_owner": {
+          "executive": 1334,
+          "vla": 566
+        },
+        "decision_reasons": {
+          "no proposal": 24,
+          "accepted": 566,
+          "proposal expired on control clock": 1299,
+          "executive-only state final_approach": 11
+        },
+        "latency_s": {
+          "min": 0.1392712160013616,
+          "max": 0.4623943810001947,
+          "mean": 0.15384484796140896
+        },
+        "timing": "measured synchronous inference delay applied to simulated proposal availability",
+        "hardware_runtime": false
+      },
+      "physical_delivery_pass": false,
+      "checks": {
+        "executive_delivered": false,
+        "no_room_contact": true,
+        "no_fall": true,
+        "front_distance": true,
+        "lateral_error": true,
+        "stable_stop": true,
+        "body_tilt": true
+      },
+      "front_edge_distance_m": 0.6500418838545308,
+      "lateral_error_m": 0.05810376162801256,
+      "last_1p5s_max_true_speed_m_s": 0.00012038158392363634,
+      "last_1p5s_net_drift_m": 0.0001652826655170728,
+      "manifest_sha256": "76e269705aac8f70b8b5c2a050e76b12fdefeae5abe1ee030ec66923ce79ed26"
+    },
+    {
+      "id": "new-layout-01-executive",
+      "config": "new-layout-01",
+      "mode": "executive",
+      "returncode": 0,
+      "outcome": "delivered",
+      "termination": "autonomy_terminal",
+      "collision_contact_steps": 0,
+      "max_xy_error_m": 0.1479199461685275,
+      "vla_summary": null,
+      "physical_delivery_pass": true,
+      "checks": {
+        "executive_delivered": true,
+        "no_room_contact": true,
+        "no_fall": true,
+        "front_distance": true,
+        "lateral_error": true,
+        "stable_stop": true,
+        "body_tilt": true
+      },
+      "front_edge_distance_m": 0.5555737647912338,
+      "lateral_error_m": 0.09657381445614666,
+      "last_1p5s_max_true_speed_m_s": 0.008699390510448388,
+      "last_1p5s_net_drift_m": 0.003914049332543879,
+      "manifest_sha256": "8bb1a906bc809954975d3192570268f860c6663e41f2363c7f488d7def879183"
+    },
+    {
+      "id": "new-layout-01-smolvla",
+      "config": "new-layout-01",
+      "mode": "smolvla",
+      "returncode": 0,
+      "outcome": "delivered",
+      "termination": "autonomy_terminal",
+      "collision_contact_steps": 0,
+      "max_xy_error_m": 0.20671464950245086,
+      "vla_summary": {
+        "inference_calls": 23,
+        "inference_failures": 0,
+        "control_ticks_by_owner": {
+          "executive": 557,
+          "vla": 504
+        },
+        "decision_reasons": {
+          "no proposal": 23,
+          "accepted": 504,
+          "proposal expired on control clock": 523,
+          "executive-only state final_approach": 10,
+          "no executive command": 1
+        },
+        "latency_s": {
+          "min": 0.13809276200117893,
+          "max": 0.45933108299868763,
+          "mean": 0.15437672430419733
+        },
+        "timing": "measured synchronous inference delay applied to simulated proposal availability",
+        "hardware_runtime": false
+      },
+      "physical_delivery_pass": true,
+      "checks": {
+        "executive_delivered": true,
+        "no_room_contact": true,
+        "no_fall": true,
+        "front_distance": true,
+        "lateral_error": true,
+        "stable_stop": true,
+        "body_tilt": true
+      },
+      "front_edge_distance_m": 0.5249608762582443,
+      "lateral_error_m": 0.17859672386181574,
+      "last_1p5s_max_true_speed_m_s": 0.02131040310217276,
+      "last_1p5s_net_drift_m": 0.009685569999150812,
+      "manifest_sha256": "5185a25015020a2ad9b6cc5bb5e1946d1918298a771df906432f38e64bf59b78"
+    }
+  ],
+  "finished_at_utc": "2026-10-17T22:32:49.454361+00:00"
+}

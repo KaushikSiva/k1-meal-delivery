@@ -1,4 +1,4 @@
-# GR00T prerequisite status
+# GR00T training feasibility
 
 The user configured Hugging Face access. An authenticated request for the
 pinned Cosmos-Reason2-2B configuration returned HTTP 200 on 2026-10-17.
@@ -9,7 +9,7 @@ Official Isaac-GR00T source is pinned to
 separate `.venv-groot` environment on the authorized L40S, preserving the
 Isaac and SmolVLA environments. The dependency check, import and pinned model
 downloads completed with exit zero. See the [setup report](../experiments/codex-20261017T2215-groot-setup/REPORT.md).
-No GR00T inference, optimizer update or K1 action has been demonstrated yet.
+A subsequent [20-update pilot and strict saved-checkpoint inference](../experiments/codex-20261017T2245-groot-pilot/REPORT.md) completed. Frozen weights remained unchanged and trainable weights changed. No GR00T closed-loop K1 action or delivery benefit has been demonstrated.
 
 The model revisions are in `vla-model-lock.json`. The upstream new-embodiment
 workflow requires an explicit modality mapping and GR00T's LeRobot v2 data

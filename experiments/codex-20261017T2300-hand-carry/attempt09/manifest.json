@@ -1,0 +1,95 @@
+{
+  "requested_speed_m_s": 0.4,
+  "requested_duration_s": 15.0,
+  "command_window_s": [
+    2,
+    13.0
+  ],
+  "status": "tested",
+  "started_at_utc": "2026-10-17T22:55:15.446195+00:00",
+  "setup": {
+    "tray_center": [
+      0.305,
+      0,
+      0.699
+    ],
+    "tray_size": [
+      0.34,
+      0.5,
+      0.015
+    ],
+    "tray_mass_kg": 0.68,
+    "box_mass_kg": 0.8,
+    "drink_mass_kg": 0.5,
+    "arm_pose": {
+      "aaleft_shoulder_pitch_joint": -0.7878273143,
+      "left_shoulder_roll_joint": -1.4451597945,
+      "left_elbow_pitch_joint": -0.1240584698,
+      "left_elbow_yaw_joint": -0.7750652153,
+      "aaright_shoulder_pitch_joint": -0.7878273143,
+      "right_shoulder_roll_joint": 1.4451597945,
+      "right_elbow_pitch_joint": -0.1240584698,
+      "right_elbow_yaw_joint": 0.7750652153
+    },
+    "arm_kp": 80.0,
+    "arm_kd": 3.0,
+    "arm_effort_limit_Nm": 14.0,
+    "support": "unconstrained contact with original left/right terminal hand meshes",
+    "physical_underside_handle_seats": true,
+    "tray_fixed_joint": false,
+    "torso_bracket": false,
+    "friction": 0.7,
+    "initial_height_adjustment_m": 0.02097352623939508,
+    "initial_foot_clearance_corrected_m": 0.05288523380879767,
+    "gravity_and_known_load_feedforward": true
+  },
+  "scope": "hand-supported loaded baseline; scripted velocity; no VLA or PPO residual",
+  "gravity": [
+    0.0,
+    0.0,
+    -9.81
+  ],
+  "equality_constraints": 0,
+  "source_hashes": {
+    "sim/run_k1_hand_carry.py": "2039371003046e20cda0985ac0c8d612f01f93f33fa2432e34594c8b63c85da8",
+    "sim/k1_hand_carry.py": "505a89a099ea413a9254cbcc84b861ee7ed079bd4e72663c6e46c70b4caec277"
+  },
+  "walking_actor_arm_inputs": "nominal position/zero velocity ablation",
+  "hand_contact_steps": [
+    7406,
+    7425
+  ],
+  "torso_contact_steps": 0,
+  "other_robot_tray_contact_steps": {},
+  "max_payload_relative_xy_m": 0.003294850855224479,
+  "max_arm_torque_Nm": 7.157734447631631,
+  "payload_drop": false,
+  "robot_fall": false,
+  "initial_tray_penetration_m": 0.0,
+  "simulated_seconds": 15.000000000001679,
+  "physics_steps": 7500,
+  "final_tray_xyz": [
+    2.339594719317529,
+    0.01072655262045349,
+    0.6838186550435807
+  ],
+  "final_root_xyz": [
+    2.0360886470345307,
+    0.011379849636089524,
+    0.5463570325739351
+  ],
+  "final_root_speed_m_s": 0.013713013874284115,
+  "net_forward_m": 2.0360886470345307,
+  "max_tray_tilt_deg": 7.0658693664051935,
+  "artifacts": {
+    "final.png": "b72e00d6d319cee915ce99acd488cc39cd0ada14d12477e0d34126a0bb1d7460",
+    "contacts.csv": "173fb071c8e394f9b522c75d3353c1b11dbe39b9b7a4f6eb8c30272d415e596f",
+    "run_k1_hand_carry.py": "2039371003046e20cda0985ac0c8d612f01f93f33fa2432e34594c8b63c85da8",
+    "diagnostics.json": "fad6afae2b8de0ea14ac3c16a64398bc29543a93724587652353f0bc24c5e8cf",
+    "evaluator.mp4": "2ba3e4034b8273847f2cc89ec1bb47df82d441dc36687c6b6b4f87f8e2dbc480",
+    "initial.png": "6053307622e87f5da4628a98987838969c9cb430a30ad4b90d776254fe8f646f",
+    "initial_before_physics.png": "fd3208bad767f1d1e18a5ef56f33510f9e8e498d8562a1a8c22b14b239c10c16",
+    "k1_hand_carry.py": "505a89a099ea413a9254cbcc84b861ee7ed079bd4e72663c6e46c70b4caec277",
+    "scene.xml": "77980b2c357053811d051f6f79c7763257e6f1374402fe386a0f31e0b2e0bc36"
+  }
+}

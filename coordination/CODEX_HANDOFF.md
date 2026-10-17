@@ -300,3 +300,18 @@ Your exact two frozen tabletop paths committed in a9d8f62. UNFROZEN now. README 
 SmolVLA attempt02 completed200optimizerupdates on3sensor-onlytrainingepisodes262frames; validation1episode149frames.122parameter tensors changed,L2delta7.3128,frozenVLMhashunchanged.20.264sactualupdates,45.838stotal,2.089GBpeakallocated.16sampledvalidationrow actionMSE0.5953→0.1690,offlineonly. Separate strict saved-checkpoint reload matchedhashes andproducedfinite[1,10,5] fromrealvalidationframe. NoVLAclosed-loopdeliveryyet. Reportsin experiments/codex-20261017T2215-smolvla-training/; checkpointremoteevidence/smolvla-train-02/policy/model.safetensors SHAca7e0eb430bc5896ee0639a880a3cef05f4fb0a684bb72a7c4f57ecce1907f53. Failedattempt01zero-updatespreserved.
 
 GR00TandgatedCosmossnapshotsdownloaded; isolateduvlockinstall/import/pipcheckpass. NoGROOTinferenceortrainingyet. Usercredentialstaysignored. Next: custommodalityprobe and learnedVLAthroughboundedadapter; navigationtranslationdriftstillmajorlimitation.
+
+## 2026-10-17T22:24:57.113660+00:00 — latest payload request
+User explicitly requested very realistic pizza/box, Coke, tray and Domino’s references via You.com. Updating actual Isaac payload visuals now; new actual footage will follow (old evidence unchanged). SmolVLA matched comparison01 hit missing remote booster_assets import before any trial; fixing deployment.
+
+## 2026-10-17T22:31:23.249830+00:00 — W&B historical logging complete
+CL10: private project https://wandb.ai/kaushik-siva88/k1-meal-delivery-20261017 contains actual PPO02 (100 iteration rows/1600 updates) and SmolVLA02 (200 updates), clearly historical imports. Both API-verified finished. Exact manifests/metrics uploaded; no weights or secrets. Actual closed-loop SmolVLA comparison is running (currently five of eight trials completed); payload realism render queued after it to avoid GPU latency contention.
+
+## 2026-10-17T22:39:44.428214+00:00 — IMPORTANT user correction: hand carrying
+User explicitly requires tray IN HANDS with real physics, no floating. Current actualrender uses torso bracket and does NOT satisfy this. Updating free-tray hand-contact physics; do not narrate old torso footage as hand carrying. Realistic box/Coke/tray image at experiments/codex-20261017T2240-payload-realism/payload_closeup_initial.png is actualrenderbuttorso-supported. New handtrialpending. SmolVLAcomparison complete2/4 vs executive2/4, nooverallimprovement. GR00Tpilot01attempted, dataconversionexact, missingFFmpegnativelibs preventedupdates; fixing.
+
+## 2026-10-17T22:55:52.388482+00:00 — actual hand-supported walk09
+Free tray, box and can in MuJoCo; no weld or torso bracket. 15s, net2.036m, payload shift3.295mm, maxtraytilt7.07°, finalspeed0.0137m/s, no drop/fall/non-handrobotcontact, maxarmtorque7.16Nm/14Nm. Both hands contact98.75%/99% of physicssteps; checking longest losses. This is scripted baseline (notPPO/VLA) with explicitlynominalarmfeatureablation. Rawcontinuousvideo runs/hand-carry-09/evaluator.mp4 diagnosticcheckerboard only; caférealisticIsaactransferpending. Earlier07/08 stoodonly; .25m/s fallswithinlearnedwalkingdeadband,.4m/s producedwalking. Will supply15s café/headfilm onceactualphysicsverified.
+
+## 2026-10-17T23:02:26.348080+00:00 — hand10 report ready, Isaac retrying
+`experiments/codex-20261017T2300-hand-carry/REPORT.md` nowrecordsactual15s/2.036m handcontactwalk,3.295mmshift,7.195°peaktilt,4ms/2mslongestcontactgap,nootherrobotcontact. `runs/hand-carry-10/evaluator.mp4` iscontinuous25fpsfollowingdiagnosticview. NotPPO/VLA, no caféyet. Isaac01/02preflightfailuresretained;03running. GR00T20realupdates+savedreloadfinite[1,10,5]passed,report2245. Smolcomparison2/4vs2/4report2230ready; noimprovement.

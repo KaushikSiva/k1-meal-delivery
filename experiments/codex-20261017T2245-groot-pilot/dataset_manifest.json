@@ -1,0 +1,61 @@
+{
+  "source_dataset_sha256": "df58ed0734e4be6583b5c524bccf1100f7b0415cceb62b6747291980bb43a92d",
+  "converter_sha256": "41f8005fe64af5efd473873e5dd39eb2dd0fc37a41576f2358990d89b072b757",
+  "training_performed": false,
+  "splits": {
+    "train": {
+      "episodes": [
+        {
+          "original_id": "train-01",
+          "npz_sha256": "8997a969e10046be0cb0cf75659b989c35376fae625a934e85aac1f8209daa62",
+          "frames": 87
+        },
+        {
+          "original_id": "train-04",
+          "npz_sha256": "50e84f32e4feb7ec2e70cb7ca36791c50b42f8f7b977b132aec887ac4321ff69",
+          "frames": 93
+        },
+        {
+          "original_id": "train-07",
+          "npz_sha256": "d0d81a2ff34dd1fb3a27cf79d5bf80fe2cbd354b0c1cd5a7e4f97824d2c9a37c",
+          "frames": 82
+        }
+      ],
+      "frames": 262,
+      "state_action_parquet_exact": true,
+      "decoded_video_rgb_exact": true,
+      "files": {
+        "meta/tasks.jsonl": "5552b8f0976b41f8ea8d5314402e32940ff87d38f6fffce29f817d7166bb0b37",
+        "meta/modality.json": "a9e886a9b63d423d1ca38cf6ee9295f13d51b1b8f3dac945dbae6c5ab94f22a0",
+        "meta/info.json": "8eb32074b48c40d407daaed662840f179b84e09ce4faa9e8bdb621ccfe65b75f",
+        "meta/episodes.jsonl": "18b0068c131894d293ba3b0ce804a82e7658ceb41d90e595f2fc2bb3a5c52455",
+        "data/chunk-000/episode_000001.parquet": "f88d187d955cbf32af1a0d5201f00a20db8f749acd613420142a9439a99f79cb",
+        "data/chunk-000/episode_000002.parquet": "c8eb9ba88bc4db6076045657271a844f9a15e7a20315b88f9708255f17436d01",
+        "data/chunk-000/episode_000000.parquet": "f48e25fe899fdbe1db361129c0422c9532b8d85a32e64569721cd060445fa6d6",
+        "videos/chunk-000/observation.images.head/episode_000000.mp4": "ed90982b8660fc26ef8aaa58b6c1b47797518e953a0e7bfccfcc399569244167",
+        "videos/chunk-000/observation.images.head/episode_000001.mp4": "a0bf69d1387201ebf308bf86cb3e5b1c073ba0b50afb659eeaa67c5a8d3e0ca0",
+        "videos/chunk-000/observation.images.head/episode_000002.mp4": "0c3b0dae435bfc8a44b4ed8a3e8bca2c61c942ae51e39e96fd9ac146d5f2833a"
+      }
+    },
+    "validation": {
+      "episodes": [
+        {
+          "original_id": "validation-00",
+          "npz_sha256": "32c0adb3d517e35b62030b2ae2b86c0acf9b47af6dcd5371a3cd9453f3aff837",
+          "frames": 149
+        }
+      ],
+      "frames": 149,
+      "state_action_parquet_exact": true,
+      "decoded_video_rgb_exact": true,
+      "files": {
+        "meta/tasks.jsonl": "ccc48b051a538b31c296dbb94ed53bdc475ac3138d8b1078a6460b393a548349",
+        "meta/modality.json": "a9e886a9b63d423d1ca38cf6ee9295f13d51b1b8f3dac945dbae6c5ab94f22a0",
+        "meta/info.json": "8a62ae1854a850867028eae596016503b27a777b6b3633a433f0f1d3951f847b",
+        "meta/episodes.jsonl": "3bebb2ec71399f553269d815244190d36ba4881f217b581aa0cbcce801057319",
+        "data/chunk-000/episode_000000.parquet": "76875e657e3cd3d53c61a7edb2f25f89bd1f5e75b94994dbfc91c96bcac1df63",
+        "videos/chunk-000/observation.images.head/episode_000000.mp4": "0216db22f546025afd5e2edf542127da894eebffb823aa6970aa04a176728b01"
+      }
+    }
+  }
+}

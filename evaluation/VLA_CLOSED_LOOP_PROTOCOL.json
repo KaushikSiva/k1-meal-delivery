@@ -1,0 +1,94 @@
+{
+  "frozen_at_utc": "2026-10-17T22:19:04.715352+00:00",
+  "scope": "unloaded MuJoCo development comparison; not final reliability evaluation",
+  "checkpoint_sha256": "ca7e0eb430bc5896ee0639a880a3cef05f4fb0a684bb72a7c4f57ecce1907f53",
+  "duration_s": 40,
+  "policy_seed": 9101,
+  "modes": [
+    "executive",
+    "smolvla"
+  ],
+  "acceptance": {
+    "executive_outcome": "delivered",
+    "no_room_contact": true,
+    "no_fall": true,
+    "front_edge_distance_m": [
+      0.3,
+      0.8
+    ],
+    "lateral_error_max_m": 0.3,
+    "last_1p5s_max_true_speed_m_s": 0.03,
+    "max_body_tilt_deg": 10
+  },
+  "latency": "measured full propose call applied to simulated availability; reject older than0.6s; not real-time hardware",
+  "episodes": [
+    {
+      "id": "prior-validation-00",
+      "prior_use": "one successful offline-validation episode",
+      "table": [
+        4.1,
+        0.3,
+        0.45,
+        0.45,
+        0.72
+      ],
+      "start": [
+        0,
+        -0.15,
+        0.06
+      ],
+      "seed": 8500
+    },
+    {
+      "id": "prior-validation-01",
+      "prior_use": "failed collection, no training or offline-validation rows",
+      "table": [
+        3.9,
+        -0.3,
+        0.45,
+        0.45,
+        0.72
+      ],
+      "start": [
+        0,
+        0.15,
+        -0.06
+      ],
+      "seed": 8501
+    },
+    {
+      "id": "new-layout-00",
+      "prior_use": "unseen configuration",
+      "table": [
+        4.25,
+        0.4,
+        0.45,
+        0.5,
+        0.76
+      ],
+      "start": [
+        0,
+        -0.2,
+        0.08
+      ],
+      "seed": 9200
+    },
+    {
+      "id": "new-layout-01",
+      "prior_use": "unseen configuration",
+      "table": [
+        3.85,
+        -0.25,
+        0.42,
+        0.48,
+        0.73
+      ],
+      "start": [
+        0,
+        0.1,
+        -0.07
+      ],
+      "seed": 9201
+    }
+  ]
+}

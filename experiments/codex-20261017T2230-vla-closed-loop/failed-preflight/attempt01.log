@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/ubuntu/workspace/k1-runtime/project/sim/run_k1_sensor_navigation.py", line 20, in <module>
+    from sim.run_k1_baseline import ScriptedCommandController, K1WalkTaskCfg, DEPLOY
+  File "/home/ubuntu/workspace/k1-runtime/project/sim/run_k1_baseline.py", line 27, in <module>
+    from booster_deploy.controllers.mujoco_controller import MujocoController
+  File "/home/ubuntu/workspace/k1-runtime/project/sim/vendor/booster_deploy/booster_deploy/controllers/mujoco_controller.py", line 10, in <module>
+    from booster_assets import BOOSTER_ASSETS_DIR
+ModuleNotFoundError: No module named 'booster_assets'

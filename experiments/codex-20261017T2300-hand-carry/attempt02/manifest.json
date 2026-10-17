@@ -1,0 +1,75 @@
+{
+  "status": "tested",
+  "started_at_utc": "2026-10-17T22:43:05.625576+00:00",
+  "setup": {
+    "tray_center": [
+      0.27283747,
+      0,
+      0.6632
+    ],
+    "tray_size": [
+      0.46,
+      0.5,
+      0.015
+    ],
+    "tray_mass_kg": 0.68,
+    "box_mass_kg": 0.8,
+    "drink_mass_kg": 0.5,
+    "arm_pose": {
+      "aaleft_shoulder_pitch_joint": -0.4621173116,
+      "left_shoulder_roll_joint": -1.4783784182,
+      "left_elbow_pitch_joint": -0.1832042339,
+      "left_elbow_yaw_joint": -1.1003780529,
+      "aaright_shoulder_pitch_joint": -0.4621173116,
+      "right_shoulder_roll_joint": 1.4783784182,
+      "right_elbow_pitch_joint": -0.1832042339,
+      "right_elbow_yaw_joint": 1.1003780529
+    },
+    "arm_kp": 80.0,
+    "arm_kd": 3.0,
+    "arm_effort_limit_Nm": 14.0,
+    "support": "unconstrained contact with original left/right terminal hand meshes",
+    "tray_fixed_joint": false,
+    "torso_bracket": false,
+    "friction": 0.7
+  },
+  "scope": "hand-supported loaded baseline; scripted velocity; no VLA or PPO residual",
+  "gravity": [
+    0.0,
+    0.0,
+    -9.81
+  ],
+  "equality_constraints": 0,
+  "source_hashes": {
+    "sim/run_k1_hand_carry.py": "69fd433b1d2d9a50dd19fe5ed3c2825f36da481052bc4f781990bc2a4198fba9",
+    "sim/k1_hand_carry.py": "648f41da3e92cd56efc746853f9c2b1f1f5719b21a33a516b0181cdfabdbab65"
+  },
+  "hand_contact_steps": [
+    1,
+    1
+  ],
+  "torso_contact_steps": 0,
+  "max_arm_torque_Nm": 14.0,
+  "payload_drop": true,
+  "robot_fall": false,
+  "simulated_seconds": 0.004,
+  "physics_steps": 2,
+  "final_tray_xyz": [
+    0.2962982675044814,
+    -0.0009913973644896368,
+    0.8748836037771434
+  ],
+  "final_root_xyz": [
+    -0.012776647747488167,
+    0.0004569072586785216,
+    0.5905403714561239
+  ],
+  "max_tray_tilt_deg": 29.924988026869592,
+  "artifacts": {
+    "final.png": "de32b043957d317b082b282dfa7fed6ebef33be03c182ab1ecc35f99c88eac6f",
+    "contacts.csv": "b3b1df23c69214baeeb104330479ab406f8978b3c00e1e4a7463a1b6c7d944a5",
+    "evaluator.mp4": "8d08c0c9679f344bae9fc711862c10cf016ff5b82252a73412e1680c87962ed7",
+    "initial.png": "1ac69154272dfe18675cdad02c09cd3e790780c7f88f1edae26eec23a74f818d",
+    "scene.xml": "ff47d1f9ac9921bd5e8d3d49ba1bca0bc4e77d1fecb3fc1e595dd791d610e7af"
+  }
+}

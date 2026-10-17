@@ -21,6 +21,7 @@ parser.add_argument('--residual-checkpoint', type=Path, help='Trusted project-tr
 parser.add_argument('--wide-evaluator', action='store_true', help='Wider fixed view covering the full straight route')
 parser.add_argument('--payload-config', type=Path, default=ROOT/'sim/k1_payload.json')
 parser.add_argument('--reference-colors', action='store_true', help='Approximate official-photo surface colors only')
+parser.add_argument('--realistic-payload', action='store_true', help='Render-only branded payload shells')
 args = parser.parse_args()
 assert 5 <= args.duration <= 60 and 0 <= args.speed <= .5
 assert args.residual_checkpoint is None or args.loaded, 'Residual evaluation requires declared supported payload'
@@ -96,6 +97,12 @@ try:
         report['appearance']=apply_k1_appearance(sim.stage)
         report['source_hashes']['sim/k1_appearance.py']=hashlib.sha256((ROOT/'sim/k1_appearance.py').read_bytes()).hexdigest()
     payload=spawn_payload((1.,0.,.6),payload_config) if args.loaded else {}
+    if args.realistic_payload:
+        assert args.loaded
+        from sim.k1_payload_visuals import apply_payload_visuals
+        report['payload_appearance']=apply_payload_visuals(sim.stage,payload_config)
+        for source in [ROOT/'sim/k1_payload_visuals.py', *sorted((ROOT/'sim/assets/payload').glob('*.png'))]:
+            report['source_hashes'][str(source.relative_to(ROOT))]=hashlib.sha256(source.read_bytes()).hexdigest()
     evaluator_position=[5.5,-3.2,2.0] if args.wide_evaluator else [3.2,-2.0,1.45]
     evaluator_angles=[0,18,133] if args.wide_evaluator else [0,15,138]
     report['evaluator_camera']=dict(position_m=evaluator_position,euler_degrees=evaluator_angles,
@@ -139,8 +146,17 @@ try:
     lens.GetHorizontalApertureAttr().Set(32);lens.GetVerticalApertureAttr().Set(24)
     lens.GetFocalLengthAttr().Set(float(24/(2*np.tan(np.deg2rad(58)/2))))
     head.initialize();head.add_distance_to_image_plane_to_frame()
+    closeup=None
+    if args.realistic_payload:
+        closeup=Camera(prim_path='/World/PayloadCloseup',position=np.array([2.,-.75,1.4]),
+            orientation=euler_angles_to_quats(np.array([0,30,135]),degrees=True),resolution=(1280,960))
+        closeup.initialize()
+        closeopt=UsdGeom.Camera.Get(sim.stage,closeup.prim_path)
+        closeopt.GetHorizontalApertureAttr().Set(32);closeopt.GetVerticalApertureAttr().Set(24);closeopt.GetFocalLengthAttr().Set(35)
     # Populate RTX sensor buffers before time-indexed recording begins.
     for _ in range(20):sim.render()
+    if closeup is not None:
+        Image.fromarray(closeup.get_rgba()[:,:,:3]).save(args.output/'payload_closeup_initial.png')
     report['body_masses_kg']=robot.root_physx_view.get_masses()[0].cpu().tolist()
     report['total_mass_kg']=sum(report['body_masses_kg'])
     expected_mass=sum(float(x.attrib['value']) for x in ET.parse(urdf).findall('link/inertial/mass'))

@@ -41,3 +41,5 @@ experiments/**/imu_trajectory.csv
 experiments/**/leg_trajectory.csv
 experiments/**/localization.json
 experiments/**/demonstrations/
+experiments/**/vla_calls.json
+experiments/**/vla_control.json

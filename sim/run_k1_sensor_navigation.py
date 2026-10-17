@@ -100,6 +100,8 @@ def main():
     ap.add_argument('--start', type=float, nargs=3, default=(0.,0.,0.))
     ap.add_argument('--seed', type=int, default=8201)
     ap.add_argument('--record-demo', action='store_true')
+    ap.add_argument('--vla-checkpoint', type=Path)
+    ap.add_argument('--policy-seed', type=int, default=9101)
     args = ap.parse_args(); out = args.output.resolve(); out.mkdir(parents=True, exist_ok=False)
     report = dict(status='started', started_at_utc=datetime.now(timezone.utc).isoformat(),
         evidence_kind='mujoco_sensor_estimated_navigation_development', payload_present=False,
@@ -110,15 +112,19 @@ def main():
                      'gyro noise .005rad/s and z bias .0015rad/s', 'camera FOV58deg'],
         protocol=dict(duration_s=args.duration, camera_hz=5, policy_hz=50, physics_hz=500,
                       payload='none', destination='single unnumbered table', seed=args.seed,
-                      table=args.table,start=args.start,record_demo=args.record_demo),
+                      table=args.table,start=args.start,record_demo=args.record_demo,
+                      policy_mode='smolvla' if args.vla_checkpoint else 'executive',policy_seed=args.policy_seed),
         limits=['development trial, not held-out', 'linear prediction uses commanded velocity',
-                'scan matching must constrain drift', 'no payload or VLA', 'not hardware tested'])
+                'scan matching must constrain drift', 'no payload', 'not hardware tested'])
+    report['versions']={'mujoco':mujoco.__version__,'torch':torch.__version__,'numpy':np.__version__}
     files = ['sim/run_k1_sensor_navigation.py','sim/k1_sensor_observation.py','sim/k1_imu.py',
              'sim/k1_observation.py','contracts/robot_telemetry.py','deployment/k1_leg_estimator.py',
              'perception/k1_camera.py','perception/tabletop.py','navigation/localization.py',
              'autonomy/session.py','autonomy/executive.py','navigation/follower.py',
              'navigation/planner.py','navigation/search.py','memory/scene_memory.py',
              'vla/inputs.py','vla/recorder.py','vla/action_space.py']
+    if args.vla_checkpoint:
+        files += ['deployment/smolvla_policy.py','deployment/vla_session.py','vla/adapter.py']
     report['source_hashes'] = {f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files}
     (out/'manifest.json').write_text(json.dumps(report,indent=2))
     torch.set_num_threads(1); torch.manual_seed(0)
@@ -132,9 +138,17 @@ def main():
     localizer = ScanMatchLocalizer(grid, Pose2D(*args.start), max_points=200)
     task = DeliveryTask('deliver the pizza and drink to the table',
                         parse_instruction('deliver the pizza and drink to the table'), 0., args.duration)
-    session = AutonomySession(task,grid,TabletopDetector(),[Region('dining',((BOUNDS[0]+BOUNDS[2])/2,(BOUNDS[1]+BOUNDS[3])/2),3.,('dining',))],
+    session_cls=AutonomySession;session_kwargs={}
+    if args.vla_checkpoint:
+        from deployment.smolvla_policy import SmolVLAProposalPolicy
+        from deployment.vla_session import BoundedVLASession
+        proposal_policy=SmolVLAProposalPolicy(args.vla_checkpoint,args.policy_seed)
+        session_cls=BoundedVLASession;session_kwargs['proposal_policy']=proposal_policy
+        report['vla_checkpoint_sha256']=proposal_policy.sha256
+        report['vla_training_updates']=proposal_policy.manifest['optimizer_updates']
+    session = session_cls(task,grid,TabletopDetector(),[Region('dining',((BOUNDS[0]+BOUNDS[2])/2,(BOUNDS[1]+BOUNDS[3])/2),3.,('dining',))],
         config=ExecutiveConfig(final_speed=.35, approach_speed=.35, search_speed=.35),
-        limits=FollowerLimits(min_walk_cmd=.35,final_accel=.25),deployable=True)
+        limits=FollowerLimits(min_walk_cmd=.35,final_accel=.25),deployable=True,**session_kwargs)
     from vla.recorder import DemoRecorder
     recorder = DemoRecorder(out.name, {"source":"mujoco", "detector":"RGB-D tabletop",
         "privileged_inputs":[], "initial_pose_prior":args.start, "floor_plan":"operator supplied",
@@ -226,6 +240,10 @@ def main():
                           final_true_xy=a[-1,1:3].tolist())
         np.savetxt(out/'frame_times.csv',frame_times,delimiter=',',header='sim_time_s',comments='')
         (out/'localization.json').write_text(json.dumps(observations,indent=2))
+        if args.vla_checkpoint:
+            report['vla_summary']=session.follower.summary()
+            (out/'vla_calls.json').write_text(json.dumps(session.follower.calls,indent=2))
+            (out/'vla_control.json').write_text(json.dumps(session.follower.control,indent=2))
         report['collision_contact_steps'] = ctrl.collision_contact_steps
         report['collision_geom_pairs'] = [list(p) for p in sorted(ctrl.collision_pairs)]
         report['collision_scope'] = 'room-object vs robot contacts at 500Hz; no self-contact scoring'

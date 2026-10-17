@@ -1,0 +1,61 @@
+{
+  "status": "trained",
+  "started_at_utc": "2026-10-17T22:41:08.088244+00:00",
+  "scope": "20-update custom bounded-subgoal training feasibility; no delivery-performance claim",
+  "hardware_verified": false,
+  "training_performed": true,
+  "optimizer_updates": 20,
+  "source_revision": "dac54b313160c201c450f97df0fd74ebd379c892",
+  "source_sha256": "b868cf717515081c1ecbd1b6d4093e67e668bc037dcc8ebbc519de49af14ebbc",
+  "dataset_manifest_sha256": "23ea87f2e774b5737c4e28b21ea06768f5162550de5cb9cd5d5c953a0c47a005",
+  "budget": {
+    "optimizer_steps": 20,
+    "batch_size": 1,
+    "learning_rate": 0.0001
+  },
+  "torch": "2.9.0+cu128",
+  "initial": {
+    "trainable_sha256": "537225d2528c40a28f5a19f5a0f87b403cab335e435d3e0ef306d409d6c71052",
+    "frozen_sha256": "67db3a10bd23756b5ea2ece5062109401f48dfc70688bab9742fc63763279926",
+    "trainable_parameters": 1620515968,
+    "frozen_parameters": 1523500032
+  },
+  "final": {
+    "trainable_sha256": "aeeb8c7439fc8443a7173ebc791695eb150a48a2248ba3ae6880a3a54c6340cf",
+    "frozen_sha256": "67db3a10bd23756b5ea2ece5062109401f48dfc70688bab9742fc63763279926",
+    "trainable_parameters": 1620515968,
+    "frozen_parameters": 1523500032
+  },
+  "frozen_parameters_unchanged": true,
+  "trainable_parameters_changed": true,
+  "checkpoint_files": {
+    "checkpoint/config.json": "9085cd7046bccfcea2d9a14caaf1f217d4be4c6b7abd9224506233b72ba1e0a1",
+    "checkpoint/model.safetensors.index.json": "12117379d91d029c5979a585d07ba794001730c9516d6de5512e3dedfee30730",
+    "checkpoint/model-00002-of-00003.safetensors": "a17b7c173970296f098e58a97702bdecf94cb715f8b598b7db1ecb92c3e9937e",
+    "checkpoint/model-00001-of-00003.safetensors": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+    "checkpoint/model-00003-of-00003.safetensors": "788154e1cab67d8094c4aa1c84588ab2bea8fa1636793ac68015773da0a7cafb",
+    "checkpoint/wandb_config.json": "7463927684b92dae21ab3d74b549675d752278681a642f38e94e83a8d9126978",
+    "checkpoint/checkpoint-20/statistics.json": "4986b4570d034d0f026d0834063c852b7d8f824b28177c046390062cbb61ff8a",
+    "checkpoint/checkpoint-20/processor_config.json": "16d748eb2c6f75f112d2ec31f5594e11e6829d0a06a5d4de5c07d5c269905e00",
+    "checkpoint/checkpoint-20/config.json": "9085cd7046bccfcea2d9a14caaf1f217d4be4c6b7abd9224506233b72ba1e0a1",
+    "checkpoint/checkpoint-20/model.safetensors.index.json": "12117379d91d029c5979a585d07ba794001730c9516d6de5512e3dedfee30730",
+    "checkpoint/checkpoint-20/model-00002-of-00003.safetensors": "a17b7c173970296f098e58a97702bdecf94cb715f8b598b7db1ecb92c3e9937e",
+    "checkpoint/checkpoint-20/model-00001-of-00003.safetensors": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+    "checkpoint/checkpoint-20/trainer_state.json": "f319f78f8d2efad2852f4e9c377dd2493f84ec0357025bd00b982e54d866f232",
+    "checkpoint/checkpoint-20/embodiment_id.json": "c8af3d61fe9ca5508c4a5b9e8be6ad4d0d1eb2c68cec76620ea089b894a3ee22",
+    "checkpoint/checkpoint-20/model-00003-of-00003.safetensors": "788154e1cab67d8094c4aa1c84588ab2bea8fa1636793ac68015773da0a7cafb",
+    "checkpoint/checkpoint-20/wandb_config.json": "7463927684b92dae21ab3d74b549675d752278681a642f38e94e83a8d9126978",
+    "checkpoint/experiment_cfg/dataset_statistics.json": "0068a8143573d59fc1361189c6f2b75a478f391adfdca9fc3b9d9aa74ccfdf0f",
+    "checkpoint/experiment_cfg/final_processor_config.json": "595c0269aac81350e149ea774b98d03ee4489fb63c8cb3211d2b588269fc5f9f",
+    "checkpoint/experiment_cfg/final_model_config.json": "fbfc8131d75cbae984afa93eac2d69368cbc63a6c3fcd860ac6c6eef9467a4de",
+    "checkpoint/processor/statistics.json": "4986b4570d034d0f026d0834063c852b7d8f824b28177c046390062cbb61ff8a",
+    "checkpoint/processor/processor_config.json": "16d748eb2c6f75f112d2ec31f5594e11e6829d0a06a5d4de5c07d5c269905e00",
+    "checkpoint/processor/embodiment_id.json": "c8af3d61fe9ca5508c4a5b9e8be6ad4d0d1eb2c68cec76620ea089b894a3ee22",
+    "checkpoint/checkpoint-20/experiment_cfg/dataset_statistics.json": "0068a8143573d59fc1361189c6f2b75a478f391adfdca9fc3b9d9aa74ccfdf0f",
+    "checkpoint/checkpoint-20/experiment_cfg/final_processor_config.json": "595c0269aac81350e149ea774b98d03ee4489fb63c8cb3211d2b588269fc5f9f",
+    "checkpoint/checkpoint-20/experiment_cfg/final_model_config.json": "fbfc8131d75cbae984afa93eac2d69368cbc63a6c3fcd860ac6c6eef9467a4de"
+  },
+  "finished_at_utc": "2026-10-17T22:42:46.952264+00:00",
+  "wall_seconds": 98.86389220199999,
+  "peak_allocated_gpu_bytes": 38529214464
+}

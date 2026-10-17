@@ -1,4 +1,4 @@
-# K1 meal delivery
+# Tableside — K1 meal delivery
 
 A Booster K1 simulation project working toward vision-guided delivery of a pizza
 box and drink. The system combines RGB-D perception, explicit scene memory,
@@ -33,8 +33,10 @@ No robot is present in this environment-preview frame.*
 | Sensor-estimated navigation | [One unloaded approach completed in 19 s](experiments/codex-20261017T2152-sensor-navigation-surface-fix/REPORT.md); no markers or simulator pose input to navigation, 9.74 cm maximum XY error, 0.00124 m/s final true speed |
 | Varied sensor-guided teacher collection | [4 completed / 10 unloaded attempts](experiments/codex-20261017T2210-sensor-demo-pilot/REPORT.md); six timeouts, one contact trial, translation drift remains a major limitation |
 | SmolVLA fine-tuning | [200 actual optimizer updates](experiments/codex-20261017T2215-smolvla-training/REPORT.md); three training episodes, one validation episode, frozen backbone unchanged; offline imitation only |
-| GR00T prerequisites | [Pinned weights downloaded, isolated environment verified](experiments/codex-20261017T2215-groot-setup/REPORT.md); no GR00T inference or training yet |
-| Trained VLA in closed-loop delivery; hardware delivery | Not completed |
+| SmolVLA closed-loop comparison | [Executive2/4; trainedVLA2/4](experiments/codex-20261017T2230-vla-closed-loop/REPORT.md); eight unloaded simulator runs, no overall improvement |
+| GR00T N1.7 pilot | [20 actual updates and saved-checkpoint inference](experiments/codex-20261017T2245-groot-pilot/REPORT.md); closed-loop performance unmeasured |
+| Free tray supported in both hands | [15s,2.036m,3.295mm payload shift](experiments/codex-20261017T2300-hand-carry/REPORT.md); real MuJoCo contacts, no torso support/weld, scripted baseline without PPO/VLA |
+| Integrated loaded camera-guided delivery; hardware delivery | Not completed |
 
 These results are separate experiments. An integrated, learned, camera-guided
 loaded delivery has not yet been demonstrated. Simulator-only inputs are labeled
@@ -54,7 +56,7 @@ flowchart LR
   LOC --> EXEC
   EXEC --> NAV[Search and navigation]
   OBS --> NAV
-  VLA[SmolVLA pilot: trained, integration pending] -. bounded subgoals .-> EXEC
+  VLA[SmolVLA: trained and pilot-tested] -. bounded subgoals .-> EXEC
   NAV --> CMD[Velocity command]
   IMU[IMU and joints] --> WALK[Frozen official K1 actor]
   CMD --> WALK
@@ -66,8 +68,8 @@ flowchart LR
 ```
 
 The executive owns task completion and rejects invalid or stale action proposals.
-The VLA interface is implemented and a small SmolVLA pilot is trained; its
-closed-loop navigation contribution remains unmeasured.
+The bounded SmolVLA adapter has been tested in eight unloaded simulator runs:
+2/4 passes per mode, with no overall improvement over executive-only control.
 The PPO residual uses joint/IMU/command signals. True simulated velocity and
 payload state affect training rewards, not actor observations.
 

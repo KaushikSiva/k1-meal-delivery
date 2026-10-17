@@ -1,0 +1,83 @@
+{
+  "status": "tested",
+  "started_at_utc": "2026-10-17T22:49:57.533981+00:00",
+  "setup": {
+    "tray_center": [
+      0.305,
+      0,
+      0.699
+    ],
+    "tray_size": [
+      0.34,
+      0.5,
+      0.015
+    ],
+    "tray_mass_kg": 0.68,
+    "box_mass_kg": 0.8,
+    "drink_mass_kg": 0.5,
+    "arm_pose": {
+      "aaleft_shoulder_pitch_joint": -0.7878273143,
+      "left_shoulder_roll_joint": -1.4451597945,
+      "left_elbow_pitch_joint": -0.1240584698,
+      "left_elbow_yaw_joint": -0.7750652153,
+      "aaright_shoulder_pitch_joint": -0.7878273143,
+      "right_shoulder_roll_joint": 1.4451597945,
+      "right_elbow_pitch_joint": -0.1240584698,
+      "right_elbow_yaw_joint": 0.7750652153
+    },
+    "arm_kp": 80.0,
+    "arm_kd": 3.0,
+    "arm_effort_limit_Nm": 14.0,
+    "support": "unconstrained contact with original left/right terminal hand meshes",
+    "physical_underside_handle_seats": true,
+    "tray_fixed_joint": false,
+    "torso_bracket": false,
+    "friction": 0.7,
+    "initial_height_adjustment_m": 0.02097352623939508,
+    "initial_foot_clearance_corrected_m": 0.05288523380879767,
+    "gravity_and_known_load_feedforward": true
+  },
+  "scope": "hand-supported loaded baseline; scripted velocity; no VLA or PPO residual",
+  "gravity": [
+    0.0,
+    0.0,
+    -9.81
+  ],
+  "equality_constraints": 0,
+  "source_hashes": {
+    "sim/run_k1_hand_carry.py": "6bd64e695829fb627ac3c430956b8ecad933e816c7f18f5af0053274d7019eba",
+    "sim/k1_hand_carry.py": "505a89a099ea413a9254cbcc84b861ee7ed079bd4e72663c6e46c70b4caec277"
+  },
+  "walking_actor_arm_inputs": "nominal position/zero velocity ablation",
+  "hand_contact_steps": [
+    3997,
+    3998
+  ],
+  "torso_contact_steps": 0,
+  "max_arm_torque_Nm": 5.622622609559172,
+  "payload_drop": false,
+  "robot_fall": false,
+  "initial_tray_penetration_m": 0.0,
+  "simulated_seconds": 7.999999999999341,
+  "physics_steps": 4000,
+  "final_tray_xyz": [
+    0.2334705359976637,
+    0.0031051910096770888,
+    0.683137174686838
+  ],
+  "final_root_xyz": [
+    -0.06539209041612971,
+    -0.0017215432280903477,
+    0.5472561328409172
+  ],
+  "max_tray_tilt_deg": 3.9368174477106854,
+  "artifacts": {
+    "final.png": "a35a498df481423914f04d612a89371182426517c0a30450f3b87af8fe2512f1",
+    "contacts.csv": "4871e25a9540fca715d7f0afb38fe093b98ce5ba9cd75019774a8e91e38088e1",
+    "diagnostics.json": "02642dafa00b2b35b0b8bc9f90d0c5033266e6d455db792c9b7d3fd8d6a66a9c",
+    "evaluator.mp4": "32c6ded06119fa81d96680cef3cf8ae47c36b571e09a7e4eabfdce79adb2b7b9",
+    "initial.png": "6053307622e87f5da4628a98987838969c9cb430a30ad4b90d776254fe8f646f",
+    "initial_before_physics.png": "fd3208bad767f1d1e18a5ef56f33510f9e8e498d8562a1a8c22b14b239c10c16",
+    "scene.xml": "77980b2c357053811d051f6f79c7763257e6f1374402fe386a0f31e0b2e0bc36"
+  }
+}

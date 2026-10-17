@@ -1,0 +1,77 @@
+{
+  "status": "tested",
+  "started_at_utc": "2026-10-17T22:44:38.078994+00:00",
+  "setup": {
+    "tray_center": [
+      0.33,
+      0,
+      0.699
+    ],
+    "tray_size": [
+      0.34,
+      0.5,
+      0.015
+    ],
+    "tray_mass_kg": 0.68,
+    "box_mass_kg": 0.8,
+    "drink_mass_kg": 0.5,
+    "arm_pose": {
+      "aaleft_shoulder_pitch_joint": -0.7878273143,
+      "left_shoulder_roll_joint": -1.4451597945,
+      "left_elbow_pitch_joint": -0.1240584698,
+      "left_elbow_yaw_joint": -0.7750652153,
+      "aaright_shoulder_pitch_joint": -0.7878273143,
+      "right_shoulder_roll_joint": 1.4451597945,
+      "right_elbow_pitch_joint": -0.1240584698,
+      "right_elbow_yaw_joint": 0.7750652153
+    },
+    "arm_kp": 80.0,
+    "arm_kd": 3.0,
+    "arm_effort_limit_Nm": 14.0,
+    "support": "unconstrained contact with original left/right terminal hand meshes",
+    "tray_fixed_joint": false,
+    "torso_bracket": false,
+    "friction": 0.7
+  },
+  "scope": "hand-supported loaded baseline; scripted velocity; no VLA or PPO residual",
+  "gravity": [
+    0.0,
+    0.0,
+    -9.81
+  ],
+  "equality_constraints": 0,
+  "source_hashes": {
+    "sim/run_k1_hand_carry.py": "4b3bd15280895f9e53b204709eb2ba1c79a408e3e5e23212ef354e0121b99f30",
+    "sim/k1_hand_carry.py": "4cac906b95a65d5488e1c184da0f0584ad97f57bb0b92b4a3eeb1f463b2c20cb"
+  },
+  "hand_contact_steps": [
+    101,
+    105
+  ],
+  "torso_contact_steps": 0,
+  "max_arm_torque_Nm": 14.0,
+  "payload_drop": true,
+  "robot_fall": false,
+  "initial_tray_penetration_m": 0.0,
+  "simulated_seconds": 0.5460000000000004,
+  "physics_steps": 273,
+  "final_tray_xyz": [
+    0.6542984628599898,
+    -0.010883523042755668,
+    0.3462663189654798
+  ],
+  "final_root_xyz": [
+    0.19793204024626274,
+    -0.011833224870973063,
+    0.5551454057178404
+  ],
+  "max_tray_tilt_deg": 144.82077113809868,
+  "artifacts": {
+    "final.png": "ada5ca361b3362f161288102dc7e3ddf1822e6d804d2a169ec525a0a25f4e2bd",
+    "contacts.csv": "d28e58b8a4f1656d12051c5f61bc3453f4c732070db0e4d8256da0b6464341dd",
+    "evaluator.mp4": "8fa9a50c0a1b1544a4d8278815d362408c12fcb3ff63044434a7d4d4d5e3b26a",
+    "initial.png": "1d261fb8bcf92b73dc7046597efb1dbcd2ba6d83c4e7398781396cc57172603c",
+    "initial_before_physics.png": "4ee4bc859443a9652ef22e858f3b038f1d160b58b12724ec6d92d47f5cda5242",
+    "scene.xml": "ed3b2e49d57dfc3de0831f96fbd839784742a32ef7bf996807a3be2a97600f10"
+  }
+}
