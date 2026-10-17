@@ -1,0 +1,144 @@
+{
+  "source_commit": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+  "source_class": "K1WalkTaskCfg",
+  "joints": {
+    "aahead_yaw_joint": {
+      "position": 0,
+      "stiffness": 4.0,
+      "damping": 1.0,
+      "effort_limit": 6.0
+    },
+    "aahead_pitch_joint": {
+      "position": 0,
+      "stiffness": 4.0,
+      "damping": 1.0,
+      "effort_limit": 6.0
+    },
+    "aaleft_shoulder_pitch_joint": {
+      "position": 0.2,
+      "stiffness": 20.0,
+      "damping": 2.0,
+      "effort_limit": 14.0
+    },
+    "left_shoulder_roll_joint": {
+      "position": -1.25,
+      "stiffness": 20.0,
+      "damping": 2.0,
+      "effort_limit": 14.0
+    },
+    "left_elbow_pitch_joint": {
+      "position": 0,
+      "stiffness": 20.0,
+      "damping": 2.0,
+      "effort_limit": 14.0
+    },
+    "left_elbow_yaw_joint": {
+      "position": -0.5,
+      "stiffness": 20.0,
+      "damping": 2.0,
+      "effort_limit": 14.0
+    },
+    "aaright_shoulder_pitch_joint": {
+      "position": 0.2,
+      "stiffness": 20.0,
+      "damping": 2.0,
+      "effort_limit": 14.0
+    },
+    "right_shoulder_roll_joint": {
+      "position": 1.25,
+      "stiffness": 20.0,
+      "damping": 2.0,
+      "effort_limit": 14.0
+    },
+    "right_elbow_pitch_joint": {
+      "position": 0,
+      "stiffness": 20.0,
+      "damping": 2.0,
+      "effort_limit": 14.0
+    },
+    "right_elbow_yaw_joint": {
+      "position": 0.5,
+      "stiffness": 20.0,
+      "damping": 2.0,
+      "effort_limit": 14.0
+    },
+    "left_hip_pitch_joint": {
+      "position": -0.15,
+      "stiffness": 100.0,
+      "damping": 2.0,
+      "effort_limit": 30.0
+    },
+    "left_hip_roll_joint": {
+      "position": 0,
+      "stiffness": 100.0,
+      "damping": 2.0,
+      "effort_limit": 20.0
+    },
+    "left_hip_yaw_joint": {
+      "position": 0,
+      "stiffness": 100.0,
+      "damping": 2.0,
+      "effort_limit": 15.0
+    },
+    "left_knee_pitch_joint": {
+      "position": 0.3,
+      "stiffness": 100.0,
+      "damping": 2.0,
+      "effort_limit": 35.0
+    },
+    "left_ankle_pitch_joint": {
+      "position": -0.15,
+      "stiffness": 65.0,
+      "damping": 1.0,
+      "effort_limit": 24.0
+    },
+    "left_ankle_roll_joint": {
+      "position": 0,
+      "stiffness": 65.0,
+      "damping": 1.0,
+      "effort_limit": 15.0
+    },
+    "right_hip_pitch_joint": {
+      "position": -0.15,
+      "stiffness": 100.0,
+      "damping": 2.0,
+      "effort_limit": 30.0
+    },
+    "right_hip_roll_joint": {
+      "position": 0,
+      "stiffness": 100.0,
+      "damping": 2.0,
+      "effort_limit": 20.0
+    },
+    "right_hip_yaw_joint": {
+      "position": 0,
+      "stiffness": 100.0,
+      "damping": 2.0,
+      "effort_limit": 15.0
+    },
+    "right_knee_pitch_joint": {
+      "position": 0.3,
+      "stiffness": 100.0,
+      "damping": 2.0,
+      "effort_limit": 35.0
+    },
+    "right_ankle_pitch_joint": {
+      "position": -0.15,
+      "stiffness": 65.0,
+      "damping": 1.0,
+      "effort_limit": 24.0
+    },
+    "right_ankle_roll_joint": {
+      "position": 0,
+      "stiffness": 65.0,
+      "damping": 1.0,
+      "effort_limit": 15.0
+    }
+  },
+  "physics_dt": 0.002,
+  "policy_dt": 0.02,
+  "source_hashes": {
+    "sim/vendor/booster_deploy/tasks/locomotion/robots/k1/__init__.py": "f8cab573789fcd4f014bfae946aa176b287ed4642f285456af58a6fe59be869d",
+    "sim/vendor/booster_deploy/booster_deploy/robots/k1.py": "2e95ee5b761c327eb80db3f2aa73855b782c1fb415dab5ddffa445c054c17875"
+  }
+}

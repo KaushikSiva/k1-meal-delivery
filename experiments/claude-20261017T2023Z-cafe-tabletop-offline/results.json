@@ -1,0 +1,123 @@
+[
+ {
+  "capture": "counter_elevated_diagnostic",
+  "summary": true,
+  "n_table_dets": 0,
+  "n_table_tracks_after_memory": 0,
+  "false_table_tracks": 0,
+  "counter_dets": [
+   [
+    -0.24,
+    -2.0,
+    1.02
+   ],
+   [
+    -0.19,
+    -1.8,
+    1.09
+   ]
+  ]
+ },
+ {
+  "capture": "counter_head_height",
+  "summary": true,
+  "n_table_dets": 0,
+  "n_table_tracks_after_memory": 0,
+  "false_table_tracks": 0,
+  "counter_dets": [
+   [
+    -0.3,
+    -2.0,
+    1.02
+   ]
+  ]
+ },
+ {
+  "capture": "table1_1p5",
+  "table": "T1",
+  "range_m": 1.5,
+  "detected": true,
+  "center_err_m": 0.183,
+  "top_z": 0.741
+ },
+ {
+  "capture": "table1_1p5",
+  "table": "T3",
+  "range_m": 4.4,
+  "detected": false,
+  "center_err_m": null,
+  "top_z": null
+ },
+ {
+  "capture": "table1_1p5",
+  "table": "T5",
+  "range_m": 7.3,
+  "detected": false,
+  "center_err_m": null,
+  "top_z": null
+ },
+ {
+  "capture": "table1_1p5",
+  "table": "T6",
+  "range_m": 8.37,
+  "detected": false,
+  "center_err_m": null,
+  "top_z": null
+ },
+ {
+  "capture": "table1_1p5",
+  "summary": true,
+  "n_table_dets": 2,
+  "n_table_tracks_after_memory": 1,
+  "false_table_tracks": 0,
+  "counter_dets": []
+ },
+ {
+  "capture": "table1_2p5",
+  "table": "T1",
+  "range_m": 2.5,
+  "detected": true,
+  "center_err_m": 0.087,
+  "top_z": 0.756
+ },
+ {
+  "capture": "table1_2p5",
+  "summary": true,
+  "n_table_dets": 1,
+  "n_table_tracks_after_memory": 1,
+  "false_table_tracks": 0,
+  "counter_dets": []
+ },
+ {
+  "capture": "table3_2p0",
+  "table": "T3",
+  "range_m": 2.0,
+  "detected": true,
+  "center_err_m": 0.115,
+  "top_z": 0.756
+ },
+ {
+  "capture": "table3_2p0",
+  "summary": true,
+  "n_table_dets": 1,
+  "n_table_tracks_after_memory": 1,
+  "false_table_tracks": 0,
+  "counter_dets": []
+ },
+ {
+  "capture": "table6_2p8",
+  "table": "T6",
+  "range_m": 2.8,
+  "detected": false,
+  "center_err_m": null,
+  "top_z": null
+ },
+ {
+  "capture": "table6_2p8",
+  "summary": true,
+  "n_table_dets": 0,
+  "n_table_tracks_after_memory": 0,
+  "false_table_tracks": 0,
+  "counter_dets": []
+ }
+]

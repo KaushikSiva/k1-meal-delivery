@@ -1,0 +1,151 @@
+{
+  "status": "failed",
+  "started_at_utc": "2026-10-17T20:30:43.439108+00:00",
+  "evidence_kind": "isaac_k1_unloaded_scripted_velocity_diagnostic",
+  "fixed_base": false,
+  "gravity_enabled": true,
+  "walking_policy_executed": false,
+  "training_performed": false,
+  "robot_payload_present": false,
+  "delivery_success": null,
+  "source_hashes": {
+    "sim/run_k1_isaac.py": "f292abb9ca3d4e593dac83b6c73120a6d43b516feb9b991604c9b1e784ac674f",
+    "sim/vendor/booster_assets/robots/K1/K1_22dof.urdf": "834e17faf4681e5fcae116130a9da6d81b696c7f8278b95f281cec0551ca6124",
+    "sim/k1_isaac_nominal.json": "df59fe718d993db80b8738f97417cbafddcb3819cf8029e8c83bb6e64c19cdd3",
+    "sim/cafe_scene.py": "1f74d6a8ddb6ed238ce9f4e68e51568ed34ed64825a22e0d1d9f283264e0e203",
+    "sim/k1_isaac_policy.py": "3b42e47ae37ad392a0e2b484b0ff97411bb79dbce69cd88bf4c8ab0411c2b655"
+  },
+  "duration_requested_s": 15.0,
+  "speed_command_m_s": 0.35,
+  "checkpoint_sha256": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5",
+  "actor_inputs": [
+    "joint_positions",
+    "joint_velocities",
+    "body_gyro",
+    "quaternion_projected_gravity",
+    "velocity_command",
+    "last_action"
+  ],
+  "evaluation_only": [
+    "world_position",
+    "height",
+    "tilt"
+  ],
+  "joint_names": [
+    "aahead_yaw_joint",
+    "aaleft_shoulder_pitch_joint",
+    "aaright_shoulder_pitch_joint",
+    "left_hip_pitch_joint",
+    "right_hip_pitch_joint",
+    "aahead_pitch_joint",
+    "left_shoulder_roll_joint",
+    "right_shoulder_roll_joint",
+    "left_hip_roll_joint",
+    "right_hip_roll_joint",
+    "left_elbow_pitch_joint",
+    "right_elbow_pitch_joint",
+    "left_hip_yaw_joint",
+    "right_hip_yaw_joint",
+    "left_elbow_yaw_joint",
+    "right_elbow_yaw_joint",
+    "left_knee_pitch_joint",
+    "right_knee_pitch_joint",
+    "left_ankle_pitch_joint",
+    "right_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_ankle_roll_joint"
+  ],
+  "body_names": [
+    "trunk",
+    "aahead_yaw_link",
+    "aaleft_shoulder_pitch_link",
+    "aaright_shoulder_pitch_link",
+    "left_hip_pitch_link",
+    "right_hip_pitch_link",
+    "aahead_pitch_link",
+    "left_shoulder_roll_link",
+    "right_shoulder_roll_link",
+    "left_hip_roll_link",
+    "right_hip_roll_link",
+    "head_booster_stereo_rgb_link",
+    "head_realsense_rgb_link",
+    "left_elbow_pitch_link",
+    "right_elbow_pitch_link",
+    "left_hip_yaw_link",
+    "right_hip_yaw_link",
+    "left_elbow_yaw_link",
+    "right_elbow_yaw_link",
+    "left_knee_pitch_link",
+    "right_knee_pitch_link",
+    "left_ankle_pitch_link",
+    "right_ankle_pitch_link",
+    "left_ankle_roll_link",
+    "right_ankle_roll_link"
+  ],
+  "camera_links": [
+    "/World/K1/head_realsense_rgb_link"
+  ],
+  "joint_mapping_verified": true,
+  "limits": [
+    "PhysX contacts differ from MuJoCo",
+    "unloaded, no vision guidance",
+    "URDF fixed sensor joints retained"
+  ],
+  "armature": {
+    "aahead_yaw_joint": 0.002,
+    "aahead_pitch_joint": 0.002,
+    "aaleft_shoulder_pitch_joint": 0.001,
+    "left_shoulder_roll_joint": 0.001,
+    "left_elbow_pitch_joint": 0.001,
+    "left_elbow_yaw_joint": 0.001,
+    "aaright_shoulder_pitch_joint": 0.001,
+    "right_shoulder_roll_joint": 0.001,
+    "right_elbow_pitch_joint": 0.001,
+    "right_elbow_yaw_joint": 0.001,
+    "left_hip_pitch_joint": 0.0478125,
+    "left_hip_roll_joint": 0.0339552,
+    "left_hip_yaw_joint": 0.0282528,
+    "left_knee_pitch_joint": 0.095625,
+    "left_ankle_pitch_joint": 0.0565,
+    "left_ankle_roll_joint": 0.0565,
+    "right_hip_pitch_joint": 0.0478125,
+    "right_hip_roll_joint": 0.0339552,
+    "right_hip_yaw_joint": 0.0282528,
+    "right_knee_pitch_joint": 0.095625,
+    "right_ankle_pitch_joint": 0.0565,
+    "right_ankle_roll_joint": 0.0565
+  },
+  "error": "ErrorException: \n\tError in 'pxrInternal_v0_24__pxrReserved__::UsdGeomXformable::AddXformOp' at line 203 in file /builds/omniverse/usd-ci/USD/pxr/usd/usdGeom/xformable.cpp : 'XformOp </World/K1/head_realsense_rgb_link/DiagnosticRGBD.xformOp:orient> has typeName 'quatd' which does not match the requested precision 'PrecisionFloat'. Proceeding to use existing typeName / precision.'",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/ubuntu/workspace/k1-runtime/project/sim/run_k1_isaac.py\", line 98, in <module>\n    xf.ClearXformOpOrder();xf.AddOrientOp().Set(Gf.Quatf(0,Gf.Vec3f(1,0,0)))\n                           ^^^^^^^^^^^^^^^^\npxr.Tf.ErrorException: \n\tError in 'pxrInternal_v0_24__pxrReserved__::UsdGeomXformable::AddXformOp' at line 203 in file /builds/omniverse/usd-ci/USD/pxr/usd/usdGeom/xformable.cpp : 'XformOp </World/K1/head_realsense_rgb_link/DiagnosticRGBD.xformOp:orient> has typeName 'quatd' which does not match the requested precision 'PrecisionFloat'. Proceeding to use existing typeName / precision.'\n",
+  "finished_at_utc": "2026-10-17T20:30:53.879939+00:00",
+  "artifacts": {
+    "converted/K1_22dof.usd": {
+      "sha256": "b6916a519d4b8b8a068e4e2e67238367992a042e4565a5a4fb269e83110d569c",
+      "bytes": 1456
+    },
+    "converted/config.yaml": {
+      "sha256": "91cda615c68f69d3d16e81e1a4b1187054f95bf0ae444ec2281fa6e243d98213",
+      "bytes": 1698
+    },
+    "converted/.asset_hash": {
+      "sha256": "85e9da38fb88c94883d17773687545ae1873fc80e4829807fa3aa81a4cf5571a",
+      "bytes": 32
+    },
+    "converted/configuration/K1_22dof_physics.usd": {
+      "sha256": "d635accd602e820031f89db0da52906e06c44491751f557c49773c6ef8fd9df9",
+      "bytes": 8617
+    },
+    "converted/configuration/K1_22dof_robot.usd": {
+      "sha256": "5afd20718fb242da0e6a663388720dfdf7a93b2db0b8068708dfeae9009068b1",
+      "bytes": 2484
+    },
+    "converted/configuration/K1_22dof_base.usd": {
+      "sha256": "ea5bd73be1e57a71fea4c9930d3012ed537e7ea721168605cfaa7bd7b6414268",
+      "bytes": 17263898
+    },
+    "converted/configuration/K1_22dof_sensor.usd": {
+      "sha256": "2c66af515fb4adecf4126e586d1c469c51d188caafc4520f91ee827dc70880f9",
+      "bytes": 642
+    }
+  }
+}

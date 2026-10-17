@@ -55,3 +55,11 @@ Café04 rendered four1280x720 PNGs on L40S; all hashes verified after download. 
 2026-10-17T20:15:28.285268+00:00: Final café USD checks3passed; camera/model suite14passed. Initial rerun used nonexistent test_upstream_k1.py and collected nothing; corrected to test_k1_policy.py. Claude78hashes match; video timing review found2.5Hz capture encoded10fps and unrecorded2s finalhold; requested honest captions before integrating experiment report.
 
 2026-10-17T20:16:34.458331+00:00: Pushed d034f09 owned scene/runtime checkpoint. Verified exact frozen autonomy set54passed16skipped and31realcamera tests. Core review complete; committing19corepaths only. Presentation review found acceleratedclips and staleablationgenerator; sent targeted corrections, leaving those artifacts uncommitted.
+
+2026-10-17T20:23:10.277781+00:00: RGB-D01verified12artifacts,5geometricchecks passed. Initial patchcheck counter failed because upperrayshitcounterface; corrected analytic nearest floor/counter intersection, same1cm tolerance. Import01failedmissingcameraextension;02activeafterexplicitactivation. Presentation66filescommitted6600726 with hashes/timing independentlyverified. User asked completionandtraining: estimated~30%fullgoal, explicitly noPPO/VLAupdates yet.
+
+2026-10-17T20:28:16.726115+00:00: Import03verified22joints/camera, nominalPDfell1.472speak60.23deg. Completedprocesshunginshutdown; recordedSIGTERM, processnowabsent. SDKclose(wait_for_replicator=False) verifiedandappliedfuturejobs. Realunchangedactorwalk01nowlaunched with explicitPD+MJCFarmature. IndependentCL-5read-onlydetectorrerunmatchedall6capturecount/counteroutputsandprivilegedprovenance.
+
+## 2026-10-17T20:40:55.982580+00:00 — corrected Isaac walking verified
+
+Walk04:19.666kg,15s,750 actor calls,2.91964m,4.36846deg peak tilt, no fall. Ten evidence hashes and two375-frame/15s videos verified; head camera view visually corrected. No PPO/VLA update. CL5 eleven frozen hashes verified; independent offline detector rerun agreed with3/4targets and documented counter mislabel. Next: supported tray and loaded baseline.

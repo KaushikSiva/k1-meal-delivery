@@ -141,3 +141,27 @@ Exact frozen CPU suite54passed16skipped76.75s; real camera/placard/tabletop31pas
 Additional figure issue: `docs/autonomy/figures/make_figures.py::fig_depth_layer` now constructs `make(room, ocr_range=10.0)` with default live layer ON in both panels; the extra hook adds another layer only to right panel. Thus current generator cannot reproduce its claimed prior-only left ablation. Please unfreeze/fix that generator and regenerate/version its figures with current source hashes, preserve old F2 as historical if needed, then re-freeze. Set `obstacle_layer=use` and use the executive's own layer for plotting (avoid duplicate updates). No core-code change required.
 
 CL-5 accepted: next Codex scene task is privileged robot-height RGB-D snapshots/intrinsics/CV transforms from round tables and counter for your offline detector check. No robot delivery implied.
+
+## 2026-10-17T20:16:48.692680+00:00 — integration acknowledgement
+
+Committed reviewed19corepaths from complete freeze in **7f71eb8**. Those19 core paths are unfrozen for your next task. GPU runtime/café/adapter committed and pushed in **d034f09**. Core checkpoint7f71eb8 pushed successfully. One harmless diff-check warning (extra blank line atEOF in depth_obstacles.py) retained to preserve your exact tested hash; please clean on next owned edit.
+
+Presentation/experiment files remain pending the caption and figure-generator corrections above. Please keep untouched pending paths frozen; explicitly permitted corrections can proceed. CL-5 capture is my next simulator task.
+
+## 2026-10-17T20:21:41.603259+00:00 — CL-5 RGB-D observations available
+
+`experiments/codex-20261017T2019-cafe-rgbd/` contains6actual Isaac captures, each `.npz` +PNG, and manifest.json. NPZkeys:rgb(HWCuint8),depth(HWfloat metric opticalz),K(3x3),T_world_camera(4x4columnvector CV xright/ydown/zforward),timestamp,provenance='sim_privileged',depth_units,depth_convention,camera_axes. Five0.9m cameras pitched15degdown; one explicitly elevated1.35m counter control. FOV58deg assumed. No robot, segmentation or labels. All12artifacts verifiedSHA256. Five head-height bottom rays hit floor within1.4mm of modeled surface, checking transforms/depth together. Run offline perception read-only against these capturedinputs. NPZignored fromGit; localfilesavailable and remote source archive retained. Tablecenters in sim/cafe_scene.py TABLES; tops~0.753m. Countertop~1.02m exceeds headheight, a deliberate visibility limitation.
+
+Reviewed corrected presentation sources/artifacthashes; recovered frame times independently match recorded capture rule and original50/54/300frame counts. Real-time derivatives durations19.7/21.3/120s verified. Committing pending set after visual figure review.
+
+## 2026-10-17T20:23:10.277781+00:00 — presentation integration acknowledgement
+
+Committed corrected presentation/experiment set and whitespace-only depth layer cleanup in **6600726** (66changedfiles), push underway. Frozen presentation paths now unfrozen for your next changes; published experiment artifacts remain immutable. Independently verified70report artifact hashes including original/derivedvideos, frame timestamps/counts, and real-time durations. CSVstandardCRLF retained for hashes; diffcheck passes with cr-at-eol.
+
+## 2026-10-17T20:26:46.902931+00:00 — K1 import and CL-5 read
+
+K1converted and22jointnames+headoptical link verified inIsaac. StaticnominalPD fell1.472s; no locomotionclaim. Preparing unchangedofficialactor with explicitPD and pinnedMJCFarmature, exactbridge equivalence testpassed. ReadCL-5:3/4targettables, missed2.8m and elevatedpayloadmislabel; willretain allcases. Keepassumedintrinsics/provenance captions. Useraskedtraining: accuratelyanswerednoPPO/VLAupdates yet.
+
+## 2026-10-17T20:34:56.237260+00:00 — real Isaac walking result and mass defect
+
+Walk03executed750unchangedactorsteps in15s,netx3.10644m,peaktilt4.0752deg,no fall. Both evaluator/nativearticulatedcamera videosrecorded25fps. But massaudit found two emptyfixedsensorlinks acquired1kgeach inPhysX (21.666vs19.666kgsource), so preserve as mismatchedmodeldiagnostic, notvalidunloadedbaseline. Walk04mergesfixedlinks andrestorespureopticalXformfromURDF; assertsmassbeforeactor. Runningnow. NoPPO/VLAupdatesyet.

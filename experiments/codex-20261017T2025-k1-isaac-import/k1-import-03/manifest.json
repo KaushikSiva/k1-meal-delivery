@@ -1,0 +1,126 @@
+{
+  "status": "tested",
+  "started_at_utc": "2026-10-17T20:24:54.963349+00:00",
+  "evidence_kind": "isaac_k1_urdf_import_nominal_pd_diagnostic",
+  "fixed_base": false,
+  "gravity_enabled": true,
+  "walking_policy_executed": false,
+  "training_performed": false,
+  "robot_payload_present": false,
+  "delivery_success": null,
+  "source_hashes": {
+    "sim/import_k1_isaac.py": "4e5dfb71e56ec1f24e887ed6d3386756c51168e1385d905fce540b737457a058",
+    "sim/vendor/booster_assets/robots/K1/K1_22dof.urdf": "834e17faf4681e5fcae116130a9da6d81b696c7f8278b95f281cec0551ca6124",
+    "sim/k1_isaac_nominal.json": "df59fe718d993db80b8738f97417cbafddcb3819cf8029e8c83bb6e64c19cdd3",
+    "sim/cafe_scene.py": "1f74d6a8ddb6ed238ce9f4e68e51568ed34ed64825a22e0d1d9f283264e0e203"
+  },
+  "joint_names": [
+    "aahead_yaw_joint",
+    "aaleft_shoulder_pitch_joint",
+    "aaright_shoulder_pitch_joint",
+    "left_hip_pitch_joint",
+    "right_hip_pitch_joint",
+    "aahead_pitch_joint",
+    "left_shoulder_roll_joint",
+    "right_shoulder_roll_joint",
+    "left_hip_roll_joint",
+    "right_hip_roll_joint",
+    "left_elbow_pitch_joint",
+    "right_elbow_pitch_joint",
+    "left_hip_yaw_joint",
+    "right_hip_yaw_joint",
+    "left_elbow_yaw_joint",
+    "right_elbow_yaw_joint",
+    "left_knee_pitch_joint",
+    "right_knee_pitch_joint",
+    "left_ankle_pitch_joint",
+    "right_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_ankle_roll_joint"
+  ],
+  "body_names": [
+    "trunk",
+    "aahead_yaw_link",
+    "aaleft_shoulder_pitch_link",
+    "aaright_shoulder_pitch_link",
+    "left_hip_pitch_link",
+    "right_hip_pitch_link",
+    "aahead_pitch_link",
+    "left_shoulder_roll_link",
+    "right_shoulder_roll_link",
+    "left_hip_roll_link",
+    "right_hip_roll_link",
+    "head_booster_stereo_rgb_link",
+    "head_realsense_rgb_link",
+    "left_elbow_pitch_link",
+    "right_elbow_pitch_link",
+    "left_hip_yaw_link",
+    "right_hip_yaw_link",
+    "left_elbow_yaw_link",
+    "right_elbow_yaw_link",
+    "left_knee_pitch_link",
+    "right_knee_pitch_link",
+    "left_ankle_pitch_link",
+    "right_ankle_pitch_link",
+    "left_ankle_roll_link",
+    "right_ankle_roll_link"
+  ],
+  "camera_links": [
+    "/World/K1/head_realsense_rgb_link"
+  ],
+  "joint_mapping_verified": true,
+  "limits": [
+    "implicit PhysX PD, not upstream explicit actuator dynamics",
+    "static nominal targets, no actor",
+    "no robot payload",
+    "URDF fixed sensor joints retained"
+  ],
+  "termination": "fall",
+  "simulated_seconds": 1.472,
+  "final_root_xyz": [
+    1.521140456199646,
+    -0.003616842208430171,
+    0.3557907044887543
+  ],
+  "peak_tilt_deg": 60.23172716254128,
+  "nominal_pd_stayed_upright": false,
+  "finished_at_utc": "2026-10-17T20:25:10.660652+00:00",
+  "artifacts": {
+    "trajectory.csv": {
+      "sha256": "041d653d6595ad99678dce1174c54855a74c32dd56ee1f673b8ff6d866473579",
+      "bytes": 92238
+    },
+    "frame-0200.png": {
+      "sha256": "48a791b0bcb29834afb42f41bad56659735806a231afa5385e6464d5fa59b9d6",
+      "bytes": 615263
+    },
+    "converted/K1_22dof.usd": {
+      "sha256": "b6916a519d4b8b8a068e4e2e67238367992a042e4565a5a4fb269e83110d569c",
+      "bytes": 1456
+    },
+    "converted/config.yaml": {
+      "sha256": "afc5623cabb4eafaa72e134a4d35922837e6a6dbb1bffb9b565ce6426145716b",
+      "bytes": 1700
+    },
+    "converted/.asset_hash": {
+      "sha256": "85e9da38fb88c94883d17773687545ae1873fc80e4829807fa3aa81a4cf5571a",
+      "bytes": 32
+    },
+    "converted/configuration/K1_22dof_physics.usd": {
+      "sha256": "d635accd602e820031f89db0da52906e06c44491751f557c49773c6ef8fd9df9",
+      "bytes": 8617
+    },
+    "converted/configuration/K1_22dof_robot.usd": {
+      "sha256": "5afd20718fb242da0e6a663388720dfdf7a93b2db0b8068708dfeae9009068b1",
+      "bytes": 2484
+    },
+    "converted/configuration/K1_22dof_base.usd": {
+      "sha256": "ea5bd73be1e57a71fea4c9930d3012ed537e7ea721168605cfaa7bd7b6414268",
+      "bytes": 17263898
+    },
+    "converted/configuration/K1_22dof_sensor.usd": {
+      "sha256": "2c66af515fb4adecf4126e586d1c469c51d188caafc4520f91ee827dc70880f9",
+      "bytes": 642
+    }
+  }
+}

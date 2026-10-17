@@ -1,0 +1,414 @@
+{
+  "status": "captured",
+  "evidence_kind": "isaac_cafe_fixed_camera_rgbd_diagnostic",
+  "started_at_utc": "2026-10-17T20:19:46.226207+00:00",
+  "robot_present": false,
+  "training_performed": false,
+  "delivery_success": null,
+  "provenance": "sim_privileged",
+  "depth_convention": "metric optical z; not Euclidean ray distance",
+  "camera_convention": "CV: x right, y down, z forward",
+  "source_hashes": {
+    "capture_cafe_rgbd.py": "c9572b10fa8349eca1a085ca642ed25a08c327f973efbc14c083071ea1b26e21",
+    "cafe_scene.py": "1f74d6a8ddb6ed238ce9f4e68e51568ed34ed64825a22e0d1d9f283264e0e203",
+    "cafe_assets.json": "e2ba56c3d0dce60aaa67b8cbb96cc54eb79920ea52cb4f0eed5b2de94fe7c6bc"
+  },
+  "scene": {
+    "scene": "Common Table cafe",
+    "units": "meters",
+    "table_count": 6,
+    "chair_count": 18,
+    "asset_provider": "Poly Haven / CC0",
+    "physics": "static triangle mesh furniture; provisional friction 0.7/0.6",
+    "payload": "0.8kg box + 0.5kg sealed drink, staged on counter tray; masses assumed",
+    "robot_present": false,
+    "delivery_tested": false,
+    "limitations": [
+      "room dimensions invented",
+      "no calibrated material friction",
+      "lighting intensities selected for visibility, not measured photometry",
+      "window collision pane invisible; glass sensor response not modeled",
+      "plant collision approximates pot only",
+      "no robot or learned controller yet"
+    ]
+  },
+  "captures": {
+    "table1_1p5": {
+      "K": [
+        [
+          432.9714660644531,
+          0.0,
+          320.0
+        ],
+        [
+          0.0,
+          432.9714660644531,
+          240.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_world_camera": [
+        [
+          -9.392558952825425e-09,
+          -0.25881896867255905,
+          0.9659258467684116,
+          0.5
+        ],
+        [
+          -1.0,
+          9.392558952825425e-09,
+          -7.20716453184167e-09,
+          -2.049999952316284
+        ],
+        [
+          -7.20716453184167e-09,
+          -0.9659258467684116,
+          -0.25881896867255905,
+          0.8999999761581421
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "finite_depth_fraction": 0.9201985677083333,
+      "bottom_center_world_point_m": [
+        1.5360291297531923,
+        -2.04999995558513,
+        0.0033756085606150843
+      ],
+      "fovy_degrees": 58,
+      "pitch_down_degrees": 15
+    },
+    "table1_2p5": {
+      "K": [
+        [
+          432.9714660644531,
+          0.0,
+          320.0
+        ],
+        [
+          0.0,
+          432.9714660644531,
+          240.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_world_camera": [
+        [
+          -1.0,
+          9.7157761873381e-17,
+          -7.455177485730281e-17,
+          2.0
+        ],
+        [
+          9.7157761873381e-17,
+          0.2588190190685902,
+          -0.9659258332648386,
+          0.44999998807907104
+        ],
+        [
+          -7.455177485730281e-17,
+          -0.9659258332648386,
+          -0.25881901906859006,
+          0.8999999761581421
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "finite_depth_fraction": 0.7456217447916667,
+      "bottom_center_world_point_m": [
+        2.0,
+        -0.586029695989958,
+        0.003375034292400103
+      ],
+      "fovy_degrees": 58,
+      "pitch_down_degrees": 15
+    },
+    "table3_2p0": {
+      "K": [
+        [
+          432.9714660644531,
+          0.0,
+          320.0
+        ],
+        [
+          0.0,
+          432.9714660644531,
+          240.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_world_camera": [
+        [
+          -1.0,
+          9.7157761873381e-17,
+          -7.455177485730281e-17,
+          4.900000095367432
+        ],
+        [
+          9.7157761873381e-17,
+          0.2588190190685902,
+          -0.9659258332648386,
+          -0.05000000074505806
+        ],
+        [
+          -7.455177485730281e-17,
+          -0.9659258332648386,
+          -0.25881901906859006,
+          0.8999999761581421
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "finite_depth_fraction": 0.7466634114583334,
+      "bottom_center_world_point_m": [
+        4.900000095367432,
+        -1.086029284083322,
+        0.0033753811021531854
+      ],
+      "fovy_degrees": 58,
+      "pitch_down_degrees": 15
+    },
+    "table6_2p8": {
+      "K": [
+        [
+          432.9714660644531,
+          0.0,
+          320.0
+        ],
+        [
+          0.0,
+          432.9714660644531,
+          240.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_world_camera": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          7.800000190734863
+        ],
+        [
+          0.0,
+          -0.2588189780700533,
+          0.9659258442503612,
+          -0.75
+        ],
+        [
+          0.0,
+          -0.9659258442503612,
+          -0.2588189780700533,
+          0.8999999761581421
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "finite_depth_fraction": 1.0,
+      "bottom_center_world_point_m": [
+        7.800000190734863,
+        0.2860295217607116,
+        0.00337525167135011
+      ],
+      "fovy_degrees": 58,
+      "pitch_down_degrees": 15
+    },
+    "counter_head_height": {
+      "K": [
+        [
+          432.9714660644531,
+          0.0,
+          320.0
+        ],
+        [
+          0.0,
+          432.9714660644531,
+          240.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_world_camera": [
+        [
+          -9.392558952825425e-09,
+          0.25881896867255905,
+          -0.9659258467684116,
+          1.25
+        ],
+        [
+          1.0,
+          9.392558952825425e-09,
+          -7.20716453184167e-09,
+          -2.0
+        ],
+        [
+          7.20716453184167e-09,
+          -0.9659258467684116,
+          -0.25881896867255905,
+          0.8999999761581421
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "finite_depth_fraction": 0.87349609375,
+      "bottom_center_world_point_m": [
+        0.21397026915063289,
+        -2.0000000032688474,
+        0.003375088346016797
+      ],
+      "fovy_degrees": 58,
+      "pitch_down_degrees": 15
+    },
+    "counter_elevated_diagnostic": {
+      "K": [
+        [
+          432.9714660644531,
+          0.0,
+          320.0
+        ],
+        [
+          0.0,
+          432.9714660644531,
+          240.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_world_camera": [
+        [
+          -9.392558952825425e-09,
+          0.25881896867255905,
+          -0.9659258467684116,
+          1.25
+        ],
+        [
+          1.0,
+          9.392558952825425e-09,
+          -7.20716453184167e-09,
+          -2.0
+        ],
+        [
+          7.20716453184167e-09,
+          -0.9659258467684116,
+          -0.25881896867255905,
+          1.350000023841858
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "finite_depth_fraction": 0.5895930989583333,
+      "bottom_center_world_point_m": [
+        0.19962571003835627,
+        -2.0000000033141068,
+        0.44096073485785203
+      ],
+      "fovy_degrees": 58,
+      "pitch_down_degrees": 15
+    }
+  },
+  "physics_steps": 90,
+  "simulated_seconds": 1.5,
+  "limits": [
+    "fixed scene cameras, not articulated K1",
+    "assumed FOV, not calibrated",
+    "perfect simulator extrinsics",
+    "counter_elevated view exceeds K1 head height"
+  ],
+  "finished_at_utc": "2026-10-17T20:19:58.471968+00:00",
+  "artifacts": {
+    "counter_elevated_diagnostic.png": {
+      "sha256": "e1bc3e172b23f8758d20f7a551587abd6ac858ec67fea0466f2a22566a31ce4c",
+      "bytes": 157379
+    },
+    "table6_2p8.npz": {
+      "sha256": "69a413fd13a873d06e0faa1e00349af795a1e1708580b321df393aedce7ebb89",
+      "bytes": 580152
+    },
+    "counter_head_height.png": {
+      "sha256": "cc6aea755602e5c247230f93577fe66ccd5dafd6ee2883cc95eb561e375efd09",
+      "bytes": 184391
+    },
+    "table1_2p5.png": {
+      "sha256": "1bb8b72d3797d5130bfed8dc58222279179a9087b221d283122e57e1f68bfb86",
+      "bytes": 351903
+    },
+    "counter_head_height.npz": {
+      "sha256": "bcd169d9af80e87a1b52d32f95daf27e7d881af2c14c1aeafa696db479357f09",
+      "bytes": 234829
+    },
+    "table1_2p5.npz": {
+      "sha256": "57d628bf0f8c2a465b581f23fd052703578f07ff8887b54360ffec3a28ac05cc",
+      "bytes": 645818
+    },
+    "table3_2p0.npz": {
+      "sha256": "488e2b07ae838c2ee8309d1ba4bfa2da4f172acc9f986d14dd15725ecc407eab",
+      "bytes": 636316
+    },
+    "table1_1p5.png": {
+      "sha256": "c65b6d9d4cbdbd7fc2f2b4ba6918dcae6d4353459b8e60e898d621ae14f6d477",
+      "bytes": 309373
+    },
+    "table6_2p8.png": {
+      "sha256": "0dfa272b37d22694f1bb2db0aa9326f3e1c7c68637bc725f495c832effb34939",
+      "bytes": 306661
+    },
+    "table3_2p0.png": {
+      "sha256": "e91454ef52c8032a72b294e03473d8755f975e1af6bdfc40c21b6c3b72c41d2d",
+      "bytes": 344756
+    },
+    "counter_elevated_diagnostic.npz": {
+      "sha256": "b71b5d9f1aaf3813d4004632b3d8a4446a3c24764af48dd4e79a4038a0c67ea3",
+      "bytes": 230983
+    },
+    "table1_1p5.npz": {
+      "sha256": "38ddacbff2b81be954636630afc95512d733e750bfcf81e2848f6e10585d9550",
+      "bytes": 754895
+    }
+  }
+}

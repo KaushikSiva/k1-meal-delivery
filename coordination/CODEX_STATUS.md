@@ -1,23 +1,15 @@
 # Codex status
 
-Updated (UTC): 2026-10-17T20:16:34.458331+00:00
-
+Updated (UTC): 2026-10-17T20:40:55.982580+00:00
 State: working
+Task: checkpoint actual café RGB-D, K1 import failures and corrected unloaded Isaac walking; then supported tray and PPO carrying adaptation.
 
-Task: verify the realistic café's fourth GPU render, checkpoint simulator/runtime evidence, then integrate the frozen camera-driven autonomy diagnostic.
+Claimed paths: sim/; tests/sim/; tools/remote_*.sh; training/; experiments/codex-*; coordination/CODEX_*.md; .gitignore. Exact next additions: sim/k1_payload.py, sim/k1_payload.json, tests/sim/test_k1_payload.py; extend sim/run_k1_isaac.py and tools/remote_k1_walk.sh for loaded baseline. No Claude WIP edits.
 
-Claimed paths: sim/; tests/sim/; tools/fetch_cafe_assets.py; tools/isaac_smoke.py; tools/remote_*.sh; docs/hardware/; docs/RESOURCES.md; .gitignore; new experiments/codex-* directories; coordination/CODEX_*.md. Existing ownership remains unchanged. Codex is sole Git integrator; Claude frozen paths are review-only until validated.
+Evidence: prior6600726 pushed. Café6RGB-D captures verified;5geometry tests passed. Official actor bridge equivalence test passed. Walk01/02 failed before actor; preserved. Walk03 completed but19.666kg source imported as21.666kg; preserved as invalid nominal baseline. Walk04 merges empty fixed links: actual19.666kg,15s,750actor steps,2.91964m forward,4.36846deg peak tilt,no fall. Both videos375frames/15s,10artifacthashes checked; head view visually correct. No loaded run or PPO/VLA updates yet.
 
-Evidence: Scene/runtime checkpoint d034f09 pushed. Official unloaded K1 actor reproduced in MuJoCo; command sweep exposes low-speed deadband. Real articulated head RGB-D adapter has explicit SIM_PRIVILEGED pose/extrinsic provenance; 14 camera/model tests passed. One authorized Crusoe L40S is RUNNING with driver580.178.04, IsaacSim5.1, IsaacLab2.3.2 and torch2.7+cu128. Actual physics+RGB smoke passed120steps; cube settled at z0.249998m. One upstream Starlette/FastAPI metadata conflict is documented; pipcheck is not clean. No web API service used.
+Budget: one Crusoe L40S k1-isaac-check-20261017, $1.74/hour, authorized5–6h including17:15–18:30PDT. No shutdown timer. VM retained. Runtime IsaacSim5.1/IsaacLab2.3.2/torch2.7cu128; documented Starlette metadata conflict. No active GPU job after walk04.
 
-Café: CC0 furniture/textures/HDRI locked by SHA256; metric USD includes six tables, eighteen chairs, colliders and staged box/drink. Three local USD checks passed. Render02 exposed red material fallback; render03 fixed textures but was underexposed. Render04 completed successfully with improved pendant/window lighting; four PNGs downloaded and hash-verified; hero/counter visually approved. All attempts preserved. No robot in this USD scene yet; no delivery or training claim.
-
-Budget/demo: one instance k1-isaac-check-20261017 (opqm34emo), $1.74/hour, authorized for5–6h including17:15–18:30PDT (00:15–01:30UTC). Old two-hour shutdown guard cancelled, exit130. NO automatic shutdown active. Keep GPU available through demo; do not stop during integration.
-
-Blockers: physical K1/operator absent. General visual localization, loaded control, genuine PPO/VLA training and hardware trials remain incomplete.
-
-Next: commit validated core autonomy paths; wait for corrected presentation captions/figure generator. Then capture privileged RGB-D scene samples for offline detector review and integrate K1 in Isaac. No blanket staging.
-
-Last teammate update read: Claude2026-10-17T20:12:47Z complete78-file freeze supersedes earlier mismatches. Reports A/B delivered unloaded with privileged localization/restricted placard and opt-in0.3m/s deadband compensation; C timed out. Independently ran earlier developmental autonomy suite53passed16skipped and camera/placard/tabletop31passed; current frozen set needs exact hash verification and code review.
-
-Current freeze validation:78hashes match;54passed16skipped CPU and31passed realcamera tests. Core code reviewed. Presentation clips are accelerated (2.5Hz capture/10fps encoding), final2s hold absent from video/trajectory, and current figure generator enables both ablation layers; requested truthful corrections before integrating those artifacts.
+Blockers: no physical K1/operator; no blocker to simulation. Full end-to-end goal incomplete.
+Next: commit reviewed checkpoint, attach documented nonzero-mass supported tray and free payload, run unchanged-policy baseline, then actual PPO.
+Last teammate read: Claude20:24:26Z CL5 eleven paths frozen and independently verified; localization WIP with failing drift fixture. Other live autonomy changes excluded from staging.

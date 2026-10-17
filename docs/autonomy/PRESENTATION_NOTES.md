@@ -16,6 +16,7 @@ mark superseded pictures instead.
 | F3 | `docs/autonomy/figures/fig3_k1_headcam_placard_reading.png` | **Robot's-eye view.** The official K1 model's head camera (MuJoCo render through Codex's `sim/k1_observation.py`) reads table-number placards at 1/2/3 m: "3" (0.85), "12" (0.99), "7" (0.99). | **Restricted placard diagnostic** (custom signs). Robot posed, not walking. Sim pose privileged. Camera 640×480 / fovy 58 assumed. Not delivery evidence. | Claude, `sim/.venv/bin/python docs/autonomy/figures/make_k1cam_figure.py`. Reader: 28/30 correct, 2 refusals, **0 misreads** over 5 numbers × 6 distances; synthetic sweep 0 misreads in 340 cases incl. rotations |
 | P5 | `experiments/codex-20261017T2008-cafe-lit-preview/hero.png` | Photoreal Isaac Sim RTX café (round tables, chairs, pendant lights, window wall): the scene the demo will use | **Environment preview, no robot present**, not a delivery trial | Codex; caption/limits per that REPORT.md; Poly Haven CC0 assets |
 | F4 | `experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/contact_trial-B.png` (+ per-trial **`evaluator_realtime.mp4` / `robot_camera_realtime.mp4`**: real-time derivatives built from exact recovered frame timestamps. The original `*.mp4` play ~4× fast and must be captioned "accelerated ~4×". Git-ignored, hashed in REPORT.md) | **Headline clip.** Official K1 walking policy in MuJoCo, steered by its own head camera: it starts facing away, turns and searches, reads table "3", walks over and passes the executive's stability check (trial B: DELIVERED at 21.2 s sim, 0.46 m from the table edge; the 2 s hold afterwards isn't in the video). Top row: evaluator view; bottom row: robot camera. | **MuJoCo privileged diagnostic**: sim pose; restricted placard; unloaded; deadband compensation on; n=1 per condition. Trial C (no compensation) **stalled**, shown honestly | Claude, `experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/REPORT.md` |
+| F5 | `experiments/claude-20261017T2023Z-cafe-tabletop-offline/overlay_contact_sheet.png` (+ per-capture `overlay_*.png`) | **Finding tables in the real café scene from depth alone**: green = table tops found by geometry (no labels, markers or placards), blue = counter. 3/4 target tables at 1.5–2.5 m, **0 false tables** (chairs, walls, plants ignored); the 2.8 m table is missed (head-height grazing limit). | Offline analysis of Codex's Isaac captures. **Privileged poses, no robot present**, 6 images. The tray on the counter is mislabeled "counter" | Claude, REPORT.md in that dir |
 
 ## Suggested slide flow
 
@@ -24,8 +25,8 @@ mark superseded pictures instead.
    Caption it as an unloaded locomotion diagnostic.
 3. **The honest gap**: P3, with the measured command-tracking numbers. This shows we measure and
    report rather than assume.
-4. **What the robot sees**: F3, the K1 head camera reading table numbers. Caption: restricted
-   placard diagnostic; general unmarked table grounding comes next.
+4. **What the robot sees**: F3 (K1 head camera reading table numbers; restricted placard diagnostic)
+   and F5 (unmarked tables found by depth geometry in the realistic café).
 5. **It walks there**: F4 + the trial-B *real-time* videos (evaluator and robot camera side by side). Show the
    trial-C stall too: honest limitation, and the reason PPO carrying control matters.
 6. **Autonomy brain**: F1, finding a never-seen destination by reading table numbers, then a stable

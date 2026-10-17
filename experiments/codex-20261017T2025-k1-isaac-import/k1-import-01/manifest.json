@@ -1,0 +1,20 @@
+{
+  "status": "failed",
+  "started_at_utc": "2026-10-17T20:20:27.352004+00:00",
+  "evidence_kind": "isaac_k1_urdf_import_nominal_pd_diagnostic",
+  "fixed_base": false,
+  "gravity_enabled": true,
+  "walking_policy_executed": false,
+  "training_performed": false,
+  "robot_payload_present": false,
+  "delivery_success": null,
+  "source_hashes": {
+    "sim/import_k1_isaac.py": "da4816db707b30290823f43868dfc1a3199b8065a80ba82f4be0c5db6e896c75",
+    "sim/vendor/booster_assets/robots/K1/K1_22dof.urdf": "834e17faf4681e5fcae116130a9da6d81b696c7f8278b95f281cec0551ca6124",
+    "sim/k1_isaac_nominal.json": "df59fe718d993db80b8738f97417cbafddcb3819cf8029e8c83bb6e64c19cdd3",
+    "sim/cafe_scene.py": "1f74d6a8ddb6ed238ce9f4e68e51568ed34ed64825a22e0d1d9f283264e0e203"
+  },
+  "error": "ModuleNotFoundError: No module named 'isaacsim.sensors'",
+  "finished_at_utc": "2026-10-17T20:20:35.331727+00:00",
+  "artifacts": {}
+}

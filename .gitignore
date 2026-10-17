@@ -34,3 +34,4 @@ vendor/
 experiments/**/trajectory.csv
 experiments/**/positions.json
 MUJOCO_LOG.TXT
+experiments/**/*.npz
