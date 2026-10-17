@@ -36,10 +36,13 @@ No robot is present in this environment-preview frame.*
 | SmolVLA closed-loop comparison | [Executive2/4; trainedVLA2/4](experiments/codex-20261017T2230-vla-closed-loop/REPORT.md); eight unloaded simulator runs, no overall improvement |
 | GR00T N1.7 pilot | [20 actual updates and saved-checkpoint inference](experiments/codex-20261017T2245-groot-pilot/REPORT.md); closed-loop performance unmeasured |
 | Free tray supported in both hands | [MuJoCo:15s,2.036m,3.295mm shift](experiments/codex-20261017T2300-hand-carry/REPORT.md); [Isaac café:15s,2.193m,8.038mm shift](experiments/codex-20261017T2305-hand-carry-isaac/REPORT.md); no torso support/weld, scripted baseline without PPO/VLA |
-| Integrated loaded camera-guided delivery; hardware delivery | Not completed |
+| Camera-guided delivery with a hand-supported load | [Delivered in22.8s plus2s settling](experiments/codex-20261017T2310-loaded-navigation/REPORT.md); no collision/drop/fall,3.8mm payload shift; one development configuration, no VLA/PPO |
+| GR00T longer fine-tuning | [500 actual updates and strict saved-checkpoint reload](experiments/codex-20261017T2320-groot-curve/REPORT.md); fixed validation loss1.765→2.451 (worse), no delivery benefit established |
+| Varied loaded reliability; hardware delivery | Not completed |
 
-These results are separate experiments. An integrated, learned, camera-guided
-loaded delivery has not yet been demonstrated. Simulator-only inputs are labeled
+An integrated camera-guided loaded delivery now passes in one MuJoCo development
+configuration. Learned hand-carry control and varied-layout reliability remain
+unverified; the PPO and VLA results above are separate experiments. Simulator-only inputs are labeled
 and kept out of deployment policy observations. Raw recordings and weights stay
 outside Git; reports retain hashes, provenance and storage references.
 

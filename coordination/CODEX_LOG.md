@@ -92,3 +92,5 @@ You.com official packaging research saved; original Domino’s-inspired box text
 2026-10-17T22:55:52.388482+00:00: hand09 .4m/s commanded trial achieved2.036m net with freehandcontact support, no drop/fall; hand08 .25 didnotwalk. Preserve alldevelopmentattempts.
 
 2026-10-17T23:08:37.245951+00:00: Isaac hand03 and camera-repeat04 passed15 s/2.193 m with8.038 mm payload shift, no drop/fall/other-robot support. All14 artifacts per run and four hand-specific source snapshots verified; decoded375 frames/25 fps/15 s for both cameras. Root and contact CSVs identical across camera repeat. Real lower-angle image confirms tray seats rest on hands. Failed01 uv path and02 invalid USD prim name retained. Preparing exact-path checkpoint; Claude café-film handoff ready.
+
+- 2026-10-17T23:35:00.823112+00:00 Loaded05 integratedcamera-guidedhandcarry passed14individualchecks (earlier15countincorrect),621frames25fpsbothviews verified. GR00T02 completed500updates,validationworsened38.9%,strictreloadpassed; callbacklogs missed20trainingrows, honestgappedgraphproduced. Correctedlogger03 nowrunning realupdates. Sourcehashes verified and reports prepared.

@@ -1,0 +1,39 @@
+{
+  "frozen_at_utc": "2026-10-17T23:17:40.085999+00:00",
+  "optimizer_steps": 500,
+  "initialization": "same original pinned GR00T pretrained checkpoint as pilot02; fresh run, not resumed pilot",
+  "train_episodes": 3,
+  "train_frames": 262,
+  "validation_episode": "validation-00",
+  "validation_frames": 149,
+  "validation_indices": "16 evenly spaced indices over149frames, reused each evaluation",
+  "validation_every_updates": 25,
+  "validation_noise_seeds": [
+    9500,
+    9501,
+    9502,
+    9503,
+    9504,
+    9505,
+    9506,
+    9507,
+    9508,
+    9509,
+    9510,
+    9511,
+    9512,
+    9513,
+    9514,
+    9515
+  ],
+  "normalization": "training-only, no validation merge",
+  "metric": "official masked flow-matching denoising loss",
+  "batch_size": 1,
+  "learning_rate": 0.0001,
+  "seed": 9301,
+  "limits": [
+    "single validation episode previously used forSmolVLA",
+    "offline imitation metric, not robotics improvement",
+    "no validation-based early stopping or checkpoint selection"
+  ]
+}

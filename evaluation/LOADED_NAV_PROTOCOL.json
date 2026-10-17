@@ -1,0 +1,38 @@
+{
+  "frozen_at_utc": "2026-10-17T23:11:33.852841+00:00",
+  "scope": "first integration development; no reliability estimate",
+  "duration_s": 60,
+  "settle_seconds": 2,
+  "walk_speed": 0.4,
+  "table": [
+    4.0,
+    0.0,
+    0.4,
+    0.5,
+    0.75
+  ],
+  "start": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "seed": 8201,
+  "navigation_revision": "d42660781b60581fae43b13ce91aec8997cc4d54",
+  "criteria": {
+    "executive_outcome": "delivered",
+    "no_room_collision": true,
+    "no_fall": true,
+    "no_drop": true,
+    "front_edge_distance_m": [
+      0.3,
+      0.8
+    ],
+    "lateral_error_max_m": 0.3,
+    "last_1p5s_max_true_speed_m_s": 0.03,
+    "max_body_tilt_deg": 10.0,
+    "max_payload_shift_m": 0.04,
+    "max_tray_tilt_deg": 10.0,
+    "max_hand_contact_loss_s": 0.1,
+    "other_robot_support": false
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "status": "tested",
+  "started_at_utc": "2026-10-17T23:11:34.873467+00:00",
+  "evidence_kind": "mujoco_sensor_guided_hand_carry_development",
+  "payload_present": true,
+  "markers_present": false,
+  "training_performed": false,
+  "hardware_verified": false,
+  "navigation_privileged_inputs": [],
+  "evaluation_only": [
+    "world pose",
+    "root speed",
+    "body tilt"
+  ],
+  "prior": {
+    "source": "operator floor plan and initial pose",
+    "initial_pose": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "sigma": [
+      0.1,
+      0.1,
+      0.05
+    ]
+  },
+  "assumptions": [
+    "level initial attitude",
+    "flat floor",
+    "stance foot for height",
+    "ideal encoders",
+    "gyro noise .005rad/s and z bias .0015rad/s",
+    "camera FOV58deg"
+  ],
+  "protocol": {
+    "duration_s": 60.0,
+    "camera_hz": 5,
+    "policy_hz": 50,
+    "physics_hz": 500,
+    "payload": "none",
+    "destination": "single unnumbered table",
+    "seed": 8201,
+    "table": [
+      4.0,
+      0.0,
+      0.4,
+      0.5,
+      0.75
+    ],
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "record_demo": false,
+    "hand_carried": true,
+    "walk_speed": 0.4,
+    "settle_seconds": 2.0,
+    "policy_mode": "executive",
+    "policy_seed": 9101
+  },
+  "limits": [
+    "development trial, not held-out",
+    "linear prediction uses commanded velocity",
+    "scan matching must constrain drift",
+    "not hardware tested",
+    "physical underside tray seats and cup holder",
+    "known load arm feedforward",
+    "no PPO residual",
+    "sealed rigid can, no liquid simulation"
+  ],
+  "versions": {
+    "mujoco": "3.16.0",
+    "torch": "2.14.1",
+    "numpy": "2.4.6"
+  },
+  "walking_actor_arm_inputs": "nominal arm position/zero velocity ablation",
+  "source_hashes": {
+    "sim/run_k1_sensor_navigation.py": "65ee2cf33f933d11880c454cc7709269effd368b03a68e6319f753bd3f11c9a0",
+    "sim/k1_sensor_observation.py": "c5a7d8c33c4669af684fd73ed975801bace84786cd021fb5c0482dc8a94c6663",
+    "sim/k1_imu.py": "52134be692799937b5a580459d53f2eac4c956b25bca890e6658b185e25717ec",
+    "sim/k1_observation.py": "7b251f78cab063132ea140b91c4997f30c833462991c78b4b1ba9daa425a8e21",
+    "contracts/robot_telemetry.py": "668195226186cee69520b62b0d650cbe01981dc06c23002ab886224e7b8af27f",
+    "deployment/k1_leg_estimator.py": "251b4f06b34c02c8240380786682bede6b1bb902f07695c53b6e252dbd985985",
+    "perception/k1_camera.py": "6c155bd444667127a44c4e882f966216dc14f1dbb80ef584e962e9960b8c3e26",
+    "perception/tabletop.py": "1399a2071d4e7411b162c00c7fa4f4fef9b237ba1cfd7dfafabf65a5b202379f",
+    "navigation/localization.py": "96c954397326249842be58803a57de2ea2844bb50f41b0d92aa2614dd92047f5",
+    "autonomy/session.py": "a68dd346013a7940672703f588da4534d62be8e4ce2ae55bb6e1d550add0fef8",
+    "autonomy/executive.py": "c31095d2556fbf45d416268211af8b958f403b03fcf87734bebd006496725e26",
+    "navigation/follower.py": "b0de96990252b5e5517110375e0237c37312b28bf624a5b42e97bde7f2786324",
+    "navigation/planner.py": "36c67e654162e5b21408623b9d7f931d39dbe25aa77d70d03dd58e0a2c840f29",
+    "navigation/search.py": "d5ef1a85c7345912d45b8d1223b6d669f38da53a5e685a338f6776d152d1b0fd",
+    "memory/scene_memory.py": "2af2eab020bbb945acbda7aacd10a2c90692b3ebe494e07e1d2a288c8fa2b163",
+    "vla/inputs.py": "baa4e6f4bb2cd107be0ee4054a051567aa766e1020c12332e17dcc750a57a7e6",
+    "vla/recorder.py": "9f93f11bf40bf69bccd8b5c3b4da437e938fad82aa05cd88c8d51579627338c0",
+    "vla/action_space.py": "b74e2edb349b938496b2274f639ad94926d393ab18f9323d1d5c8625e3d3fa94",
+    "sim/k1_hand_controller.py": "7a1b01ccb33c77a281001710f8223050bd330fcc7e146d45c1c51dd5a1dc9790",
+    "sim/k1_hand_carry.py": "505a89a099ea413a9254cbcc84b861ee7ed079bd4e72663c6e46c70b4caec277"
+  },
+  "checkpoint_sha256": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5",
+  "hand_setup": {
+    "tray_center": [
+      0.305,
+      0,
+      0.699
+    ],
+    "tray_size": [
+      0.34,
+      0.5,
+      0.015
+    ],
+    "tray_mass_kg": 0.68,
+    "box_mass_kg": 0.8,
+    "drink_mass_kg": 0.5,
+    "arm_pose": {
+      "aaleft_shoulder_pitch_joint": -0.7878273143,
+      "left_shoulder_roll_joint": -1.4451597945,
+      "left_elbow_pitch_joint": -0.1240584698,
+      "left_elbow_yaw_joint": -0.7750652153,
+      "aaright_shoulder_pitch_joint": -0.7878273143,
+      "right_shoulder_roll_joint": 1.4451597945,
+      "right_elbow_pitch_joint": -0.1240584698,
+      "right_elbow_yaw_joint": 0.7750652153
+    },
+    "arm_kp": 80.0,
+    "arm_kd": 3.0,
+    "arm_effort_limit_Nm": 14.0,
+    "support": "unconstrained contact with original left/right terminal hand meshes",
+    "physical_underside_handle_seats": true,
+    "tray_fixed_joint": false,
+    "torso_bracket": false,
+    "friction": 0.7
+  },
+  "termination": "autonomy_terminal",
+  "outcome": "ambiguous_destination",
+  "events": [
+    "2.00 search: search -> approach",
+    "2.20 approach: FAILED ambiguous_destination: another candidate also matches while approaching: table#0, table#1",
+    "2.20 approach: approach -> failed"
+  ],
+  "max_xy_error_m": 0.07408374378241062,
+  "final_xy_error_m": 0.06485565979169258,
+  "max_yaw_error_rad": 0.005824723425793727,
+  "max_tilt_deg": 3.7317683811318174,
+  "final_true_speed_m_s": 0.0013948422201851011,
+  "final_true_xy": [
+    -0.06460126977841624,
+    -0.005738688877440113
+  ],
+  "hand_metrics": {
+    "physics_steps": 2190,
+    "hand_contact_steps": [
+      2187,
+      2188
+    ],
+    "max_hand_contact_loss_s": [
+      0.004,
+      0.002
+    ],
+    "other_robot_contact_steps": {},
+    "max_arm_torque_Nm": 5.575229665897547,
+    "max_tray_tilt_deg": 3.9507992242838013,
+    "max_payload_shift_m": 0.0006883078416337218,
+    "payload_drop": false,
+    "equality_constraints": 0,
+    "torque_limit_Nm": 14.0
+  },
+  "collision_contact_steps": 0,
+  "collision_geom_pairs": [],
+  "collision_scope": "room-object vs robot and payload at 500Hz",
+  "simulated_seconds": 4.37999999999974,
+  "wall_seconds": 4.123930000001565,
+  "video_fps": 5,
+  "video_frames": 22,
+  "finished_at_utc": "2026-10-17T23:11:39.316993+00:00",
+  "artifacts": {
+    "rgbd-0007.npz": "78a05b81842e4745caf63186d1c13f88a53bb3af5c4442f3231f63df7a4355cd",
+    "rgbd-0013.npz": "4f6d2969a0fee02b0eaa402193fddd1cdea95e927dfefa60127171c46b8fcf4a",
+    "rgbd-0012.npz": "b783a96f4531d83c2d80d1e8fce9ac7f013857844c9095963bca91e12a2d0fc8",
+    "rgbd-0006.npz": "abba54406cd625f00787ac01da5cff6cd08b2020b5eb14c8050b588beece0a26",
+    "localization.json": "c862636a88e554d01107bedeed963264112f695b1ff6234c5dc18361eab4359d",
+    "rgbd-0010.npz": "cd27c2c70dac0a2d3b2034665c729d5a3926ec9e91e4964ef9683ce845efdef5",
+    "rgbd-0004.npz": "bc1b01532c7eebb01912bb67f48c438562391e8fbf03664e114e72d015d6acbc",
+    "payload_contacts.csv": "588b763ecb47d11fc708873ed068038b4b56a086de6b6c445df0ccab0878d656",
+    "rgbd-0005.npz": "d854457286465b33ce9b4db96f3dab37175ca8d54e07d331491bb670ccb18d4e",
+    "rgbd-0011.npz": "1abf5d228144279637c60dffe0c2f945a74ce08dc4dc4e1240993ec73f1e43f5",
+    "rgbd-0015.npz": "8372ee96dfed5e5e88ae57eaf34c6022e65a8a8c0d16ef91127e1114c40173b0",
+    "rgbd-0001.npz": "7fb75ee8b6db2bf05334b76c0038acd75af54b2546a2aceeb01d96b269fa928f",
+    "hand_scene.xml": "77980b2c357053811d051f6f79c7763257e6f1374402fe386a0f31e0b2e0bc36",
+    "rgbd-0000.npz": "7970618448d432de210de0ba807ef33a7b7a02c979b6fd48f6d4a676b1644a5e",
+    "rgbd-0014.npz": "53bda01690c202b0abfd661fe4b982fd24a1753689fbf5f55023c97a50c6331e",
+    "rgbd-0002.npz": "4fd52c0bf0ba6ce3dd211abf1c673ee3fcf4090e7d2f52298080f7e6fcb75fb2",
+    "robot_camera_final_recorded.png": "480f9065a56ee095ac920f1f163c04893e4f4b8a3d94d096b5ee6d614678934c",
+    "rgbd-0016.npz": "2cd5dec8fdcb21272a1e12f3ec384962adf4f71d6faf5d32d10ebd904b7b5df9",
+    "rgbd-0017.npz": "9ea0cf629922a2b29ecfcd6e8fef9f590470422fb5d706c94b2aad6d407ce255",
+    "rgbd-0003.npz": "aab82097f20f974b02ffc92ee7fd29e133940398ea44017ac9041fb59b82042c",
+    "evaluator-0001.png": "e4e2c43c8f517fd446c4ec69636184af58348bf5bcf14bf89ea346dfd0daba7a",
+    "robot_camera-0001.png": "7e27ba80b6642c21abb2ea53ce79ba14b809d6ff06f40f51b0916bfef5926631",
+    "evaluator.mp4": "12812d1246a125231c66b2164b83ad728ecace0cc8e9dc42e4bfac75a16e8e82",
+    "frame_times.csv": "32fdb405fdc7693c463f375975ee74753bd3a579ec7a65e30bb19b8ec44b6175",
+    "robot_camera.mp4": "925fb3783f288d9da2f3821bf7ff73af29f3f6c6052cd8ae1546215a476625e2",
+    "evaluator_final_recorded.png": "75e0675e173728db246a56d142d263e7b281b0f01947f203e505b09431bcb011",
+    "trajectory.csv": "b2791f1e6c049252115628effca4d294ce7e1cd4a280daaeb1a4e03f1748cf1e",
+    "rgbd-0019.npz": "4198d955ff4e1704e93d5203f8b34b5fd935345ab9cf5a4e17f1d3807ee6be73",
+    "rgbd-0018.npz": "9d80805a951900a89a46347770c794b6d5e94d227fd78e7919b6ce4529ccebd6",
+    "rgbd-0020.npz": "c8a156a9c8ce5775a6acfd257be17d5a31d4248630ce18de8f50d83f4eb9eaa6",
+    "rgbd-0008.npz": "33799b5003cb21aa66cde5c9c97cb1b917de3b12d032e6c33fc1289eb199894d",
+    "rgbd-0009.npz": "e2f8582de867e954e0fa17871bc6f36151641f7b8e9f86452179ec91f4150374",
+    "rgbd-0021.npz": "ff9560680f5c5e9471b0410bb0ffa05afb5a35868145c65b6444107b63b47b52"
+  }
+}

@@ -85,3 +85,23 @@ actor are an explicit ablation; the physical arms use measured encoder feedback.
 The evaluation-only tracking camera reads robot position to frame the footage;
 its position is not supplied to the controller. Do not actuate a physical K1 from
 this diagnostic runner.
+
+## Camera-guided delivery with the hand-supported tray
+
+The first integrated development pass uses head RGB-D, noisy gyro and joint encoders,
+an operator floor plan and initial-pose prior. It ends with a stable stop at one
+unnumbered table. [Five attempts, failures and measured acceptance](../experiments/codex-20261017T2310-loaded-navigation/REPORT.md).
+
+```sh
+sim/.venv/bin/python sim/run_k1_sensor_navigation.py --output runs/loaded-nav-new \
+  --duration 60 --hand-carried --known-load-depth-mask --carry-command-guard \
+  --walk-speed .4 --settle-seconds 2 --head-pitch -.2 --prediction-scale .5 \
+  --video-fps 25 --tracking-evaluator
+sim/.venv/bin/python -m evaluation.score_loaded_navigation runs/loaded-nav-new
+```
+
+The configured load-depth self-filter marks occluded carried-load pixels unknown;
+raw depth and RGB are preserved. Command guarding holds requests below the actor's
+measured walking band and never increases requested speed. The fixed0.5 odometry
+prediction scale is a development prior, not simulator velocity feedback. This
+profile uses the frozen walking actor and torque-limited arms, without PPO/VLA.

@@ -1,0 +1,27 @@
+{
+  "status": "failed",
+  "started_at_utc": "2026-10-17T23:17:45.640153+00:00",
+  "scope": "500-update custom bounded-subgoal training; no delivery-performance claim",
+  "hardware_verified": false,
+  "training_performed": false,
+  "optimizer_updates": 0,
+  "source_revision": "dac54b313160c201c450f97df0fd74ebd379c892",
+  "source_sha256": "bc8ef0b5ccfe385bcd819daf2a3ba063f4ee8ed570760f1c219cf2d6945ecbf3",
+  "dataset_manifest_sha256": "23ea87f2e774b5737c4e28b21ea06768f5162550de5cb9cd5d5c953a0c47a005",
+  "budget": {
+    "optimizer_steps": 500,
+    "batch_size": 1,
+    "learning_rate": 0.0001
+  },
+  "torch": "2.9.0+cu128",
+  "initial": {
+    "trainable_sha256": "537225d2528c40a28f5a19f5a0f87b403cab335e435d3e0ef306d409d6c71052",
+    "frozen_sha256": "67db3a10bd23756b5ea2ece5062109401f48dfc70688bab9742fc63763279926",
+    "trainable_parameters": 1620515968,
+    "frozen_parameters": 1523500032
+  },
+  "error": "AssertionError: /home/ubuntu/workspace/k1-runtime/groot-dataset-01/validation/meta/stats.json does not exist for /home/ubuntu/workspace/k1-runtime/groot-dataset-01/validation, please use gr00t/data/stats.py to generate it",
+  "finished_at_utc": "2026-10-17T23:18:09.991546+00:00",
+  "wall_seconds": 24.351270989000113,
+  "peak_allocated_gpu_bytes": 12578162176
+}

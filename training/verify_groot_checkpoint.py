@@ -10,7 +10,7 @@ def sha(p):
   while b:=f.read(8*1024*1024):h.update(b)
  return h.hexdigest()
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('--runtime',type=Path,required=True);a=ap.parse_args();r=a.runtime;out=r/'evidence/groot-pilot-02';m=json.loads((out/'manifest.json').read_text());verified={}
+ ap=argparse.ArgumentParser();ap.add_argument('--runtime',type=Path,required=True);ap.add_argument('--run',default='groot-pilot-02');a=ap.parse_args();r=a.runtime;out=r/'evidence'/a.run;m=json.loads((out/'manifest.json').read_text());verified={}
  for name,h in m['checkpoint_files'].items():
   if name.startswith('checkpoint/model-') and name.endswith('.safetensors'):
    assert sha(out/name)==h;verified[name]=h

@@ -21,7 +21,7 @@ def main():
     from gr00t.configs.base_config import get_default_config
     from gr00t.data.embodiment_tags import EmbodimentTag
     import gr00t.experiment.experiment as experiment
-    report={'status':'started','started_at_utc':datetime.now(timezone.utc).isoformat(),'scope':'20-update custom bounded-subgoal training feasibility; no delivery-performance claim','hardware_verified':False,'training_performed':False,'optimizer_updates':0,'source_revision':'dac54b313160c201c450f97df0fd74ebd379c892','source_sha256':file_sha(Path(__file__)),'dataset_manifest_sha256':file_sha(a.runtime/'groot-dataset-01/manifest.json'),'budget':{'optimizer_steps':a.steps,'batch_size':1,'learning_rate':1e-4},'torch':torch.__version__}
+    report={'status':'started','started_at_utc':datetime.now(timezone.utc).isoformat(),'scope':f'{a.steps}-update custom bounded-subgoal training; no delivery-performance claim','hardware_verified':False,'training_performed':False,'optimizer_updates':0,'source_revision':'dac54b313160c201c450f97df0fd74ebd379c892','source_sha256':file_sha(Path(__file__)),'dataset_manifest_sha256':file_sha(a.runtime/'groot-dataset-01/manifest.json'),'budget':{'optimizer_steps':a.steps,'batch_size':1,'learning_rate':1e-4},'torch':torch.__version__}
     start=time.monotonic();original=experiment.Gr00tTrainer
     class AuditedTrainer(original):
         def train(self,*args,**kwargs):
