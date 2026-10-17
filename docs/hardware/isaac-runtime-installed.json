@@ -1,0 +1,10 @@
+{
+  "python": "3.11.13",
+  "isaacsim": "5.1.0.0",
+  "isaaclab": "0.54.2",
+  "torch": "2.7.0+cu128",
+  "cuda": "12.8",
+  "gpu": "NVIDIA L40S",
+  "cuda_tensor_test": "passed",
+  "simulator_startup_verified": false
+}

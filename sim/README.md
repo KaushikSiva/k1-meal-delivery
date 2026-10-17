@@ -12,7 +12,7 @@ python3 tools/fetch_upstreams.py
 uv venv --python 3.11.13 sim/.venv
 uv pip install --python sim/.venv/bin/python -r sim/requirements-macos.lock.txt
 uv pip install --python sim/.venv/bin/python --no-deps -e sim/vendor/booster_assets
-sim/.venv/bin/python -m unittest discover -s tests/sim -v
+sim/.venv/bin/python -m pytest tests/sim -q
 sim/.venv/bin/python sim/run_k1_baseline.py --output experiments/codex-UNIQUE-k1-walk --duration 15 --speed 0.2 --render
 python3 evaluation/analyze_locomotion.py experiments/codex-UNIQUE-k1-walk
 ```
@@ -42,3 +42,19 @@ See the [original report](../experiments/codex-20261017T1902-k1-walk-baseline/RE
 Recordings stay in ignored local artifact storage; manifests retain their hashes
 and relative paths. They are not uploaded by a Git push. Do not delete the local
 run directories until an external artifact store has been established.
+
+## Head-camera integration adapter
+
+`k1_observation.sensor_spec(source_xml)` adds a native camera at the official
+RealSense optical link without editing vendor assets. Its 58-degree vertical FOV
+and 640×480 resolution are simulation assumptions, not physical calibration.
+`DiagnosticObservationAdapter(model, diagnostic=True).observe(data)` returns
+RGB, metric z-depth, and explicitly privileged pose/twist/extrinsics. It emits no
+instance masks or destination labels. This is geometry/render integration;
+walking executive integration and deployable localization remain outstanding.
+
+Four tests verify head articulation, optical convention, central/off-axis depth,
+world-to-base velocity, and rejection on the deployable input path. The macOS
+OpenGL backend reports `ARB_clip_control` unavailable, so depth precision is
+limited; the tested two-meter plane was within one centimeter at both samples.
+That check does not calibrate the physical camera or establish full-range accuracy.

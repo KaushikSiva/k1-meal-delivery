@@ -1,0 +1,35 @@
+2026-10-17T19:32:24Z
+Linux x86_64
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+glibc 2.35
+NVIDIA L40S, 565.57.01, 46068 MiB
+               total        used        free      shared  buff/cache   available
+Mem:           144Gi       926Mi       139Gi       0.0Ki       4.4Gi       142Gi
+Swap:             0B          0B          0B
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1       124G   21G  104G  17% /
+/dev/vda1       124G   21G  104G  17% /
+Python 3.10.12
+/usr/bin/docker
+/usr/bin/git
+{
+  "python": "3.10.12",
+  "installed_modules": {
+    "torch": false,
+    "isaacsim": false,
+    "isaaclab": false,
+    "mujoco": false
+  }
+}
+k1-isaac-check-20261017

@@ -1,0 +1,62 @@
+{
+  "status": "rendered",
+  "evidence_kind": "isaacsim_cafe_environment_preview",
+  "started_at_utc": "2026-10-17T19:59:26.897265+00:00",
+  "robot_present": false,
+  "delivery_success": null,
+  "training_performed": false,
+  "source_hashes": {
+    "render_cafe.py": "08dfe2e89fe71dbb9d8152966eeb09437406d56328746328eccf89cdd3a41cbb",
+    "cafe_scene.py": "1e5677f65822daa3663e8b02521bf2931c45825d7829cf5e7cb2b532ec6d7062",
+    "cafe_assets.json": "e2ba56c3d0dce60aaa67b8cbb96cc54eb79920ea52cb4f0eed5b2de94fe7c6bc"
+  },
+  "scene": {
+    "scene": "Common Table cafe",
+    "units": "meters",
+    "table_count": 6,
+    "chair_count": 18,
+    "asset_provider": "Poly Haven / CC0",
+    "physics": "static triangle mesh furniture; provisional friction 0.7/0.6",
+    "payload": "0.8kg box + 0.5kg sealed drink, staged on counter tray; masses assumed",
+    "robot_present": false,
+    "delivery_tested": false,
+    "limitations": [
+      "room dimensions invented",
+      "no calibrated material friction",
+      "window collision pane invisible; glass sensor response not modeled",
+      "plant collision approximates pot only",
+      "no robot or learned controller yet"
+    ]
+  },
+  "physics_steps": 90,
+  "simulated_seconds": 1.5,
+  "views": [
+    "hero",
+    "dining",
+    "robot_height",
+    "service_counter"
+  ],
+  "finished_at_utc": "2026-10-17T19:59:41.140689+00:00",
+  "artifacts": {
+    "service_counter.png": {
+      "sha256": "cf354c1fa7e97b5c67dee84d86326e53014dcf877d6aa4584d985cf524e949e3",
+      "bytes": 516370
+    },
+    "dining.png": {
+      "sha256": "f2d1ebbb6acf5f768f9b4bc046c869d85f0b78843c564f9e9323867d67c582ae",
+      "bytes": 818157
+    },
+    "hero.png": {
+      "sha256": "6da90fb1263147624a1163d946561313022040f13bd944f92d448ca8fc353edb",
+      "bytes": 829717
+    },
+    "robot_height.png": {
+      "sha256": "2a6e9565881053e29b32d51580998b26533fb0b56e239660a0a3473c2fd7731a",
+      "bytes": 960165
+    },
+    "cafe.usda": {
+      "sha256": "d607551e4b13096dab6b304cc610bda55ccc373ccba5c8acf162484126c5a92b",
+      "bytes": 200970657
+    }
+  }
+}

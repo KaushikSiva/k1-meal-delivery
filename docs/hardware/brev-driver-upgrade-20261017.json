@@ -1,0 +1,29 @@
+{
+  "evidence_kind": "remote_driver_upgrade",
+  "instance": "k1-isaac-check-20261017",
+  "initial_driver": "565.57.01",
+  "verified_after_reboot_driver": "580.178.04",
+  "gpu": "NVIDIA L40S",
+  "memory_MiB": 46068,
+  "attempts": [
+    {
+      "name": "driver-install",
+      "exit": 100,
+      "failure": "old libnvidia-extra-565 file ownership conflict"
+    },
+    {
+      "name": "targeted driver repair",
+      "exit": 0
+    }
+  ],
+  "artifacts": {
+    "runs/brev-k1-20261017/driver-install.log": {
+      "sha256": "357656b25d992c06ee22c694f27c3f25ee60e4c19315757b433fd32fd8070cb7",
+      "bytes": 12939
+    },
+    "runs/brev-k1-20261017/driver-repair.log": {
+      "sha256": "39d21ebbe20b5aed944a1947d97f356ea61a39c0654ea6d69eaa1d22615690ed",
+      "bytes": 8820
+    }
+  }
+}

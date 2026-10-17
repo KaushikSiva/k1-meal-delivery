@@ -1,0 +1,39 @@
+{
+  "started_at_utc": "2026-10-17T19:56:54.729947+00:00",
+  "evidence_kind": "isaacsim_headless_cube_physics_rgb_smoke",
+  "status": "passed",
+  "k1_tested": false,
+  "training_performed": false,
+  "hardware_tested": false,
+  "delivery_success": null,
+  "runner_sha256": "26761e02035b73b04d1e3dc4efe8b84939a42e757051e4a24cd856ec66ae8e7e",
+  "isaacsim_version": "5.1.0.0",
+  "physics_steps": 120,
+  "final_position_m": [
+    0.0006668504793196917,
+    0.008684500120580196,
+    0.24999813735485077
+  ],
+  "final_velocity_m_s": [
+    -0.0006930927047505975,
+    1.9605649868026376e-05,
+    0.04595132917165756
+  ],
+  "cube_red_pixels": 142373,
+  "wall_time_s": 149.3302340780001,
+  "finished_at_utc": "2026-10-17T19:59:24.062734+00:00",
+  "artifacts": {
+    "frame-0059.png": {
+      "sha256": "020bfea394bc677c5ef11e0fd46feb6bbd7dbf049a05861ea51fb81265e853d6",
+      "bytes": 130869
+    },
+    "positions.json": {
+      "sha256": "d5438935d60678e88abe8cf80eec126ee09a8eb2088b58c51adcd89ea2fd36c1",
+      "bytes": 7408
+    },
+    "frame-0119.png": {
+      "sha256": "706ac232d86c0526aeaf0bb6bb61ab96afd20ceeaad2767173f2d2dffc68d5f2",
+      "bytes": 131643
+    }
+  }
+}

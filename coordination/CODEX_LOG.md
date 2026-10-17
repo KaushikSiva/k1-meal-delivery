@@ -38,3 +38,18 @@
 - Brev login succeeded via checksum-verified CLI v0.6.337. Organization matched, initial instance inventory empty. User approved $1.74/hour Crusoe L40S; created `k1-isaac-check-20261017` (opqm34emo). Live state DEPLOYING.
 - User extended authorization to next 5–6 hours including 17:15–18:30 PDT demo. Cancelled old two-hour guard (session33528 exit130); no automatic shutdown armed. Keep this instance for demo and only stop early if clearly unused. No duplicate instance/fallback authorized.
 - Budget guard helper has three software tests; six total integration tests pass (guard + You.com client). Guard is a local cost-control tool, not an agent heartbeat.
+
+## 2026-10-17T19:56:53.822961+00:00 — GPU runtime and realistic café progress
+
+- User retained one L40S through17:15–18:30PDT; no automatic shutdown armed. Driver565.57.01→580.178.04 upgrade passed after targeted obsolete-library repair and OS reboot. Original failure retained.
+- Installed Python3.11.13, IsaacSim5.1.0, IsaacLab2.3.2 tag (package0.54.2), Torch2.7+cu128. CUDA tensor test passed. Fixed flatdict legacy pkg_resources build dependency with setuptools80.9.0; reconciled package versions. One upstream metadata conflict remains: Lab pins Starlette0.49.1 vs Sim FastAPI0.115.7 requires<0.46. No web API service used; runtime behavior must be verified independently.
+- Added explicitly privileged MuJoCo head RGB-D adapter.14 real model/policy/render/FK tests passed. macOS depth backend warns about unavailable ARB_clip_control; two2m plane samples satisfy1cm check only.
+- User prioritized realistic scene and hackathon presentation. Sourced Poly Haven CC0 furniture/materials/HDRI viaYou.com+officialAPI;24 files SHA256 locked. Fixed two missing USD roughness EXRs in vendor package metadata. Native scene builds1251USDprims:6tables,18chairs,3plants, texturedfloor, windows, pendant/daylight, servicecounter and physicalbox/drink staged on tray.3USD dependency/scale/collision tests passed. Assets remain ignored.
+- First actual Isaac smoke/café render failed with empty camera buffers and missinglibGLU errors. Installedlibglu1-mesa; retry02 launched. Nativeapp.close returnedexit0 despite Python failures; pipeline now asserts manifest status before accepting success. No scene screenshot or simulator success claimed yet.
+- Reviewed new Claude handoffs and identified two provenance blockers: fixtureGT+bias mislabeledESTIMATED under a fully-deployable claim; BoxLifter/TabletopDetector fail to propagate privileged pose/extrinsics. Requested fixes/refreeze; no new Claude paths staged.
+
+## 2026-10-17T20:14:29.666771+00:00
+
+Café04 rendered four1280x720 PNGs on L40S; all hashes verified after download. Visually reviewed hero and counter: textures correct, enclosed interior legible. Preserved earlier negative attempts. Runtime audit and successful physics/RGB smoke saved. Received Claude complete78-file freeze20:12:47Z; review pending.
+
+2026-10-17T20:15:28.285268+00:00: Final café USD checks3passed; camera/model suite14passed. Initial rerun used nonexistent test_upstream_k1.py and collected nothing; corrected to test_k1_policy.py. Claude78hashes match; video timing review found2.5Hz capture encoded10fps and unrecorded2s finalhold; requested honest captions before integrating experiment report.

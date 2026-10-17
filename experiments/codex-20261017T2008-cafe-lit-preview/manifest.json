@@ -1,0 +1,63 @@
+{
+  "status": "rendered",
+  "evidence_kind": "isaacsim_cafe_environment_preview",
+  "started_at_utc": "2026-10-17T20:08:26.207162+00:00",
+  "robot_present": false,
+  "delivery_success": null,
+  "training_performed": false,
+  "source_hashes": {
+    "render_cafe.py": "08dfe2e89fe71dbb9d8152966eeb09437406d56328746328eccf89cdd3a41cbb",
+    "cafe_scene.py": "1f74d6a8ddb6ed238ce9f4e68e51568ed34ed64825a22e0d1d9f283264e0e203",
+    "cafe_assets.json": "e2ba56c3d0dce60aaa67b8cbb96cc54eb79920ea52cb4f0eed5b2de94fe7c6bc"
+  },
+  "scene": {
+    "scene": "Common Table cafe",
+    "units": "meters",
+    "table_count": 6,
+    "chair_count": 18,
+    "asset_provider": "Poly Haven / CC0",
+    "physics": "static triangle mesh furniture; provisional friction 0.7/0.6",
+    "payload": "0.8kg box + 0.5kg sealed drink, staged on counter tray; masses assumed",
+    "robot_present": false,
+    "delivery_tested": false,
+    "limitations": [
+      "room dimensions invented",
+      "no calibrated material friction",
+      "lighting intensities selected for visibility, not measured photometry",
+      "window collision pane invisible; glass sensor response not modeled",
+      "plant collision approximates pot only",
+      "no robot or learned controller yet"
+    ]
+  },
+  "physics_steps": 90,
+  "simulated_seconds": 1.5,
+  "views": [
+    "hero",
+    "dining",
+    "robot_height",
+    "service_counter"
+  ],
+  "finished_at_utc": "2026-10-17T20:08:39.795617+00:00",
+  "artifacts": {
+    "service_counter.png": {
+      "sha256": "40efe15a6e23d56b90aad6ae9f1a58d83c3a03e9cd5d03305650f4015a3f88c8",
+      "bytes": 555412
+    },
+    "dining.png": {
+      "sha256": "7d76aba98db97c6ff1d8b28bae6b5df98a93e9b3640770f98bd9e81c4d15ad54",
+      "bytes": 770230
+    },
+    "hero.png": {
+      "sha256": "2492759b1f7d51253f227cb6036bf9ac3eab843686f5b78795f50f204110be26",
+      "bytes": 784420
+    },
+    "robot_height.png": {
+      "sha256": "66e987b115493513c138cd06933dd5f3049a583b4d70caf1e0b82d89a958fb50",
+      "bytes": 868366
+    },
+    "cafe.usda": {
+      "sha256": "b9a6f16d89ccc843d11c13143232223c0cefb88540c94344400ec94c9dae7839",
+      "bytes": 200983123
+    }
+  }
+}

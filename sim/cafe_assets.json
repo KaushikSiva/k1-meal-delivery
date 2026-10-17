@@ -1,0 +1,202 @@
+{
+  "retrieved_at_utc": "2026-10-17T19:46:47.992750+00:00",
+  "provider": "Poly Haven",
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution": "Furniture, floor textures and HDRI by Poly Haven (polyhaven.com).",
+  "physics_parameters": "not supplied or calibrated; visual assets only",
+  "files": [
+    {
+      "asset": "round_wooden_table_01",
+      "path": "round_wooden_table_01/round_wooden_table_01_2k.usdc",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/usd/2k/round_wooden_table_01/round_wooden_table_01_2k.usdc",
+      "bytes": 440189,
+      "sha256": "45a5e248177846e9e6829deea3e26350d2b2428da2a77b114fd1ce0787a63422",
+      "source_md5": "a66fb562cc40822e889d01ba954986c7"
+    },
+    {
+      "asset": "round_wooden_table_01",
+      "path": "round_wooden_table_01/textures/round_wooden_table_01_nor_gl_2k.exr",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/round_wooden_table_01/round_wooden_table_01_nor_gl_2k.exr",
+      "bytes": 2094023,
+      "sha256": "71ea45b1fd86e0dc3904bb64b5337d77035501e61987b0e19d3ff4ad2b57baef",
+      "source_md5": "caeed11cd98f080e8190997ccf8b6033"
+    },
+    {
+      "asset": "round_wooden_table_01",
+      "path": "round_wooden_table_01/textures/round_wooden_table_01_rough_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/round_wooden_table_01/round_wooden_table_01_rough_2k.jpg",
+      "bytes": 362172,
+      "sha256": "8b862a54b66beda3a0a24e8afaed1697fd06fdd647b667392aafa4507e59b979",
+      "source_md5": "831116c55269c7ca2a3f782403b39749"
+    },
+    {
+      "asset": "round_wooden_table_01",
+      "path": "round_wooden_table_01/textures/round_wooden_table_01_diff_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/round_wooden_table_01/round_wooden_table_01_diff_2k.jpg",
+      "bytes": 435742,
+      "sha256": "8420633c215c8ef36adb6db2e9a394b085ccab2b513b247257d0aae02a730624",
+      "source_md5": "5a3ff753c828e773cc02fb48d1857365"
+    },
+    {
+      "asset": "round_wooden_table_01",
+      "path": "round_wooden_table_01/textures/round_wooden_table_01_metal_2k.exr",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/round_wooden_table_01/round_wooden_table_01_metal_2k.exr",
+      "bytes": 45179,
+      "sha256": "88b9b6e264c3ebfac11020cecde8d27a77789697d465060ba6db475ef7db4378",
+      "source_md5": "cf7ee3231a3538e3f96095fc9530d656"
+    },
+    {
+      "asset": "dining_chair_02",
+      "path": "dining_chair_02/dining_chair_02_2k.usdc",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/usd/2k/dining_chair_02/dining_chair_02_2k.usdc",
+      "bytes": 1578004,
+      "sha256": "105b349a7baeecfc476728561a538199cbb31f60eec66da9157068b2f53ba01d",
+      "source_md5": "1f8bb9e1007be57a5d1fd8b2b308020a"
+    },
+    {
+      "asset": "dining_chair_02",
+      "path": "dining_chair_02/textures/dining_chair_02_rough_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/dining_chair_02/dining_chair_02_rough_2k.jpg",
+      "bytes": 615889,
+      "sha256": "a15e459a6ed0b6eced885ca3ef2ad11b598eec0e92e99eb224925c07d16d3d1c",
+      "source_md5": "0bd4578133e1e0493706422f19c3aa94"
+    },
+    {
+      "asset": "dining_chair_02",
+      "path": "dining_chair_02/textures/dining_chair_02_diff_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/dining_chair_02/dining_chair_02_diff_2k.jpg",
+      "bytes": 332586,
+      "sha256": "823eeddb981acc8afbf3a04c8b8fd9152c2b1f776d14786e97116494aceabab8",
+      "source_md5": "be041803606b5bf7869f08ab58a1581f"
+    },
+    {
+      "asset": "dining_chair_02",
+      "path": "dining_chair_02/textures/dining_chair_02_metal_2k.exr",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/dining_chair_02/dining_chair_02_metal_2k.exr",
+      "bytes": 21649,
+      "sha256": "55708bae7a85b6740a045b487e60a2d864f662171704e80c941958ef1c8f0b36",
+      "source_md5": "1463eb9adcff1ace0d4bf3e124df5500"
+    },
+    {
+      "asset": "dining_chair_02",
+      "path": "dining_chair_02/textures/dining_chair_02_nor_gl_2k.exr",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/dining_chair_02/dining_chair_02_nor_gl_2k.exr",
+      "bytes": 5235765,
+      "sha256": "43c21aa47ae4c0d618806620845d476600a22a5fca2688d1a2c234e50bed66b4",
+      "source_md5": "e3151409207335aa92c19146994b2c53"
+    },
+    {
+      "asset": "potted_plant_01",
+      "path": "potted_plant_01/potted_plant_01_2k.usdc",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/usd/2k/potted_plant_01/potted_plant_01_2k.usdc",
+      "bytes": 9693702,
+      "sha256": "20b7a4aad38c8346036bf0e1629cb5954d6cc9e7f64ba9dab5590499dc386dad",
+      "source_md5": "2c9aaecc024ebf1f985e6caa9ebbb1c7"
+    },
+    {
+      "asset": "potted_plant_01",
+      "path": "potted_plant_01/textures/potted_plant_01_leaves_alpha_2k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/potted_plant_01/potted_plant_01_leaves_alpha_2k.png",
+      "bytes": 199855,
+      "sha256": "06f49590ff6e0480528ded4b69c3e19eb4009cb81b3031e28b52c5a6e662bd8f",
+      "source_md5": "faa685e1193102127220afd80dc3a84e"
+    },
+    {
+      "asset": "potted_plant_01",
+      "path": "potted_plant_01/textures/potted_plant_01_pot_rough_2k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/potted_plant_01/potted_plant_01_pot_rough_2k.png",
+      "bytes": 5865763,
+      "sha256": "5198ca9cc09898c86c00af23d54ea331480bf1c4cfc19f4a92821fb96a2bd96d",
+      "source_md5": "e15fe95d137635b3173731be4b626818"
+    },
+    {
+      "asset": "potted_plant_01",
+      "path": "potted_plant_01/textures/potted_plant_01_leaves_nor_gl_2k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/potted_plant_01/potted_plant_01_leaves_nor_gl_2k.png",
+      "bytes": 14782653,
+      "sha256": "aa0d16ce0a0880370f37844408ca2d62af9a90cc30e29851bf8fabeb73bfac5c",
+      "source_md5": "2b3231d76221ce659b5f2fc07d46471e"
+    },
+    {
+      "asset": "potted_plant_01",
+      "path": "potted_plant_01/textures/potted_plant_01_pot_diff_2k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/potted_plant_01/potted_plant_01_pot_diff_2k.png",
+      "bytes": 17994581,
+      "sha256": "9d31469c28c987e2ef9acb75b0e69de21d01ff172aa78745b0872a95cfd98166",
+      "source_md5": "8d2ac046017e7b7b5ea23a00a06e4cd0"
+    },
+    {
+      "asset": "potted_plant_01",
+      "path": "potted_plant_01/textures/potted_plant_01_leaves_rough_2k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/potted_plant_01/potted_plant_01_leaves_rough_2k.png",
+      "bytes": 3726462,
+      "sha256": "dcbc6c5783fe82107d8634d427270621eadad73ddebaf6d8a997ebd547ae4421",
+      "source_md5": "382b623517e8f22345ebbf38078fbbcb"
+    },
+    {
+      "asset": "potted_plant_01",
+      "path": "potted_plant_01/textures/potted_plant_01_pot_nor_gl_2k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/potted_plant_01/potted_plant_01_pot_nor_gl_2k.png",
+      "bytes": 18083982,
+      "sha256": "e82e83dcfa821c8824e7a5b4f04f1a21739010d98f362ae88ed7e91bb840b561",
+      "source_md5": "b572f77044505aaffec9f9a94ad62b5f"
+    },
+    {
+      "asset": "potted_plant_01",
+      "path": "potted_plant_01/textures/potted_plant_01_leaves_diff_2k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/potted_plant_01/potted_plant_01_leaves_diff_2k.png",
+      "bytes": 12648810,
+      "sha256": "43970f143fb35553bd78f048acfce149b8152c5b9fdbcd90897403b519494192",
+      "source_md5": "46e3b89070819838d5af57195082b2a3"
+    },
+    {
+      "asset": "wood_floor",
+      "path": "wood_floor/wood_floor_diff_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_floor/wood_floor_diff_2k.jpg",
+      "bytes": 2983667,
+      "sha256": "7c3ff1164c8dd0758ef2c048e9a266d28174120de01052ec40e6ca486177345c",
+      "source_md5": "d209b7416b022ed06093aef068c7fe23"
+    },
+    {
+      "asset": "wood_floor",
+      "path": "wood_floor/wood_floor_rough_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_floor/wood_floor_rough_2k.jpg",
+      "bytes": 2267559,
+      "sha256": "297eda0d75f2020cc541dbf242e1f5fd058053249567f49a4506fc2c5b1a172b",
+      "source_md5": "325868b3352d71059753498b1c94385b"
+    },
+    {
+      "asset": "wood_floor",
+      "path": "wood_floor/wood_floor_nor_gl_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_floor/wood_floor_nor_gl_2k.jpg",
+      "bytes": 1863576,
+      "sha256": "eff2e4db46bab930dc05997faf5085157eec4fd652cdfc6cd01fa11edd56ef10",
+      "source_md5": "e1d8a588c1fc3d62cc60da1e4cd1a689"
+    },
+    {
+      "asset": "kloofendal_48d_partly_cloudy_puresky",
+      "path": "kloofendal_48d_partly_cloudy_puresky/kloofendal_48d_partly_cloudy_puresky_2k.hdr",
+      "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/kloofendal_48d_partly_cloudy_puresky_2k.hdr",
+      "bytes": 5451493,
+      "sha256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198",
+      "source_md5": "2eba3a4d7eeb23cbfbeca364c97e7980"
+    },
+    {
+      "asset": "round_wooden_table_01",
+      "path": "round_wooden_table_01/textures/round_wooden_table_01_rough_2k.exr",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/round_wooden_table_01/round_wooden_table_01_rough_2k.exr",
+      "bytes": 3490992,
+      "sha256": "ae7f07c0fb2f5f2cdf5340e72ab8a46bc83208c730608f90e0b0cd232bcfb2c1",
+      "source_md5": "c67eba533cb12f327b7790dae1cce9f8"
+    },
+    {
+      "asset": "dining_chair_02",
+      "path": "dining_chair_02/textures/dining_chair_02_rough_2k.exr",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/dining_chair_02/dining_chair_02_rough_2k.exr",
+      "bytes": 3146072,
+      "sha256": "e49daba98b12b96444ebca4af62b95ba23475f0c0b5d4f42cf719edcf2adfc36",
+      "source_md5": "98aba2001b5dae6ea415d50ea3a02fda"
+    }
+  ]
+}

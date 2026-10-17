@@ -1,19 +1,21 @@
 # Codex status
 
-Updated (UTC): 2026-10-17T19:29:28+00:00
+Updated (UTC): 2026-10-17T20:15:28.285268+00:00
 
 State: working
 
-Task: integrate reviewed baseline/autonomy fixes and authenticate user-supplied Brev access; prepare camera integration.
+Task: verify the realistic café's fourth GPU render, checkpoint simulator/runtime evidence, then integrate the frozen camera-driven autonomy diagnostic.
 
-Claimed paths: sim/; evaluation/; tests/evaluation/; tools/fetch_upstreams.py; tools/brev_budget_guard.py; tests/integration/test_brev_budget_guard.py; tests/sim/; tests/integration/; experiments/codex-20261017T1902-k1-walk-baseline/REPORT.md; new experiments/codex-* runs; README.md; docs/RESOURCES.md; docs/hardware/; coordination/CODEX_*.md. Existing ownership allocation is unchanged.
+Claimed paths: sim/; tests/sim/; tools/fetch_cafe_assets.py; tools/isaac_smoke.py; tools/remote_*.sh; docs/hardware/; docs/RESOURCES.md; .gitignore; new experiments/codex-* directories; coordination/CODEX_*.md. Existing ownership remains unchanged. Codex is sole Git integrator; Claude frozen paths are review-only until validated.
 
-Evidence: read GOAL, OWNERSHIP, both status and handoff files and current git state. Prior baseline process is absent. All six original artifacts verified; 750 trajectory rows. Reproduction completed with exactly matching displacement 0.2802458334 m, peak tilt 3.79502798 degrees, and 375 rendered frames. Command tracking appears poor and requires quantified diagnostic evidence. Bootstrap commit 3d30864 is the current HEAD. No files owned by Claude edited or staged.
+Evidence: checkpoint d3d46ff pushed. Official unloaded K1 actor reproduced in MuJoCo; command sweep exposes low-speed deadband. Real articulated head RGB-D adapter has explicit SIM_PRIVILEGED pose/extrinsic provenance; 14 camera/model tests passed. One authorized Crusoe L40S is RUNNING with driver580.178.04, IsaacSim5.1, IsaacLab2.3.2 and torch2.7+cu128. Actual physics+RGB smoke passed120steps; cube settled at z0.249998m. One upstream Starlette/FastAPI metadata conflict is documented; pipcheck is not clean. No web API service used.
 
-Blockers: physical K1/operator absent. User now authorizes one $1.74/hour L40S for next 5–6 hours, including demo 17:15–18:30 PDT. Do not stop early unless clearly unused. User supplied Brev API credentials; v0.6.337 login succeeded with key saved only in native owner-only credential storage. Existing compute inventory is being checked; created k1-isaac-check-20261017 (Crusoe l40s-48gb.1x, $1.74/h); awaiting boot. Old 2-hour guard session 33528 was cancelled and returned exit 130; NO automatic shutdown remains armed. Preserve this instance for demo 2026-10-18T00:15Z–01:30Z. Reassess use at demo end rather than interrupting active work. Launch/guard records are under ignored runs/brev-k1-20261017/. No additional instance/fallback authorized.
+Café: CC0 furniture/textures/HDRI locked by SHA256; metric USD includes six tables, eighteen chairs, colliders and staged box/drink. Three local USD checks passed. Render02 exposed red material fallback; render03 fixed textures but was underexposed. Render04 completed successfully with improved pendant/window lighting; four PNGs downloaded and hash-verified; hero/counter visually approved. All attempts preserved. No robot in this USD scene yet; no delivery or training claim.
 
-Next: finish recorded 0/0.35/0.5 m/s command sweep; checkpoint reviewed baseline plus frozen autonomy scaffold; acknowledge Claude and prioritize reproduced integration defects. Tests: 26 autonomy, 3 real-policy/model, 5 artifact-accounting, 3 You.com client checks passed. Review reproduced degraded-localization false delivery, stale-pose acceptance and follower speed-cap bypass; sent exact findings through CODEX_HANDOFF.md.
+Budget/demo: one instance k1-isaac-check-20261017 (opqm34emo), $1.74/hour, authorized for5–6h including17:15–18:30PDT (00:15–01:30UTC). Old two-hour shutdown guard cancelled, exit130. NO automatic shutdown active. Keep GPU available through demo; do not stop during integration.
 
-Last teammate update read (updated freeze at 19:23Z received and regression rerun running): Claude 2026-10-17T19:15:43+00:00 supplied a frozen 26-test handoff. Review underway. Current shell python3/python3.12 lack pytest; created isolated root .venv for reproducible review, leaving sim/.venv dependencies unchanged.
+Blockers: physical K1/operator absent. General visual localization, loaded control, genuine PPO/VLA training and hardware trials remain incomplete.
 
-Current live handle: frozen 37-file regression validation session 25424. Provisioning 53494 completed (instance opqm34emo DEPLOYING). Old guard 33528 terminal/cancelled, never restart its obsolete 2-hour deadline.
+Next: inspect render04, write verified preview report, audit and push owned checkpoint. Review Claude's new complete freeze and meaningful regressions before integrating. No blanket staging.
+
+Last teammate update read: Claude2026-10-17T20:12:47Z complete78-file freeze supersedes earlier mismatches. Reports A/B delivered unloaded with privileged localization/restricted placard and opt-in0.3m/s deadband compensation; C timed out. Independently ran earlier developmental autonomy suite53passed16skipped and camera/placard/tabletop31passed; current frozen set needs exact hash verification and code review.

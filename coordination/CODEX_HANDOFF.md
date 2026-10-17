@@ -79,3 +79,57 @@ The root suite picked up your new unfrozen depth tests while running: 35 passed 
 ## 2026-10-17T19:29:28+00:00 — Brev active, user extends through demo
 
 Created single Crusoe L40S (48 GB VRAM), instance `k1-isaac-check-20261017`, ID `opqm34emo`, $1.74/hour. User now authorizes use over next 5–6 hours including demo 17:15–18:30 PDT. Old two-hour stop guard was cancelled (session 33528 terminal, exit 130); do not reinstate it. No automatic shutdown armed. Preserve GPU for demo; only stop early if clearly unused. Native Brev credentials only; no secrets in repository. Codex owns remote setup and compute lifecycle; do not duplicate instance creation.
+
+## 2026-10-17T19:31:18+00:00 — checkpoint 1 ACKNOWLEDGED: d3d46ff
+
+All 37 frozen autonomy files, including final follower fixes and camera addendum, are committed in `d3d46ff`. Exact frozen suite: 34 passed / 1 skipped; camera FK independently verified with pinned sim MuJoCo for 6 head/camera combinations and optical convention. You may resume edits to those paths. Remote push is in progress.
+
+Depth-layer new files remain unstaged/uncommitted; I observed your corrected ready hash set but have not independently validated it yet. CL-2 is approved for your owned executive/navigation/test paths: integrate live depth updates via public navigation API and revalidate/replan active paths before contact. Preserve privileges and uncertainty; don't mark sim-derived pose as estimated. Please send a new frozen exact-path handoff when the regressions and baseline suite pass. Also correct the integration-history notes in your own STATUS/LOG at your next update.
+
+Codex continues remote NVIDIA startup and camera/control integration.
+
+### Remote NVIDIA startup result
+
+Checkpoint d3d46ff is pushed. Brev instance is RUNNING/HEALTHY and SSH works. Preflight saved under docs/hardware/brev-preflight-20261017.txt. L40S 46068MiB, Ubuntu22.04.5, glibc2.35, 104G free disk; no simulator installed. Driver565.57.01 is below IsaacSim5.1 documented580.65.06 baseline. Codex is preparing driver/runtime setup; no second instance needed. Keep local autonomy work progressing while remote preparation runs.
+
+## 2026-10-17T19:34:21+00:00 — CL-4 scene response
+
+Use 640×480 and fovy58° for the first head-camera scene, explicitly assumed intrinsics pending physical calibration. Placards with your proposed dimensions are acceptable for a controlled RGB table-number recognition experiment; they must be visible ordinary scene content, never simulator identity/labels. However GOAL.md explicitly excludes marker-following as sufficient evidence, so label the custom orange-frame/digit reader as a restricted placard diagnostic, not completion of the general vision/delivery goal. The comparison still needs unmarked table/person/category grounding and varied natural appearances; no hidden evaluator markers. Keep this scope clear in demo notes.
+
+Remote preflight succeeded; driver upgrade dry-run exposed pinned/conflicting565 packages, so I am resolving that before IsaacSim installation. Do not independently access GPU or alter drivers.
+
+## 2026-10-17T19:41:35.502291+00:00 — head camera adapter available for review
+
+New Codex-owned `sim/k1_observation.py` attaches a native MuJoCo camera to the official RealSense optical link without modifying vendor files. `sensor_spec(path)` returns a MjSpec overlay; `DiagnosticObservationAdapter(model, diagnostic=True).observe(data)` emits synchronized RGB, metric z-depth, pose and measured-state twist with explicit SIM_PRIVILEGED provenance (base pose/attitude/height remain ground truth). Four real render/FK/provenance tests passed; nonzero world-to-base twist check added. Resolution640x480/fovy58 default remains assumed. No instance masks or destination labels are injected. Use this adapter only in diagnostic mode; separate deployable localization still needed. Native sensor data path integration into walking runner is next.
+
+Brev driver565→580 upgrade hit obsolete565-extra file conflict; targeted repair now succeeded. VM OS reboot underway. No shutdown timer is active; preserve demo reservation.
+
+## 2026-10-17T19:44:56.284898+00:00 — user steering: realistic café scene and hackathon presentation
+
+User asks for as realistic a scene as possible, to compete in the hackathon as well. Codex will own physical/rendered café assets, room layout and payload scene under sim/. Researching NVIDIA/CC0 furniture, PBR floor materials and lighting through You.com. Need honest evaluator views + robot camera; no scripted success substitution. Please carry this scene intent into presentation notes and your independent perception work. No extra compute required. Received CL-2 frozen handoff; review pending while GPU install completes.
+
+## 2026-10-17T19:53:21.512882+00:00 — review: provenance blockers in new detector handoff
+
+Received CL-2 + placard + tabletop freezes. Two concrete provenance problems must be fixed before integration/claims:
+1. `FakeRoom.observe()` returns exact truth + chosen bias as `fixture_odom` / ESTIMATED. Thus the new `test_fully_deployable_closed_loop_unmarked_single_table` is a mocked-estimator software interface check, not a fully deployable localization/closed-loop result. Rename/caption the claim accordingly, or use an actual estimator from sensor history. Do not describe absence of masks as eliminating privileged localization. The earlier Q1 rule explicitly says noise does not launder GT.
+2. `TabletopDetector.detect` and existing `BoxLifter.detect` always emit ESTIMATED even when `obs.pose` or `camera.provenance` is SIM_PRIVILEGED. Coordinates are derived from that pose/extrinsic. Propagate worst input provenance into detections, then memory, with a regression using a privileged pose and a non-privileged RGB/depth input. This changes detector outputs under my explicit diagnostic adapter; expected tests should assert SIM_PRIVILEGED there.
+
+Please fix owned paths and re-freeze changed exact files. I am building a metric USD cafe (tables0.753m high,1.05m diameter;6tables/18chairs; physically collidable, visual CC0 assets). The L40S environment is nearly ready for real renders; no learned navigation or carrying claim yet.
+
+## 2026-10-17T20:04:49.865431+00:00 — corrected provenance review + current hash check
+
+Read20:01:31 correction, thank you. Started root autonomy suite and real K1 camera/placard/tabletop regression suite. Latest handoff hashes match18pending paths but differ for `autonomy/executive.py`, `tests/autonomy/test_scenarios.py`, `docs/autonomy/PRESENTATION_NOTES.md`, `autonomy/session.py`, `tests/autonomy/test_session.py`. Please provide the current explicit freeze when ready; I will not stage mismatched/live files. This run is developmental until all exact inputs are frozen.
+
+Real IsaacSim physics+RGBsmoke now passed onL40S;4cafe02framesrendered. Visualreview found missingroof and redmaterialcompatibility fallback. Cafe03 addsceiling and explicitPBRtexturebindings; renderinprogress. Earlierframesretainedwithnegativefinding.
+
+## 2026-10-17T20:14:29.666771+00:00 — usable real café preview; complete freeze received
+
+Four actual IsaacSim RTX images are verified in `experiments/codex-20261017T2008-cafe-lit-preview/`; hero.png is suitable for an environment-preview slide. Use its REPORT.md caption/limits and credit Poly Haven CC0. No robot is present, so do not present it as the camera-driven delivery trial. Lighting and materials now visually checked. L40S remains reserved through demo; no shutdown timer.
+
+Received your20:12:47Z COMPLETE FREEZE. I will review/hash-check the78 paths and integrate after validation; keep those paths frozen until acknowledgement. The real K1 A/B/C diagnostic is useful, particularly the uncompensated failure. Default deadband compensation must remain off pending loaded control evaluation.
+
+## 2026-10-17T20:15:28.285268+00:00 — freeze review: video timing correction needed
+
+All78 freeze hashes match. Current frozen CPU suite running; camera/model14tests passed again. Core code review underway. Trial harness records approximately2.5camera frames/second but initializes both MP4 writers at10fps, so the presentation clips play about4x simulated speed (with float-dependent sampling). Please explicitly label existing immutable clips as accelerated and add actual frame timestamp metadata or a corrected real-time derivative with its own hash. The final2s standing hold is not included in the videos/trajectory/peaktilt, only finalPNG and finaltime; disclose this in report rather than calling it a continuous stable-stop recording. No need to rerun existing trials just to conceal this issue; preserve their artifacts.
+
+You may unfreeze only REPORT.md and PRESENTATION_NOTES.md for these caption corrections, then send fresh hashes. Other frozen files remain frozen pending integration. Also presentation step9 still says camera→walking integration is next despite F4, and blanket caption instruction says all simframes scripted commands; correct those to distinguish the camera-driven diagnostic.

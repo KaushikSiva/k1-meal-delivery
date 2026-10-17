@@ -1,0 +1,73 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T19:44:56+00:00",
+  "query": "NVIDIA Isaac Sim 5.1 environment assets restaurant cafe room furniture tables chairs USD license",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Environment Assets — Isaac Sim Documentation",
+      "url": "https://docs.isaacsim.omniverse.nvidia.com/5.1.0/assets/usd_assets_environments.html",
+      "description": "This simple environment contains a flat ground and sides with a grid texture. Three configurations are provided; the first two have square corners, the third has curved corners · A warehouse environment with shelving and objects that can be placed on them. Four configurations are provided:",
+      "snippets": [
+        "⚠Unsupported release: Isaac Sim 5.1.0 is no longer supported. Bug fixes and new features are delivered only in newer releases. ... This simple environment contains a flat ground and sides with a grid texture. Three configurations are provided; the first two have square corners, the third has curved corners. A simple room containing a table. search simple_room.usd in the Content Browser or using the create menu: Create>Environments>Simple Room#",
+        "An Office Environment, with multiple rooms and an open plan floor. ... A jetracer track outlined on the ground plane. Search jetracer_track_solid.usd in the Content Browser.#"
+      ]
+    },
+    {
+      "title": "Environment Assets — Isaac Sim Documentation - NVIDIA",
+      "url": "https://docs.isaacsim.omniverse.nvidia.com/4.5.0/assets/usd_assets_environments.html",
+      "description": "This simple environment contains a flat ground and sides with a grid texture. Three configurations are provided; the first two have square corners, the third has curved corners · A warehouse environment with shelving and objects that can be placed on them. Four configurations are provided:",
+      "snippets": [
+        "An Office Environment, with multiple rooms and an open plan floor. ... A jetracer track outlined on the ground plane. Search jetracer_track_solid.usd in the asset browser.#",
+        "search simple_room.usd in the asset browser or using the create menu: Create>Environments>Simple Room#",
+        "A simple room containing a table."
+      ]
+    },
+    {
+      "title": "Isaac Sim Assets Built for Physics, Not Just Rendering",
+      "url": "https://www.physicl.ai/insights/isaac-sim-assets",
+      "description": "Most Isaac Sim assets look right and simulate wrong. Physicl builds physics-accurate, USD-ready assets for Isaac Sim. Request access",
+      "snippets": [
+        "Screenshot of Isaac Sim interface. Source: https://docs.nvidia.com/ Not all Isaac Sim assets are the same. Understanding the categories helps identify where your pipeline has gaps and what you actually need to source. ... Rigid assets: boxes, tools, appliances, furniture.",
+        "Making an asset simulation-ready requires weight, friction, collision data, and correct USD format. Physicl is solving the scale and coverage gap that existing sources leave open. Physicl produces Isaac Sim assets with physics calculated, not guessed, and works alongside NVIDIA's SimReady library.",
+        "SimReady assets and those from Physicl are produced natively in USD with Isaac Sim validation, so they typically avoid these problems at the source. Does Physicl work directly with Isaac Sim or does it require additional tooling? Physicl exports in OpenUSD, Isaac Sim's native format, and provides a Python SDK and REST API for pipeline integration. Assets drop directly into an Isaac Sim training loop, no manual import steps or format conversion required. Is Physicl a replacement for NVIDIA's SimReady library?",
+        "Physicl produces 3D assets and environments built specifically for Isaac Sim. Every asset ships with correct weight, friction, collision data, and verified behavior. Ready to load, no repair required. The physics aren't estimated. For every object, Physicl builds a model where geometry and material are fully known, and the physical properties follow from that. A chair weighs what a chair weighs."
+      ]
+    },
+    {
+      "title": "Isaac Sim Assets - NVIDIA",
+      "url": "https://docs.isaacsim.omniverse.nvidia.com/5.1.0/assets/usd_assets_overview.html",
+      "description": "Isaac Sim provides a variety of assets and robots to help you build your virtual world. Some are made specifically for Isaac Sim and robotics applications, others are made for other NVIDIA Omniverse-based applications. The ones that are available to you by default are all located in the Window ...",
+      "snippets": [
+        "⚠Unsupported release: Isaac Sim 5.1.0 is no longer supported.",
+        "Enable the omni.activity.ui extension in the Extension Manager (Window > Extensions menu), or launch Isaac Sim from a terminal with the argument --enable omni.activity.ui. Then, open the Activity Progress window (Window > Utilities > Activity Progress menu) before opening or loading the USD asset to monitor its loading progress.",
+        "Sample assets are available for download with the Latest Release of Isaac Sim. To use this content, you must download the files to the local disk or a Nucleus server. All asset paths below are assumed to be relative to the default asset root path in the persistent.isaac.asset_root.default setting.",
+        "The Content Browser is where you can find all of Isaac Sim assets and files."
+      ]
+    },
+    {
+      "title": "Downloadable Asset Packs — Omniverse USD",
+      "url": "https://docs.omniverse.nvidia.com/usd/latest/usd_content_samples/downloadable_packs.html",
+      "description": "Technical References · Get started building in Omniverse. On this page, you will find download links to over 250GB of OpenUSD sample 3D assets in .USD format, MDL materials, and environments that are all free for you to use within your own projects. This page will help you understand what ...",
+      "snippets": [
+        "Contents: This SimReady asset pack includes 202 drag-and-drop USD models representing a wide variety of useful objects, including interior and exterior furniture and accessories, safety cones and tape, chairs, tables, desks, cabinetry, shelving, kitchen items, and food that you are free to use in your work.",
+        "Contents: This asset pack includes 82 drag-and-drop OpenUSD assets of commercial furniture to help populate your office and commercial interior spaces. In this collection, you will find a variety of tables, chairs, shelving units, reception desks, conference tables and more that you are free to use in your own work.",
+        "Contents: This asset pack includes 507 drag-and-drop OpenUSD assets of residential interior components to help populate your homes, apartments and living spaces. You will find a huge variety of furniture, light fixtures, vases, magazines, food, electronics and bric-a-brac that you are free to use in your work.",
+        "Contents: This asset pack includes 2 Universal Scene Description (USD) scenes to help showcase the core technologies of the Omniverse platform for Manufacturing, Engineering, Physics and creative use-cases: RTX-enabled rendering, MDL materials, physically accurate physics simulation, and scene animation."
+      ]
+    },
+    {
+      "title": "spatialverse/InteriorAgent · Datasets at Hugging Face",
+      "url": "https://huggingface.co/datasets/spatialverse/InteriorAgent",
+      "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+      "snippets": [
+        "The bottom panel shows loaded asset files (e.g., kuijiale_0021.usda), and the right panel displays a hierarchical list of all 3D objects along with their semantic labels, supporting spatial reasoning and interaction in embodied AI tasks. ✅ Fully compatible with Isaac Sim 4.2 and 4.5 on both Windows and Linux. 🎮 Built for real-time simulation, supports interactive physical agents. 🧱 Material system based on NVIDIA MDL (Material Definition Language), ensures photorealistic rendering and cross-version compatibility.",
+        "InteriorAgent is a collection of high-quality 3D USD assets specifically designed for indoor simulation in NVIDIA Isaac Sim environments.",
+        "This represents a balcony room with a rectangular floorplan defined by a clockwise polygon in the Isaac Sim world coordinate system (X-Y plane).",
+        "The coordinate system is consistent with Isaac Sim’s world frame: X is forward, Y is right, Z is upward."
+      ]
+    }
+  ]
+}

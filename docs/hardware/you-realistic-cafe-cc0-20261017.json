@@ -1,0 +1,53 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T19:44:56+00:00",
+  "query": "Poly Haven CC0 cafe table chair model wood floor textures HDRI download API",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "All Assets • Poly Haven",
+      "url": "https://polyhaven.com/all",
+      "description": "Hundreds of free HDRIs, textures, and 3D models, ready to use for any purpose. No login required.",
+      "snippets": []
+    },
+    {
+      "title": "Poly Haven",
+      "url": "https://polyhaven.com/",
+      "description": "The Public 3D Asset Library · 16k+ resolution, and always unclipped for one-click realistic lighting",
+      "snippets": [
+        "Not just free, but CC0, meaning you can use them for absolutely any purpose without restrictions.",
+        "Previously we ran HDRI Haven, Texture Haven and 3D Model Haven as separate independent projects, but ultimately decided we could serve the community better by joining forces and creating a single new platform: Poly Haven."
+      ]
+    },
+    {
+      "title": "Poly Haven: assets, licence and downloads · 3D Asset Server",
+      "url": "https://3d.shep.bot/sources/polyhaven",
+      "description": "Poly Haven (Free CC0 HDRIs, PBR textures and photoscanned 3D models with a public API): CC0, direct downloads. Searched with 23 other 3D asset sites.",
+      "snippets": []
+    },
+    {
+      "title": "Poly Haven — Free CC0 HDRIs, Textures & Models",
+      "url": "https://3dxdev.com/assets/poly-haven-free-cc0-hdris-textures-models/",
+      "description": "A massive free library of CC0 (public-domain) HDRIs, PBR textures and 3D models, usable in commercial work with no attribution required.",
+      "snippets": [
+        "Poly Haven is the single most useful bookmark in 3D. A large, constantly growing library of HDRIs, PBR textures and 3D models, all released as CC0 — public domain, no attribution, full commercial use.",
+        "One HDRI gives you accurate ambient light, reflections and colour bleed in a single node, and it is the fastest way to make a render stop looking like a render. Textures — PBR sets with base colour, roughness, normal, displacement and ambient occlusion maps, at resolutions up to 8K. Wood, metal, fabric, concrete, terrain and more.",
+        "ambientCG for more PBR materials and HDRIs, Kenney and Quaternius for CC0 game assets, and The Base Mesh for clean-topology base meshes.",
+        "Patreon and sponsorship rather than sales. That is why everything stays CC0 and why the library keeps growing."
+      ]
+    },
+    {
+      "title": "API • Poly Haven",
+      "url": "https://polyhaven.com/our-api",
+      "description": "The Poly Haven API is now free for everyone - including commercial use · The assets have always been CC0, and now the API that serves them is open the same way. If you build something on our live API, all we ask is that it's clear to your users that the assets came from Poly Haven :)",
+      "snippets": [
+        "Bulk-downloading for academic research or training data for AI/ML pipelines that need clean, human-made, CC0-licensed resources.",
+        "This is a condition of using the live API service, not of the assets themselves: the assets are CC0.",
+        "The assets have always been CC0, and now the API that serves them is open the same way. If you build something on our live API, all we ask is that it's clear to your users that the assets came from Poly Haven :) If this is useful to you, consider supporting us on Patreon. ... { \"sunset_jhbcentral\": { \"name\": \"Joburg Central Sunset\", \"description\": \"Free, unclipped 24K HDRI of a low-contrast rooftop sunset, cool twilight with pink clouds, building skyline, soft warm light and muted tones.\", \"category\": \"Streets & Town/Rooftops & Balconies/City Rooftops\", \"tags\": [\"city\", \"roof\", \"skyline\", \"bui",
+        "{ \"hdri\": { \"24k\": { \"hdr\": { \"url\": \"https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/16k+/sunset_jhbcentral_24k.hdr\", \"size\": 756147661, \"md5\": \"b1438b8dd1ca53a91944e3367e175158\" }, \"exr\": { \"url\": \"https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/16k+/sunset_jhbcentral_24k.exr\", \"size\": 526001961, \"md5\": \"fb83316d5976bf653f3923cf5bc44bef\" } }, \"16k\": { \"hdr\": { \"url\": \"https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/16k+/sunset_jhbcentral_16k.hdr\", \"size\": 345415797, \"md5\": \"4a56bb47f70a2a15e7404314692b199c\" }, \"exr\": { \"url\": \"https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/16k+/suns"
+      ]
+    }
+  ]
+}
