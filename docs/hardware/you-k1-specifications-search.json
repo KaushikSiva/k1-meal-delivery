@@ -1,0 +1,34 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T18:55:11+00:00",
+  "query": "Booster K1 official specifications arm payload camera sensors",
+  "include_domains": [
+    "docs.booster.tech",
+    "booster.tech"
+  ],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Booster K1 | Introductory Embodied Development Platform",
+      "url": "https://www.booster.tech/booster-k1/",
+      "description": "Booster K1, introductory embodied AI platform. RoboCup 2025 champion robot.",
+      "snippets": [
+        "Computing & Sensors · GPU: 48 TOPS (Dense) AI performance · Camera: Stereo Depth Camera · IMU: 9-axis IMU · Audio: Circular 3-Mic Array + speaker · Computing & Sensors · GPU: 117 TOPS AI performance · Camera: Stereo Depth Camera · IMU: 9-axis IMU · Audio: Circular 3-Mic Array + speaker ·",
+        "Computing & Sensors · GPU: 200 TOPS AI performance · Camera: Stereo Depth Camera · IMU: 9-axis IMU · Audio: Circular 3-Mic Array + speaker · Others · Battery: 2Ah · Battery Life: 30min (walking 0.4m/s) Wi-Fi: Supported · Bluetooth 5.2: Supported · Buttons: Power×1, Interaction×3 ·"
+      ]
+    },
+    {
+      "title": "Specifications | Booster Studio Docs",
+      "url": "https://docs.booster.tech/docs/product-manual/k1/getting-started/specifications/",
+      "description": "When all joints are at zero degrees, the coordinate systems of the joints are shown below · High-performance ARM Processor",
+      "snippets": []
+    },
+    {
+      "title": "Booster T1 | Made for Developers",
+      "url": "https://www.booster.tech/booster-t1/",
+      "description": "Booster T1, the advanced humanoid robot. Made for developers, lightweight, flexible, durable. RoboCup 2025 champion robot.",
+      "snippets": []
+    }
+  ]
+}

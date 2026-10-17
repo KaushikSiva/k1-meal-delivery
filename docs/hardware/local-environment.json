@@ -1,0 +1,18 @@
+{
+  "captured_at_utc": "2026-10-17T18:55:32+00:00",
+  "evidence_kind": "local_environment_inventory_not_robot_performance",
+  "os": "Darwin",
+  "architecture": "arm64",
+  "python": "3.13.7",
+  "nvidia_smi_on_path": false,
+  "packages": {
+    "mujoco": false,
+    "torch": false,
+    "isaaclab": false,
+    "isaacsim": false,
+    "numpy": false,
+    "pytest": false
+  },
+  "physical_k1_connected": "not_available_per_user",
+  "crusoe_vm": "not_configured"
+}
