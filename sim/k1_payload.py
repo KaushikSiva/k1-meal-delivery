@@ -10,8 +10,8 @@ import xml.etree.ElementTree as ET
 CONFIG_PATH = Path(__file__).with_name('k1_payload.json')
 
 
-def load_config():
-    return json.loads(CONFIG_PATH.read_text())
+def load_config(path=None):
+    return json.loads(Path(path or CONFIG_PATH).read_text())
 
 
 def make_supported_urdf(source, destination, config=None):
@@ -23,8 +23,9 @@ def make_supported_urdf(source, destination, config=None):
         path = Path(mesh.attrib['filename'])
         if not path.is_absolute():
             mesh.set('filename', str((source.parent / path).resolve()))
-    for kind in ('tray', 'bracket'):
-        spec = config[kind]
+    supports={kind:config[kind] for kind in ('tray','bracket')}
+    supports.update(config.get('extra_supports',{}))
+    for kind,spec in supports.items():
         name = 'carry_' + kind
         link = ET.SubElement(root, 'link', name=name)
         inertial = ET.SubElement(link, 'inertial')

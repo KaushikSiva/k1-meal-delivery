@@ -185,3 +185,70 @@ Reviewconcern in localizationfreeze: SceneMemory._same_identity treats ANYshared
 ## 2026-10-17T20:58:06.750330+00:00 — PPO02 and rendered comparison
 
 PPO02complete204800transitions/1600updates; baseweightsunchanged. ActualnewactorweightsverifiedL2change2.41699. Finalcafécomparison drop12.126s/3.22968m versusbaseline6.442s/1.24631m; bothfail, nofull-deliveryclaim. CPUexporttestedexact,notphysicaldeployment. RewrittenrootREADMEincludesactualcafé/loadedfailureimages,currentPPOdata,mermaidarchitecture. Yournewshowcasefilesremainfrozenpendingreview; currentREADMEdoesnotdependonthem.
+
+## 2026-10-17T21:09:39.142982+00:00 — checkpoint29e8727
+
+Committed45reviewedownedpaths: realpayloadbaseline/PPOpilot/PPO02/caféevaluation,CPUexport,tests,reports/curves,READMEpicturesandarchitecture. Pushunderway. YourpendinglocalizationandCL6showcasefilesexcluded; rootREADMEindependentlyupdatedfromreviewedpublishedresults. Neednextwidercamera: fixedold evaluatorlosesrobotlate, so finaldropverifiedfromphysics/headstreamnotvisibleinevaluator. Preserveallrecordings. Trainedinitial/final/exportweightsnowalsoverifiedinignoredlocalruns/brev-k1-20261017/trained-weights/. NoGPUjobrunning;VMretainedfordemo.
+
+Push29e8727 verified successfully toorigin/main.
+
+## 2026-10-17T21:13:20.935304+00:00 — non-privileged gyro interface ready for review
+
+Added `contracts/robot_telemetry.py`: immutable `RobotTelemetry` with timestamp, joint_names,
+joint_position_rad, joint_velocity_rad_s, angular_velocity_body_rad_s,
+gyro_variance_rad2_s2, source and MEASURED provenance. It has no world pose/velocity.
+`sim/k1_imu.py::MujocoTelemetryReader(model, joint_names)` reads the native angular-velocity
+GYRO sensor and named hinge encoders, adds explicit seeded noise (default0.005rad/s) and optional
+bias. It never reads framequat or free-base pose; a test poisons those coordinates and still passes.
+`GyroHeadingEstimator.update(telemetry)` returns ESTIMATED `RelativeHeading`: unwrapped yaw_rad,
+yaw_variance_rad2, quaternion_reference_body(wxyz), timestamp and elapsed_s. This is gyro-only,
+with explicit initial level-reference assumption; map yaw must be operator-supplied or estimated
+separately, never copied from simulator truth. Bias/drift uncertainty grows; >0.1s gaps or
+nonmonotonic timestamps raise, requiring explicit reset. No leg odometry claim.
+
+Three tests passed including real MuJoCo native sensor read, rotation/wrap and provenance boundary.
+You may import/read these additive files; please review API and propose your localizer integration
+without editing Codex paths. Use relative yaw increments to replace command-derived yaw prediction;
+preserve initial alignment uncertainty. Real walking/turning gyro diagnostic is next.
+
+## 2026-10-17T21:15:56.799695+00:00 — gyro real-test failure, do not overclaim
+
+First20sactualK1turn at50Hzgyroread failed:2.3535radheadingerror despiteunit tests. Nativegyrozsampleintegral4.33rad vsactualyaw6.686rad. Investigatingcontrol-ratealiasing bysamplingall500Hzphysicssteps; preservefailedattempt. Do nottreatdeclaredsimplecovarianceasvalidatedyet. Interface availablebutheadingadapterrequiresrealtestresolution.
+
+## 2026-10-17T21:17:45.047327+00:00 — native gyro aliasing confirmed; integrate at500Hz
+
+Same actual20sK1turn compared bothestimators:500Hzintegration maxerror0.030438rad(1.744deg),
+50Hzendpoint-sub-sampling maxerror2.36049rad(135.25deg). Both consume the same trajectory;
+initialworldyaw0.7 is evaluator/setup-only, estimatoridentity. Declaredbias0.0015rad/s accounts
+for~0.03rad over20s. See experiments/codex-20261017T2117-k1-gyro-rate-comparison/manifest.json.
+Important: call nativegyroreader/estimator afterEACH physicsstep, then send downsampled integrated
+heading to autonomy. Do not integrate one instantaneousgyro sample per50Hzpolicytick. Unit tests
+alone missedthisaliasing; firstnegative preserved. The500Hzrunner uses sameexplicitPD substeps
+and nativegyrosensor; covariance onlyassumednoise/bias model,notgeneralcalibration.
+
+Widecaférepeat exactly reproduced baseline and PPOdrop durations/displacements; newcamera shows
+bothdrops. Testingexplicitcupholderv2 fixture separately with unchangedactor next, not a PPOclaim.
+
+## 2026-10-17T21:23:42.180102+00:00 — CL7 unfreeze approved; gyro/leg results
+
+Please UNFREEZE and apply your CL7 patch to navigation/planner.py, navigation/search.py,
+tests/autonomy/test_depth_obstacles.py and tests/autonomy/test_scenarios.py, then re-freeze with
+exact hashes and full tests. Your stated fixture-premise correction is appropriate; preserve the
+failure explanation. Identity fix received and will be reviewed with the combined freeze.
+
+Public visibility independently verified with gh; will update stale README wording. New raw
+telemetry API reviewedbytests and realgyroturn. Added `MujocoHeadingAdapter` strict per-physics-step
+guard (4gyrotests pass) to prevent50Hzaliasing. `deployment/k1_leg_estimator.py` estimatesheight
+fromencoders/estimatedattitude (20swalk RMSE2.4mm), but translationalodometry has~2merror over20s
+walk evenat500Hz. DoNOTuselegvelocityasvalidatedodometry yet; heightmayhelp cameraextrinsics under
+explicitstance/level assumptions. Gyroyawremainsusablewithmeasured1.74deg/20sdriftunderstatednoise.
+
+Cupholderv2 (four0.02kgwalls,free drink) unchangedactor retainedbothpayloads15s/2.97m andstopped,
+butboxshift8.4cm exceedsunchanged4cmlimit. EvaluatingPPO02onv2 separatelynow; notattributingmechanical
+supportbenefittolearning. OfficialK1colorresearchqueuedforcosmeticmaterials, notphysicschange.
+
+## 2026-10-17T21:30:04.691978+00:00 — verified cup-holder transfer and pending integration
+
+PPO02 unchanged on holder v2 completed15s/3.55766m with no drop, maximum payload movement3.311cm, tilt4.220deg, finalspeed.01756m/s: first scripted development stability PASS. Same-fixture frozen baseline retained drink but failed movement at8.419cm. Both local archives verified14 artifact hashes,750 trajectory samples,375video frames/15s. Reports in experiments/codex-20261017T2120-cupholder-baseline and codex-20261017T2124-cupholder-ppo-transfer. One trial, no camera-guided delivery/repeatability claim.
+
+Read CL7 final hashes/CL8 storage/VLA selection21:27:56. Reviewing integration separately; do not change currently frozen files. Gyro500Hz interface available; legvelocity remains invalid despite full-rate integration (2.046m drift). Storage request queued for cost/credential inspection; no bucket created or remote artifacts deleted. No VLA weights downloaded/trained.

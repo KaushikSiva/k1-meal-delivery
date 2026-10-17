@@ -1,0 +1,346 @@
+{
+  "status": "tested",
+  "started_at_utc": "2026-10-17T21:11:32.318525+00:00",
+  "evidence_kind": "isaac_k1_supported_payload_scripted_velocity_diagnostic",
+  "fixed_base": false,
+  "gravity_enabled": true,
+  "walking_policy_executed": true,
+  "training_performed": false,
+  "robot_payload_present": true,
+  "delivery_success": null,
+  "source_hashes": {
+    "sim/run_k1_isaac.py": "066c99905938b640cdf543241c3163a745ea670082e3a6845a60461b94cf4096",
+    "sim/vendor/booster_assets/robots/K1/K1_22dof.urdf": "834e17faf4681e5fcae116130a9da6d81b696c7f8278b95f281cec0551ca6124",
+    "sim/k1_isaac_nominal.json": "df59fe718d993db80b8738f97417cbafddcb3819cf8029e8c83bb6e64c19cdd3",
+    "sim/cafe_scene.py": "1f74d6a8ddb6ed238ce9f4e68e51568ed34ed64825a22e0d1d9f283264e0e203",
+    "sim/k1_isaac_policy.py": "3b42e47ae37ad392a0e2b484b0ff97411bb79dbce69cd88bf4c8ab0411c2b655",
+    "sim/k1_payload.py": "aed10136bc84fb5c3adffa14680bd0da788b003c22ec099acf2739a2217dcdb7",
+    "sim/k1_payload.json": "db1aaaa3b052e7739853bd604f65a10753eb93401300f6bf2bfffaa9b8db7ad6",
+    "sim/k1_batch_policy.py": "bb261b0413653376282573b8f921cd0b5b2fb6a2288b89626ea3ac2b555ab93a",
+    "training/ppo_core.py": "9d7edf0444928b30d742e9a5f7ab0a8bf2f5f25dfa15f47a5b9e8969985a93d9"
+  },
+  "duration_requested_s": 15.0,
+  "speed_command_m_s": 0.35,
+  "checkpoint_sha256": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5",
+  "actor_inputs": [
+    "joint_positions",
+    "joint_velocities",
+    "body_gyro",
+    "quaternion_projected_gravity",
+    "velocity_command",
+    "last_action",
+    "previous_residual"
+  ],
+  "evaluation_only": [
+    "world_position",
+    "height",
+    "tilt"
+  ],
+  "payload_config": {
+    "version": "supported_tray_v1",
+    "provenance": "simulation design assumptions, not measured hardware",
+    "attachment": "rigid fixed torso bracket; no hand grasp or autonomous loading",
+    "tray": {
+      "center": [
+        0.32,
+        0.0,
+        0.15
+      ],
+      "size": [
+        0.46,
+        0.5,
+        0.015
+      ],
+      "mass_kg": 0.6
+    },
+    "bracket": {
+      "center": [
+        0.12,
+        0.0,
+        0.12
+      ],
+      "size": [
+        0.2,
+        0.08,
+        0.04
+      ],
+      "mass_kg": 0.35
+    },
+    "box": {
+      "center": [
+        0.31,
+        0.065,
+        0.1925
+      ],
+      "size": [
+        0.3,
+        0.28,
+        0.06
+      ],
+      "mass_kg": 0.8
+    },
+    "drink": {
+      "center": [
+        0.32,
+        -0.17,
+        0.2325
+      ],
+      "radius": 0.035,
+      "height": 0.14,
+      "mass_kg": 0.5
+    },
+    "payload_static_friction": 0.7,
+    "payload_dynamic_friction": 0.6,
+    "payload_restitution": 0.0,
+    "initial_surface_gap_m": 0.005,
+    "restraints": "none; no rim or cup holder; sealed rigid drink, no liquid simulation",
+    "development_thresholds": {
+      "fall_tilt_deg": 60.0,
+      "fall_root_height_m": 0.25,
+      "drop_below_tray_m": 0.1,
+      "max_payload_displacement_m": 0.04,
+      "max_tray_tilt_deg": 10.0,
+      "max_final_root_speed_m_s": 0.05
+    }
+  },
+  "payload_observations": "evaluation/reward only; never walking actor inputs",
+  "evaluator_camera": {
+    "position_m": [
+      5.5,
+      -3.2,
+      2.0
+    ],
+    "euler_degrees": [
+      0,
+      18,
+      133
+    ],
+    "purpose": "evaluation only; excluded from actor"
+  },
+  "joint_names": [
+    "aahead_yaw_joint",
+    "aaleft_shoulder_pitch_joint",
+    "aaright_shoulder_pitch_joint",
+    "left_hip_pitch_joint",
+    "right_hip_pitch_joint",
+    "aahead_pitch_joint",
+    "left_shoulder_roll_joint",
+    "right_shoulder_roll_joint",
+    "left_hip_roll_joint",
+    "right_hip_roll_joint",
+    "left_elbow_pitch_joint",
+    "right_elbow_pitch_joint",
+    "left_hip_yaw_joint",
+    "right_hip_yaw_joint",
+    "left_elbow_yaw_joint",
+    "right_elbow_yaw_joint",
+    "left_knee_pitch_joint",
+    "right_knee_pitch_joint",
+    "left_ankle_pitch_joint",
+    "right_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_ankle_roll_joint"
+  ],
+  "body_names": [
+    "trunk",
+    "aahead_yaw_link",
+    "aaleft_shoulder_pitch_link",
+    "aaright_shoulder_pitch_link",
+    "left_hip_pitch_link",
+    "right_hip_pitch_link",
+    "aahead_pitch_link",
+    "left_shoulder_roll_link",
+    "right_shoulder_roll_link",
+    "left_hip_roll_link",
+    "right_hip_roll_link",
+    "left_elbow_pitch_link",
+    "right_elbow_pitch_link",
+    "left_hip_yaw_link",
+    "right_hip_yaw_link",
+    "left_elbow_yaw_link",
+    "right_elbow_yaw_link",
+    "left_knee_pitch_link",
+    "right_knee_pitch_link",
+    "left_ankle_pitch_link",
+    "right_ankle_pitch_link",
+    "left_ankle_roll_link",
+    "right_ankle_roll_link"
+  ],
+  "camera_links": [
+    "/World/K1/aahead_pitch_link/head_realsense_rgb_link"
+  ],
+  "joint_mapping_verified": true,
+  "limits": [
+    "PhysX contacts differ from MuJoCo",
+    "massless fixed sensor joints merged; optical frame restored from URDF",
+    "supported torso bracket; not hand carrying",
+    "scripted command, no vision guidance",
+    "sealed rigid drink; no liquid or spilling simulation",
+    "development thresholds, not hardware validation"
+  ],
+  "armature": {
+    "aahead_yaw_joint": 0.002,
+    "aahead_pitch_joint": 0.002,
+    "aaleft_shoulder_pitch_joint": 0.001,
+    "left_shoulder_roll_joint": 0.001,
+    "left_elbow_pitch_joint": 0.001,
+    "left_elbow_yaw_joint": 0.001,
+    "aaright_shoulder_pitch_joint": 0.001,
+    "right_shoulder_roll_joint": 0.001,
+    "right_elbow_pitch_joint": 0.001,
+    "right_elbow_yaw_joint": 0.001,
+    "left_hip_pitch_joint": 0.0478125,
+    "left_hip_roll_joint": 0.0339552,
+    "left_hip_yaw_joint": 0.0282528,
+    "left_knee_pitch_joint": 0.095625,
+    "left_ankle_pitch_joint": 0.0565,
+    "left_ankle_roll_joint": 0.0565,
+    "right_hip_pitch_joint": 0.0478125,
+    "right_hip_roll_joint": 0.0339552,
+    "right_hip_yaw_joint": 0.0282528,
+    "right_knee_pitch_joint": 0.095625,
+    "right_ankle_pitch_joint": 0.0565,
+    "right_ankle_roll_joint": 0.0565
+  },
+  "body_masses_kg": [
+    7.450000286102295,
+    0.30000001192092896,
+    0.5,
+    0.5,
+    0.6899999976158142,
+    0.6899999976158142,
+    0.699999988079071,
+    0.09000000357627869,
+    0.09000000357627869,
+    0.12999999523162842,
+    0.12999999523162842,
+    0.800000011920929,
+    0.800000011920929,
+    1.649999976158142,
+    1.649999976158142,
+    0.1899999976158142,
+    0.1899999976158142,
+    1.5,
+    1.5,
+    0.039000000804662704,
+    0.039000000804662704,
+    0.49399998784065247,
+    0.49399998784065247
+  ],
+  "total_mass_kg": 20.61600022763014,
+  "expected_urdf_mass_kg": 20.616000000000003,
+  "payload_masses_kg": {
+    "box": 0.800000011920929,
+    "drink": 0.5
+  },
+  "residual_checkpoint_sha256": "1fd6e0242a33e2c62db822cb060a88faa629d7786023a8ba96cb7f791cc746dc",
+  "residual_training_environment_steps": 204800,
+  "residual_training_optimizer_steps": 1600,
+  "residual_bound_rad": 0.08,
+  "base_actor_finetuned": false,
+  "actor_steps": 607,
+  "termination": "payload_drop",
+  "last_recorded_frame_time_s": 12.120000000000001,
+  "simulated_seconds": 12.126,
+  "final_root_xyz": [
+    4.229679107666016,
+    -0.728058934211731,
+    0.5441739559173584
+  ],
+  "peak_tilt_deg": 4.003213074123295,
+  "net_x_m": 3.2296791076660156,
+  "video_fps": 25,
+  "video_frames": 303,
+  "max_payload_displacement_xy_m": 0.20541489124298096,
+  "max_payload_tilt_deg": 115.06217193603516,
+  "payload_drop": true,
+  "final_root_speed_m_s": 0.31991955637931824,
+  "development_stability_pass": false,
+  "finished_at_utc": "2026-10-17T21:12:24.356789+00:00",
+  "artifacts": {
+    "evaluator_final_recorded.png": {
+      "sha256": "dd6f84ba774807dc7a95ba3a5527b12da96641ea304174ab5c375f2d7cca2f87",
+      "bytes": 620874
+    },
+    "evaluator-0250.png": {
+      "sha256": "d7c281f0f5c99ecced93e22bcf9537f0f22fd146241e5a073188ce8a1384379a",
+      "bytes": 625076
+    },
+    "robot_camera-0125.png": {
+      "sha256": "a3e71342f51f2135ee02850d53fe6f85eea156fc84cc48ff4909f92ef15702e5",
+      "bytes": 278300
+    },
+    "robot_camera-0250.png": {
+      "sha256": "cf6ec5f8a5e5f17ea87e539ffe2aa38308a4e099d1e2a38ee130785d75bebc28",
+      "bytes": 283354
+    },
+    "robot_camera_final_recorded.png": {
+      "sha256": "ba729652bed4914247cd0465ccf72034096228fe35c5b23e1fb456c0edae33d6",
+      "bytes": 286541
+    },
+    "evaluator-0000.png": {
+      "sha256": "e70c22cafa437bfd45b4072009a23e593beb7a81b666a3ee54d543bf236302cd",
+      "bytes": 617162
+    },
+    "frame_times.csv": {
+      "sha256": "8e0db9999d80957b74a7d7b3c5036f34d629ae3769804ebfab5ad1338e0a78c6",
+      "bytes": 7586
+    },
+    "evaluator.mp4": {
+      "sha256": "6972819cde4d9fd9751b51e73046e4f252a9440620d7f7069fdbf2faa1b5dee1",
+      "bytes": 506425
+    },
+    "payload_trajectory.csv": {
+      "sha256": "4688bd56afea833dd0db21cbc6b0ca95b81d947dd8a19ba14a0d41e0d051dffa",
+      "bytes": 167370
+    },
+    "robot_camera.mp4": {
+      "sha256": "50f017b61861deb5fd41caa803fb61828f78444743852375d9f033079defa77a",
+      "bytes": 729514
+    },
+    "trajectory.csv": {
+      "sha256": "8b994512358f5f8b2dd4d5e577126bfb9ceddffa6792d0f3541206c2fd65e6fa",
+      "bytes": 121689
+    },
+    "evaluator-0125.png": {
+      "sha256": "53d6428787ac6892c1ec3873e87782b601137a58ea9d2376a227cc48121dc3da",
+      "bytes": 625641
+    },
+    "robot_camera-0000.png": {
+      "sha256": "20d5c3b78ab7ce406fa588704ed5cf0e803b8566c443feb0e7c4f973910ffe64",
+      "bytes": 289714
+    },
+    "loaded.urdf": {
+      "sha256": "24fd7002911dc43ec37f532137dc726694054c7f62a04bee10b39ef1f9713cc0",
+      "bytes": 26557
+    },
+    "converted/config.yaml": {
+      "sha256": "a710aee01846c12425cec3d1071b5264892b952868b497cd81f5487fcaa3d52d",
+      "bytes": 1697
+    },
+    "converted/.asset_hash": {
+      "sha256": "f8fc1102ca58e6d0f8557500dec5e29d0c79d5ba2ef00e0b74ef56ac8a22e888",
+      "bytes": 32
+    },
+    "converted/loaded.usd": {
+      "sha256": "47322718e6f20cbbddcc79cf46feffc95960962162ba24513ed426e84955b151",
+      "bytes": 1452
+    },
+    "converted/configuration/loaded_robot.usd": {
+      "sha256": "80a617701b05ec799fccdbcf69deff20b1fc27cb59b7a66944cea18a595db2fa",
+      "bytes": 2393
+    },
+    "converted/configuration/loaded_sensor.usd": {
+      "sha256": "2c66af515fb4adecf4126e586d1c469c51d188caafc4520f91ee827dc70880f9",
+      "bytes": 642
+    },
+    "converted/configuration/loaded_base.usd": {
+      "sha256": "468415b953a76bfa5d25233293489fd0ebdb0f368eb588ac1737ac7e31fc4bbb",
+      "bytes": 17264077
+    },
+    "converted/configuration/loaded_physics.usd": {
+      "sha256": "4295641b3f666a68a0a867bada438a99c237ac1f5b7f09dceafa6ec288997566",
+      "bytes": 8200
+    }
+  }
+}

@@ -30,3 +30,20 @@ def test_payload_starts_above_tray_with_clearance_and_no_overlap():
         assert lo<b['center'][axis]-b['size'][axis]/2<b['center'][axis]+b['size'][axis]/2<hi
         assert lo<d['center'][axis]-d['radius']<d['center'][axis]+d['radius']<hi
     assert d['center'][1]+d['radius']<b['center'][1]-b['size'][1]/2
+
+
+def test_cupholder_has_clearance_and_physical_mass(tmp_path):
+    from sim.k1_payload import CONFIG_PATH
+    c=load_config(CONFIG_PATH.with_name('k1_payload_cupholder.json'))
+    source=Path(__file__).resolve().parents[2]/'sim/vendor/booster_assets/robots/K1/K1_22dof.urdf'
+    root=ET.parse(make_supported_urdf(source,tmp_path/'held.urdf',c)).getroot()
+    assert sum(float(m.attrib['value']) for m in root.findall('link/inertial/mass'))==pytest.approx(20.696)
+    d=c['drink'];b=c['box']
+    for wall in c['extra_supports'].values():
+        # Circle-to-axis-aligned rectangle distance in horizontal plane.
+        dx=max(abs(d['center'][0]-wall['center'][0])-wall['size'][0]/2,0)
+        dy=max(abs(d['center'][1]-wall['center'][1])-wall['size'][1]/2,0)
+        assert (dx*dx+dy*dy)**.5>d['radius']+.004
+        assert wall['center'][1]+wall['size'][1]/2<b['center'][1]-b['size'][1]/2
+        assert wall['center'][2]-wall['size'][2]/2==pytest.approx(.1575)
+        assert wall['mass_kg']>0

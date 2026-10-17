@@ -5,11 +5,13 @@ box and drink. The system combines RGB-D perception, explicit scene memory,
 search/navigation, a pretrained walking policy and a newly trained PPO carrying
 residual. Physical robot performance is not yet verified.
 
-![K1 walking with a supported tray in the Isaac café](experiments/codex-20261017T2043-k1-loaded-baseline/evaluator-0125.png)
+![K1 with supported tray and cup holder after a scripted carrying trial](experiments/codex-20261017T2124-cupholder-ppo-transfer/evaluator_final_recorded.png)
 
-*Actual Isaac Sim frame from the first loaded baseline. The drink has tipped;
-this run subsequently dropped it. The tray is attached to a modeled torso bracket,
-not held by the hands. [Failure report](experiments/codex-20261017T2043-k1-loaded-baseline/REPORT.md).*
+*Actual final frame: PPO residual plus an explicit cup holder completed a
+15-second, 3.56-metre scripted carrying trial within the current stability limits.
+The tray is attached to a modeled torso bracket. This is one simulation trial;
+camera-guided delivery remains unfinished.
+[Measured result and limitations](experiments/codex-20261017T2124-cupholder-ppo-transfer/REPORT.md).*
 
 ![Isaac Sim café environment](experiments/codex-20261017T2008-cafe-lit-preview/hero.png)
 
@@ -26,6 +28,7 @@ No robot is present in this environment-preview frame.*
 | Supported tray + free box/drink | [Drink dropped at 6.442 s](experiments/codex-20261017T2043-k1-loaded-baseline/REPORT.md); robot remained upright |
 | Real PPO updates | [204,800 physics transitions, 1,600 optimizer updates](experiments/codex-20261017T2054-ppo-training/REPORT.md); new residual weights changed, original actor frozen |
 | First trained café comparison | [3.23 m before drink drop vs 1.25 m baseline](experiments/codex-20261017T2055-ppo-cafe-evaluation/REPORT.md); both failed, one development pair |
+| Cup-holder fixture + trained residual | [15 s, 3.56 m, no drops, 3.31 cm maximum payload movement](experiments/codex-20261017T2124-cupholder-ppo-transfer/REPORT.md); one scripted stability pass. Same-fixture baseline failed the 4 cm movement limit |
 | Memory, search, obstacle handling, bounded VLA interface | Software-tested components; see [autonomy design](docs/autonomy/DESIGN.md) |
 | Deployable localization | In development; estimated-pose closed loop remains a known failure |
 | VLA fine-tuning and hardware delivery | Not completed |
@@ -98,4 +101,4 @@ uses explicit path ownership and reviewed Markdown handoffs.
 Robot assets and base policy: BoosterRobotics, pinned in
 [sim/upstream-lock.json](sim/upstream-lock.json). Café assets: Poly Haven, CC0.
 Tools and infrastructure: NVIDIA Isaac Sim/Isaac Lab, Crusoe GPU through Brev,
-and You.com research. The repository remains private.
+and You.com research. Large recordings and trained weights are excluded from Git.

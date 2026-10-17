@@ -18,6 +18,8 @@ parser.add_argument('--duration', type=float, default=15)
 parser.add_argument('--speed', type=float, default=.35)
 parser.add_argument('--loaded', action='store_true', help='Explicit supported tray and free box/drink')
 parser.add_argument('--residual-checkpoint', type=Path, help='Trusted project-trained residual checkpoint for evaluation')
+parser.add_argument('--wide-evaluator', action='store_true', help='Wider fixed view covering the full straight route')
+parser.add_argument('--payload-config', type=Path, default=ROOT/'sim/k1_payload.json')
 args = parser.parse_args()
 assert 5 <= args.duration <= 60 and 0 <= args.speed <= .5
 assert args.residual_checkpoint is None or args.loaded, 'Residual evaluation requires declared supported payload'
@@ -38,11 +40,11 @@ report.update(duration_requested_s=args.duration,speed_command_m_s=args.speed,
     evaluation_only=['world_position','height','tilt'])
 if args.loaded:
     from sim.k1_payload import load_config, make_supported_urdf, spawn_payload
-    payload_config=load_config()
+    payload_config=load_config(args.payload_config)
     report.update(evidence_kind='isaac_k1_supported_payload_scripted_velocity_diagnostic',
                   robot_payload_present=True,payload_config=payload_config,
                   payload_observations='evaluation/reward only; never walking actor inputs')
-    for name in ('sim/k1_payload.py','sim/k1_payload.json'):
+    for name in ('sim/k1_payload.py',str(args.payload_config.resolve().relative_to(ROOT))):
         report['source_hashes'][name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
     urdf=make_supported_urdf(urdf,args.output/'loaded.urdf',payload_config)
 manifest.write_text(json.dumps(report,indent=2))
@@ -89,8 +91,12 @@ try:
             effort_limit_sim={n:float(v['effort_limit']) for n,v in joints.items()})})
     robot = Articulation(cfg)
     payload=spawn_payload((1.,0.,.6),payload_config) if args.loaded else {}
-    cam = Camera(prim_path='/World/K1Preview',position=np.array([3.2,-2.0,1.45]),
-        orientation=euler_angles_to_quats(np.array([0,15,138]),degrees=True), resolution=(960,720))
+    evaluator_position=[5.5,-3.2,2.0] if args.wide_evaluator else [3.2,-2.0,1.45]
+    evaluator_angles=[0,18,133] if args.wide_evaluator else [0,15,138]
+    report['evaluator_camera']=dict(position_m=evaluator_position,euler_degrees=evaluator_angles,
+                                    purpose='evaluation only; excluded from actor')
+    cam = Camera(prim_path='/World/K1Preview',position=np.array(evaluator_position),
+        orientation=euler_angles_to_quats(np.array(evaluator_angles),degrees=True), resolution=(960,720))
     optics=UsdGeom.Camera.Get(sim.stage,cam.prim_path)
     optics.GetHorizontalApertureAttr().Set(32);optics.GetVerticalApertureAttr().Set(24);optics.GetFocalLengthAttr().Set(24)
     sim.reset()
@@ -163,7 +169,7 @@ try:
     else:
         bridge=IsaacK1Policy(robot,device='cuda:0')
     report['actor_steps']=0
-    rows=[];frame_times=[];max_tilt=0.;targets=robot.data.default_joint_pos.clone()
+    rows=[];frame_times=[];last_frames={};max_tilt=0.;targets=robot.data.default_joint_pos.clone()
     writers={name:imageio.get_writer(str(args.output/(name+'.mp4')),fps=25,codec='libx264')
              for name in ('evaluator','robot_camera')}
     report['termination']='duration_complete'
@@ -221,6 +227,7 @@ try:
                     rgb=np.asarray(c.get_rgba())[:,:,:3].astype(np.uint8)
                     assert rgb.ndim==3 and rgb.shape[2]==3 and rgb.std()>2
                     writers[name].append_data(rgb)
+                    last_frames[name]=rgb.copy()
                     if len(frame_times)%125==0:
                         Image.fromarray(rgb).save(args.output/f'{name}-{len(frame_times):04d}.png')
                 frame_times.append(capture_t)
@@ -230,6 +237,9 @@ try:
                 report['termination']='payload_drop';break
     finally:
         for writer in writers.values():writer.close()
+    for name,rgb in last_frames.items():
+        Image.fromarray(rgb).save(args.output/f'{name}_final_recorded.png')
+    report['last_recorded_frame_time_s']=frame_times[-1] if frame_times else None
     np.savetxt(args.output/'trajectory.csv',np.array(rows),delimiter=',',header='t,x,y,z,tilt_deg,cmd_vx,cmd_vy,cmd_wz',comments='')
     np.savetxt(args.output/'frame_times.csv',np.array(frame_times),delimiter=',',header='sim_time_s',comments='')
     report.update(status='tested',simulated_seconds=(step+1)*nominal['physics_dt'],final_root_xyz=pos.tolist(),

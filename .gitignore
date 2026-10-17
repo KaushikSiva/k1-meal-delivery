@@ -37,3 +37,5 @@ MUJOCO_LOG.TXT
 experiments/**/*.npz
 experiments/**/payload_trajectory.csv
 experiments/**/loaded.urdf
+experiments/**/imu_trajectory.csv
+experiments/**/leg_trajectory.csv
