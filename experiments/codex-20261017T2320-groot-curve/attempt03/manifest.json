@@ -1,0 +1,48 @@
+{
+  "status": "trained",
+  "started_at_utc": "2026-10-17T23:33:58.330982+00:00",
+  "scope": "500-update custom bounded-subgoal training; no delivery-performance claim",
+  "hardware_verified": false,
+  "training_performed": true,
+  "optimizer_updates": 500,
+  "source_revision": "dac54b313160c201c450f97df0fd74ebd379c892",
+  "source_sha256": "bc8ef0b5ccfe385bcd819daf2a3ba063f4ee8ed570760f1c219cf2d6945ecbf3",
+  "dataset_manifest_sha256": "23ea87f2e774b5737c4e28b21ea06768f5162550de5cb9cd5d5c953a0c47a005",
+  "budget": {
+    "optimizer_steps": 500,
+    "batch_size": 1,
+    "learning_rate": 0.0001
+  },
+  "torch": "2.9.0+cu128",
+  "initial": {
+    "trainable_sha256": "537225d2528c40a28f5a19f5a0f87b403cab335e435d3e0ef306d409d6c71052",
+    "frozen_sha256": "67db3a10bd23756b5ea2ece5062109401f48dfc70688bab9742fc63763279926",
+    "trainable_parameters": 1620515968,
+    "frozen_parameters": 1523500032
+  },
+  "final": {
+    "trainable_sha256": "712aa5a8499620ece2612ad42e5993ead96d6f38471e18d1250bb07312bd1c23",
+    "frozen_sha256": "67db3a10bd23756b5ea2ece5062109401f48dfc70688bab9742fc63763279926",
+    "trainable_parameters": 1620515968,
+    "frozen_parameters": 1523500032
+  },
+  "frozen_parameters_unchanged": true,
+  "trainable_parameters_changed": true,
+  "checkpoint_files": {
+    "checkpoint/config.json": "9085cd7046bccfcea2d9a14caaf1f217d4be4c6b7abd9224506233b72ba1e0a1",
+    "checkpoint/model.safetensors.index.json": "12117379d91d029c5979a585d07ba794001730c9516d6de5512e3dedfee30730",
+    "checkpoint/model-00002-of-00003.safetensors": "18d46685c33977b8a97aae6f2fd844fffcdfa951a70f8b3a1c4d44fc065f2364",
+    "checkpoint/model-00001-of-00003.safetensors": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+    "checkpoint/model-00003-of-00003.safetensors": "2c8843e7044929448768faa30caf850ee016d26c0124df687b2f454ed53b9267",
+    "checkpoint/wandb_config.json": "7463927684b92dae21ab3d74b549675d752278681a642f38e94e83a8d9126978",
+    "checkpoint/experiment_cfg/dataset_statistics.json": "0068a8143573d59fc1361189c6f2b75a478f391adfdca9fc3b9d9aa74ccfdf0f",
+    "checkpoint/experiment_cfg/final_processor_config.json": "595c0269aac81350e149ea774b98d03ee4489fb63c8cb3211d2b588269fc5f9f",
+    "checkpoint/experiment_cfg/final_model_config.json": "fbfc8131d75cbae984afa93eac2d69368cbc63a6c3fcd860ac6c6eef9467a4de",
+    "checkpoint/processor/statistics.json": "4986b4570d034d0f026d0834063c852b7d8f824b28177c046390062cbb61ff8a",
+    "checkpoint/processor/processor_config.json": "16d748eb2c6f75f112d2ec31f5594e11e6829d0a06a5d4de5c07d5c269905e00",
+    "checkpoint/processor/embodiment_id.json": "c8af3d61fe9ca5508c4a5b9e8be6ad4d0d1eb2c68cec76620ea089b894a3ee22"
+  },
+  "finished_at_utc": "2026-10-17T23:38:28.458261+00:00",
+  "wall_seconds": 270.12715082400064,
+  "peak_allocated_gpu_bytes": 38528165888
+}

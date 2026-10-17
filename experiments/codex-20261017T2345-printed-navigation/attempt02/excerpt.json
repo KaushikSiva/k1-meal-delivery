@@ -1,0 +1,10 @@
+{
+  "source": "evaluator.mp4",
+  "source_sha256": "e78e2eda1780b09ed3d0fd801396857f986a76cde5fecdb668fe36632a921193",
+  "excerpt": "evaluator_final_18s.mp4",
+  "excerpt_sha256": "0aa033546b9e38b132e866c3ff3a445b3f562411c1b785f27af226384c72a547",
+  "start_s": 49.0,
+  "duration_s": 18.64,
+  "speed_factor": 1.0,
+  "scope": "continuous final approach/stop excerpt; full run includes earlier uncertainty holds"
+}

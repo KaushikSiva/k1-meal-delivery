@@ -1,0 +1,26 @@
+{
+  "physical_delivery_pass": true,
+  "checks": {
+    "executive_delivered": true,
+    "no_room_contact": true,
+    "no_fall": true,
+    "front_distance": true,
+    "lateral_error": true,
+    "stable_stop": true,
+    "body_tilt": true,
+    "no_payload_drop": true,
+    "payload_shift": true,
+    "tray_tilt": true,
+    "contact_loss": true,
+    "hand_only_support": true,
+    "effort_limit": true,
+    "no_tray_constraint": true
+  },
+  "front_edge_distance_m": 0.5975293913264954,
+  "lateral_error_m": 0.01774824734260866,
+  "last_1p5s_max_true_speed_m_s": 0.0009320720560512753,
+  "last_1p5s_net_drift_m": 0.0003935679698211435,
+  "declared_budget_s": 90,
+  "within_declared_budget": true,
+  "within_original_60s_budget": false
+}

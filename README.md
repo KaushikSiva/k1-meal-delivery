@@ -37,11 +37,15 @@ No robot is present in this environment-preview frame.*
 | GR00T N1.7 pilot | [20 actual updates and saved-checkpoint inference](experiments/codex-20261017T2245-groot-pilot/REPORT.md); closed-loop performance unmeasured |
 | Free tray supported in both hands | [MuJoCo:15s,2.036m,3.295mm shift](experiments/codex-20261017T2300-hand-carry/REPORT.md); [Isaac café:15s,2.193m,8.038mm shift](experiments/codex-20261017T2305-hand-carry-isaac/REPORT.md); no torso support/weld, scripted baseline without PPO/VLA |
 | Camera-guided delivery with a hand-supported load | [Delivered in22.8s plus2s settling](experiments/codex-20261017T2310-loaded-navigation/REPORT.md); no collision/drop/fall,3.8mm payload shift; one development configuration, no VLA/PPO |
-| GR00T longer fine-tuning | [500 actual updates and strict saved-checkpoint reload](experiments/codex-20261017T2320-groot-curve/REPORT.md); fixed validation loss1.765→2.451 (worse), no delivery benefit established |
-| Varied loaded reliability; hardware delivery | Not completed |
+| GR00T longer fine-tuning | [500 actual updates and strict saved-checkpoint reload](experiments/codex-20261017T2320-groot-curve/REPORT.md); first run validation1.765→2.451 (worse); [complete-logging repeat](experiments/codex-20261017T2320-groot-curve/attempt03/REPORT.md)1.765→1.371 (lower); no reproducible delivery benefit established |
+| Varied loaded delivery | [3/4 prospective start/target conditions](experiments/codex-20261017T2340-loaded-variation/REPORT.md); one timeout with wall contact and brief non-hand support |
+| Printed payload and physical table | [Delivered65.6s+2s settling in longer diagnostic](experiments/codex-20261017T2345-printed-navigation/REPORT.md); original60s attempt timed out |
+| Loaded turning | [Unintended translation during pure-yaw commands](experiments/codex-20261017T2350-hand-turn-probe/REPORT.md); carrying-controller weakness remains |
+| GR00T loaded comparison | [3/4 with GR00T;3/4 executive-only](experiments/codex-20261017T2355-groot-loaded/REPORT.md); remote latency rejected many proposals, no overall improvement |
+| Hardware delivery | Not completed |
 
 An integrated camera-guided loaded delivery now passes in one MuJoCo development
-configuration. Learned hand-carry control and varied-layout reliability remain
+configuration. Four further loaded configurations passed3/4. Learned hand-carry control and broad reliability remain
 unverified; the PPO and VLA results above are separate experiments. Simulator-only inputs are labeled
 and kept out of deployment policy observations. Raw recordings and weights stay
 outside Git; reports retain hashes, provenance and storage references.

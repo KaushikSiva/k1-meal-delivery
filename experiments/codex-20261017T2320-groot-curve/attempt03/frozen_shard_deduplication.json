@@ -1,0 +1,10 @@
+{
+  "source": "/home/ubuntu/workspace/k1-runtime/evidence/groot-curve-02/checkpoint/model-00001-of-00003.safetensors",
+  "destination": "/home/ubuntu/workspace/k1-runtime/evidence/groot-curve-03/checkpoint/model-00001-of-00003.safetensors",
+  "sha256": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+  "size_bytes": 4986649584,
+  "already_same_inode": false,
+  "hardlinked": true,
+  "both_paths_preserved": true,
+  "checkpoint_contents_changed": false
+}

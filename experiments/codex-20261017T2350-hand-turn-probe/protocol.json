@@ -1,0 +1,28 @@
+{
+  "frozen_at_utc": "2026-10-17T23:42:39.393547+00:00",
+  "yaw_rates": [
+    0.0,
+    -0.05,
+    0.05,
+    -0.15,
+    0.15,
+    -0.25,
+    0.25
+  ],
+  "duration_s": 8.0,
+  "command_interval_s": [
+    2.0,
+    6.0
+  ],
+  "initial_yaw": -0.12,
+  "initial_xy": [
+    0.0,
+    0.5
+  ],
+  "seed": 9602,
+  "translational_commands": [
+    0.0,
+    0.0
+  ],
+  "scope": "pure yaw command diagnostic, no delivery or hardware claim"
+}

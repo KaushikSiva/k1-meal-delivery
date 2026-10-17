@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "optimizer_updates": 0,
+  "reason": "HF_HUB_OFFLINE prevented official Cosmos metadata lookup; authentication-enabled strict reload launched separately",
+  "checkpoint_corruption_established": false
+}

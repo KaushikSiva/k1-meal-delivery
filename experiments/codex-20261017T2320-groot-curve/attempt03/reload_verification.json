@@ -1,0 +1,25 @@
+{
+  "checkpoint_shards_verified": {
+    "checkpoint/model-00002-of-00003.safetensors": "18d46685c33977b8a97aae6f2fd844fffcdfa951a70f8b3a1c4d44fc065f2364",
+    "checkpoint/model-00001-of-00003.safetensors": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+    "checkpoint/model-00003-of-00003.safetensors": "2c8843e7044929448768faa30caf850ee016d26c0124df687b2f454ed53b9267"
+  },
+  "input_npz_sha256": "32c0adb3d517e35b62030b2ae2b86c0acf9b47af6dcd5371a3cd9453f3aff837",
+  "output_shape": [
+    1,
+    10,
+    5
+  ],
+  "output_finite": true,
+  "first_action": [
+    0.40311479568481445,
+    -0.16463829576969147,
+    -0.12417512387037277,
+    0.53515625,
+    -1.0
+  ],
+  "first_inference_seconds": 0.39294894600061525,
+  "optimizer_updates": 0,
+  "actuator_commands": 0,
+  "scope": "recorded validation frame checkpoint reload; no delivery performance claim"
+}

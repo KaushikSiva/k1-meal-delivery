@@ -1,0 +1,83 @@
+{
+  "id": "start-right",
+  "command": [
+    "/Users/kaushiksivakumar/workspace/k1-meal-delivery/sim/.venv/bin/python",
+    "/Users/kaushiksivakumar/workspace/k1-meal-delivery/runs/loaded-variation-source/sim/run_k1_sensor_navigation.py",
+    "--output",
+    "/Users/kaushiksivakumar/workspace/k1-meal-delivery/runs/loaded-variation-01/start-right",
+    "--duration",
+    "60",
+    "--seed",
+    "9602",
+    "--table",
+    "4",
+    "0",
+    "0.4",
+    "0.5",
+    "0.75",
+    "--start",
+    "0",
+    "0.5",
+    "-0.12",
+    "--hand-carried",
+    "--known-load-depth-mask",
+    "--carry-command-guard",
+    "--walk-speed",
+    "0.4",
+    "--head-pitch",
+    "-0.2",
+    "--prediction-scale",
+    "0.5",
+    "--settle-seconds",
+    "2",
+    "--tracking-evaluator"
+  ],
+  "returncode": 0,
+  "physical_delivery_pass": false,
+  "checks": {
+    "executive_delivered": false,
+    "no_room_contact": false,
+    "no_fall": true,
+    "front_distance": false,
+    "lateral_error": false,
+    "stable_stop": true,
+    "body_tilt": false,
+    "no_payload_drop": true,
+    "payload_shift": true,
+    "tray_tilt": false,
+    "contact_loss": true,
+    "hand_only_support": false,
+    "effort_limit": true,
+    "no_tray_constraint": true
+  },
+  "front_edge_distance_m": 2.390465605331851,
+  "lateral_error_m": 0.7862057553655797,
+  "last_1p5s_max_true_speed_m_s": 0.0002324255256765915,
+  "last_1p5s_net_drift_m": 0.00028868746108282967,
+  "outcome": null,
+  "termination": "duration_complete",
+  "max_xy_error_m": 1.0891711247115607,
+  "hand_metrics": {
+    "physics_steps": 30000,
+    "hand_contact_steps": [
+      28432,
+      29281
+    ],
+    "max_hand_contact_loss_s": [
+      0.036000000000000004,
+      0.022
+    ],
+    "other_robot_contact_steps": {
+      "left_elbow_pitch_link": 22,
+      "right_elbow_pitch_link": 19
+    },
+    "max_arm_torque_Nm": 14.0,
+    "max_tray_tilt_deg": 13.66419643574036,
+    "max_payload_shift_m": 0.011795296364503686,
+    "payload_drop": false,
+    "equality_constraints": 0,
+    "torque_limit_Nm": 14.0
+  },
+  "collision_contact_steps": 496,
+  "manifest_sha256": "0b68aee28dd72434c2387c27445bd4a6e13f03ad758be92ec2311a996bc07c09"
+}

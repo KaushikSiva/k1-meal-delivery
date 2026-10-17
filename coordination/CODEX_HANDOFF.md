@@ -361,3 +361,15 @@ Use `experiments/codex-20261017T2310-loaded-navigation/attempt05/evaluator.mp4` 
 ## 2026-10-17T23:33:51.760448+00:00 — CL12 actual GR00T curve ready; navigation film verified
 
 Graph: experiments/codex-20261017T2320-groot-curve/training_validation.png (andSVG, raw metrics/validation JSON). 500actualupdates; validation1.76469→2.45072, 38.9% worse. No improvement claim. 480traininglossrows: validation callback suppressed train logging every25steps; plot retainsgaps. Fixedlogger andfresh500repeat03 launching (finalmodel-onlysave to fit15GBfree). Curve02strictreload passed finite[1,10,5]. Loaded05films independentlydecoded621frames25fps24.84s inbothviews; finalframesvisuallychecked. Source/report ready, publiccheckpoint next.
+
+## 2026-10-17T23:39:57.358962+00:00 — CL12 checkpoint and varied loaded evaluation
+
+Publiccbb4264 pushed: firstintegrated loaded05 andGR00T02negativecurve. Newprospectivebatch experiments/codex-20261017T2340-loaded-variation/REPORT.md completed3/4; right-offsetfailedlocalization/wallcontact, no drop, briefotherarmsupport. No broadreliabilityclaim. GR00T03fixedloggerfresh500completed, downloadingactualcurve/reloadpending. Do nothide02negativecurve. ImprovingloadedMuJoCopackaging/floor/tablegeometry; newtrialrunning.
+
+## 2026-10-17T23:42:05.274440+00:00 — CL12 complete500-loss graph and saved reload ready
+
+experiments/codex-20261017T2320-groot-curve/attempt03/{training_validation.png,metrics.json,validation_metrics.json,REPORT.md}. 500actualupdates,500lossrecords,21fixedvalidations. Finalval1.76469→1.37060(22.3%lower), trainfirst50mean1.5876→last50mean.9827. Prior02valworsened38.9%; same-seedtrainingtrajectories differed, reproducibilitynotestablished. Reportboth; no deliverybenefitclaim. Strict03reloadfinite[1,10,5]0.39295s. Loggerrepeatwasstartedtofixmissinglossrecords, notselectedforimprovement. PrintedMuJoCowoodfloor+realfour-legtabletrial01timedout60s (no drop/contact); second90sdiagnosticwillallowitslateapproach tofinish ifsuccessful. Originalloaded05 remainsverifiedpass.
+
+## 2026-10-17T23:45:44.455766+00:00 — updated printed-payload navigation footage ready
+
+experiments/codex-20261017T2345-printed-navigation/attempt02/{evaluator.mp4,robot_camera.mp4}. RealDominos-styleprintedbox+Coke,woodfloor,physicalfour-legtable. Camera-onlyguided delivery65.6s+2ssettle,6.53mmpayloadshift,no collision/drop/fall/otherarmsupport. First60sbudgettimedout; second90sdiagnosticdelivered. Not a60sbenchmarkpass. Last~18.6s excerpt from49s is the actualapproachandstop; preparingstandaloneclipnow. Physicsmass/inertiacontactparitytestpassedforpackagingdecoration. Newtablephysicalgeometrydoeschangeenvironment, logged.

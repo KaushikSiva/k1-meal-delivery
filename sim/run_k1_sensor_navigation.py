@@ -35,7 +35,7 @@ BOUNDS = (-1., -3., 7., 4.)
 TABLE = (4., 0., .4, .5, .75)
 
 
-def scene_and_map(table=TABLE, model_source=MODEL):
+def scene_and_map(table=TABLE, model_source=MODEL, cafe_style=False):
     spec = sensor_spec(model_source)
     wb = spec.worldbody
     wb.add_light(pos=[2, 0, 4], dir=[0, 0, -1], diffuse=[.7, .7, .7])
@@ -50,8 +50,19 @@ def scene_and_map(table=TABLE, model_source=MODEL):
     cells = np.zeros((int((y1-y0)/res)+1, int((x1-x0)/res)+1), np.uint8)
     grid = OccupancyGrid(cells, res, (x0,y0))
     for i, (x,y,hx,hy,height) in enumerate(objects):
-        wb.add_geom(name=f'room_object_{i}', type=mujoco.mjtGeom.mjGEOM_BOX,
-                    pos=[x,y,height/2], size=[hx,hy,height/2], rgba=[.55,.4,.25,1])
+        if cafe_style and i==0:
+            # Real tabletop and four physical legs; map conservatively occupies
+            # the whole table footprint, including the space between its legs.
+            wb.add_geom(name='room_object_0_top',type=mujoco.mjtGeom.mjGEOM_BOX,
+                        pos=[x,y,height-.025],size=[hx,hy,.025],rgba=[.43,.25,.12,1])
+            for j,(sx,sy) in enumerate([(-1,-1),(-1,1),(1,-1),(1,1)]):
+                wb.add_geom(name=f'room_object_0_leg{j}',type=mujoco.mjtGeom.mjGEOM_BOX,
+                            pos=[x+sx*(hx-.065),y+sy*(hy-.065),(height-.05)/2],
+                            size=[.035,.035,(height-.05)/2],rgba=[.15,.12,.09,1])
+        else:
+            wb.add_geom(name=f'room_object_{i}', type=mujoco.mjtGeom.mjGEOM_BOX,
+                        pos=[x,y,height/2], size=[hx,hy,height/2],
+                        rgba=[.85,.82,.75,1] if cafe_style else [.55,.4,.25,1])
         r0,c0 = grid.world_to_cell((x-hx,y-hy)); r1,c1 = grid.world_to_cell((x+hx,y+hy))
         cells[max(0,r0):r1+1,max(0,c0):c1+1] = OccupancyGrid.OCCUPIED
     return spec, grid
@@ -102,6 +113,8 @@ def main():
     ap.add_argument('--seed', type=int, default=8201)
     ap.add_argument('--record-demo', action='store_true')
     ap.add_argument('--hand-carried', action='store_true')
+    ap.add_argument('--printed-payload', action='store_true')
+    ap.add_argument('--cafe-style', action='store_true')
     ap.add_argument('--known-load-depth-mask', action='store_true')
     ap.add_argument('--carry-command-guard', action='store_true')
     ap.add_argument('--head-pitch', type=float, default=0.)
@@ -111,9 +124,14 @@ def main():
     ap.add_argument('--walk-speed', type=float, default=.35)
     ap.add_argument('--settle-seconds', type=float, default=0.)
     ap.add_argument('--vla-checkpoint', type=Path)
+    ap.add_argument('--vla-endpoint', help='Local SSH-tunneled proposal endpoint')
+    ap.add_argument('--vla-lossless-png', action='store_true')
     ap.add_argument('--policy-seed', type=int, default=9101)
     args = ap.parse_args()
-    assert not args.known_load_depth_mask or args.hand_carried
+    assert not (args.vla_checkpoint and args.vla_endpoint)
+    assert not args.vla_lossless_png or args.vla_endpoint
+    use_vla=bool(args.vla_checkpoint or args.vla_endpoint)
+    assert not (args.known_load_depth_mask or args.printed_payload or args.cafe_style) or args.hand_carried
     assert -.314<=args.head_pitch<=.794
     assert args.prediction_scale is None or 0<=args.prediction_scale<=1.5
     assert 0<args.walk_speed<=.5 and args.settle_seconds>=0
@@ -130,8 +148,8 @@ def main():
                       table=args.table,start=args.start,record_demo=args.record_demo,
                       video_fps=args.video_fps,tracking_evaluator=args.tracking_evaluator,
                       head_pitch_rad=args.head_pitch,prediction_scale=args.prediction_scale,
-                      hand_carried=args.hand_carried,known_load_depth_mask=args.known_load_depth_mask,carry_command_guard=args.carry_command_guard,walk_speed=args.walk_speed,settle_seconds=args.settle_seconds,
-                      policy_mode='smolvla' if args.vla_checkpoint else 'executive',policy_seed=args.policy_seed),
+                      hand_carried=args.hand_carried,printed_payload=args.printed_payload,cafe_style=args.cafe_style,known_load_depth_mask=args.known_load_depth_mask,carry_command_guard=args.carry_command_guard,walk_speed=args.walk_speed,settle_seconds=args.settle_seconds,
+                      policy_mode='remote_vla' if args.vla_endpoint else 'smolvla' if args.vla_checkpoint else 'executive',policy_seed=args.policy_seed),
         limits=['development trial, not held-out', 'linear prediction uses commanded velocity',
                 'scan matching must constrain drift', 'no payload', 'not hardware tested'])
     report['versions']={'mujoco':mujoco.__version__,'torch':torch.__version__,'numpy':np.__version__}
@@ -146,12 +164,15 @@ def main():
         report.update(payload_present=True,evidence_kind='mujoco_sensor_guided_hand_carry_development',
             walking_actor_arm_inputs='nominal arm position/zero velocity ablation')
         report['limits']=[v for v in report['limits'] if v!='no payload']+['physical underside tray seats and cup holder','known load arm feedforward','no PPO residual','sealed rigid can, no liquid simulation']
+    if args.printed_payload or args.cafe_style:
+        files += ['sim/k1_mujoco_appearance.py']
     if args.known_load_depth_mask:
         files += ['deployment/carrying_depth_filter.py']
     if args.carry_command_guard:
         files += ['deployment/k1_carry_commands.py']
-    if args.vla_checkpoint:
-        files += ['deployment/smolvla_policy.py','deployment/vla_session.py','vla/adapter.py']
+    if use_vla:
+        files += ['deployment/vla_session.py','vla/adapter.py']
+        files += ['deployment/groot_remote_client.py'] if args.vla_lossless_png else ['vla/remote.py'] if args.vla_endpoint else ['deployment/smolvla_policy.py']
     report['source_hashes'] = {f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files}
     (out/'manifest.json').write_text(json.dumps(report,indent=2))
     torch.set_num_threads(1); torch.manual_seed(0)
@@ -162,7 +183,14 @@ def main():
         from sim.k1_hand_carry import make_model
         from sim.k1_hand_controller import HandSensorController
         model_source=out/'hand_scene.xml';report['hand_setup']=make_model(model_source,handle_seats=True)
-        spec,grid=scene_and_map(args.table,model_source)
+        if args.printed_payload:
+            from sim.k1_mujoco_appearance import decorate_payload
+            report['appearance']=decorate_payload(model_source)
+        if args.cafe_style:
+            from sim.k1_mujoco_appearance import decorate_floor
+            report['floor_appearance']=decorate_floor(model_source)
+            report['limits']+=['physical tabletop and legs; conservative solid table footprint in supplied map']
+        spec,grid=scene_and_map(args.table,model_source,cafe_style=args.cafe_style)
         ctrl=HandSensorController(cfg,spec,args.start,args.seed,head_pitch=args.head_pitch)
     else:
         spec, grid = scene_and_map(args.table); ctrl = SensorController(cfg,spec,args.start,args.seed)
@@ -180,6 +208,24 @@ def main():
         session_cls=BoundedVLASession;session_kwargs['proposal_policy']=proposal_policy
         report['vla_checkpoint_sha256']=proposal_policy.sha256
         report['vla_training_updates']=proposal_policy.manifest['optimizer_updates']
+    if args.vla_endpoint:
+        from urllib.request import urlopen
+        from urllib.parse import urlsplit
+        from vla.remote import RemoteVLAClient
+        from deployment.vla_session import BoundedVLASession
+        endpoint=urlsplit(args.vla_endpoint)
+        if endpoint.hostname not in ('127.0.0.1','localhost') or endpoint.scheme!='http':
+            raise ValueError('Remote evaluation requires a localhost SSH tunnel')
+        with urlopen(args.vla_endpoint.rsplit('/',1)[0]+'/health',timeout=10) as response:
+            report['vla_server']=json.load(response)
+        if args.vla_lossless_png:
+            from deployment.groot_remote_client import LosslessRemoteVLAClient
+            proposal_policy=LosslessRemoteVLAClient(args.vla_endpoint,timeout_s=5.)
+        else:
+            proposal_policy=RemoteVLAClient(args.vla_endpoint,timeout_s=5.)
+        report['vla_transport']='lossless PNG over localhost SSH' if args.vla_lossless_png else 'raw RGB over localhost SSH'
+        session_cls=BoundedVLASession;session_kwargs['proposal_policy']=proposal_policy
+        report['vla_training_updates']=report['vla_server']['optimizer_updates']
     session = session_cls(task,grid,TabletopDetector(),[Region('dining',((BOUNDS[0]+BOUNDS[2])/2,(BOUNDS[1]+BOUNDS[3])/2),3.,('dining',))],
         config=ExecutiveConfig(final_speed=args.walk_speed, approach_speed=args.walk_speed, search_speed=args.walk_speed),
         limits=FollowerLimits(v_max=args.walk_speed,min_walk_cmd=args.walk_speed,final_accel=.25),deployable=True,**session_kwargs)
@@ -298,7 +344,7 @@ def main():
         np.savetxt(out/'frame_times.csv',frame_times,delimiter=',',header='sim_time_s',comments='')
         np.savetxt(out/'video_times.csv',video_times,delimiter=',',header='sim_time_s',comments='')
         (out/'localization.json').write_text(json.dumps(observations,indent=2))
-        if args.vla_checkpoint:
+        if use_vla:
             report['vla_summary']=session.follower.summary()
             (out/'vla_calls.json').write_text(json.dumps(session.follower.calls,indent=2))
             (out/'vla_control.json').write_text(json.dumps(session.follower.control,indent=2))

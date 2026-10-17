@@ -1,0 +1,13 @@
+{
+  "optimizer_updates": 500,
+  "training_loss_records": 500,
+  "missing_training_loss_steps": [],
+  "validation_evaluations": 21,
+  "initial_validation_loss": 1.764694631099701,
+  "final_validation_loss": 1.3705975487828255,
+  "validation_relative_change": -0.22332310382294684,
+  "first_50_train_loss_mean": 1.587578,
+  "last_50_train_loss_mean": 0.9827380000000001,
+  "plotting_version": "3.10.7",
+  "verdict": "Offline validation changed; delivery benefit unmeasured"
+}

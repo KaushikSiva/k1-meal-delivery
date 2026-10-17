@@ -105,3 +105,16 @@ raw depth and RGB are preserved. Command guarding holds requests below the actor
 measured walking band and never increases requested speed. The fixed0.5 odometry
 prediction scale is a development prior, not simulator velocity feedback. This
 profile uses the frozen walking actor and torque-limited arms, without PPO/VLA.
+
+
+For the printed payload and physical four-leg table, add `--printed-payload
+--cafe-style`. The first60s trial timed out; the declared90s diagnostic delivered
+at65.6s plus2s settling. See the [recorded result](../experiments/codex-20261017T2345-printed-navigation/REPORT.md).
+Packaging decoration preserves physical masses, inertia and contact properties;
+the table geometry is a separate, real environment change.
+
+[Four varied loaded configurations](../experiments/codex-20261017T2340-loaded-variation/REPORT.md)
+passed3/4. [Pure-yaw probes](../experiments/codex-20261017T2350-hand-turn-probe/REPORT.md)
+expose unintended backward motion that requires carrying-controller work.
+The first [GR00T loaded comparison](../experiments/codex-20261017T2355-groot-loaded/REPORT.md)
+also passed3/4, with no overall improvement and substantial transport latency.

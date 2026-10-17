@@ -2,9 +2,9 @@
 
 | Resource | Intended use | Current verified access |
 | --- | --- | --- |
-| GitHub | Private code/document checkpoints | Private origin/main verified; reviewed baseline/autonomy checkpoint d3d46ff pushed |
+| GitHub | Public code/document checkpoints | Public repository verified; reviewed integrated hand-carry checkpoint cbb4264 pushed |
 | You.com | Real-world specifications, physical priors, asset references | Live Web Search API verified; local credential in ignored .env; shared client tools/you_search.py |
-| NVIDIA Isaac Sim / Isaac Lab | K1 physics, sensors, PPO training | Pinned 5.1.0/2.3.2 installed; real L40S cube physics/RGB smoke passed and café rendered. One documented upstream web-package metadata conflict; no web service used. K1 training/integration remains pending |
+| NVIDIA Isaac Sim / Isaac Lab | K1 physics, sensors, PPO training | Pinned 5.1.0/2.3.2 installed; real L40S cube physics/RGB smoke passed and café rendered. One documented upstream web-package metadata conflict; no web service used. K1 hand-contact carry verified in MuJoCo and Isaac; separate PPO/VLA training performed |
 | Crusoe GPU VM via Brev | Simulator and training | One L40S RUNNING at $1.74/hour; driver580.178.04 verified after upgrade/reboot. Authorized next 5–6 hours including 17:15–18:30 PDT demo; no shutdown timer armed |
 | Crusoe Managed Inference | Experiment-agent inference | Credentials unverified |
 | Physical K1 | Calibration and transfer evaluation | Not available now; prepare for later arrival |
@@ -30,4 +30,4 @@ metrics, configs and checkpoint/source hashes. They are explicitly tagged
 `historical-import`; these are not new training jobs. See
 [export evidence](../experiments/codex-20261017T2230-wandb-export/REPORT.md).
 Credentials remain outside Git. Export uploads only allowlisted manifests/metrics,
-with automatic code and Git collection disabled. No GR00T training result yet.
+with automatic code and Git collection disabled. GR00T completed20-update pilot and two500-update runs. Both saved checkpoints reloaded successfully; validation outcomes differed across the500-update runs. See the GR00T curve reports.

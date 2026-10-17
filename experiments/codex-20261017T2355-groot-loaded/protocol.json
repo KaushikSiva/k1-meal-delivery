@@ -1,0 +1,126 @@
+{
+  "frozen_at_utc": "2026-10-17T23:46:27.515711+00:00",
+  "scope": "matched loaded GR00T versus previously frozen executive batch; no tuning between episodes",
+  "duration_s": 60,
+  "settle_seconds": 2,
+  "walk_speed": 0.4,
+  "table": [
+    4.0,
+    0.0,
+    0.4,
+    0.5,
+    0.75
+  ],
+  "start": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "seed": 8201,
+  "navigation_revision": "cbb4264",
+  "criteria": {
+    "executive_outcome": "delivered",
+    "no_room_collision": true,
+    "no_fall": true,
+    "no_drop": true,
+    "front_edge_distance_m": [
+      0.3,
+      0.8
+    ],
+    "lateral_error_max_m": 0.3,
+    "last_1p5s_max_true_speed_m_s": 0.03,
+    "max_body_tilt_deg": 10.0,
+    "max_payload_shift_m": 0.04,
+    "max_tray_tilt_deg": 10.0,
+    "max_hand_contact_loss_s": 0.1,
+    "other_robot_support": false
+  },
+  "profile": {
+    "head_pitch": -0.2,
+    "prediction_scale": 0.5,
+    "known_load_depth_mask": true,
+    "carry_command_guard": true
+  },
+  "episodes": [
+    {
+      "id": "start-left",
+      "start": [
+        0,
+        -0.5,
+        0.12
+      ],
+      "table": [
+        4,
+        0,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "seed": 9601
+    },
+    {
+      "id": "start-right",
+      "start": [
+        0,
+        0.5,
+        -0.12
+      ],
+      "table": [
+        4,
+        0,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "seed": 9602
+    },
+    {
+      "id": "target-near-left",
+      "start": [
+        0,
+        0,
+        0
+      ],
+      "table": [
+        3.5,
+        -0.35,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "seed": 9603
+    },
+    {
+      "id": "target-far-right",
+      "start": [
+        0,
+        0,
+        0
+      ],
+      "table": [
+        4.5,
+        0.35,
+        0.4,
+        0.5,
+        0.75
+      ],
+      "seed": 9604
+    }
+  ],
+  "vla_server": {
+    "model_id": "groot-c788024b6205",
+    "checkpoint_shards": {
+      "checkpoint/model-00002-of-00003.safetensors": "18d46685c33977b8a97aae6f2fd844fffcdfa951a70f8b3a1c4d44fc065f2364",
+      "checkpoint/model-00001-of-00003.safetensors": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+      "checkpoint/model-00003-of-00003.safetensors": "2c8843e7044929448768faa30caf850ee016d26c0124df687b2f454ed53b9267"
+    },
+    "optimizer_updates": 500,
+    "seed": 9701,
+    "server_source_sha256": "ff90d827924731ca9d5057c08bd409e034cfb1110774d355a68b6b12b7a693b1",
+    "actuator_api": false
+  },
+  "transport": "SSH localhost tunnel; measured round-trip delay applied to simulated proposal availability",
+  "policy_rng": "single server seed9701, sequential requests across four episodes; no intervening inference calls",
+  "baseline_report": "experiments/codex-20261017T2340-loaded-variation/comparison.json",
+  "baseline_report_sha256": "c8b93de33701f2065168aade095468d5416fbf9ac2d5e3ad8935508890e5e2b1"
+}
