@@ -29,12 +29,13 @@ class Navigator:
         self.view_range = view_range
         self.rng = np.random.default_rng(seed)
         self.coverage = CoverageMap(grid, max_range=view_range)
-        self.blocked = np.zeros(grid.data.shape, bool)  # runtime-discovered obstacles
+        self.blocked = np.zeros(grid.data.shape, bool)  # contact-reported obstacles (persist)
+        self.dynamic = np.zeros(grid.data.shape, bool)  # live depth layer (replaced every update)
         self._visited: list[np.ndarray] = []
         self._refresh()
 
     def _refresh(self) -> None:
-        g = OccupancyGrid(np.where(self.blocked, OccupancyGrid.OCCUPIED, self.grid.data).astype(np.uint8),
+        g = OccupancyGrid(np.where(self.blocked | self.dynamic, OccupancyGrid.OCCUPIED, self.grid.data).astype(np.uint8),
                           self.grid.resolution, self.grid.origin)
         self.free = inflate(g, self.robot_radius)
 
@@ -45,6 +46,42 @@ class Navigator:
         H, W = self.blocked.shape
         self.blocked[max(0, rc[0] - r):min(H, rc[0] + r + 1), max(0, rc[1] - r):min(W, rc[1] + r + 1)] = True
         self._refresh()
+
+    def set_dynamic_obstacles(self, mask: np.ndarray) -> bool:
+        """Replace the live (depth-derived) obstacle layer. Returns True if the map changed."""
+        mask = np.asarray(mask, bool)
+        if mask.shape != self.dynamic.shape:
+            raise ValueError("dynamic obstacle mask must match the grid")
+        if np.array_equal(mask, self.dynamic):
+            return False
+        self.dynamic = mask.copy()
+        self._refresh()
+        return True
+
+    def path_is_free(self, path, robot_xy, skip_m: float | None = None) -> bool:
+        """True if the part of `path` ahead of the robot only crosses free (inflated) cells.
+        The first `skip_m` (default robot radius + 1 cell) is ignored: the robot may stand inside
+        an inflated margin, and that must not trigger endless replanning."""
+        if not path:
+            return True
+        skip = self.robot_radius + self.grid.resolution if skip_m is None else skip_m
+        pts = [np.asarray(robot_xy, float)] + [np.asarray(q, float) for q in path]
+        # start from the closest path vertex ahead of the robot
+        dists = [np.linalg.norm(q - pts[0]) for q in pts[1:]]
+        k = int(np.argmin(dists))
+        seq = [pts[0]] + pts[1 + k:]
+        travelled = 0.0
+        step = self.grid.resolution * 0.5
+        for a, b in zip(seq, seq[1:]):
+            seg = float(np.linalg.norm(b - a))
+            for t in np.arange(0.0, seg + 1e-9, step):
+                if travelled + t < skip:
+                    continue
+                rc = self.grid.world_to_cell(a + (b - a) * (t / max(seg, 1e-9)))
+                if not self.grid.in_bounds(rc) or not self.free[rc]:
+                    return False
+            travelled += seg
+        return True
 
     def plan(self, start_xy, goal_xy) -> list[tuple[float, float]] | None:
         return plan_path(self.grid, start_xy, goal_xy, free=self.free)

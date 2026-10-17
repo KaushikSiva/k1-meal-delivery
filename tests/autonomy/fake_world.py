@@ -73,7 +73,11 @@ class FakeRoom:
         self.pose_sigma = 0.03
         self.pose_status = LocalizationStatus.OK
         self.camera_on = True
+        self.emit_segmentation = True  # False -> camera frames carry no privileged masks
         self.pose_on = True
+        # The fixture's "pose estimate" is ground truth + a chosen bias: privileged, honestly labeled.
+        # Tests may override to ESTIMATED only to exercise deployable code paths (mocked estimator).
+        self.pose_provenance = Provenance.SIM_PRIVILEGED
 
     # ---------------------------------------------------------------- map
     def grid(self) -> OccupancyGrid:
@@ -119,7 +123,8 @@ class FakeRoom:
             depth, seg = self._render()
             cam = CameraFrame(
                 timestamp=self.t, intrinsics=self.K, T_base_camera=self.T_bc, depth=depth,
-                segmentation=seg, segment_labels={b.seg_id: b.label for b in self.boxes},
+                segmentation=seg if self.emit_segmentation else None,
+                segment_labels={b.seg_id: b.label for b in self.boxes} if self.emit_segmentation else {},
                 segmentation_provenance=Provenance.SIM_PRIVILEGED,
             )
         pose = None
@@ -128,7 +133,7 @@ class FakeRoom:
             pose = PoseEstimate(
                 Pose2D(p.x + self.pose_bias[0], p.y + self.pose_bias[1], p.yaw + self.pose_bias[2]),
                 np.diag([self.pose_sigma**2, self.pose_sigma**2, (self.pose_sigma / 2) ** 2]),
-                self.t, "fixture_odom", Provenance.ESTIMATED, self.pose_status,
+                self.t, "fixture_truth_plus_bias", self.pose_provenance, self.pose_status,
             )
         return Observation(self.t, cam, pose, base_twist=self.twist.copy())
 

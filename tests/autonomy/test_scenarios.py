@@ -145,7 +145,8 @@ def test_hidden_obstacle_blocks_path_and_executive_replans():
     room = restaurant(start=Pose2D(2.0, 6.0, np.deg2rad(-20)))
     # A cart not on the prior map, in the gap above the partition.
     room.boxes.append(Box(60, "cart", np.array([3.6, 4.5, 0.0]), np.array([4.6, 5.5, 0.9]), in_map=False))
-    ex = make(room, ocr_range=10.0)
+    # Live depth layer off: this test covers the contact-feedback (BLOCKED) path specifically.
+    ex = make(room, ocr_range=10.0, obstacle_layer=False)
     stop, cmds, _ = run(ex, room)
     assert any("blocked" in e.msg for e in ex.events)
     assert_delivered_at(room, ex, 13)
@@ -303,3 +304,38 @@ def test_independent_clock_reaches_sensor_timeout_without_snapshots():
     for k in range(1, 40):
         cmd = ex.step(None, now=t + 0.2 * k)
     assert ex.outcome == Outcome.SENSOR_TIMEOUT and cmd.kind == CommandKind.STOP
+
+
+# --------------------------------------------------------------------------- interruptions during approach
+def _interrupt_during_approach(kind):
+    room = restaurant(start=Pose2D(5.0, 3.6, 0.0))  # table 3 readable -> approach immediately
+    ex = make(room, ocr_range=6.0)
+    log = {"start": None}
+
+    def hooks(t, room, ex):
+        if log["start"] is None and ex.state == State.APPROACH and t > 0.5:
+            log["start"] = t
+        on = log["start"] is not None and log["start"] <= t < log["start"] + 2.0
+        if kind == "camera":
+            room.camera_on = not on
+        else:
+            room.pose_status = LocalizationStatus.LOST if on else LocalizationStatus.OK
+            room.pose_sigma = 0.8 if on else 0.03
+
+    stop, cmds, _ = run(ex, room, hooks=hooks, max_s=120)
+    return room, ex, log
+
+
+def test_camera_dropout_during_approach_resumes_and_delivers():
+    """Regression: resuming APPROACH used to refresh the interrupt's HOLD forever (found in the
+    K1 MuJoCo diagnostic trial, where a between-frames tick triggered SENSOR_WAIT)."""
+    room, ex, log = _interrupt_during_approach("camera")
+    assert log["start"] is not None
+    assert any("re-entering approach" in e.msg for e in ex.events)
+    assert_delivered_at(room, ex, 13)
+
+
+def test_localization_loss_during_approach_resumes_and_delivers():
+    room, ex, log = _interrupt_during_approach("pose")
+    assert log["start"] is not None and any("relocalized" in e.msg for e in ex.events)
+    assert_delivered_at(room, ex, 13)

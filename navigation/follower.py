@@ -40,6 +40,12 @@ class FollowerLimits:
     w_accel: float = 1.0  # rad/s^2
     lookahead: float = 0.5  # m
     turn_in_place_rad: float = 0.8  # rotate before walking if heading error is larger
+    # Opt-in deadband compensation for walking policies that don't move at small commands
+    # (Codex's unloaded k1_walk sweep: ~0.03 m/s achieved at 0.2 m/s commanded). 0 = off (default).
+    # When > 0, a nonzero planar target is raised to at least this speed, but NEVER above the
+    # command's max_speed; within `stop_radius` of the goal the planar target is exactly 0.
+    min_walk_cmd: float = 0.0
+    stop_radius: float = 0.05
 
 
 class PathFollower:
@@ -67,6 +73,9 @@ class PathFollower:
                 target = self._track(cmd, pose, accel)
                 cap = max(0.0, min(cmd.max_speed, L.v_max))
                 n = float(np.hypot(target[0], target[1]))
+                if L.min_walk_cmd > 0 and 1e-6 < n < L.min_walk_cmd:
+                    target[:2] *= min(L.min_walk_cmd, cap) / n  # deadband compensation (opt-in)
+                    n = float(np.hypot(target[0], target[1]))
                 if n > cap:
                     target[:2] *= cap / n
         # Rate-limit toward target (decelerating to zero for HOLD/STOP/expired). The planar step is
@@ -85,7 +94,7 @@ class PathFollower:
         pts = [np.asarray(p, float) for p in (cmd.path or ())] + [cmd.goal_pose.xy()]
         remaining, carrot = _carrot(pts, pose.xy(), L.lookahead)
         vmax = min(cmd.max_speed, L.v_max)
-        if remaining < 0.03:  # at goal: align yaw only
+        if remaining < max(0.03, L.stop_radius if L.min_walk_cmd > 0 else 0.03):  # at goal: align yaw only
             e = _wrap(cmd.goal_pose.yaw - pose.yaw)
             return np.array([0.0, 0.0, np.clip(1.5 * e, -L.wz_max, L.wz_max)])
         rel = _to_base(pose, carrot)

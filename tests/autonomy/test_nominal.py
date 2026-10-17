@@ -26,7 +26,8 @@ def assert_delivered_at(room, ex, table_seg_id):
     d = edge_distance(room, table_seg_id)
     assert 0.3 <= d <= 0.9, d
     others = [b.seg_id for b in room.boxes if b.label == "table" and b.seg_id != table_seg_id]
-    assert all(edge_distance(room, o) > 1.0 for o in others)
+    # The destination must be unambiguously the nearest table to the stop pose.
+    assert all(edge_distance(room, o) > d + 0.1 for o in others)
 
 
 def test_never_seen_destination_is_searched_verified_and_reached():

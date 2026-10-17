@@ -23,6 +23,7 @@ import numpy as np
 
 from memory import SceneMemory
 from navigation import Navigator
+from navigation.depth_obstacles import DepthObstacleLayer
 from perception.detectors import Detector
 from .contracts import (
     AutonomyCommand,
@@ -92,6 +93,7 @@ class ExecutiveConfig:
     # search
     max_explore_goals: int = 30
     max_blocked: int = 6
+    max_replans: int = 60  # proactive replans (observed obstacle on the active path)
     blocked_mark_radius_m: float = 0.4
     time_limit_s: float | None = None  # defaults to task.time_limit_s
 
@@ -118,6 +120,7 @@ class _Ctx:
     sensor_lost_since: float | None = None
     reloc_since: float | None = None
     settle_since: float | None = None
+    replans: int = 0
 
 
 class DeliveryExecutive:
@@ -131,6 +134,7 @@ class DeliveryExecutive:
         deployable: bool = False,
         robot_radius: float = 0.3,
         memory: SceneMemory | None = None,
+        obstacle_layer: DepthObstacleLayer | bool = True,
     ):
         self.task = task
         self.cfg = config or ExecutiveConfig()
@@ -141,6 +145,8 @@ class DeliveryExecutive:
         self.regions = list(regions)
         self.memory = memory or SceneMemory()
         self.nav = Navigator(grid, robot_radius=robot_radius)
+        # Live depth obstacles (ESTIMATED from depth + estimated pose). False disables (ablation).
+        self.obstacles = DepthObstacleLayer(grid) if obstacle_layer is True else (obstacle_layer or None)
         self.state = State.SEARCH
         self.outcome: Outcome | None = None
         self.ctx = _Ctx(state_since=task.issued_at)
@@ -150,6 +156,7 @@ class DeliveryExecutive:
         self.last_pose: Pose2D | None = None
         self.last_obs_t: float | None = None
         self._degraded = False
+        self._resumed = False
 
     # ================================================================== main entry
     def step(self, obs: Observation | None, feedback: ControlFeedback | None = None,
@@ -180,6 +187,8 @@ class DeliveryExecutive:
             self.memory.update(obs, dets)
             if obs.pose.status == LocalizationStatus.OK:
                 self.nav.coverage.update(obs)
+                if self.obstacles is not None and self.obstacles.update(obs):
+                    self.nav.set_dynamic_obstacles(self.obstacles.occupied)
             self.last_pose = obs.pose.pose
             self.last_obs_t = obs.timestamp
 
@@ -198,6 +207,7 @@ class DeliveryExecutive:
         if self.state == State.SENSOR_WAIT:
             self._log("sensors restored")
             self._goto(self.ctx.resume_state or State.SEARCH)
+            self._resumed = True
             self.ctx.sensor_lost_since = None
         loc = self._localization(obs)
         if loc == LocalizationStatus.LOST:
@@ -205,9 +215,20 @@ class DeliveryExecutive:
         if self.state == State.RELOCALIZE:
             self._log(f"relocalized (sigma={obs.pose.xy_sigma:.2f} m)")
             self._goto(self.ctx.resume_state or State.SEARCH)
+            self._resumed = True
             self.ctx.reloc_since = None
         degraded = loc == LocalizationStatus.DEGRADED
         self._degraded = degraded
+        if self._resumed:
+            # The active command is the interrupt's HOLD/SCAN: re-enter the resumed state so it
+            # issues its own command again (never keep refreshing the interrupt's HOLD).
+            self._resumed = False
+            cmd = self._reenter(obs, degraded)
+            if cmd is not None:
+                return cmd
+        cmd = self._revalidate_path(obs)
+        if cmd is not None:
+            return cmd
 
         # ---- task states --------------------------------------------------------
         reached = (feedback is not None and self.active is not None and
@@ -476,6 +497,57 @@ class DeliveryExecutive:
                 return self._issue(CommandKind.NAVIGATE, goal.pose, goal.path, self.cfg.approach_speed,
                                    "replan around obstacle")
         self.active = None  # SEARCH/VERIFY handlers will pick a new goal with the updated map
+        if self.state == State.VERIFY:
+            self._goto(State.SEARCH)
+        return None
+
+    def _reenter(self, obs: Observation, degraded: bool) -> AutonomyCommand | None:
+        self._log(f"re-entering {self.state.value} after interruption")
+        if self.state in (State.SEARCH, State.VERIFY):
+            self.active = None
+            self._goto(State.SEARCH)
+            return None  # SEARCH handler re-evaluates candidates / picks a new goal
+        t = self._target()
+        if self.state in (State.APPROACH, State.REACQUIRE):
+            if t is None or t.confidence < 0.25:
+                self.active = None
+                self._goto(State.SEARCH)
+                return None
+            return self._start_approach(obs, Candidate(t, Verdict.CONFIRMED, t.confidence))
+        if self.state == State.FINAL_APPROACH and self.ctx.goal is not None:
+            return self._issue(CommandKind.FINAL_APPROACH, self.ctx.goal, None, self.cfg.final_speed,
+                               "resume final approach after interruption")
+        return None  # SETTLE: its handler issues HOLD and restarts the dwell
+
+    def _revalidate_path(self, obs: Observation) -> AutonomyCommand | None:
+        """Replan *before* contact if the live map now blocks the active path or its goal."""
+        a = self.active
+        if a is None or a.goal_pose is None or a.kind not in (CommandKind.NAVIGATE, CommandKind.FINAL_APPROACH):
+            return None
+        pose = obs.pose.pose
+        ahead = list(a.path or ()) + [tuple(a.goal_pose.xy())]
+        if self.nav.path_is_free(ahead, pose.xy()):
+            return None
+        self.ctx.replans += 1
+        if self.ctx.replans > self.cfg.max_replans:
+            return self._fail(Outcome.NO_PATH, "too many replans around observed obstacles")
+        g = self.nav.grid.world_to_cell(a.goal_pose.xy())
+        new = self.nav.plan(pose.xy(), a.goal_pose.xy()) if self.nav.grid.in_bounds(g) and self.nav.free[g] else None
+        if new is not None:
+            self._log(f"observed obstacle on path; replanned ({len(new)} waypoints)")
+            return self._issue(a.kind, a.goal_pose, new, a.max_speed, f"replan around observed obstacle: {a.reason}")
+        t = self._target()
+        if self.state in (State.APPROACH, State.FINAL_APPROACH, State.SETTLE, State.REACQUIRE) and t is not None:
+            goal = self.nav.approach(t.position, pose, self.cfg.standoff_m)
+            if goal is None:
+                return self._fail(Outcome.NO_PATH, f"observed obstacles leave no path to {t.key}")
+            self._log("observed obstacle at goal; new approach pose")
+            self.ctx.goal = goal.pose
+            self._goto(State.APPROACH)
+            return self._issue(CommandKind.NAVIGATE, goal.pose, goal.path, self.cfg.approach_speed,
+                               "new approach pose around observed obstacle")
+        self._log("observed obstacle blocks search goal; choosing another")
+        self.active = None
         if self.state == State.VERIFY:
             self._goto(State.SEARCH)
         return None

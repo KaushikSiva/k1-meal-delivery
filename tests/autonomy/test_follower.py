@@ -110,3 +110,24 @@ def test_reset_clears_scan_latch_for_reused_issued_at():
     for i in range(300):
         pose2 = integrate(pose2, f.step(AutonomyCommand(CommandKind.SCAN, 0.0, 1e9, scan_yaw=0.5), pose2, i * dt, dt), dt)
     assert abs(pose2.yaw - 2.5) < 0.03
+
+
+def test_deadband_compensation_is_opt_in_and_never_exceeds_cap():
+    goal = Pose2D(0.2, 0.0, 0.0)
+    cmd = lambda t, cap: AutonomyCommand(CommandKind.FINAL_APPROACH, t, t + 1, goal, None, cap)
+    assert FollowerLimits().min_walk_cmd == 0.0  # off by default
+    f = PathFollower()  # default: 5 cm from goal the decel profile asks for ~sqrt(2*0.15*0.05) m/s
+    for i in range(200):
+        v = f.step(cmd(i * 0.02, 0.15), Pose2D(0.15, 0, 0), i * 0.02, 0.02)
+    assert 0.08 < v[0] < 0.15  # small command the unloaded k1_walk barely tracks
+    on = PathFollower(FollowerLimits(min_walk_cmd=0.3, final_accel=10.0))
+    for i in range(50):
+        v = on.step(cmd(i * 0.02, 0.15), Pose2D(0.19, 0, 0), i * 0.02, 0.02)  # 1 cm from goal
+    assert np.hypot(v[0], v[1]) < 1e-9  # inside stop radius -> exactly zero
+    for i in range(50):
+        v = on.step(cmd(i * 0.02, 0.15), Pose2D(0.0, 0, 0), i * 0.02, 0.02)
+    assert abs(np.hypot(v[0], v[1]) - 0.15) < 1e-9  # raised to min(min_walk, cap): cap still wins
+    on2 = PathFollower(FollowerLimits(min_walk_cmd=0.3))  # default accel: profile asks ~0.17 at 0.1 m
+    for i in range(200):
+        v = on2.step(cmd(i * 0.02, 0.4), Pose2D(0.1, 0, 0), i * 0.02, 0.02)
+    assert abs(np.hypot(v[0], v[1]) - 0.3) < 1e-9  # raised to min_walk under a higher cap

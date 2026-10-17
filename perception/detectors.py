@@ -22,6 +22,28 @@ from autonomy.contracts import Detection, Observation, Provenance
 from .geometry import backproject, project_points, valid_depth
 
 
+_TRUST = {Provenance.MEASURED: 0, Provenance.OPERATOR: 1, Provenance.ESTIMATED: 1, Provenance.SIM_PRIVILEGED: 2}
+
+
+def worst_provenance(*items: Provenance | None) -> Provenance:
+    ps = [p for p in items if p is not None]
+    return max(ps, key=_TRUST.get) if ps else Provenance.ESTIMATED
+
+
+def derived_provenance(obs: Observation, base: Provenance = Provenance.ESTIMATED, uses_segmentation: bool = False,
+                       ) -> Provenance:
+    """Taint rule: a detection is as privileged as anything it was computed from: the estimator
+    itself (`base`), the pose used for the map transform, the camera frame/extrinsics and, if used,
+    the segmentation masks."""
+    cam = obs.camera
+    return worst_provenance(
+        base,
+        obs.pose.provenance if obs.pose is not None else None,
+        cam.provenance if cam is not None else None,
+        cam.segmentation_provenance if (uses_segmentation and cam is not None) else None,
+    )
+
+
 class Detector(Protocol):
     provenance: Provenance
 
@@ -84,6 +106,7 @@ class BoxLifter:
         if cam is None or cam.depth is None or obs.pose is None:
             return []
         H, W = cam.depth.shape
+        prov = derived_provenance(obs)
         out = []
         for d in self.detector_2d(obs):
             if d.mask is not None:
@@ -100,7 +123,7 @@ class BoxLifter:
             center, extent, z, n, _ = lifted
             out.append(Detection(
                 label=d.label, position=center, position_cov=point_covariance(obs, z), confidence=float(d.score),
-                timestamp=cam.timestamp, provenance=Provenance.ESTIMATED, attributes=dict(d.attributes),
+                timestamp=cam.timestamp, provenance=prov, attributes=dict(d.attributes),
                 track_id=d.track_id, bbox=d.bbox, extent=extent,
             ))
         return out

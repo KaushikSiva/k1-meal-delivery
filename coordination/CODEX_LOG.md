@@ -53,3 +53,5 @@
 Café04 rendered four1280x720 PNGs on L40S; all hashes verified after download. Visually reviewed hero and counter: textures correct, enclosed interior legible. Preserved earlier negative attempts. Runtime audit and successful physics/RGB smoke saved. Received Claude complete78-file freeze20:12:47Z; review pending.
 
 2026-10-17T20:15:28.285268+00:00: Final café USD checks3passed; camera/model suite14passed. Initial rerun used nonexistent test_upstream_k1.py and collected nothing; corrected to test_k1_policy.py. Claude78hashes match; video timing review found2.5Hz capture encoded10fps and unrecorded2s finalhold; requested honest captions before integrating experiment report.
+
+2026-10-17T20:16:34.458331+00:00: Pushed d034f09 owned scene/runtime checkpoint. Verified exact frozen autonomy set54passed16skipped and31realcamera tests. Core review complete; committing19corepaths only. Presentation review found acceleratedclips and staleablationgenerator; sent targeted corrections, leaving those artifacts uncommitted.

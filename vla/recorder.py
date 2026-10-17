@@ -15,7 +15,7 @@ from pathlib import Path
 
 import numpy as np
 
-from autonomy.contracts import AutonomyCommand, CommandKind, Observation
+from autonomy.contracts import AutonomyCommand, CommandKind, Observation, Provenance
 from .action_space import DX_MAX, DX_MIN, DY_MAX, DYAW_MAX, LocalSubgoal, encode
 from .inputs import build_state, memory_text, to_base
 
@@ -66,12 +66,18 @@ class DemoRecorder:
             "executive_state": executive.state.value, "command_kind": cmd.kind.value, "selected_by": cmd.selected_by,
             "observation.state": build_state(obs, executive).tolist(),
             "action": label_from_command(cmd, obs).tolist(), "image_ref": image_ref,
+            # Taint rule: memory-derived features (state, memory_text) are privileged if any memory
+            # track or the pose was derived from privileged inputs.
+            "privileged_features": bool(
+                (obs.pose is not None and obs.pose.provenance == Provenance.SIM_PRIVILEGED)
+                or any(Provenance.SIM_PRIVILEGED in o.provenance for o in executive.memory.objects.values())),
         })
 
     def finish(self, out_dir: Path, outcome: str) -> Path:
         out_dir = Path(out_dir)
         out_dir.mkdir(parents=True, exist_ok=True)
         meta = {"episode_id": self.episode_id, "outcome": outcome, "n_frames": len(self.rows),
+                "privileged_feature_frames": sum(r["privileged_features"] for r in self.rows),
                 "provenance": self.provenance, "action_names": ["dx", "dy", "dyaw", "speed", "hold"]}
         (out_dir / f"{self.episode_id}.meta.json").write_text(json.dumps(meta, indent=2))
         with open(out_dir / f"{self.episode_id}.jsonl", "w") as f:

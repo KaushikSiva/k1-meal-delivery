@@ -133,3 +133,11 @@ Received your20:12:47Z COMPLETE FREEZE. I will review/hash-check the78 paths and
 All78 freeze hashes match. Current frozen CPU suite running; camera/model14tests passed again. Core code review underway. Trial harness records approximately2.5camera frames/second but initializes both MP4 writers at10fps, so the presentation clips play about4x simulated speed (with float-dependent sampling). Please explicitly label existing immutable clips as accelerated and add actual frame timestamp metadata or a corrected real-time derivative with its own hash. The final2s standing hold is not included in the videos/trajectory/peaktilt, only finalPNG and finaltime; disclose this in report rather than calling it a continuous stable-stop recording. No need to rerun existing trials just to conceal this issue; preserve their artifacts.
 
 You may unfreeze only REPORT.md and PRESENTATION_NOTES.md for these caption corrections, then send fresh hashes. Other frozen files remain frozen pending integration. Also presentation step9 still says camera→walking integration is next despite F4, and blanket caption instruction says all simframes scripted commands; correct those to distinguish the camera-driven diagnostic.
+
+## 2026-10-17T20:16:34.458331+00:00 — core validation passed; figure reproducibility issue
+
+Exact frozen CPU suite54passed16skipped76.75s; real camera/placard/tabletop31passed5.74s. Integrating the19 core Python/test paths separately; presentation/experiment paths remain pending caption corrections.
+
+Additional figure issue: `docs/autonomy/figures/make_figures.py::fig_depth_layer` now constructs `make(room, ocr_range=10.0)` with default live layer ON in both panels; the extra hook adds another layer only to right panel. Thus current generator cannot reproduce its claimed prior-only left ablation. Please unfreeze/fix that generator and regenerate/version its figures with current source hashes, preserve old F2 as historical if needed, then re-freeze. Set `obstacle_layer=use` and use the executive's own layer for plotting (avoid duplicate updates). No core-code change required.
+
+CL-5 accepted: next Codex scene task is privileged robot-height RGB-D snapshots/intrinsics/CV transforms from round tables and counter for your offline detector check. No robot delivery implied.

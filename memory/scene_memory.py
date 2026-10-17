@@ -35,6 +35,16 @@ class TrackedObject:
     provenance: set[Provenance] = field(default_factory=set)
     extent: np.ndarray | None = None
     n_misses: int = 0
+    # Union of observed xy footprints (partial views of large objects have shifting centroids,
+    # so association/merging also uses footprint overlap, not only centroid distance).
+    lo: np.ndarray | None = None
+    hi: np.ndarray | None = None
+
+    def grow(self, det: Detection) -> None:
+        half = (np.asarray(det.extent[:2], float) / 2) if det.extent is not None else np.zeros(2)
+        lo, hi = det.position[:2] - half, det.position[:2] + half
+        self.lo = lo.copy() if self.lo is None else np.minimum(self.lo, lo)
+        self.hi = hi.copy() if self.hi is None else np.maximum(self.hi, hi)
 
     def attribute(self, name: str) -> tuple[str | None, float]:
         vals = self.attributes.get(name)
@@ -67,6 +77,8 @@ class SceneMemory:
         self.forget_below = forget_below
         self.max_range = max_range
         self.objects: dict[str, TrackedObject] = {}
+        self.aliases: dict[str, str] = {}  # merged-away key -> surviving key
+        self.footprint_margin = 0.15
         self._ids = itertools.count()
         self.now = 0.0
 
@@ -85,6 +97,7 @@ class SceneMemory:
                     track_id=det.track_id, provenance={det.provenance}, extent=det.extent,
                 )
                 self._fuse_attributes(self.objects[key], det)
+                self.objects[key].grow(det)
             else:
                 m = self.objects[key]
                 # Kalman-style scalar fusion of position.
@@ -100,8 +113,10 @@ class SceneMemory:
                 if det.extent is not None:
                     m.extent = det.extent if m.extent is None else np.maximum(m.extent, det.extent)
                 self._fuse_attributes(m, det)
+                m.grow(det)
             matched.add(key)
         self._negative_evidence(obs, matched)
+        self._merge_overlapping()
         self._forget()
 
     # ------------------------------------------------------------------ queries
@@ -112,6 +127,10 @@ class SceneMemory:
         )
 
     def get(self, key: str) -> TrackedObject | None:
+        seen = set()
+        while key in self.aliases and key not in seen:  # follow merges
+            seen.add(key)
+            key = self.aliases[key]
         return self.objects.get(key)
 
     def summary(self) -> list[dict]:
@@ -139,8 +158,15 @@ class SceneMemory:
                     if np.linalg.norm(m.position[:2] - det.position[:2]) < 3 * self.gate_m:
                         return m.key
         best, best_d = None, np.inf
+        probe = TrackedObject("_", det.label, det.position, 0, 0, 0, 0)
+        probe.grow(det)
         for m in self.objects.values():
             if m.key in exclude or m.label != det.label or self._attributes_conflict(m, det):
+                continue
+            if self._overlap(m, probe):
+                d = float(np.linalg.norm(m.position[:2] - det.position[:2]))
+                if d < best_d:
+                    best, best_d = m.key, d
                 continue
             gate = max(self.gate_m, 2.5 * np.sqrt(m.position_var + det.position_cov[0, 0]),
                        0.8 * _footprint(m.extent), 0.8 * _footprint(det.extent))
@@ -148,6 +174,42 @@ class SceneMemory:
             if d < gate and d < best_d:
                 best, best_d = m.key, d
         return best
+
+    def _overlap(self, a: TrackedObject, b: TrackedObject) -> bool:
+        if a.lo is None or b.lo is None:
+            return False
+        m = self.footprint_margin
+        return bool(np.all(a.lo - m <= b.hi) and np.all(b.lo - m <= a.hi))
+
+    def _merge_overlapping(self) -> None:
+        objs = sorted(self.objects.values(), key=lambda o: (o.first_seen, o.key))
+        for i, a in enumerate(objs):
+            if a.key not in self.objects:
+                continue
+            for b in objs[i + 1:]:
+                if b.key not in self.objects or a.label != b.label or not self._overlap(a, b):
+                    continue
+                if any(self._conflict_values(a, b, n) for n in set(a.attributes) & set(b.attributes)):
+                    continue
+                w_a, w_b = a.n_sightings, b.n_sightings
+                a.position = (w_a * a.position + w_b * b.position) / (w_a + w_b)
+                a.confidence = 1 - (1 - a.confidence) * (1 - b.confidence)
+                a.first_seen, a.last_seen = min(a.first_seen, b.first_seen), max(a.last_seen, b.last_seen)
+                a.n_sightings += b.n_sightings
+                a.provenance |= b.provenance
+                a.lo, a.hi = np.minimum(a.lo, b.lo), np.maximum(a.hi, b.hi)
+                for name, vals in b.attributes.items():
+                    tgt = a.attributes.setdefault(name, {})
+                    for v, c in vals.items():
+                        tgt[v] = 1 - (1 - tgt.get(v, 0.0)) * (1 - c)
+                self.aliases[b.key] = a.key
+                del self.objects[b.key]
+
+    @staticmethod
+    def _conflict_values(a: TrackedObject, b: TrackedObject, name: str, conf: float = 0.6) -> bool:
+        va, ca = a.attribute(name)
+        vb, cb = b.attribute(name)
+        return va is not None and vb is not None and va != vb and ca >= conf and cb >= conf
 
     @staticmethod
     def _attributes_conflict(m: TrackedObject, det: Detection, conf: float = 0.6) -> bool:

@@ -105,6 +105,7 @@ def test_inputs_and_recorder(tmp_path):
     assert d["action"].shape == (60, ACTION_DIM) and np.all(np.abs(d["action"]) <= 1)
     meta = json.loads((out / "fixture-ep0.meta.json").read_text())
     assert meta["provenance"]["privileged_inputs"]
+    assert meta["privileged_feature_frames"] == 60  # fixture pose is privileged -> every row tainted
 
 
 def test_remote_client_failure_returns_none():
