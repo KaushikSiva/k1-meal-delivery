@@ -108,3 +108,7 @@ GUI182287: two user-requested previews4.24s/4calls/82acceptedticks and4.16s/4cal
 ## 2026-10-18T00:42:57.616534+00:00 — turning isolated to carrying setup before payload
 
 12 MuJoCo ablations: unloaded±.18yaw drift0.112/0.124m; empty carry1.671/1.705m; loaded1.787/1.698m. Actual-arm observation failed during settling1.56s. Six follow-up previous-arm-action ablations also rejected: turn drift smaller but zero-command standing failed1.220m. All18 trajectory hashes verified; default baseline±.18 trajectories bit-identical after diagnostic constructor options;3focused tests passed. Evidence experiments/codex-20261018T0040-turn-ablation/. Local fresh PPO02 velocity_v2 training in progress; liveIsaac untouched.
+
+## 2026-10-18T00:49:29.167369+00:00 — PPO02 completed, not promoted
+
+131072 real transitions/4096 updates/512 metrics, fresh velocity_v2 residual, unchanged base. Strict finite reload and6source hashes pass.28 physical evaluations:development baseline4/8 vsresidual2/8;prospective baseline2/6 vsresidual1/6. Pure-turn drift improves1.757–1.877m→0.110–0.241m, but stopping/walking regressions remain. No promotion to liveIsaac. All28 trajectories hashed. PrivateW&B hand-ppo-02-historical finished;512 remote rows and6uploaded hashes verified. Full evidence experiments/codex-20261018T0045-hand-ppo02/. Next stopping/turn-only residual investigations must retain these failures and identify reused development conditions.

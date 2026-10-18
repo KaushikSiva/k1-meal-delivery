@@ -1,0 +1,126 @@
+{
+  "status": "trained",
+  "started_at_utc": "2026-10-18T00:39:15.749656+00:00",
+  "simulator": "MuJoCo",
+  "training_device": "cpu",
+  "seed": 9802,
+  "training_kind": "fresh PPO leg residual with actual free hand-supported payload",
+  "base_actor_finetuned": false,
+  "older_torso_residual_reused": false,
+  "source_sha256": {
+    "training/train_hand_carrying.py": "ca651bde29407e48c2466f37acf015aca3cefe6d95775b1dff4578baefa37658",
+    "training/hand_carry_env.py": "4c5feccc505e38483b05963efda6bb886f2b102c0d43384556a5604e6131349d",
+    "training/ppo_core.py": "9d7edf0444928b30d742e9a5f7ab0a8bf2f5f25dfa15f47a5b9e8969985a93d9",
+    "deployment/hand_residual.py": "21b50c1e99f5e04e3a2a76cdffe3a54f9c75f911c240fa0f217c4bb57acd64c6",
+    "sim/k1_hand_controller.py": "7af7e19d87ed1cab23ac3c02a8cc73622a8ef97583bcd388ba857a3b223c663e",
+    "sim/k1_hand_carry.py": "505a89a099ea413a9254cbcc84b861ee7ed079bd4e72663c6e46c70b4caec277"
+  },
+  "base_actor_sha256": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5",
+  "iterations_requested": 512,
+  "horizon": 256,
+  "environment_steps": 131072,
+  "physics_steps": 1310720,
+  "optimizer_updates": 4096,
+  "episodes": 327,
+  "terminated_episodes": 2,
+  "observation_dim": 65,
+  "action_dim": 12,
+  "residual_bound_rad": 0.08,
+  "leg_joint_names": [
+    "left_hip_pitch_joint",
+    "left_hip_roll_joint",
+    "left_hip_yaw_joint",
+    "left_knee_pitch_joint",
+    "left_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_hip_pitch_joint",
+    "right_hip_roll_joint",
+    "right_hip_yaw_joint",
+    "right_knee_pitch_joint",
+    "right_ankle_pitch_joint",
+    "right_ankle_roll_joint"
+  ],
+  "all_joint_names": [
+    "aahead_yaw_joint",
+    "aahead_pitch_joint",
+    "aaleft_shoulder_pitch_joint",
+    "left_shoulder_roll_joint",
+    "left_elbow_pitch_joint",
+    "left_elbow_yaw_joint",
+    "aaright_shoulder_pitch_joint",
+    "right_shoulder_roll_joint",
+    "right_elbow_pitch_joint",
+    "right_elbow_yaw_joint",
+    "left_hip_pitch_joint",
+    "left_hip_roll_joint",
+    "left_hip_yaw_joint",
+    "left_knee_pitch_joint",
+    "left_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_hip_pitch_joint",
+    "right_hip_roll_joint",
+    "right_hip_yaw_joint",
+    "right_knee_pitch_joint",
+    "right_ankle_pitch_joint",
+    "right_ankle_roll_joint"
+  ],
+  "actor_inputs": "gyro, gravity direction from IMU quaternion, commanded velocity,22 joint positions/velocities,12 previous residuals",
+  "privileged_reward_only": "true linear velocity, root height, body tilt, payload shifts/drop",
+  "scenario": "8s episodes:2s stand,4s move,2s stop; randomized initialyaw\u00b1.2 and eight fixed command classes",
+  "command_classes": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      -0.15
+    ],
+    [
+      0.0,
+      0.0,
+      0.15
+    ],
+    [
+      0.0,
+      0.0,
+      -0.25
+    ],
+    [
+      0.0,
+      0.0,
+      0.25
+    ],
+    [
+      0.4,
+      0.0,
+      0.0
+    ],
+    [
+      0.4,
+      0.0,
+      -0.15
+    ],
+    [
+      0.4,
+      0.0,
+      0.15
+    ]
+  ],
+  "learning_rate": 0.0003,
+  "reward_version": "velocity_v2",
+  "evaluation_used_for_optimization": true,
+  "evaluation_scope": "development diagnostics; previous turning failures informed v2 reward",
+  "hardware_verified": false,
+  "initial_parameter_sha256": "371be42e25d84a5e971cfdc895ca385f175eef84d3516c8392b7e134383ad6ef",
+  "initial_checkpoint_sha256": "e636afd5c4eab9cb3132f4ef18e89f525e93be4d61b776cf7a4bb31d81f5998d",
+  "iterations_completed": 512,
+  "final_parameter_sha256": "5b7da70a7ef4074e3eeb5c055de886d05ab74f784d88f50f73950bad50b5f8a4",
+  "parameter_change_l2": 17.29196548461914,
+  "base_actor_sha256_after": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5",
+  "final_checkpoint_sha256": "6f0429398cdc60ccbe980e75a3dc680cacf1fd72b9ade0fd2fbe6574b691667a",
+  "finished_at_utc": "2026-10-18T00:45:25.029701+00:00",
+  "wall_seconds": 369.27631891599594
+}

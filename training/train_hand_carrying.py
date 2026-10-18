@@ -29,10 +29,11 @@ def main():
     ap.add_argument('--iterations',type=int,default=128)
     ap.add_argument('--horizon',type=int,default=256)
     ap.add_argument('--seed',type=int,default=9801)
+    ap.add_argument('--reward-version',choices=['tracking_v1','velocity_v2'],default='tracking_v1')
     args=ap.parse_args();assert args.iterations>0 and args.horizon>=8
     args.output.mkdir(parents=True,exist_ok=False)
     torch.set_num_threads(1);torch.manual_seed(args.seed)
-    env=HandCarryEnv(args.output/'environment',args.seed)
+    env=HandCarryEnv(args.output/'environment',args.seed,reward_version=args.reward_version)
     obs=torch.from_numpy(env.reset()).unsqueeze(0)
     model=ResidualActorCritic(OBSERVATION_DIM,ACTION_DIM)
     optimizer=torch.optim.Adam(model.parameters(),lr=3e-4)
@@ -55,7 +56,10 @@ def main():
                 privileged_reward_only='true linear velocity, root height, body tilt, payload shifts/drop',
                 scenario='8s episodes:2s stand,4s move,2s stop; randomized initialyaw±.2 and eight fixed command classes',
                 command_classes=env.commands.tolist(),learning_rate=3e-4,
-                evaluation_used_for_optimization=False,hardware_verified=False,
+                reward_version=args.reward_version,
+                evaluation_used_for_optimization=args.reward_version!='tracking_v1',
+                evaluation_scope='development diagnostics; previous turning failures informed v2 reward',
+                hardware_verified=False,
                 initial_parameter_sha256=parameter_hash(model))
     initial={k:v.detach().clone() for k,v in model.state_dict().items()}
     def checkpoint(name):

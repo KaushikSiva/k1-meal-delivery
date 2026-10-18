@@ -1,0 +1,17 @@
+{
+  "url": "https://wandb.ai/kaushik-siva88/k1-meal-delivery-20261017/runs/hand-ppo-02-historical",
+  "id": "hand-ppo-02-historical",
+  "metric_rows": 512,
+  "historical_import": true,
+  "wandb_version": "0.27.2",
+  "file_sha256": {
+    "manifest.json": "7acb19f7aff100637b7c9b2d486a01f6929fce5b5da18cbb1789067ac6b24f42",
+    "metrics.jsonl": "649a353a5982892916272ba8902272754f515b3413db2e9cd4613c666b105047",
+    "comparison.json": "7203f2e0f50657f007e06a422bb9bb7c228b5d1e7ae15c2dc9ee592b3b73df5d",
+    "protocol.json": "79972a685f0f36951872178b3512c9c1f515eccb0209c3179437d13757b428fa",
+    "transfer-comparison.json": "071884a1f5e77df43d0fc6d164c58ecc71f716d6acc8cecfc1360b53d2b57034",
+    "transfer-protocol.json": "387bbb4d6921aefbd2aecb192430e85c630d52b8281c0a8cb4c1747a3b904d5c"
+  },
+  "verified_remote_state": "finished",
+  "verified_remote_metric_rows": 512
+}

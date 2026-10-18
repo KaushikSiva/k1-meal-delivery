@@ -1,0 +1,76 @@
+{
+  "frozen_at_utc": "2026-10-18T00:41:10.773999+00:00",
+  "scope": "prospective transfer diagnostic for hand PPO02, frozen while training is running; not camera-guided delivery",
+  "duration_s": 8,
+  "phase_s": {
+    "stand": [
+      0,
+      2
+    ],
+    "move": [
+      2,
+      6
+    ],
+    "stop": [
+      6,
+      8
+    ]
+  },
+  "modes": [
+    "baseline",
+    "trained_residual"
+  ],
+  "initial_yaw": 0.31,
+  "commands": [
+    [
+      0,
+      0,
+      -0.12
+    ],
+    [
+      0,
+      0,
+      0.12
+    ],
+    [
+      0,
+      0,
+      -0.28
+    ],
+    [
+      0,
+      0,
+      0.28
+    ],
+    [
+      0.35,
+      0,
+      -0.1
+    ],
+    [
+      0.45,
+      0,
+      0.1
+    ]
+  ],
+  "criteria": {
+    "no_drop": true,
+    "no_non_hand_support": true,
+    "max_tray_tilt_deg": 10,
+    "max_payload_shift_m": 0.04,
+    "final_speed_m_s": 0.03,
+    "turn_only_max_translation_m": 0.2,
+    "yaw_error_rad": 0.2,
+    "min_forward_progress_m": 0.4,
+    "stable_stop_window_s": [
+      7,
+      8
+    ]
+  },
+  "limits": [
+    "Six predeclared command/initial-yaw conditions outside the exact training combinations",
+    "Fixed assumed payload, no hardware validation",
+    "Single trained seed; does not isolate reward change from longer training budget",
+    "Existing development failures informed training, this transfer protocol was frozen before checkpoint evaluation"
+  ]
+}

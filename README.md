@@ -44,6 +44,8 @@ No robot is present in this environment-preview frame.*
 | GR00T loaded comparison | [3/4 with GR00T;3/4 executive-only](experiments/codex-20261017T2355-groot-loaded/REPORT.md); remote latency rejected many proposals, no overall improvement |
 | GR00T with lossless image transport | [2/4 versus baseline3/4](experiments/codex-20261017T2355-groot-loaded/png/REPORT.md); greater proposal participation did not improve delivery |
 | PPO for hand-supported carrying | [32,768 real control steps;1,024 updates](experiments/codex-20261018T0000-hand-ppo/REPORT.md); matched diagnostics regressed to3/8 versus baseline4/8, not promoted |
+| Carrying-posture turning diagnosis | [Unloaded vs empty/loaded carrying ablations](experiments/codex-20261018T0040-turn-ablation/REPORT.md); empty carrying posture already causes large drift; arm-history alternative rejected |
+| Hand PPO02 | [131,072 transitions, smaller turn drift but worse acceptance](experiments/codex-20261018T0045-hand-ppo02/REPORT.md); development2/8 vsbaseline4/8; prospective1/6 vs2/6; not promoted |
 | Interactive Isaac desktop | [Live café with GR00T selector and Start/Pause/Reset](docs/hardware/ISAAC_LIVE.md); real head-camera proposals drive the baseline gait; experimental transfer, first longer run fell at 9.284s |
 | Hardware delivery | Not completed |
 

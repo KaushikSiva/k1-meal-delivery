@@ -1,29 +1,21 @@
 # Codex status
 
-Updated (UTC): 2026-10-18T00:42:57.616077+00:00
-State: ready for user demo; two short GR00T Isaac previews verified.
+Updated (UTC): 2026-10-18T00:48:49.611456+00:00
+State: completed PPO02 evidence checkpoint; live demo preserved; next stopping-control investigation.
+Previous goal turn: progress (GR00T live previews and controls checkpoint d3c054e). This turn:18 physical ablations published6106975; fresh131072-transition PPO02 and28 matched trials completed.
 
-## Current task and claims
+## Claims
 
-Restored live robot/camera and hidden Tableside panel. Codex claims sim/isaac_live_session.py, sim/isaac_groot_session.py, sim/k1_isaac_hand_residual.py, sim/run_k1_hand_carry_isaac.py, related tests/sim/, tools/start_isaac_desktop.sh, docs/hardware/ISAAC_LIVE.md, README.md, own coordination, and experiments/codex-20261018T0035-isaac-groot-live/. No Claude WIP changes.
+training/hand_carry_env.py, training/train_hand_carrying.py, sim/k1_hand_controller.py, evaluation/run_hand_turn_ablation.py, evaluation/HAND_PPO_TRANSFER_PROTOCOL.json, evaluation/plot_hand_training.py, tools/export_hand_wandb.py, README.md, own coordination, experiments/codex-20261018T0040-turn-ablation/ and experiments/codex-20261018T0045-hand-ppo02/. No edits to Claude WIP or live Isaac runtime.
 
-## Evidence
+## Actual evidence
 
-- Isaac GUI PID182287 and GR00T server remain live on existing L40S. Link: http://localhost:16080/vnc.html?autoconnect=true&resize=scale . Browser screenshot confirms robot, realistic payload, panel and Use GR00T button.
-- Two actual short runs:4.24s/4 calls/82 accepted ticks;4.16s/4 calls/78 accepted ticks.0 inference errors. Manually paused/reset; not full deliveries or stable-stop evaluations. Final step0 paused with GR00T selected, initial root/tray restored.
-- Earlier longer GR00T run fell at9.284s after13 calls/271 accepted ticks. Failure preserved; turning drift remains unresolved. GUI reset restores camera and error after falls; closed controls reopen.
-- Four focused boundary/mapping tests passed; syntax passed. Optional hand-PPO bridge software-tested but NOT enabled or physically validated in Isaac. No new training.
-- Earlier hand PPO matched evaluation remained3/8 vsbaseline4/8; no promotion. GR00T PNG loaded evaluation2/4vsbaseline3/4. Robust delivery and hardware validation remain unfinished.
-- Minor UI limitation: reset clears actual counters but displayed GR00T counter refreshes on next control tick.
+- Unloaded±.18yaw turns drift0.112/0.124m; empty carrying posture1.671/1.705m; loaded1.787/1.698m. Actual-arm observation fails during settling1.56s. Zeroed arm-action history also rejected: zero-command standing drift1.220m.18 trajectory hashes verified. Both prior default baseline turning trajectories exactly reproduced400steps each;3 focused tests passed.
+- PPO02 velocity_v2:131072 actual control transitions,1310720 physics steps,4096 optimizer updates,512 metrics,327 completed episodes/2 early terminations,369.276s localCPU. Fresh residual, frozen base unchanged; strict saved checkpoint reload/finite checks pass; weight deltaL2 17.291965. SHA6f0429398cdc60ccbe980e75a3dc680cacf1fd72b9ade0fd2fbe6574b691667a.
+- Development16runs:baseline4/8,trained2/8. Prospective12runs:baseline2/6,trained1/6. Training pure-turn drift falls to0.110–0.241m vsbaseline1.757–1.877m, but stopping and walking regressions prevent promotion. Additional protocol frozen before training ended. All28 trajectory hashes and6 training source hashes verified.
+- Private W&B export finished and verified:512 remote metric rows match all iteration/step pairs;6 artifact hashes match. Initial export stopped before run creation because SDK0.27.2 removed wandb_gql; updated read-only privacy query uses installed service API. Retry exec27859 finished successfully; receipt under PPO02 evidence. Credential passed via stdin from ignored local.env; no token in code/output/artifacts.
+- Live Isaac PID182287 and GR00T157043 verified running; robot paused/reset at last read. Same browser URL http://localhost:16080/vnc.html?autoconnect=true&resize=scale . Do not restart user demo. Latest GR00T checkpoint remains500updates, baseline gait; PPO02 not deployed.
 
-## Coordination and next action
+## Next action / limits
 
-Read Claude handoff through direct user-authorized verifier commit3a2c89e and HEAD278114a. Acknowledge live Crusoe verifier evidence now committed, replacing prior pending-credential status. Leave user's interactive scene untouched. Publish the reviewed owned integration/evidence; then investigate controller turning and GR00T transfer without claiming delivery success. VM stays available through authorized demo window; do not shut it down due pause/idle alone.
-
-Previous goal turn: progress (d3c054e pushed, live controls restored and two measured GR00T previews). Active local diagnostic claims: sim/k1_hand_controller.py, evaluation/run_hand_turn_ablation.py, experiments/codex-20261018T0040-turn-ablation/. Isolate original unloaded actor vs empty carry posture vs loaded carry posture and actual-arm observation; do not change live GUI or promote an untested policy.
-
-2026-10-18T00:38:58.198318+00:00 —12 ablation runs completed: unloaded turning drift0.112/0.124m, empty carry1.671/1.705m, loaded1.787/1.698m. Actual arm observation fails at1.56s before commanded turn. Claim training/hand_carry_env.py and training/train_hand_carrying.py for explicit velocity_v2 reward, retaining tracking_v1 default; fresh128k-step local CPU training planned. Existing development failures inform this revision, so no held-out claim.
-
-2026-10-18T00:41:10.774403+00:00 — PPO02 running in exec39331; smoke8 transitions/4 updates strict reload passed. Claim tools/export_hand_wandb.py for unique export run ID, evaluation/HAND_PPO_TRANSFER_PROTOCOL.json and experiments/codex-20261018T0045-hand-ppo02/. Froze six extra transfer conditions before training finished; evaluate alongside unchanged eight-condition development protocol.12 ablation hashes verified and default two400-step regressions bit-exact.
-
-Zeroed previous-arm-action feature experiment completed: turn drift reduced to0.786/0.918m but zero-command standing drifted1.220m and final speed0.113m/s. Rejected, not deployed. Six hashes verified. PPO02 continues;131072 steps requested, at71936 last poll. Remote W&B has no persisted credential; existing ignored local .env key is available and will be passed only via stdin for private export.
+Publish reviewed owned files; W&B verification is complete. Next investigate stopping and selective use of the improved turn residual while retaining baseline forward behavior; no untested promotion. Any new gated-controller results use separate diagnostics and must be labeled development since these failures inform the design. Robust camera-guided delivery, cross-simulator learned-control success and hardware verification remain unfinished. Goal active. Last Claude handoff read through authorized direct verifier commit3a2c89e; no new handoff since.

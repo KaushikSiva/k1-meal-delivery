@@ -1,0 +1,21 @@
+{
+  "REPORT.md": "c02e48cfcec4243c5448d1c06a918940936a5cefcd9a9fc4806c976d28062fc1",
+  "wandb_receipt.json": "a44f2ca2ac5e2fed3b616aae8f9eced7d4a19bebbd080da64a3cb72a4d9ad2c6",
+  "transfer-comparison.json": "071884a1f5e77df43d0fc6d164c58ecc71f716d6acc8cecfc1360b53d2b57034",
+  "comparison.json": "7203f2e0f50657f007e06a422bb9bb7c228b5d1e7ae15c2dc9ee592b3b73df5d",
+  "training_evaluation.png": "34c97900991307b996474300f2671199793e35403f1d9834a229c98347e58d94",
+  "manifest.json": "7acb19f7aff100637b7c9b2d486a01f6929fce5b5da18cbb1789067ac6b24f42",
+  "protocol.json": "79972a685f0f36951872178b3512c9c1f515eccb0209c3179437d13757b428fa",
+  "verification.json": "eed01e0dac7696d5ef4f417eb289f348a8057abc6932185dad1e658ca081f3ee",
+  "metrics.jsonl": "649a353a5982892916272ba8902272754f515b3413db2e9cd4613c666b105047",
+  "transfer-protocol.json": "387bbb4d6921aefbd2aecb192430e85c630d52b8281c0a8cb4c1747a3b904d5c",
+  "training_evaluation.svg": "9180db03d2cb1a8987b50c6df985ed593a949fb6ca1a659d0d27110f3d7fd907",
+  "source/tools/export_hand_wandb.py": "d2b22d9ace071ea908576eedd3df7fbef6aebcd59fd2f21dce807af627010f2a",
+  "source/training/train_hand_carrying.py": "ca651bde29407e48c2466f37acf015aca3cefe6d95775b1dff4578baefa37658",
+  "source/training/ppo_core.py": "9d7edf0444928b30d742e9a5f7ab0a8bf2f5f25dfa15f47a5b9e8969985a93d9",
+  "source/training/hand_carry_env.py": "4c5feccc505e38483b05963efda6bb886f2b102c0d43384556a5604e6131349d",
+  "source/deployment/hand_residual.py": "21b50c1e99f5e04e3a2a76cdffe3a54f9c75f911c240fa0f217c4bb57acd64c6",
+  "source/evaluation/plot_hand_training.py": "36b20a171b46c88c47c74f4f3f55fc59faf9e339246199147f236ecf9c1a0451",
+  "source/sim/k1_hand_controller.py": "7af7e19d87ed1cab23ac3c02a8cc73622a8ef97583bcd388ba857a3b223c663e",
+  "source/sim/k1_hand_carry.py": "505a89a099ea413a9254cbcc84b861ee7ed079bd4e72663c6e46c70b4caec277"
+}

@@ -1,0 +1,713 @@
+{
+  "started_at_utc": "2026-10-18T00:45:31.370330+00:00",
+  "protocol": {
+    "frozen_at_utc": "2026-10-18T00:41:10.773999+00:00",
+    "scope": "prospective transfer diagnostic for hand PPO02, frozen while training is running; not camera-guided delivery",
+    "duration_s": 8,
+    "phase_s": {
+      "stand": [
+        0,
+        2
+      ],
+      "move": [
+        2,
+        6
+      ],
+      "stop": [
+        6,
+        8
+      ]
+    },
+    "modes": [
+      "baseline",
+      "trained_residual"
+    ],
+    "initial_yaw": 0.31,
+    "commands": [
+      [
+        0,
+        0,
+        -0.12
+      ],
+      [
+        0,
+        0,
+        0.12
+      ],
+      [
+        0,
+        0,
+        -0.28
+      ],
+      [
+        0,
+        0,
+        0.28
+      ],
+      [
+        0.35,
+        0,
+        -0.1
+      ],
+      [
+        0.45,
+        0,
+        0.1
+      ]
+    ],
+    "criteria": {
+      "no_drop": true,
+      "no_non_hand_support": true,
+      "max_tray_tilt_deg": 10,
+      "max_payload_shift_m": 0.04,
+      "final_speed_m_s": 0.03,
+      "turn_only_max_translation_m": 0.2,
+      "yaw_error_rad": 0.2,
+      "min_forward_progress_m": 0.4,
+      "stable_stop_window_s": [
+        7,
+        8
+      ]
+    },
+    "limits": [
+      "Six predeclared command/initial-yaw conditions outside the exact training combinations",
+      "Fixed assumed payload, no hardware validation",
+      "Single trained seed; does not isolate reward change from longer training budget",
+      "Existing development failures informed training, this transfer protocol was frozen before checkpoint evaluation"
+    ]
+  },
+  "checkpoint_sha256": "6f0429398cdc60ccbe980e75a3dc680cacf1fd72b9ade0fd2fbe6574b691667a",
+  "protocol_sha256": "387bbb4d6921aefbd2aecb192430e85c630d52b8281c0a8cb4c1747a3b904d5c",
+  "trials": [
+    {
+      "condition": 0,
+      "mode": "baseline",
+      "command": [
+        0,
+        0,
+        -0.12
+      ],
+      "diagnostic_pass": false,
+      "checks": {
+        "no_fall_or_drop": true,
+        "hand_only_support": false,
+        "tray_tilt": false,
+        "payload_shift": true,
+        "stopped": false,
+        "turn_translation": false,
+        "yaw_tracking": true,
+        "stable_stop": false
+      },
+      "reward_mean": 1.5573633866907945,
+      "max_translation_m": 1.3595629591909044,
+      "final_xy": [
+        -1.357950985832641,
+        -0.06618579968608909
+      ],
+      "final_yaw_rad": -0.058145739317940336,
+      "final_speed_m_s": 0.36302765302360446,
+      "move_yaw_change_rad": -0.3804321982403338,
+      "expected_yaw_change_rad": -0.48,
+      "move_forward_progress_m": -0.5940764478482146,
+      "final_second_max_speed_m_s": 0.38891052801055714,
+      "simulated_seconds": 7.999999999999341,
+      "hand_metrics": {
+        "physics_steps": 4000,
+        "hand_contact_steps": [
+          3963,
+          3983
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {
+          "right_elbow_pitch_link": 7,
+          "left_elbow_pitch_link": 1
+        },
+        "max_arm_torque_Nm": 9.78338120946244,
+        "max_tray_tilt_deg": 13.762405324161206,
+        "max_payload_shift_m": 0.007351249789587921,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "trajectory_sha256": "4e1f0856a6a5efa55780d1b445e51ea01a905ba98a7bf942bf96bc0609870678"
+    },
+    {
+      "condition": 0,
+      "mode": "trained_residual",
+      "command": [
+        0,
+        0,
+        -0.12
+      ],
+      "diagnostic_pass": false,
+      "checks": {
+        "no_fall_or_drop": true,
+        "hand_only_support": true,
+        "tray_tilt": true,
+        "payload_shift": true,
+        "stopped": true,
+        "turn_translation": true,
+        "yaw_tracking": false,
+        "stable_stop": true
+      },
+      "reward_mean": 2.351284199024148,
+      "max_translation_m": 0.05348894200035271,
+      "final_xy": [
+        0.04501011146358273,
+        0.028899079264795863
+      ],
+      "final_yaw_rad": 0.22621510826967328,
+      "final_speed_m_s": 0.005125786659448876,
+      "move_yaw_change_rad": -0.19408507283644064,
+      "expected_yaw_change_rad": -0.48,
+      "move_forward_progress_m": -0.027526979177257386,
+      "final_second_max_speed_m_s": 0.02549880950972601,
+      "simulated_seconds": 7.999999999999341,
+      "hand_metrics": {
+        "physics_steps": 4000,
+        "hand_contact_steps": [
+          3993,
+          3999
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 6.435258539704259,
+        "max_tray_tilt_deg": 3.696666005342456,
+        "max_payload_shift_m": 0.000848753875801906,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "trajectory_sha256": "90718ed9cb37f4f55e2b4ec1b9e09785de38c54099c96b30480ef307e0ba7403"
+    },
+    {
+      "condition": 1,
+      "mode": "baseline",
+      "command": [
+        0,
+        0,
+        0.12
+      ],
+      "diagnostic_pass": false,
+      "checks": {
+        "no_fall_or_drop": true,
+        "hand_only_support": true,
+        "tray_tilt": false,
+        "payload_shift": true,
+        "stopped": false,
+        "turn_translation": false,
+        "yaw_tracking": true,
+        "stable_stop": false
+      },
+      "reward_mean": 1.5475324432105269,
+      "max_translation_m": 1.3569600609849104,
+      "final_xy": [
+        -1.089003723246963,
+        -0.8095748871243623
+      ],
+      "final_yaw_rad": 0.7407149226824653,
+      "final_speed_m_s": 0.35372995862319506,
+      "move_yaw_change_rad": 0.3800296996279163,
+      "expected_yaw_change_rad": 0.48,
+      "move_forward_progress_m": -0.5816970098449723,
+      "final_second_max_speed_m_s": 0.44100615644962954,
+      "simulated_seconds": 7.999999999999341,
+      "hand_metrics": {
+        "physics_steps": 4000,
+        "hand_contact_steps": [
+          3960,
+          3981
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 8.729843218699544,
+        "max_tray_tilt_deg": 11.116546008920519,
+        "max_payload_shift_m": 0.008083143705699148,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "trajectory_sha256": "b8d64f1499abc1c5b732dbd2c58c028f3cc23bef71f5764a8726d33e6e5ad39b"
+    },
+    {
+      "condition": 1,
+      "mode": "trained_residual",
+      "command": [
+        0,
+        0,
+        0.12
+      ],
+      "diagnostic_pass": false,
+      "checks": {
+        "no_fall_or_drop": true,
+        "hand_only_support": true,
+        "tray_tilt": true,
+        "payload_shift": true,
+        "stopped": true,
+        "turn_translation": true,
+        "yaw_tracking": true,
+        "stable_stop": false
+      },
+      "reward_mean": 2.300058753680074,
+      "max_translation_m": 0.04585812342488642,
+      "final_xy": [
+        0.03153241024296356,
+        0.005598318887262453
+      ],
+      "final_yaw_rad": 0.8758999279479177,
+      "final_speed_m_s": 0.00491709378831626,
+      "move_yaw_change_rad": 0.4706015273715326,
+      "expected_yaw_change_rad": 0.48,
+      "move_forward_progress_m": -0.06669551923222136,
+      "final_second_max_speed_m_s": 0.04415638473840638,
+      "simulated_seconds": 7.999999999999341,
+      "hand_metrics": {
+        "physics_steps": 4000,
+        "hand_contact_steps": [
+          3991,
+          3989
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 6.747619019210656,
+        "max_tray_tilt_deg": 3.696666005342456,
+        "max_payload_shift_m": 0.000848753875801906,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "trajectory_sha256": "343be4a90064fb0268dc36e46ac2a22870f037da0a57ba1f8deab9952b3bc431"
+    },
+    {
+      "condition": 2,
+      "mode": "baseline",
+      "command": [
+        0,
+        0,
+        -0.28
+      ],
+      "diagnostic_pass": false,
+      "checks": {
+        "no_fall_or_drop": true,
+        "hand_only_support": true,
+        "tray_tilt": false,
+        "payload_shift": true,
+        "stopped": false,
+        "turn_translation": false,
+        "yaw_tracking": true,
+        "stable_stop": false
+      },
+      "reward_mean": 1.2325902036644953,
+      "max_translation_m": 1.7657651278473976,
+      "final_xy": [
+        -1.6368192572158624,
+        0.6623814655689342
+      ],
+      "final_yaw_rad": -0.7622536513845511,
+      "final_speed_m_s": 0.3665959136791499,
+      "move_yaw_change_rad": -1.1151240372768267,
+      "expected_yaw_change_rad": -1.12,
+      "move_forward_progress_m": -0.921248498217054,
+      "final_second_max_speed_m_s": 0.4050929590088815,
+      "simulated_seconds": 7.999999999999341,
+      "hand_metrics": {
+        "physics_steps": 4000,
+        "hand_contact_steps": [
+          3959,
+          3966
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 10.648263224793252,
+        "max_tray_tilt_deg": 12.237621115413063,
+        "max_payload_shift_m": 0.006940651487773211,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "trajectory_sha256": "8ee7be28c9bbf3237e4e3af91f9db23bc7a14135296062680bbb636fe649fa38"
+    },
+    {
+      "condition": 2,
+      "mode": "trained_residual",
+      "command": [
+        0,
+        0,
+        -0.28
+      ],
+      "diagnostic_pass": false,
+      "checks": {
+        "no_fall_or_drop": true,
+        "hand_only_support": true,
+        "tray_tilt": true,
+        "payload_shift": true,
+        "stopped": false,
+        "turn_translation": false,
+        "yaw_tracking": true,
+        "stable_stop": false
+      },
+      "reward_mean": 2.082635111988994,
+      "max_translation_m": 0.2468594160157606,
+      "final_xy": [
+        -0.163173747998681,
+        0.16475280289314537
+      ],
+      "final_yaw_rad": -0.6732799213219294,
+      "final_speed_m_s": 0.06217472407196356,
+      "move_yaw_change_rad": -1.0448055304871517,
+      "expected_yaw_change_rad": -1.12,
+      "move_forward_progress_m": -0.14848602513358156,
+      "final_second_max_speed_m_s": 0.1301810437369272,
+      "simulated_seconds": 7.999999999999341,
+      "hand_metrics": {
+        "physics_steps": 4000,
+        "hand_contact_steps": [
+          3957,
+          3975
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 6.863567376382628,
+        "max_tray_tilt_deg": 5.463382849527033,
+        "max_payload_shift_m": 0.001911534274701992,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "trajectory_sha256": "c07af4c89f3fdce1267a0851459e36820ebd9fc121b1024c51213fb1aeb43e18"
+    },
+    {
+      "condition": 3,
+      "mode": "baseline",
+      "command": [
+        0,
+        0,
+        0.28
+      ],
+      "diagnostic_pass": false,
+      "checks": {
+        "no_fall_or_drop": true,
+        "hand_only_support": false,
+        "tray_tilt": false,
+        "payload_shift": true,
+        "stopped": false,
+        "turn_translation": false,
+        "yaw_tracking": true,
+        "stable_stop": false
+      },
+      "reward_mean": 1.2545148457715465,
+      "max_translation_m": 1.7399400192659351,
+      "final_xy": [
+        -0.8600162029934829,
+        -1.5125354214800442
+      ],
+      "final_yaw_rad": 1.3988631556561038,
+      "final_speed_m_s": 0.3427065099432826,
+      "move_yaw_change_rad": 1.1175047037125607,
+      "expected_yaw_change_rad": 1.12,
+      "move_forward_progress_m": -0.915411502485042,
+      "final_second_max_speed_m_s": 0.3765696283064621,
+      "simulated_seconds": 7.999999999999341,
+      "hand_metrics": {
+        "physics_steps": 4000,
+        "hand_contact_steps": [
+          3959,
+          3965
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {
+          "left_elbow_pitch_link": 2
+        },
+        "max_arm_torque_Nm": 9.088688547449543,
+        "max_tray_tilt_deg": 11.705270776292739,
+        "max_payload_shift_m": 0.006439435343171499,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "trajectory_sha256": "558b3dc5a5d39fe2b23f4b2199ed7b97707ad48507d3735d0aa071c6d12a3f74"
+    },
+    {
+      "condition": 3,
+      "mode": "trained_residual",
+      "command": [
+        0,
+        0,
+        0.28
+      ],
+      "diagnostic_pass": false,
+      "checks": {
+        "no_fall_or_drop": true,
+        "hand_only_support": true,
+        "tray_tilt": true,
+        "payload_shift": true,
+        "stopped": false,
+        "turn_translation": false,
+        "yaw_tracking": true,
+        "stable_stop": false
+      },
+      "reward_mean": 2.0626401919029784,
+      "max_translation_m": 0.30369641121034063,
+      "final_xy": [
+        -0.10766023563593681,
+        -0.2821943236167151
+      ],
+      "final_yaw_rad": 1.6252721836862305,
+      "final_speed_m_s": 0.08246110136139591,
+      "move_yaw_change_rad": 1.2800905318056635,
+      "expected_yaw_change_rad": 1.12,
+      "move_forward_progress_m": -0.20473410841175044,
+      "final_second_max_speed_m_s": 0.12412530061549416,
+      "simulated_seconds": 7.999999999999341,
+      "hand_metrics": {
+        "physics_steps": 4000,
+        "hand_contact_steps": [
+          3945,
+          3963
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 7.442161725136175,
+        "max_tray_tilt_deg": 5.80465136835275,
+        "max_payload_shift_m": 0.008010806258188627,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "trajectory_sha256": "57c1a1c219579f821254447a97e283fee153fe7fb882afdab86c73150a978f8e"
+    },
+    {
+      "condition": 4,
+      "mode": "baseline",
+      "command": [
+        0.35,
+        0,
+        -0.1
+      ],
+      "diagnostic_pass": true,
+      "checks": {
+        "no_fall_or_drop": true,
+        "hand_only_support": true,
+        "tray_tilt": true,
+        "payload_shift": true,
+        "stopped": true,
+        "yaw_tracking": true,
+        "forward_progress": true,
+        "stable_stop": true
+      },
+      "reward_mean": 2.1224850935712687,
+      "max_translation_m": 0.4934700538595532,
+      "final_xy": [
+        0.45302414059243495,
+        0.05281646349111353
+      ],
+      "final_yaw_rad": -0.05606568007455444,
+      "final_speed_m_s": 0.01590589661758651,
+      "move_yaw_change_rad": -0.37908380367162486,
+      "expected_yaw_change_rad": -0.4,
+      "move_forward_progress_m": 0.5467162431012784,
+      "final_second_max_speed_m_s": 0.022623214122220518,
+      "simulated_seconds": 7.999999999999341,
+      "hand_metrics": {
+        "physics_steps": 4000,
+        "hand_contact_steps": [
+          3963,
+          3979
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 7.629650270569577,
+        "max_tray_tilt_deg": 4.568220041927479,
+        "max_payload_shift_m": 0.0024952422118325788,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "trajectory_sha256": "10cbc82b6c95d09ddba31403bc624573ab7b7bede3a3f81a340ca8b035c45299"
+    },
+    {
+      "condition": 4,
+      "mode": "trained_residual",
+      "command": [
+        0.35,
+        0,
+        -0.1
+      ],
+      "diagnostic_pass": false,
+      "checks": {
+        "no_fall_or_drop": false,
+        "hand_only_support": true,
+        "tray_tilt": false,
+        "payload_shift": true,
+        "stopped": true,
+        "yaw_tracking": true,
+        "forward_progress": true,
+        "stable_stop": false
+      },
+      "reward_mean": 1.6738237935625284,
+      "max_translation_m": 1.497519268182482,
+      "final_xy": [
+        1.459421729115966,
+        0.31972983052632126
+      ],
+      "final_yaw_rad": 0.0013835303647726635,
+      "final_speed_m_s": 0.01854618854038789,
+      "move_yaw_change_rad": -0.36516343652635874,
+      "expected_yaw_change_rad": -0.4,
+      "move_forward_progress_m": 1.3685347183509466,
+      "final_second_max_speed_m_s": null,
+      "simulated_seconds": 6.91999999999946,
+      "hand_metrics": {
+        "physics_steps": 3460,
+        "hand_contact_steps": [
+          3249,
+          3273
+        ],
+        "max_hand_contact_loss_s": [
+          0.262,
+          0.242
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 14.0,
+        "max_tray_tilt_deg": 133.78209175409188,
+        "max_payload_shift_m": 0.011863185005097513,
+        "payload_drop": true,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "trajectory_sha256": "fa63ec301253a7dd2be922baa09e66ad44f7232d54cf19a7bf19ba17e9891f3f"
+    },
+    {
+      "condition": 5,
+      "mode": "baseline",
+      "command": [
+        0.45,
+        0,
+        0.1
+      ],
+      "diagnostic_pass": true,
+      "checks": {
+        "no_fall_or_drop": true,
+        "hand_only_support": true,
+        "tray_tilt": true,
+        "payload_shift": true,
+        "stopped": true,
+        "yaw_tracking": true,
+        "forward_progress": true,
+        "stable_stop": true
+      },
+      "reward_mean": 2.015928399806649,
+      "max_translation_m": 0.9255690823883208,
+      "final_xy": [
+        0.7518368527293116,
+        0.47748072628767013
+      ],
+      "final_yaw_rad": 0.7492917912099291,
+      "final_speed_m_s": 0.015350186391807063,
+      "move_yaw_change_rad": 0.40432869286865586,
+      "expected_yaw_change_rad": 0.4,
+      "move_forward_progress_m": 0.9399304337686558,
+      "final_second_max_speed_m_s": 0.022680956247048405,
+      "simulated_seconds": 7.999999999999341,
+      "hand_metrics": {
+        "physics_steps": 4000,
+        "hand_contact_steps": [
+          3961,
+          3970
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 7.496747807024552,
+        "max_tray_tilt_deg": 4.586924713283716,
+        "max_payload_shift_m": 0.0013141304799045102,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "trajectory_sha256": "0e2917f70129c25bbd9afd4db3f1ed33994458665ea7fb4894a8039024514c67"
+    },
+    {
+      "condition": 5,
+      "mode": "trained_residual",
+      "command": [
+        0.45,
+        0,
+        0.1
+      ],
+      "diagnostic_pass": true,
+      "checks": {
+        "no_fall_or_drop": true,
+        "hand_only_support": true,
+        "tray_tilt": true,
+        "payload_shift": true,
+        "stopped": true,
+        "yaw_tracking": true,
+        "forward_progress": true,
+        "stable_stop": true
+      },
+      "reward_mean": 1.6388694253999694,
+      "max_translation_m": 1.8797276091521407,
+      "final_xy": [
+        1.5373646152977165,
+        1.0786208764724172
+      ],
+      "final_yaw_rad": 0.7832756451400106,
+      "final_speed_m_s": 0.01091847927552597,
+      "move_yaw_change_rad": 0.4114670183181933,
+      "expected_yaw_change_rad": 0.4,
+      "move_forward_progress_m": 1.6747173556329624,
+      "final_second_max_speed_m_s": 0.01286631673623464,
+      "simulated_seconds": 7.999999999999341,
+      "hand_metrics": {
+        "physics_steps": 4000,
+        "hand_contact_steps": [
+          3945,
+          3967
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 9.526881149857791,
+        "max_tray_tilt_deg": 6.878516454381163,
+        "max_payload_shift_m": 0.0018607331568651002,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "trajectory_sha256": "9fd446dc91f3ee494348ea64658988a5fc741f50836d8e6edfaba66fdcef64f7"
+    }
+  ],
+  "finished_at_utc": "2026-10-18T00:45:45.061120+00:00"
+}

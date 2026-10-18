@@ -14,7 +14,10 @@ from deployment.hand_residual import hand_observation,RESIDUAL_BOUND_RAD
 
 
 class HandCarryEnv:
-    def __init__(self,workdir,seed=9801):
+    def __init__(self,workdir,seed=9801,reward_version='tracking_v1'):
+        if reward_version not in ('tracking_v1','velocity_v2'):
+            raise ValueError('Unknown hand-carry reward version')
+        self.reward_version=reward_version
         self.root=Path(workdir);self.root.mkdir(parents=True,exist_ok=True)
         self.xml=self.root/'hand.xml';make_model(self.xml,handle_seats=True)
         self.rng=np.random.default_rng(seed);self.seed=seed
@@ -52,6 +55,7 @@ class HandCarryEnv:
         c.vel_command.lin_vel_x,c.vel_command.lin_vel_y,c.vel_command.ang_vel_yaw=command
         c.update_state();target=c.policy_step().clone()
         target[self.legs]+=torch.from_numpy(residual)
+        prior_other_contacts=sum(c.hand_metrics['other_robot_contact_steps'].values())
         c.ctrl_step(target);self.steps+=1
         # Privileged simulator state below is restricted to reward/termination.
         R=d.xmat[c.mj_model.body('trunk').id].reshape(3,3)
@@ -63,11 +67,19 @@ class HandCarryEnv:
         shifts=np.asarray(c.payload_rows[-1][-2:])
         rate=float(np.sum((residual-self.previous)**2))
         reward=1.5*tracking+.75*turning+.25-4*tilt**2-40*float(np.sum(shifts**2))-.1*rate
+        support_violation=sum(c.hand_metrics['other_robot_contact_steps'].values())>prior_other_contacts
+        if self.reward_version=='velocity_v2':
+            # Quadratic errors keep distinguishing severe drift, unlike the
+            # v1 exponentials which saturate near zero. Truth is reward-only.
+            reward=(2.5-12.5*float(np.sum((velocity[:2]-desired)**2))
+                    -6.25*float((d.qvel[5]-command[2])**2)
+                    -4*tilt**2-40*float(np.sum(shifts**2))-.1*rate
+                    -2.*float(support_violation))
         terminated=bool(d.qpos[2]<.32 or tilt>np.pi/4 or c.hand_metrics['payload_drop'] or not c.is_running)
         if terminated:reward-=10.
         done=terminated or self.steps>=400
         self.previous=residual.copy()
         info=dict(tracking=tracking,turning=turning,tilt_rad=tilt,
                   speed_m_s=float(np.linalg.norm(d.qvel[:2])),payload_shift_m=float(shifts.max()),
-                  terminated=terminated,command=command.tolist())
+                  terminated=terminated,command=command.tolist(),support_violation=support_violation)
         return self.observe(),float(reward),terminated,done,info
