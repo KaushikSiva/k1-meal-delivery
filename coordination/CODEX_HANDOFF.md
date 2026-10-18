@@ -373,3 +373,31 @@ experiments/codex-20261017T2320-groot-curve/attempt03/{training_validation.png,m
 ## 2026-10-17T23:45:44.455766+00:00 — updated printed-payload navigation footage ready
 
 experiments/codex-20261017T2345-printed-navigation/attempt02/{evaluator.mp4,robot_camera.mp4}. RealDominos-styleprintedbox+Coke,woodfloor,physicalfour-legtable. Camera-onlyguided delivery65.6s+2ssettle,6.53mmpayloadshift,no collision/drop/fall/otherarmsupport. First60sbudgettimedout; second90sdiagnosticdelivered. Not a60sbenchmarkpass. Last~18.6s excerpt from49s is the actualapproachandstop; preparingstandaloneclipnow. Physicsmass/inertiacontactparitytestpassedforpackagingdecoration. Newtablephysicalgeometrydoeschangeenvironment, logged.
+
+## 2026-10-18T00:04Z — GR00T PNG regression; hand PPO training active
+
+LosslessPNG GR00T comparison finished2/4 vs executive3/4; first start-left physically failed despite executive delivery, second dropped. Report experiments/codex-20261017T2355-groot-loaded/png/REPORT.md;749 artifact hashesverified. Do not claim offline loss reduction improves delivery. Fresh hand-contact PPO is training locally with real MuJoCo rollouts; no learned carrying claim until matched evaluation. Isaac baseline clips and printed camera-guided excerpt remain ready.
+
+## 2026-10-18T00:07Z — CL14 live Isaac priority
+
+Actual Isaac GUI launching via Xvfb/openbox/x11vnc + localhost-only noVNC on L40S. SSH tunnel local16080→remote6080; proposed URL http://localhost:16080/vnc.html?autoconnect=true&resize=scale . NOT READY until actual GUI verified. Native Isaac scene has Start/Pause/Reset, live PhysX hand contacts, not replay. Please continue your local MuJoCo fallback without editing sim files. Loaded05 CLI manifest authoritative.
+
+## 2026-10-18T00:08Z — live desktop connected; shader warmup
+
+Browser QA confirms real Isaac5.1 GUI over noVNC. URL will be http://localhost:16080/vnc.html?autoconnect=true&resize=scale on this Mac; scene still warming first GUI RTX shaders (~110s), so not yet advertisedready. Native Start/Resume,Pause,Reset,follow-camera panel implemented. Actual physicsbaseline, not recording. Local MuJoCo fallback can remain independent.
+
+## 2026-10-18T00:10:00.636881+00:00 — LIVE ISAAC READY for CL14
+
+Actual Isaac5.1 café GUI connected through http://localhost:16080/vnc.html?autoconnect=true&resize=scale on thisMac. Native TablesidepanelStart/Resume,Pause,Reset,followingcamera. BrowserQAclickedStart:900realphysicsteps/1.8simseconds,Pauseheldstate,Resetreturnedstep0 andinitialroot/traypositions. Leftpausedready. DesktopPID165918 onL40S;localhostonlyports6080/5900 throughSSH. This is baselinehandcontact physics, not PPO/VLA or replay. FirstGUIshadercompilefinished; docs/hardware/ISAAC_LIVE.md hasinstructions. Usergetslinknow.
+
+## 2026-10-18T00:10:59.208807+00:00 — CL13 review: verifier needs corrections before integration
+
+Acknowledged new Claude ownership of agents/, tests/agents/, demo/ and verifier coordination outputs. Reviewed frozen code; please fix these completion-verification bugs and provide new hashes/tests:
+
+- check_test ignores subprocess.returncode. A collection/import error with no expected counts can pass. Require successful execution and actual parsed test results; catch executable-not-found.
+- judge returns PASS when its model call fails and hard checks happen to pass; extract failure can also silently erase test/statement claims. Mark model/extraction failures incomplete/failure, never PASS.
+- Zero checks, --no-tests, or rejected commands can currently produce PASS; require explicit incomplete status for unverified required claims.
+- Path containment uses string startswith, accepting sibling-prefix directories; use resolved Path.is_relative_to(ROOT).
+- TEST_ALLOW permits arbitrary executable names containing python and arbitrary pytest plugins/paths. Restrict interpreter to known project/system Python, test paths to repository tests, and safe flags; no arbitrary -p plugins.
+
+The seven current tests do not cover these cases. Please add regression tests. Keep live Managed Inference unclaimed until credentials plus a recorded successful call exist. I can commit the corrected verifier after handoff. demo/live_mujoco.py matches freeze; demo/LIVE_DEMO.md changed after its freeze (Isaac-ready update); provide updated hash when final.

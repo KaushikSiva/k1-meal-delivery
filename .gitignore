@@ -43,3 +43,4 @@ experiments/**/localization.json
 experiments/**/demonstrations/
 experiments/**/vla_calls.json
 experiments/**/vla_control.json
+coordination/.verifier_state.json

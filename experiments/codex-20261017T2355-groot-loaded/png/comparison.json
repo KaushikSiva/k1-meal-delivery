@@ -1,0 +1,479 @@
+{
+  "started_at_utc": "2026-10-17T23:53:48.280331+00:00",
+  "protocol_sha256": "6c916c3a6164ce5f9ff850c419381d96699e1841dfff82e9f923ceb072e6d975",
+  "source_root": "/Users/kaushiksivakumar/workspace/k1-meal-delivery/runs/loaded-groot-png-source",
+  "trials": [
+    {
+      "id": "start-left",
+      "command": [
+        "/Users/kaushiksivakumar/workspace/k1-meal-delivery/sim/.venv/bin/python",
+        "/Users/kaushiksivakumar/workspace/k1-meal-delivery/runs/loaded-groot-png-source/sim/run_k1_sensor_navigation.py",
+        "--output",
+        "/Users/kaushiksivakumar/workspace/k1-meal-delivery/runs/loaded-groot-png-01/start-left",
+        "--duration",
+        "60",
+        "--seed",
+        "9601",
+        "--table",
+        "4",
+        "0",
+        "0.4",
+        "0.5",
+        "0.75",
+        "--start",
+        "0",
+        "-0.5",
+        "0.12",
+        "--hand-carried",
+        "--known-load-depth-mask",
+        "--carry-command-guard",
+        "--walk-speed",
+        "0.4",
+        "--head-pitch",
+        "-0.2",
+        "--prediction-scale",
+        "0.5",
+        "--settle-seconds",
+        "2",
+        "--tracking-evaluator",
+        "--vla-endpoint",
+        "http://127.0.0.1:18767/propose",
+        "--vla-lossless-png"
+      ],
+      "returncode": 0,
+      "physical_delivery_pass": false,
+      "checks": {
+        "executive_delivered": true,
+        "no_room_contact": false,
+        "no_fall": true,
+        "front_distance": true,
+        "lateral_error": true,
+        "stable_stop": false,
+        "body_tilt": true,
+        "no_payload_drop": true,
+        "payload_shift": true,
+        "tray_tilt": false,
+        "contact_loss": true,
+        "hand_only_support": true,
+        "effort_limit": true,
+        "no_tray_constraint": true
+      },
+      "front_edge_distance_m": 0.530220898082487,
+      "lateral_error_m": 0.10447877449669209,
+      "last_1p5s_max_true_speed_m_s": 0.1012354556210659,
+      "last_1p5s_net_drift_m": 0.006360250026415816,
+      "outcome": "delivered",
+      "termination": "autonomy_terminal",
+      "max_xy_error_m": 0.06297571895125346,
+      "hand_metrics": {
+        "physics_steps": 12700,
+        "hand_contact_steps": [
+          11162,
+          12424
+        ],
+        "max_hand_contact_loss_s": [
+          0.026000000000000002,
+          0.01
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 14.0,
+        "max_tray_tilt_deg": 66.32295777115753,
+        "max_payload_shift_m": 0.03426670012980734,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "collision_contact_steps": 29,
+      "vla_summary": {
+        "inference_calls": 22,
+        "inference_failures": 0,
+        "control_ticks_by_owner": {
+          "executive": 1104,
+          "vla": 67
+        },
+        "decision_reasons": {
+          "no proposal": 56,
+          "accepted": 67,
+          "proposal expired on control clock": 947,
+          "no executive command": 101
+        },
+        "latency_s": {
+          "min": 0.37081516699981876,
+          "max": 1.709198666998418,
+          "mean": 0.7131408427720255
+        },
+        "timing": "measured synchronous inference delay applied to simulated proposal availability",
+        "hardware_runtime": false
+      },
+      "vla_server": {
+        "model_id": "groot-c788024b6205",
+        "checkpoint_shards": {
+          "checkpoint/model-00002-of-00003.safetensors": "18d46685c33977b8a97aae6f2fd844fffcdfa951a70f8b3a1c4d44fc065f2364",
+          "checkpoint/model-00001-of-00003.safetensors": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+          "checkpoint/model-00003-of-00003.safetensors": "2c8843e7044929448768faa30caf850ee016d26c0124df687b2f454ed53b9267"
+        },
+        "optimizer_updates": 500,
+        "seed": 9701,
+        "server_source_sha256": "891fbcfd9fd0966ddf4c0ba91705a6266efb427743a0bc242db2e073cb1772ce",
+        "actuator_api": false
+      },
+      "manifest_sha256": "f3f08b7b4b01d19461d31b07ca5e6bfaf947cbcd0b542cf83f633ddf449330eb"
+    },
+    {
+      "id": "start-right",
+      "command": [
+        "/Users/kaushiksivakumar/workspace/k1-meal-delivery/sim/.venv/bin/python",
+        "/Users/kaushiksivakumar/workspace/k1-meal-delivery/runs/loaded-groot-png-source/sim/run_k1_sensor_navigation.py",
+        "--output",
+        "/Users/kaushiksivakumar/workspace/k1-meal-delivery/runs/loaded-groot-png-01/start-right",
+        "--duration",
+        "60",
+        "--seed",
+        "9602",
+        "--table",
+        "4",
+        "0",
+        "0.4",
+        "0.5",
+        "0.75",
+        "--start",
+        "0",
+        "0.5",
+        "-0.12",
+        "--hand-carried",
+        "--known-load-depth-mask",
+        "--carry-command-guard",
+        "--walk-speed",
+        "0.4",
+        "--head-pitch",
+        "-0.2",
+        "--prediction-scale",
+        "0.5",
+        "--settle-seconds",
+        "2",
+        "--tracking-evaluator",
+        "--vla-endpoint",
+        "http://127.0.0.1:18767/propose",
+        "--vla-lossless-png"
+      ],
+      "returncode": 0,
+      "physical_delivery_pass": false,
+      "checks": {
+        "executive_delivered": false,
+        "no_room_contact": false,
+        "no_fall": true,
+        "front_distance": false,
+        "lateral_error": false,
+        "stable_stop": false,
+        "body_tilt": false,
+        "no_payload_drop": false,
+        "payload_shift": true,
+        "tray_tilt": false,
+        "contact_loss": false,
+        "hand_only_support": false,
+        "effort_limit": true,
+        "no_tray_constraint": true
+      },
+      "front_edge_distance_m": 4.471720142035177,
+      "lateral_error_m": 0.3404358423568929,
+      "last_1p5s_max_true_speed_m_s": 0.4020559695850529,
+      "last_1p5s_net_drift_m": 0.16156243160834113,
+      "outcome": null,
+      "termination": "payload_drop",
+      "max_xy_error_m": 0.9965493082591428,
+      "hand_metrics": {
+        "physics_steps": 28830,
+        "hand_contact_steps": [
+          27960,
+          28557
+        ],
+        "max_hand_contact_loss_s": [
+          0.226,
+          0.19
+        ],
+        "other_robot_contact_steps": {
+          "right_elbow_pitch_link": 18,
+          "left_elbow_pitch_link": 6
+        },
+        "max_arm_torque_Nm": 14.0,
+        "max_tray_tilt_deg": 107.99893336172545,
+        "max_payload_shift_m": 0.026759678219367315,
+        "payload_drop": true,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "collision_contact_steps": 7821,
+      "vla_summary": {
+        "inference_calls": 93,
+        "inference_failures": 0,
+        "control_ticks_by_owner": {
+          "executive": 2372,
+          "vla": 412
+        },
+        "decision_reasons": {
+          "no proposal": 26,
+          "accepted": 355,
+          "proposal expired on control clock": 2346,
+          "vla hold": 57
+        },
+        "latency_s": {
+          "min": 0.356062209000811,
+          "max": 2.096382916002767,
+          "mean": 0.5539794139791235
+        },
+        "timing": "measured synchronous inference delay applied to simulated proposal availability",
+        "hardware_runtime": false
+      },
+      "vla_server": {
+        "model_id": "groot-c788024b6205",
+        "checkpoint_shards": {
+          "checkpoint/model-00002-of-00003.safetensors": "18d46685c33977b8a97aae6f2fd844fffcdfa951a70f8b3a1c4d44fc065f2364",
+          "checkpoint/model-00001-of-00003.safetensors": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+          "checkpoint/model-00003-of-00003.safetensors": "2c8843e7044929448768faa30caf850ee016d26c0124df687b2f454ed53b9267"
+        },
+        "optimizer_updates": 500,
+        "seed": 9701,
+        "server_source_sha256": "891fbcfd9fd0966ddf4c0ba91705a6266efb427743a0bc242db2e073cb1772ce",
+        "actuator_api": false
+      },
+      "manifest_sha256": "2a6517f0ddccd230058a922778082817a8f5c08d57f68043c15410d56d6ff6cf"
+    },
+    {
+      "id": "target-near-left",
+      "command": [
+        "/Users/kaushiksivakumar/workspace/k1-meal-delivery/sim/.venv/bin/python",
+        "/Users/kaushiksivakumar/workspace/k1-meal-delivery/runs/loaded-groot-png-source/sim/run_k1_sensor_navigation.py",
+        "--output",
+        "/Users/kaushiksivakumar/workspace/k1-meal-delivery/runs/loaded-groot-png-01/target-near-left",
+        "--duration",
+        "60",
+        "--seed",
+        "9603",
+        "--table",
+        "3.5",
+        "-0.35",
+        "0.4",
+        "0.5",
+        "0.75",
+        "--start",
+        "0",
+        "0",
+        "0",
+        "--hand-carried",
+        "--known-load-depth-mask",
+        "--carry-command-guard",
+        "--walk-speed",
+        "0.4",
+        "--head-pitch",
+        "-0.2",
+        "--prediction-scale",
+        "0.5",
+        "--settle-seconds",
+        "2",
+        "--tracking-evaluator",
+        "--vla-endpoint",
+        "http://127.0.0.1:18767/propose",
+        "--vla-lossless-png"
+      ],
+      "returncode": 0,
+      "physical_delivery_pass": true,
+      "checks": {
+        "executive_delivered": true,
+        "no_room_contact": true,
+        "no_fall": true,
+        "front_distance": true,
+        "lateral_error": true,
+        "stable_stop": true,
+        "body_tilt": true,
+        "no_payload_drop": true,
+        "payload_shift": true,
+        "tray_tilt": true,
+        "contact_loss": true,
+        "hand_only_support": true,
+        "effort_limit": true,
+        "no_tray_constraint": true
+      },
+      "front_edge_distance_m": 0.5953836407258026,
+      "lateral_error_m": 0.012912368992183454,
+      "last_1p5s_max_true_speed_m_s": 0.0011388032249438382,
+      "last_1p5s_net_drift_m": 0.0007760416459213879,
+      "outcome": "delivered",
+      "termination": "autonomy_terminal",
+      "max_xy_error_m": 0.06310395272757739,
+      "hand_metrics": {
+        "physics_steps": 11100,
+        "hand_contact_steps": [
+          10969,
+          10997
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 7.218664567610564,
+        "max_tray_tilt_deg": 5.7243992876483825,
+        "max_payload_shift_m": 0.004460633045094863,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "collision_contact_steps": 0,
+      "vla_summary": {
+        "inference_calls": 18,
+        "inference_failures": 0,
+        "control_ticks_by_owner": {
+          "executive": 984,
+          "vla": 27
+        },
+        "decision_reasons": {
+          "no proposal": 119,
+          "accepted": 27,
+          "proposal expired on control clock": 764,
+          "no executive command": 101
+        },
+        "latency_s": {
+          "min": 0.4247118330022204,
+          "max": 2.477274666001904,
+          "mean": 0.9484053425561191
+        },
+        "timing": "measured synchronous inference delay applied to simulated proposal availability",
+        "hardware_runtime": false
+      },
+      "vla_server": {
+        "model_id": "groot-c788024b6205",
+        "checkpoint_shards": {
+          "checkpoint/model-00002-of-00003.safetensors": "18d46685c33977b8a97aae6f2fd844fffcdfa951a70f8b3a1c4d44fc065f2364",
+          "checkpoint/model-00001-of-00003.safetensors": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+          "checkpoint/model-00003-of-00003.safetensors": "2c8843e7044929448768faa30caf850ee016d26c0124df687b2f454ed53b9267"
+        },
+        "optimizer_updates": 500,
+        "seed": 9701,
+        "server_source_sha256": "891fbcfd9fd0966ddf4c0ba91705a6266efb427743a0bc242db2e073cb1772ce",
+        "actuator_api": false
+      },
+      "manifest_sha256": "d1f24400ffa0674474774050c7ae0f94c28dd21bf73b5827cc6bbad0d433d037"
+    },
+    {
+      "id": "target-far-right",
+      "command": [
+        "/Users/kaushiksivakumar/workspace/k1-meal-delivery/sim/.venv/bin/python",
+        "/Users/kaushiksivakumar/workspace/k1-meal-delivery/runs/loaded-groot-png-source/sim/run_k1_sensor_navigation.py",
+        "--output",
+        "/Users/kaushiksivakumar/workspace/k1-meal-delivery/runs/loaded-groot-png-01/target-far-right",
+        "--duration",
+        "60",
+        "--seed",
+        "9604",
+        "--table",
+        "4.5",
+        "0.35",
+        "0.4",
+        "0.5",
+        "0.75",
+        "--start",
+        "0",
+        "0",
+        "0",
+        "--hand-carried",
+        "--known-load-depth-mask",
+        "--carry-command-guard",
+        "--walk-speed",
+        "0.4",
+        "--head-pitch",
+        "-0.2",
+        "--prediction-scale",
+        "0.5",
+        "--settle-seconds",
+        "2",
+        "--tracking-evaluator",
+        "--vla-endpoint",
+        "http://127.0.0.1:18767/propose",
+        "--vla-lossless-png"
+      ],
+      "returncode": 0,
+      "physical_delivery_pass": true,
+      "checks": {
+        "executive_delivered": true,
+        "no_room_contact": true,
+        "no_fall": true,
+        "front_distance": true,
+        "lateral_error": true,
+        "stable_stop": true,
+        "body_tilt": true,
+        "no_payload_drop": true,
+        "payload_shift": true,
+        "tray_tilt": true,
+        "contact_loss": true,
+        "hand_only_support": true,
+        "effort_limit": true,
+        "no_tray_constraint": true
+      },
+      "front_edge_distance_m": 0.6084254333166417,
+      "lateral_error_m": 0.011186742119277393,
+      "last_1p5s_max_true_speed_m_s": 0.001130555963473497,
+      "last_1p5s_net_drift_m": 0.0009949497677252085,
+      "outcome": "delivered",
+      "termination": "autonomy_terminal",
+      "max_xy_error_m": 0.10356226422445888,
+      "hand_metrics": {
+        "physics_steps": 14100,
+        "hand_contact_steps": [
+          13917,
+          13975
+        ],
+        "max_hand_contact_loss_s": [
+          0.004,
+          0.002
+        ],
+        "other_robot_contact_steps": {},
+        "max_arm_torque_Nm": 7.561821886389414,
+        "max_tray_tilt_deg": 4.527339182441574,
+        "max_payload_shift_m": 0.004056680612702316,
+        "payload_drop": false,
+        "equality_constraints": 0,
+        "torque_limit_Nm": 14.0
+      },
+      "collision_contact_steps": 0,
+      "vla_summary": {
+        "inference_calls": 27,
+        "inference_failures": 0,
+        "control_ticks_by_owner": {
+          "executive": 1142,
+          "vla": 169
+        },
+        "decision_reasons": {
+          "no proposal": 27,
+          "accepted": 139,
+          "proposal expired on control clock": 1013,
+          "vla hold": 30,
+          "executive-only state final_approach": 1,
+          "no executive command": 101
+        },
+        "latency_s": {
+          "min": 0.3548575829991023,
+          "max": 1.0054197500066948,
+          "mean": 0.49448322844546055
+        },
+        "timing": "measured synchronous inference delay applied to simulated proposal availability",
+        "hardware_runtime": false
+      },
+      "vla_server": {
+        "model_id": "groot-c788024b6205",
+        "checkpoint_shards": {
+          "checkpoint/model-00002-of-00003.safetensors": "18d46685c33977b8a97aae6f2fd844fffcdfa951a70f8b3a1c4d44fc065f2364",
+          "checkpoint/model-00001-of-00003.safetensors": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+          "checkpoint/model-00003-of-00003.safetensors": "2c8843e7044929448768faa30caf850ee016d26c0124df687b2f454ed53b9267"
+        },
+        "optimizer_updates": 500,
+        "seed": 9701,
+        "server_source_sha256": "891fbcfd9fd0966ddf4c0ba91705a6266efb427743a0bc242db2e073cb1772ce",
+        "actuator_api": false
+      },
+      "manifest_sha256": "b601de13b3b9c0ce9731e0dc259508011792801518a873e71a0129c7d6cf463d"
+    }
+  ],
+  "finished_at_utc": "2026-10-17T23:57:54.670722+00:00",
+  "passes": 2,
+  "attempts": 4
+}

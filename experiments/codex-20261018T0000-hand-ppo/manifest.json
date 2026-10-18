@@ -1,0 +1,124 @@
+{
+  "status": "trained",
+  "started_at_utc": "2026-10-18T00:01:50.353441+00:00",
+  "simulator": "MuJoCo",
+  "training_device": "cpu",
+  "seed": 9801,
+  "training_kind": "fresh PPO leg residual with actual free hand-supported payload",
+  "base_actor_finetuned": false,
+  "older_torso_residual_reused": false,
+  "source_sha256": {
+    "training/train_hand_carrying.py": "b4fa149e01f602f8db08366a14c12e94787377038e727148ce7f1ad82b7d00c7",
+    "training/hand_carry_env.py": "3700d0ea242e2889b92855da701bb4d0199351d0d714a73f2c847a071b5eea40",
+    "training/ppo_core.py": "9d7edf0444928b30d742e9a5f7ab0a8bf2f5f25dfa15f47a5b9e8969985a93d9",
+    "deployment/hand_residual.py": "21b50c1e99f5e04e3a2a76cdffe3a54f9c75f911c240fa0f217c4bb57acd64c6",
+    "sim/k1_hand_controller.py": "8804ac716cc2b799843113569926c921e123d0c97b75f210625c0aa7053abb58",
+    "sim/k1_hand_carry.py": "505a89a099ea413a9254cbcc84b861ee7ed079bd4e72663c6e46c70b4caec277"
+  },
+  "base_actor_sha256": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5",
+  "iterations_requested": 128,
+  "horizon": 256,
+  "environment_steps": 32768,
+  "physics_steps": 327680,
+  "optimizer_updates": 1024,
+  "episodes": 81,
+  "terminated_episodes": 1,
+  "observation_dim": 65,
+  "action_dim": 12,
+  "residual_bound_rad": 0.08,
+  "leg_joint_names": [
+    "left_hip_pitch_joint",
+    "left_hip_roll_joint",
+    "left_hip_yaw_joint",
+    "left_knee_pitch_joint",
+    "left_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_hip_pitch_joint",
+    "right_hip_roll_joint",
+    "right_hip_yaw_joint",
+    "right_knee_pitch_joint",
+    "right_ankle_pitch_joint",
+    "right_ankle_roll_joint"
+  ],
+  "all_joint_names": [
+    "aahead_yaw_joint",
+    "aahead_pitch_joint",
+    "aaleft_shoulder_pitch_joint",
+    "left_shoulder_roll_joint",
+    "left_elbow_pitch_joint",
+    "left_elbow_yaw_joint",
+    "aaright_shoulder_pitch_joint",
+    "right_shoulder_roll_joint",
+    "right_elbow_pitch_joint",
+    "right_elbow_yaw_joint",
+    "left_hip_pitch_joint",
+    "left_hip_roll_joint",
+    "left_hip_yaw_joint",
+    "left_knee_pitch_joint",
+    "left_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_hip_pitch_joint",
+    "right_hip_roll_joint",
+    "right_hip_yaw_joint",
+    "right_knee_pitch_joint",
+    "right_ankle_pitch_joint",
+    "right_ankle_roll_joint"
+  ],
+  "actor_inputs": "gyro, gravity direction from IMU quaternion, commanded velocity,22 joint positions/velocities,12 previous residuals",
+  "privileged_reward_only": "true linear velocity, root height, body tilt, payload shifts/drop",
+  "scenario": "8s episodes:2s stand,4s move,2s stop; randomized initialyaw\u00b1.2 and eight fixed command classes",
+  "command_classes": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      -0.15
+    ],
+    [
+      0.0,
+      0.0,
+      0.15
+    ],
+    [
+      0.0,
+      0.0,
+      -0.25
+    ],
+    [
+      0.0,
+      0.0,
+      0.25
+    ],
+    [
+      0.4,
+      0.0,
+      0.0
+    ],
+    [
+      0.4,
+      0.0,
+      -0.15
+    ],
+    [
+      0.4,
+      0.0,
+      0.15
+    ]
+  ],
+  "learning_rate": 0.0003,
+  "evaluation_used_for_optimization": false,
+  "hardware_verified": false,
+  "initial_parameter_sha256": "03b2aeebef8302d869ffed9ed45a173ec194dd3d61acd5cd4f8765c3a2a65879",
+  "initial_checkpoint_sha256": "4dd6345cb8bbc23fae41100faca7e013b0b72b97fc1c97d2249c725f07f0ecaa",
+  "iterations_completed": 128,
+  "final_parameter_sha256": "34fc6fb0558c1ee518509092cb3c6645821bdb6cc2026ab2d9d79afe6d7a7968",
+  "parameter_change_l2": 15.795674324035645,
+  "base_actor_sha256_after": "2d860167ed827e8d44cd65abd4c27f474904352bcb98c0cfa97c078f63e2fea5",
+  "final_checkpoint_sha256": "33895c5fb830058978796634b1890fe12c366757277dd569797d8ec3b632e21e",
+  "finished_at_utc": "2026-10-18T00:03:07.979498+00:00",
+  "wall_seconds": 77.62290204099554
+}

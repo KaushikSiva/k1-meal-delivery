@@ -18,6 +18,7 @@ parser.add_argument('--duration', type=float, default=15)
 parser.add_argument('--speed', type=float, default=.35)
 parser.add_argument('--tracking-evaluator', action='store_true', help='Evaluation-only camera follows measured root position')
 parser.add_argument('--wide-evaluator', action='store_true', help='Wider fixed view covering the full straight route')
+parser.add_argument('--interactive', action='store_true', help='Keep the Isaac GUI open with live run/pause/reset controls')
 args = parser.parse_args()
 args.reference_colors=True;args.realistic_payload=True
 assert 5 <= args.duration <= 60 and 0 <= args.speed <= .5
@@ -40,7 +41,7 @@ manifest.write_text(json.dumps(report,indent=2))
 app = None
 try:
     from isaaclab.app import AppLauncher
-    app = AppLauncher(headless=True, enable_cameras=True).app
+    app = AppLauncher(headless=not args.interactive, enable_cameras=True).app
     import numpy as np
     import torch
     from PIL import Image
@@ -172,6 +173,15 @@ try:
         dst.joint_vel[arm]=0.
         return original_observation()
     bridge.controller.policy.compute_observation=nominal_arm_observation
+    if args.interactive:
+        from sim.isaac_live_session import run_live_session
+        report.update(status='interactive',evidence_kind='live_isaac_hand_contact_baseline',
+                      limits=['interactive development session, not a scored delivery trial',
+                              'scripted walking baseline; no PPO or VLA active'])
+        manifest.write_text(json.dumps(report,indent=2)+'\n')
+        run_live_session(app,sim,robot,payload,handmodel,cam,args.speed,args.duration,args.output/'live_state.json')
+        report['status']='interactive_closed'
+        raise SystemExit(0)
     report['actor_steps']=0
     rows=[];frame_times=[];last_frames={};max_tilt=0.;targets=robot.data.default_joint_pos.clone()
     writers={name:imageio.get_writer(str(args.output/(name+'.mp4')),fps=25,codec='libx264')

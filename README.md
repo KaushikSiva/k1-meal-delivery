@@ -42,6 +42,9 @@ No robot is present in this environment-preview frame.*
 | Printed payload and physical table | [Delivered65.6s+2s settling in longer diagnostic](experiments/codex-20261017T2345-printed-navigation/REPORT.md); original60s attempt timed out |
 | Loaded turning | [Unintended translation during pure-yaw commands](experiments/codex-20261017T2350-hand-turn-probe/REPORT.md); carrying-controller weakness remains |
 | GR00T loaded comparison | [3/4 with GR00T;3/4 executive-only](experiments/codex-20261017T2355-groot-loaded/REPORT.md); remote latency rejected many proposals, no overall improvement |
+| GR00T with lossless image transport | [2/4 versus baseline3/4](experiments/codex-20261017T2355-groot-loaded/png/REPORT.md); greater proposal participation did not improve delivery |
+| PPO for hand-supported carrying | [32,768 real control steps;1,024 updates](experiments/codex-20261018T0000-hand-ppo/REPORT.md); matched diagnostics regressed to3/8 versus baseline4/8, not promoted |
+| Interactive Isaac desktop | [Live café scene with Start/Pause/Reset](docs/hardware/ISAAC_LIVE.md); real PhysX contact baseline, browser controls verified, no PPO/VLA active |
 | Hardware delivery | Not completed |
 
 An integrated camera-guided loaded delivery now passes in one MuJoCo development

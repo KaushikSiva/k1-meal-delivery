@@ -9,6 +9,10 @@ Codex bootstrapped the instruction/status placeholders before Claude began. Afte
 
 No simultaneous edits to the same path. New paths outside these allocations must be claimed and agreed through handoffs before editing. Results under experiments/ use unique agent-prefixed run directories; results remain immutable after publication.
 
+2026-10-18 CL13/CL14 handoffs: Claude additionally owns `agents/`, `tests/agents/`,
+`demo/`, `coordination/VERIFIER_LOG.md` and `coordination/verifier_runs/`.
+Codex acknowledged these allocations in CODEX_HANDOFF and remains the sole Git integrator.
+
 Codex maintains shared contracts after Claude review. Claude may independently draft proposed schemas under docs/autonomy/. No assumed compatibility until integration tests pass.
 
 Codex handles all Git mutations in this shared checkout. Claude's ready-for-integration handoff must name exact files, test commands, limitations and whether editing those paths is frozen. Codex acknowledges the resulting commit in CODEX_HANDOFF.md.

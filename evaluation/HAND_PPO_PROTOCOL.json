@@ -1,0 +1,86 @@
+{
+  "frozen_at_utc": "2026-10-18T00:01:33.472517+00:00",
+  "scope": "prospective matched baseline/hand-trained residual diagnostic; not camera-guided delivery",
+  "duration_s": 8,
+  "phase_s": {
+    "stand": [
+      0,
+      2
+    ],
+    "move": [
+      2,
+      6
+    ],
+    "stop": [
+      6,
+      8
+    ]
+  },
+  "modes": [
+    "baseline",
+    "trained_residual"
+  ],
+  "initial_yaw": 0.1,
+  "commands": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      -0.18
+    ],
+    [
+      0,
+      0,
+      0.18
+    ],
+    [
+      0,
+      0,
+      -0.22
+    ],
+    [
+      0,
+      0,
+      0.22
+    ],
+    [
+      0.4,
+      0,
+      0
+    ],
+    [
+      0.4,
+      0,
+      -0.12
+    ],
+    [
+      0.4,
+      0,
+      0.12
+    ]
+  ],
+  "criteria": {
+    "no_drop": true,
+    "no_non_hand_support": true,
+    "max_tray_tilt_deg": 10,
+    "max_payload_shift_m": 0.04,
+    "final_speed_m_s": 0.03,
+    "turn_only_max_translation_m": 0.2,
+    "yaw_error_rad": 0.2,
+    "min_forward_progress_m": 0.4,
+    "stable_stop_window_s": [
+      7,
+      8
+    ]
+  },
+  "limits": [
+    "novel yaw magnitudes, fixed assumed payload",
+    "four previously probed turn commands informed training scope",
+    "small development comparison, not held-out delivery reliability",
+    "no hardware validation"
+  ]
+}

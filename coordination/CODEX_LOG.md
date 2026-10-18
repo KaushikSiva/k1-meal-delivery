@@ -96,3 +96,7 @@ You.com official packaging research saved; original Domino’s-inspired box text
 - 2026-10-17T23:35:00.823112+00:00 Loaded05 integratedcamera-guidedhandcarry passed14individualchecks (earlier15countincorrect),621frames25fpsbothviews verified. GR00T02 completed500updates,validationworsened38.9%,strictreloadpassed; callbacklogs missed20trainingrows, honestgappedgraphproduced. Correctedlogger03 nowrunning realupdates. Sourcehashes verified and reports prepared.
 
 - 2026-10-17T23:47:49.979805+00:00 Verified GR00T03 500/500 loss logs,21fixedvalidations,22.3%lower offline loss, strictreloadpass; prior02worseningretained. Variedloaded3/4; pureyawprobeisolates1.6–1.8munintendedtranslation. Printed02delivered65.6+2s,original60stimeoutretained;1691framefilmverified. GR00Tloadedmatchedbatch now running via localhost SSH inference on authorizedL40S.
+
+## 2026-10-18T00:10:00.636881+00:00 — Interactive Isaac desktop verified
+
+Userpriorityimplemented:actualIsaac5.1GUI+nativeStart/Pause/Reset onexistingL40S. noVNCbrowservalidated sceneandinput;900physicsteps,pausedstateandresetposesverified. RemoteSSH-onlydesktopretainedthroughdemo. Trainingbeforepriority:handPPO32768steps1024updates,baseline4/8vsresidual3/8 diagnosticregression,notpromoted.
