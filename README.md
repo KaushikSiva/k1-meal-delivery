@@ -94,9 +94,19 @@ a Nemotron judge on Crusoe Managed Inference to assess the claims. Failed checks
 FAIL; missing checks or failed model calls cannot produce PASS. Repeated failures
 trigger a replan signal. The verifier records verdicts and reasons for review.
 
-**Implemented and software-tested: 14 tests using a fake model. Live Crusoe Managed
-Inference remains pending credentials and a verified request.** Dry runs do not
-establish sponsor API usage or robotics performance. The live Isaac desktop and
+**Live on Crusoe Managed Inference** (`nvidia/NVIDIA-Nemotron-3.5-Super-VL`, auto-selected from
+`/v1/models`), recorded runs on 2026-10-18:
+
+| Handoff checked | Verdict | What happened |
+| --- | --- | --- |
+| CL-13 v2, first live attempt | **INCOMPLETE** | Nemotron used its whole 2000-token budget on reasoning and returned no answer. The verifier refused to PASS on missing extraction, and that exposed the bug. ([run](coordination/verifier_runs/2026-10-18T001533+0000.json)) |
+| CL-15 (current fix) | **PASS** | 2/2 hashes match; the test command was actually run (15 passed, as claimed); the evidence exists. ([run](coordination/verifier_runs/2026-10-18T001704+0000.json)) |
+| CL-13 v2, rerun after code changed | **FAIL** | Two stale hashes; the claim "14 passed" vs the real 15. Nemotron flagged it as an overclaim, and the loop guard asked for a retry. ([run](coordination/verifier_runs/2026-10-18T001752+0000.json)) |
+
+`.venv/bin/python -m pytest tests/agents -q -p no:cacheprovider` gives 15 tests (fake model).
+Run it live: put `CRUSOE_API_KEY` in `.env`, then run
+`.venv/bin/python -m agents.verifier --handoff coordination/CLAUDE_HANDOFF.md`. The verifier
+checks engineering handoffs and does not measure robot performance. The live Isaac desktop and
 model training use the separate Crusoe GPU VM through Brev.
 
 [Interactive demo instructions](demo/LIVE_DEMO.md) cover the local sensor-guided

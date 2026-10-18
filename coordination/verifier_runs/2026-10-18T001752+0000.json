@@ -1,0 +1,154 @@
+{
+ "at_utc": "2026-10-18T00:17:52+00:00",
+ "handoff": "coordination/CLAUDE_HANDOFF.md",
+ "section": "2026-10-18T00:30Z \u2014 CL-13 v2: verifier corrections for Codex's 00:10:59Z review (all 5 points)",
+ "model": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+ "provider": "Crusoe Managed Inference",
+ "claims": {
+  "files": [
+   {
+    "sha256": "c9f37d946b47e7bbc120a9fa275e7930c8c379f9a7daafd665cad8cd024bd2ff",
+    "path": "agents/verifier.py"
+   },
+   {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "path": "agents/__init__.py"
+   },
+   {
+    "sha256": "9642603206d57712f4ce1c8a7e18e81aa5ca148670993b10ab3255b722e1522b",
+    "path": "tests/agents/test_verifier.py"
+   },
+   {
+    "sha256": "5dc860d209f17de71cfe55c7fc57d409a10e5a4a7e9a27632824b7e68b54bd3f",
+    "path": "demo/LIVE_DEMO.md"
+   },
+   {
+    "sha256": "3b7e5d402b48c6dc2e0412e9c277d770a1a77fb5d79344fa5c23e1030295dff7",
+    "path": "demo/live_mujoco.py"
+   }
+  ],
+  "tests": [
+   {
+    "command": ".venv/bin/python -m pytest tests/agents -q -p no:cacheprovider",
+    "expect": {
+     "passed": 14
+    }
+   }
+  ],
+  "evidence": [
+   "agents/verifier.py",
+   "agents/__init__.py",
+   "tests/agents/test_verifier.py",
+   "demo/LIVE_DEMO.md",
+   "demo/live_mujoco.py",
+   "README"
+  ],
+  "statements": [
+   "Return code is enforced.",
+   "A model or extraction failure is never PASS.",
+   "Zero checks, `--no-tests` with claimed tests, or an allowlist-rejected command give INCOMPLETE (the loop guard returns VERIFY_MORE, then PING_HUMAN after 3).",
+   "Path containment uses `resolve().is_relative_to(ROOT.resolve())`, which rejects sibling-prefix paths (`ROOT-evil`).",
+   "The `TEST_ALLOW` regex is replaced by `parse_test_command` (shlex).",
+   "14 passed",
+   "Live Managed Inference stays unclaimed: there is no CRUSOE_API_KEY yet and no recorded successful call."
+  ],
+  "extraction_error": null
+ },
+ "checks": [
+  {
+   "check": "sha256",
+   "path": "agents/verifier.py",
+   "ok": false,
+   "detail": "actual 2071e6741425506a\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "agents/__init__.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "tests/agents/test_verifier.py",
+   "ok": false,
+   "detail": "actual 4fc518be99e21600\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "demo/LIVE_DEMO.md",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "demo/live_mujoco.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "test",
+   "command": ".venv/bin/python -m pytest tests/agents -q -p no:cacheprovider",
+   "ok": false,
+   "detail": "exit 0; got {'passed': 15} expected {'passed': 14}"
+  },
+  {
+   "check": "evidence",
+   "path": "agents/verifier.py",
+   "ok": true,
+   "detail": "exists"
+  },
+  {
+   "check": "evidence",
+   "path": "agents/__init__.py",
+   "ok": true,
+   "detail": "exists"
+  },
+  {
+   "check": "evidence",
+   "path": "tests/agents/test_verifier.py",
+   "ok": true,
+   "detail": "exists"
+  },
+  {
+   "check": "evidence",
+   "path": "demo/LIVE_DEMO.md",
+   "ok": true,
+   "detail": "exists"
+  },
+  {
+   "check": "evidence",
+   "path": "demo/live_mujoco.py",
+   "ok": true,
+   "detail": "exists"
+  },
+  {
+   "check": "evidence",
+   "path": "README",
+   "ok": false,
+   "detail": "missing"
+  }
+ ],
+ "verdict": {
+  "verdict": "FAIL",
+  "definition_of_done": [
+   "sha256 for agents/verifier.py matches expected",
+   "sha256 for tests/agents/test_verifier.py matches expected",
+   "pytest tests/agents reports exactly 14 passed",
+   "README exists"
+  ],
+  "overclaims": [
+   "\"14 passed\" \u2014 actual test run shows 15 passed"
+  ],
+  "reasons": [
+   "sha256 failed: agents/verifier.py (actual 2071e6741425506a\u2026)",
+   "sha256 failed: tests/agents/test_verifier.py (actual 4fc518be99e21600\u2026)",
+   "test failed: .venv/bin/python -m pytest tests/agents -q -p no:cacheprovider (exit 0; got {'passed': 15} expected {'passed': 14})",
+   "evidence failed: README (missing)",
+   "sha256 check failed for agents/verifier.py",
+   "sha256 check failed for tests/agents/test_verifier.py",
+   "test check failed: expected 14 passed, got 15 passed",
+   "evidence check failed: README missing"
+  ]
+ },
+ "next_action": "RETRY"
+}

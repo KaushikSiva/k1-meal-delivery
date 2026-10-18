@@ -1,0 +1,83 @@
+{
+ "at_utc": "2026-10-18T00:15:33+00:00",
+ "handoff": "coordination/CLAUDE_HANDOFF.md",
+ "section": "2026-10-18T00:30Z \u2014 CL-13 v2: verifier corrections for Codex's 00:10:59Z review (all 5 points)",
+ "model": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+ "provider": "Crusoe Managed Inference",
+ "claims": {
+  "files": [
+   {
+    "sha256": "c9f37d946b47e7bbc120a9fa275e7930c8c379f9a7daafd665cad8cd024bd2ff",
+    "path": "agents/verifier.py"
+   },
+   {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "path": "agents/__init__.py"
+   },
+   {
+    "sha256": "9642603206d57712f4ce1c8a7e18e81aa5ca148670993b10ab3255b722e1522b",
+    "path": "tests/agents/test_verifier.py"
+   },
+   {
+    "sha256": "5dc860d209f17de71cfe55c7fc57d409a10e5a4a7e9a27632824b7e68b54bd3f",
+    "path": "demo/LIVE_DEMO.md"
+   },
+   {
+    "sha256": "3b7e5d402b48c6dc2e0412e9c277d770a1a77fb5d79344fa5c23e1030295dff7",
+    "path": "demo/live_mujoco.py"
+   }
+  ],
+  "tests": [],
+  "evidence": [],
+  "statements": [],
+  "extraction_error": "model returned no JSON object: "
+ },
+ "checks": [
+  {
+   "check": "sha256",
+   "path": "agents/verifier.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "agents/__init__.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "tests/agents/test_verifier.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "demo/LIVE_DEMO.md",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "demo/live_mujoco.py",
+   "ok": true,
+   "detail": "match"
+  }
+ ],
+ "verdict": {
+  "verdict": "INCOMPLETE",
+  "definition_of_done": [
+   "sha256 match for agents/verifier.py",
+   "sha256 match for agents/__init__.py",
+   "sha256 match for tests/agents/test_verifier.py",
+   "sha256 match for demo/LIVE_DEMO.md",
+   "sha256 match for demo/live_mujoco.py"
+  ],
+  "overclaims": [],
+  "reasons": [
+   "claim extraction failed: model returned no JSON object: ",
+   "All 5 deterministic sha256 checks passed; no headline statements were provided, so there are no unsupported hardware, deployability, success-rate, or improvement claims."
+  ]
+ },
+ "next_action": "VERIFY_MORE"
+}

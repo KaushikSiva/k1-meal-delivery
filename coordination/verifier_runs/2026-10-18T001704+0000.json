@@ -1,0 +1,78 @@
+{
+ "at_utc": "2026-10-18T00:17:04+00:00",
+ "handoff": "coordination/CLAUDE_HANDOFF.md",
+ "section": "2026-10-18T00:45Z \u2014 CL-15: verifier live-run fix (Nemotron reasoning budget)",
+ "model": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+ "provider": "Crusoe Managed Inference",
+ "claims": {
+  "files": [
+   {
+    "sha256": "2071e6741425506a0ce1045bfe922c3424be880759308fbe956c6ded380e2a81",
+    "path": "agents/verifier.py"
+   },
+   {
+    "sha256": "4fc518be99e2160066d1de19e245bf899ec0f75bfec8db0ceaec6b5faf8759ea",
+    "path": "tests/agents/test_verifier.py"
+   }
+  ],
+  "tests": [
+   {
+    "command": ".venv/bin/python -m pytest tests/agents -q -p no:cacheprovider",
+    "expect": {
+     "passed": 15
+    }
+   }
+  ],
+  "evidence": [
+   "coordination/verifier_runs/2026-10-18T001533+0000.json"
+  ],
+  "statements": [
+   "The first live Crusoe run (`coordination/verifier_runs/2026-10-18T001533+0000.json`) returned INCOMPLETE, which was correct.",
+   "`nvidia/NVIDIA-Nemotron-3.5-Super-VL` used all 2000 completion tokens on reasoning (`finish_reason=length`, empty content), so claim extraction failed and the verifier refused to PASS.",
+   "The fix raises max_tokens to 12000 and the timeout to 300 s, and an empty reply truncated by the length limit now gives an explicit error.",
+   "One regression test was added.",
+   "Test: `.venv/bin/python -m pytest tests/agents -q -p no:cacheprovider` \u2192 15 passed"
+  ],
+  "extraction_error": null
+ },
+ "checks": [
+  {
+   "check": "sha256",
+   "path": "agents/verifier.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "tests/agents/test_verifier.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "test",
+   "command": ".venv/bin/python -m pytest tests/agents -q -p no:cacheprovider",
+   "ok": true,
+   "detail": "exit 0; got {'passed': 15} expected {'passed': 15}"
+  },
+  {
+   "check": "evidence",
+   "path": "coordination/verifier_runs/2026-10-18T001533+0000.json",
+   "ok": true,
+   "detail": "exists"
+  }
+ ],
+ "verdict": {
+  "verdict": "PASS",
+  "definition_of_done": [
+   "sha256 of agents/verifier.py matches submitted hash",
+   "sha256 of tests/agents/test_verifier.py matches submitted hash",
+   "pytest tests/agents exits 0 with 15 passed",
+   "coordination/verifier_runs/2026-10-18T001533+0000.json exists"
+  ],
+  "overclaims": [],
+  "reasons": [
+   "All deterministic checks passed: both file hashes match, the test command exited 0 with 15 passed as expected, and the evidence run file exists. There are no failed checks. The statements do not contain unsupported hardware results, deployability claims, success rates, or improvements."
+  ]
+ },
+ "next_action": "CONTINUE"
+}

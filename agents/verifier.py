@@ -92,7 +92,7 @@ def _env_key(name: str) -> str | None:
 
 
 class NemotronClient:
-    def __init__(self, key: str, model: str | None = None, base_url: str = BASE_URL, timeout: float = 120):
+    def __init__(self, key: str, model: str | None = None, base_url: str = BASE_URL, timeout: float = 300):
         self.key, self.base, self.timeout = key, base_url.rstrip("/"), timeout
         self.model = model or self._pick_nemotron()
 
@@ -112,11 +112,16 @@ class NemotronClient:
         text_first = sorted(nemo, key=lambda m: ("omni" in m.lower(), len(m)))
         return text_first[0]
 
-    def chat_json(self, system: str, user: str, max_tokens: int = 2000) -> dict:
+    def chat_json(self, system: str, user: str, max_tokens: int = 12000) -> dict:
+        # Nemotron reasoning models spend completion tokens on hidden reasoning first; a small budget
+        # ends with finish_reason="length" and empty content (observed live 2026-10-18 at 2000).
         out = self._req("/chat/completions", {
             "model": self.model, "temperature": 0.0, "max_tokens": max_tokens,
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]})
-        text = out["choices"][0]["message"]["content"] or ""
+        choice = out["choices"][0]
+        text = choice["message"]["content"] or ""
+        if not text.strip() and choice.get("finish_reason") == "length":
+            raise ValueError(f"model hit max_tokens={max_tokens} during reasoning; no answer produced")
         text = re.sub(r"<think>.*?</think>", "", text, flags=re.S)  # reasoning models
         m = re.search(r"\{.*\}", text, flags=re.S)
         if not m:

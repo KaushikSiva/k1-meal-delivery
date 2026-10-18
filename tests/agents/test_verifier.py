@@ -1,4 +1,5 @@
 """SOFTWARE TESTS for the Done-Means-Done verifier (fake model client; no network)."""
+import pytest
 import hashlib
 import json
 import sys
@@ -132,3 +133,13 @@ def test_incomplete_escalates_to_human_after_repeats(tmp_path):
     st = tmp_path / "s.json"
     acts = [V.loop_guard({"verdict": "INCOMPLETE"}, [], st) for _ in range(3)]
     assert acts == ["VERIFY_MORE", "VERIFY_MORE", "PING_HUMAN"]
+
+
+def test_reasoning_truncation_is_reported_not_passed(monkeypatch):
+    c = V.NemotronClient("k", model="m")
+    monkeypatch.setattr(c, "_req", lambda *a, **k: {"choices": [{"finish_reason": "length",
+                                                                   "message": {"content": None}}]})
+    with pytest.raises(ValueError, match="max_tokens"):
+        c.chat_json("s", "u")
+    claims = V.extract_claims("note", c)
+    assert claims.extraction_error and "max_tokens" in claims.extraction_error
