@@ -1,0 +1,51 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:34:11+00:00",
+  "query": "Gemini Robotics On-Device VLA availability trusted tester fine-tune",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Gemini Robotics On-Device brings AI to local robotic devices — ...",
+      "url": "https://deepmind.google/blog/gemini-robotics-on-device-brings-ai-to-local-robotic-devices/",
+      "description": "We’re introducing an efficient, on-device robotics model with general-purpose dexterity and fast task adaptation.",
+      "snippets": [
+        "Developers can access the SDK by signing up to our trusted tester program. Gemini Robotics On-Device is a robotics foundation model for bi-arm robots, engineered to require minimal computational resources. It builds on the task generalization and dexterity capabilities of Gemini Robotics and is: Designed for rapid experimentation with dexterous manipulation. Adaptable to new tasks through fine-tuning to improve performance.",
+        "Gemini Robotics On-Device is the first VLA model we're making available for fine-tuning. While many tasks will work out of the box, developers can also choose to adapt the model to achieve better performance for their applications.",
+        "Here, we show how Gemini Robotics On-Device outperforms the current, best on-device VLA on tasks involving fine-tuning to newer models.",
+        "To gain a deeper understanding of Gemini Robotics On-Device’s usage and safety profile and to gather feedback, we’re initially releasing it to a select group of trusted testers."
+      ]
+    },
+    {
+      "title": "Gemini Robotics On-Device 2 — Google DeepMind",
+      "url": "https://deepmind.google/models/gemini-robotics/gemini-robotics-on-device/",
+      "description": "Our most-efficient vision-language-action model (VLA). Built specifically to handle network constraints, and optimized to run locally on robotic devices.",
+      "snippets": [
+        "Our most-efficient vision-language-action model (VLA). Built specifically to handle network constraints, and optimized to run locally on robotic devices. ... Gemini Robotics On-Device 2 adapts quickly to completely new robots – with fewer than 200 examples.",
+        "Many robots need to operate without network latency or internet connectivity. Gemini Robotics On-Device 2 is built specifically to handle these constraints."
+      ]
+    },
+    {
+      "title": "Google DeepMind Announces Robotics Foundation Model Gemini Robotics ...",
+      "url": "https://www.infoq.com/news/2025/07/google-gemini-robotics/",
+      "description": "Google DeepMind introduced Gemini Robotics On-Device, a vision-language-action (VLA) foundation model designed to run locally on robot hardware. The model features low-latency inference and can be fine-tuned for specific tasks with as few as 50 demonstrations.",
+      "snippets": [
+        "Multimodal LLMs already have a ton of built-in understanding of images and text, so VLAs are just regular MMLLMs that are fine-tuned to output a specific sequence of instructions that can be fed to a robot....The neat part is that although everyone is focusing on robot arms manipulating objects at the moment, there's no reason this method can't be applied to any task.",
+        "For seven different tasks, such as preparing food and playing with cards, they fine-tuned the model with at most 100 demonstrations; on average, using their model the robot successfully completed the tasks over 60% time, beating the \"current, best on-device VLA.\"",
+        "Gemini Robotics On-Device marks a step forward in making powerful robotics models more accessible and adaptable — and our on-device solution will help the robotics community tackle important latency and connectivity challenges. The Gemini Robotics SDK will further accelerate innovation by allowing developers to adapt the model to their specific needs. Sign up for model and SDK access via our trusted tester program."
+      ]
+    },
+    {
+      "title": "Google Announces On-Device Gemini Robotics Model",
+      "url": "https://www.maginative.com/article/google-announces-on-device-gemini-robotics-model/",
+      "description": "Google DeepMind launches its first on-device Gemini Robotics model that can control robots locally without cloud connectivity, tackling privacy and latency issues that have plagued cloud-based robotics.",
+      "snippets": [
+        "Fine-tunes to new tasks or robot bodies with just 50–100 demos. Gemini Robotics SDK lands for developers, though access starts via a “trusted tester” program.",
+        "The company is rolling out the technology through a trusted tester program along with a Gemini Robotics SDK that lets developers fine-tune the model for their specific use cases.",
+        "Google's solution builds on what the company calls Vision-Language-Action (VLA) models — AI systems that can see their environment, understand natural language commands, and translate both into physical actions. Think of it as a more sophisticated version of asking Alexa to turn on the lights, except the robot can actually grab, manipulate, and move objects in the real world. The on-device model inherits the dexterity of Google's flagship cloud-based Gemini Robotics but compresses it down to run on the robot's local hardware.",
+        "Google's bet on local processing also addresses growing privacy concerns. When your robot can see your home, understand your routines, and remember your preferences, keeping that data local becomes more than just a technical consideration — it's a trust issue."
+      ]
+    }
+  ]
+}

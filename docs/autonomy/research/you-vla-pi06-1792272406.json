@@ -1,0 +1,54 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:26:48+00:00",
+  "query": "Physical Intelligence pi0.6 pi*0.6 model release open weights",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "GitHub - Physical-Intelligence/openpi · GitHub",
+      "url": "https://github.com/Physical-Intelligence/openpi",
+      "description": "Contribute to Physical-Intelligence/openpi development by creating an account on GitHub.",
+      "snippets": [
+        "XLA_PYTHON_CLIENT_MEM_FRACTION=0.9 uv run scripts/train.py pi05_libero --exp-name=my_experiment --overwrite · The command will log training progress to the console and save checkpoints to the checkpoints directory. You can also monitor training progress on the Weights & Biases dashboard.",
+        "$\\pi_0$ may or may not work for you, but you are welcome to try it and see! [Sept 2025] We released PyTorch support in openpi. [Sept 2025] We released pi05, an upgraded version of pi0 with better open-world generalization.",
+        "[Jun 2025]: We have added instructions for using openpi to train VLAs on the full DROID dataset. This is an approximate open-source implementation of the training pipeline used to train pi0-FAST-DROID.",
+        "# Single GPU training: uv run scripts/train_pytorch.py  --exp_name  --save_interval  # Example: uv run scripts/train_pytorch.py debug --exp_name pytorch_test uv run scripts/train_pytorch.py debug --exp_name pytorch_test --resume # Resume from latest checkpoint # Multi-GPU training (single node): uv run torchrun --standalone --nnodes=1 --nproc_per_node= scripts/train_pytorch.py  --exp_name  # Example: uv run torchrun --standalone --nnodes=1 --nproc_per_node=2 scripts/train_pytorch.py pi0_aloha_sim --exp_name pytorch_ddp_test uv r"
+      ]
+    },
+    {
+      "title": "Physical Intelligence open-sources π0 model weights and code as ...",
+      "url": "https://technooptimist.io/stories/physical-intelligence-open-sources-0-model-weights-and-code-as-openpi-83853247",
+      "description": "Physical Intelligence released the weights and code for its π0 robot model and the faster π0-FAST variant in a public repository called openpi, with…",
+      "snippets": [
+        "π*0.6 learns from its own deployments with the Recap reinforcement-learning method, more than doubling throughput on some hard tasksNov 2025"
+      ]
+    },
+    {
+      "title": "π0.6 Model Card Physical Intelligence November 17, 2025 1 ...",
+      "url": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
+      "description": "Physical Intelligence · We introduce π0.6, our newest vision-language-action (VLA) model that builds on top of π0.5 [2]",
+      "snippets": []
+    },
+    {
+      "title": "Physical Intelligence (π)",
+      "url": "https://www.pi.website/",
+      "description": "Physical Intelligence is bringing general-purpose AI into the physical world.",
+      "snippets": [
+        "We are releasing the weights and code for π0 as well as our new π0-FAST autoregressive model."
+      ]
+    },
+    {
+      "title": "exla-ai/openpie-0.6 · Hugging Face",
+      "url": "https://huggingface.co/exla-ai/openpie-0.6",
+      "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+      "snippets": [
+        "The first fully open-source PyTorch implementation of Physical Intelligence's pi0.6 robot policy model, trained with RECAP.",
+        "OpenPIE-0.6 is a fully open-source reimplementation of Physical Intelligence's pi0.6 model.",
+        "@software{openpie_0_6, title={OpenPIE-0.6: Open-source Pi0.6 Implementation}, author={EXLA AI}, year={2025}, url={https://huggingface.co/exla-ai/openpie-0.6} } @article{pi0_6_paper, title={pi0.6: Scaling Robot Policy Learning with RECAP}, author={Physical Intelligence}, year={2024} }",
+        "# Pseudo-code for robot integration class OpenPIEPolicy: def __init__(self): # Load model weights self.policy_weights = load_file(hf_hub_download(\"exla-ai/openpie-0.6\", \"policy.safetensors\")) # ... initialize your model architecture with these weights def get_action(self, image, robot_state, instruction): \"\"\" Args: image: Camera image (384x384 RGB) robot_state: Current joint positions (14D for dual arm) instruction: Text instruction like \"pick up the cube\" Returns: actions: Joint position targets (14D) \"\"\" # Your inference code here pass # Usage policy = OpenPIEPolicy() action = policy.get_action( image=camera.get_frame(), robot_state=robot.get_joint_positions(), instruction=\"pick up the red cube and place it on the plate\" ) robot.execute(action) Fully Open: Unlike the original pi0.6, all weights and code are available"
+      ]
+    }
+  ]
+}

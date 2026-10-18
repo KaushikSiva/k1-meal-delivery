@@ -1,0 +1,65 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:26:51+00:00",
+  "query": "SmolVLA vs pi0 vs GR00T fine-tuning benchmark comparison humanoid",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "OpenVLA vs pi0 vs SmolVLA vs GR00T: Which VLA to Fine-Tune",
+      "url": "https://particula.tech/blog/openvla-vs-pi0-vs-smolvla-vs-groot-n1",
+      "description": "450M to 7B is a 15x parameter spread, and the documented fine-tune floor runs from 22.5 GB to a node of eight A100s. Memory, format and licence per model.",
+      "snippets": [
+        "If the prior is what transfers, the question is which pretraining mixture looks most like your robot: SmolVLA's is community arms, mostly SO-100 class, pi0's is 7 robot configurations of real manipulation hours, GR00T's is real, simulated and human video across embodiments including humanoids.",
+        "If you are on an SO-100 or SO-101 class arm with roughly 50 to a few hundred episodes already in LeRobot format, fine-tune SmolVLA first: it is 450M parameters, its documented recipe is 20,000 steps in about four hours on a single A100, and it is the cheapest control experiment you can run. If you have a LeRobot corpus, one 80 GB GPU and you need high-rate chunked control, use pi0 through openpi, which documents a LoRA floor above 22.5 GB. If you are on a humanoid or several embodiments at once and have H100 or L40 access, GR00T N1 ships a recipe and embodiment tagging for exactly that.",
+        "OpenVLA is a 7B research baseline pretrained on 970,000 Open X-Embodiment demonstrations that beat the 55B RT-2-X by 16.5 points across 29 tasks, pi0 is a 3.3B flow policy with a 50 step action chunk running up to 50 Hz, SmolVLA is a 450M model pretrained on 487 community datasets that moved real SO-100 success from 51.7% to 78.3%, and GR00T N1 is a released NVIDIA checkpoint with a recipe and published numbers at 100 demonstrations per task.",
+        "The costs that separate them are the ones missing from most comparison tables: openpi documents a LoRA floor above 22.5 GB and a full fine-tune floor above 70 GB, OpenVLA's own recipe wants roughly 72 GB for LoRA at batch size 16 and a node of eight A100s for full fine-tuning, and Isaac-GR00T recommends 40 GB or more per GPU. Dataset format coupling is the second cost, because SmolVLA and openpi consume LeRobot episodes, GR00T wants a LeRobot v2 flavour plus a modality file, and OpenVLA's fine-tuning script wants RLDS."
+      ]
+    },
+    {
+      "title": "VLA Models Comparison 2026: Octo, OpenVLA, Pi0, GR00T, SmolVLA, ...",
+      "url": "https://www.roboticscenter.ai/tools/vla-models-comparison",
+      "description": "Fine-tune in 30 minutes, deploy same day. Need language-conditioned multi-task with strong generalization? → OpenVLA. Best open-source language grounding. Working with LeRobot and want native ecosystem support? → SmolVLA. Tightest LeRobot integration. Building a humanoid robot application? → GR00T ...",
+      "snippets": [
+        "Fine-tune in 30 minutes, deploy same day. Need language-conditioned multi-task with strong generalization? → OpenVLA. Best open-source language grounding. Working with LeRobot and want native ecosystem support? → SmolVLA. Tightest LeRobot integration. Building a humanoid robot application? → GR00T N1.",
+        "Compare vision-language-action (VLA) models for robot learning: Octo, OpenVLA, Pi0, GR00T, SmolVLA. Architecture, training data, inference speed, hardware compatibility, and real-robot performance.",
+        "One stack for real-world robotics: hardware, data, and evaluation. Reinforcement Learning in Real Life.",
+        "Sim-first training: Pre-trained on 1M+ episodes in Isaac Lab (physics simulation with domain randomization), then fine-tuned with 50K-100K real humanoid episodes. This sim-first approach works well for locomotion and whole-body balance but still requires significant real data for manipulation tasks. Hardware ecosystem: Optimized for NVIDIA Jetson Thor (the humanoid-specific compute platform). Also runs on Jetson AGX Orin with reduced performance. GR00T SDK provides standardized interfaces for Figure, Agility Robotics, Apptronik, and 1X humanoids."
+      ]
+    },
+    {
+      "title": "Best Open-Weight Robotics VLA Models 2026 | Presenc AI",
+      "url": "https://presenc.ai/research/best-open-weight-robotics-vla-models-2026",
+      "description": "Open-weight vision-language-action model comparison for October 2026: pi0.5, GR00T N1.7, MolmoAct2, X-VLA, OpenVLA-OFT, SmolVLA. LIBERO scores, licences,...",
+      "snippets": [
+        "Open-weight vision-language-action model comparison for October 2026: pi0.5, GR00T N1.7, MolmoAct2, X-VLA, OpenVLA-OFT, SmolVLA. LIBERO scores, licences, and the VRAM each one needs. By Ramanath, CTO & Co-Founder at Presenc AI · Last updated: October 2026Cite This Report · The leading open-weight vision-language-action models in October 2026 are pi0.5 from Physical Intelligence, GR00T N1.7 from NVIDIA, and MolmoAct2 from the Allen Institute for AI. pi0.5 is the usual research baseline and runs on a GPU with 8 GB of memory. GR00T N1.7 targets humanoids, and NVIDIA states it is commercially licensable.",
+        "Humanoid or bimanual platform: GR00T N1.7. It is pretrained on humanoid data and 20,000 hours of human video, and exports to ONNX and TensorRT for Jetson. General arm manipulation baseline: pi0.5 through openpi or the LeRobot port. Full reproducibility: MolmoAct2. AI2 released weights, code and datasets, including 720 hours of bimanual data. Hobby and education arms such as SO-100: SmolVLA.",
+        "There is no single winner. pi0.5 from Physical Intelligence is the common research baseline and reports 96.85 percent on LIBERO. GR00T N1.7 from NVIDIA is the choice for humanoids. MolmoAct2 from the Allen Institute for AI reports 97.2 percent and releases its training data. SmolVLA is the best fit for low-cost arms.",
+        "SmolVLA, X-VLA and the openpi repository are Apache 2.0. Check before shipping. NVIDIA's GitHub README says GR00T N1.7 is fully commercially licensable under Apache 2.0, while the Hugging Face card names the NVIDIA Open Model License and says the model is ready for commercial use. Its vision-language backbone, Cosmos-Reason2-2B, is a gated download. The earlier GR00T N1.6 card links to an NVIDIA non-commercial licence. The LeRobot ports of pi0 and pi0.5 are tagged with the Gemma licence on Hugging Face, which differs from the Apache 2.0 licence on the openpi repository."
+      ]
+    },
+    {
+      "title": "VLA Models for Robot Arms: OpenVLA vs SmolVLA vs Pi0 – OpenELAB ...",
+      "url": "https://openelab.io/blogs/learn/vla-models-for-robot-arms",
+      "description": "Compare OpenVLA, SmolVLA, Pi0 and GR00T by access, compute, robot support, data and fine-tuning path to choose a practical VLA stack.",
+      "snippets": [
+        "OpenVLA remains a useful 7B research baseline, while Pi0/Pi0.5 and GR00T target more compute-intensive workflows. ... Affordable SO-101 or LeRobot project: start with SmolVLA. Established open 7B research baseline: evaluate OpenVLA. OpenPI research with a strong NVIDIA GPU: consider Pi0 or Pi0.5. NVIDIA sim-to-real or humanoid workflow: evaluate Isaac GR00T.",
+        "SmolVLA has the shortest public LeRobot route for SO-101, including dataset recording, fine-tuning, and rollout. NVIDIA also documents an SO-101 path for GR00T N1.6, but that workflow requires more GPU resources.",
+        "A Jetson-equipped arm kit does not by itself establish that OpenVLA, Pi0, GR00T, or another checkpoint will meet real-time requirements. Only when the selected checkpoint and observation pipeline use depth. SmolVLA's documented inputs use multiple RGB views, robot state, and language.",
+        "Hugging Face SmolVLA documentation — inputs, SO-101 workflow, episode guidance, training, and rollout. OpenVLA project and official repository — architecture, data scale, robot evaluations, and LoRA route. Physical Intelligence OpenPI — model families, checkpoints, GPU requirements, and tested operating system. LeRobot Pi0 documentation — LeRobot implementation, training options, and action representation. NVIDIA Isaac GR00T SO-101 course — N1.6 workflow, demonstrations, compute, and action chunking."
+      ]
+    },
+    {
+      "title": "VLA_model_comparision/vla_model_comparison.md at master · ...",
+      "url": "https://github.com/ShashwatPatil/VLA_model_comparision/blob/master/vla_model_comparison.md",
+      "description": "Contribute to ShashwatPatil/VLA_model_comparision development by creating an account on GitHub.",
+      "snippets": [
+        "GR00T achieved 43% better accuracy than Pi0. ... Easier to configure and extend for new robots. Good documentation and many examples for different types of robots. eg. quadrupeds, humanoids and arms.",
+        "In this comparison, I evaluate the inference accuracy of two Visual-Language-Action (VLA) models: OpenPi’s Pi0 and NVIDIA’s GR00T N1.5, both fine-tuned on a custom dataset of 40+ episodes collected on the SO101 Arm.",
+        "GR00T N1.5 is overall the better model for my setup: ... OpenPi Pi0 is still strong, especially given its generality, but harder to adapt and GR00T has support for multiple types of robots and not just arms, which makes it better for more general use.",
+        "For evaluation i used the open-loop eval script withing GR00T, had to modify it to evaluate PI0."
+      ]
+    }
+  ]
+}

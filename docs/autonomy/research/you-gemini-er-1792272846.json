@@ -1,0 +1,58 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:34:08+00:00",
+  "query": "Gemini Robotics-ER 1.5 embodied reasoning model API availability pricing",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Gemini Robotics ER | Gemini API | Google AI for Developers",
+      "url": "https://ai.google.dev/gemini-api/docs/robotics-overview",
+      "description": "Overview of Gemini Robotics ER models and capabilities for building robotics applications.",
+      "snippets": [
+        "It specializes in embodied reasoning capabilities, such as agentic orchestration of robots (e.g. using VLAs), robot video understanding including progress understanding and success detection, instrument reading, pointing, and spatial reasoning. The Gemini Robotics ER 2 model introduces two model endpoints: gemini-robotics-er-2-preview: The standard ER 2 model. Builds on Gemini 3.5 Flash with improved spatial reasoning, video moment finding, video progress classification, multi-robot orchestration, and multi-step tool use.",
+        "Gemini Robotics ER (embodied reasoning) models are vision-language models (VLMs) that let robots perceive and interact with the physical world.",
+        "Gemini Robotics ER supports a range of embodied reasoning capabilities.",
+        "Gemini Robotics ER takes image, video, or audio input with natural language prompts. It identifies objects, reasons about scene context and spatial relationships, and returns structured output like coordinates or bounding boxes."
+      ]
+    },
+    {
+      "title": "Gemini Robotics ER 2 — Google DeepMind",
+      "url": "https://deepmind.google/models/gemini-robotics/embodied-reasoning/",
+      "description": "Our embodied reasoning model: Capable of real-world understanding and complex, multi-step planning",
+      "snippets": [
+        "Our embodied reasoning model understands the physical world, plans multi-step tasks, and can coordinate multiple robots in the same space to complete a shared task.",
+        "Our embodied reasoning model: capable of understanding the physical world and complex, multi-step planning",
+        "Uses tools – like Google Search or Google Calendar – to better understand its environment, and use that information to instruct its reasoning."
+      ]
+    },
+    {
+      "title": "Gemini Robotics-ER 1.5 Preview pricing & specs — Google | CloudPrice",
+      "url": "https://cloudprice.net/models/google-gemini-robotics-er-1-5-preview",
+      "description": "Gemini Robotics-ER 1.5 Preview is an AI model by Google. 1.0M context window. Pricing from $0.300 per 1M input tokens. Available from 2 providers. Compare LLM pricing, specs, benchmarks, and costs across providers.",
+      "snippets": [
+        "Gemini Robotics-ER 1.5 Preview is Google's language model with a 1.0M context window and up to 66K output tokens, available from 2 providers, starting at $0.3 / 1M input and $2.50 / 1M output. A preview Gemini model specialized for embodied reasoning in robotics applications at the 1.5 generation."
+      ]
+    },
+    {
+      "title": "Gemini Robotics ER 2 Preview pricing & specs — Google | CloudPrice",
+      "url": "https://cloudprice.net/models/google-gemini-robotics-er-2-preview",
+      "description": "Gemini Robotics ER 2 Preview is an AI model by Google. 131K context window. Pricing from $1.00 per 1M input tokens. Available from 2 providers. Compare LLM pricing, specs, benchmarks, and costs across providers.",
+      "snippets": [
+        "Gemini Robotics ER 2 Preview is Google's language model with a 131K context window and up to 66K output tokens, available from 2 providers, starting at $1.00 / 1M input and $5.00 / 1M output. A multimodal LLM specialized for robotics and embodied reasoning tasks, extending the Gemini Robotics line with enhanced spatial and physical understanding."
+      ]
+    },
+    {
+      "title": "Building the Next Generation of Physical Agents with Gemini ...",
+      "url": "https://developers.googleblog.com/building-the-next-generation-of-physical-agents-with-gemini-robotics-er-15/",
+      "description": "Gemini Robotics-ER 1.5, now available to developers, is a state-of-the-art embodied reasoning model for robots.",
+      "snippets": [
+        "This model is the foundational reasoning component of our broader Gemini Robotics system. To understand the science behind our vision for the future of robotics, including end-to-end action models (VLA) and cross-embodiment learning, read the research blog and full technical report.",
+        "Today, we're making our state-of-the-art robotics embodied reasoning model, Gemini Robotics-ER 1.5, available to all developers. This is the first Gemini Robotics model to be made broadly available.",
+        "Gemini Robotics-ER 1.5 is the first thinking model optimized for this kind of embodied reasoning.",
+        "The Gemini Robotics-ER 1.5 model is our most advanced model for embodied reasoning while retaining strong performance as a general-purpose multimodal foundation model."
+      ]
+    }
+  ]
+}

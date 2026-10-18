@@ -1,0 +1,113 @@
+--- navigation/planner.py	2026-10-17 13:34:30
++++ /private/tmp/claude-501/-Users-kaushiksivakumar/8458a793-b11c-4a8f-bd48-73a56d9f0a27/scratchpad/plannerfix/navigation/planner.py	2026-10-17 14:09:45
+@@ -141,13 +141,10 @@
+ 
+ 
+ def _world_segment_free(grid: OccupancyGrid, free: np.ndarray, a, b) -> bool:
+-    a, b = np.asarray(a, float), np.asarray(b, float)
+-    n = int(np.ceil(np.linalg.norm(b - a) / (grid.resolution * 0.5))) + 1
+-    for t in np.linspace(0.0, 1.0, n):
+-        rc = grid.world_to_cell(a + t * (b - a))
+-        if not grid.in_bounds(rc) or not free[rc]:
+-            return False
+-    return True
++    """Exact (every touched cell) check for a world-frame segment; sampling can miss corner clips."""
++    to_cc = lambda p: ((p[1] - grid.origin[1]) / grid.resolution, (p[0] - grid.origin[0]) / grid.resolution)
++    cells = _traverse(to_cc(a), to_cc(b), free.shape)
++    return bool(cells) and all(free[rc] for rc in cells)
+ 
+ 
+ def plan_path(
+@@ -171,9 +168,16 @@
+         pts[0] = (sx, sy)
+     else:
+         pts.insert(0, (sx, sy))  # keep the snapped start-cell center as a waypoint
++    gx, gy = float(goal_xy[0]), float(goal_xy[1])
+     gr = grid.world_to_cell(goal_xy)
+     if grid.in_bounds(gr) and free[gr]:
+-        pts[-1] = (float(goal_xy[0]), float(goal_xy[1]))
++        # Use the exact goal only if the final segment is clear (same exact-cell check as the start);
++        # otherwise keep the snapped goal-cell center and append the exact goal only if reachable.
++        prev = pts[-2] if len(pts) > 1 else pts[0]
++        if _world_segment_free(grid, free, prev, (gx, gy)):
++            pts[-1] = (gx, gy)
++        elif _world_segment_free(grid, free, pts[-1], (gx, gy)):
++            pts.append((gx, gy))
+     return pts
+ 
+ 
+--- navigation/search.py	2026-10-17 13:33:10
++++ /private/tmp/claude-501/-Users-kaushiksivakumar/8458a793-b11c-4a8f-bd48-73a56d9f0a27/scratchpad/plannerfix/navigation/search.py	2026-10-17 14:09:59
+@@ -68,11 +68,24 @@
+         if not path:
+             return True
+         skip = self.robot_radius + self.grid.resolution if skip_m is None else skip_m
+-        pts = [np.asarray(robot_xy, float)] + [np.asarray(q, float) for q in path]
+-        # start from the closest path vertex ahead of the robot
+-        dists = [np.linalg.norm(q - pts[0]) for q in pts[1:]]
+-        k = int(np.argmin(dists))
+-        seq = [pts[0]] + pts[1 + k:]
++        r = np.asarray(robot_xy, float)
++        verts = [np.asarray(q, float) for q in path]
++        if len(verts) == 1:
++            seq = [r, verts[0]]
++        else:
++            # Continue from the robot's projection onto the nearest path SEGMENT. (Jumping to the
++            # nearest vertex picked a late vertex on paths that curve back near the robot and then
++            # "checked" a straight line through walls.)
++            best_i, best_q, best_d = 0, verts[0], np.inf
++            for i in range(len(verts) - 1):
++                a, b = verts[i], verts[i + 1]
++                ab = b - a
++                u = float(np.clip(np.dot(r - a, ab) / max(np.dot(ab, ab), 1e-12), 0.0, 1.0))
++                q = a + u * ab
++                d = float(np.linalg.norm(q - r))
++                if d < best_d:
++                    best_i, best_q, best_d = i, q, d
++            seq = [r, best_q] + verts[best_i + 1:]
+         travelled = 0.0
+         step = self.grid.resolution * 0.5
+         for a, b in zip(seq, seq[1:]):
+--- tests/autonomy/test_depth_obstacles.py	2026-10-17 13:33:26
++++ /private/tmp/claude-501/-Users-kaushiksivakumar/8458a793-b11c-4a8f-bd48-73a56d9f0a27/scratchpad/plannerfix/tests/autonomy/test_depth_obstacles.py	2026-10-17 14:10:09
+@@ -125,12 +125,19 @@
+         mask[r - 1:r + 2, c - 1:c + 2] = True
+     nav.set_dynamic_obstacles(mask)
+     checked = 0
+-    for _ in range(60):
++    for _ in range(300):
+         s = (rng.uniform(0.5, 9.5), rng.uniform(0.5, 7.5))
+         g = (rng.uniform(0.5, 9.5), rng.uniform(0.5, 7.5))
+         path = nav.plan(s, g)
+         if path is None or not nav.free[nav.grid.world_to_cell(s)]:
+             continue
+         checked += 1
+-        assert nav.path_is_free(path[1:], path[0]), (s, g, path)  # same skip as revalidation
++        assert nav.path_is_free(path, path[0]), (s, g, path)  # executive call pattern: full path incl. start
++        # every segment incl. the exact start and exact goal segments, sampled densely, no skip
++        for a, b in zip(path, path[1:]):
++            a, b = np.asarray(a), np.asarray(b)
++            for t in np.linspace(0, 1, int(np.ceil(np.linalg.norm(b - a) / 0.01)) + 1):
++                rc = nav.grid.world_to_cell(a + t * (b - a))
++                if np.linalg.norm(a + t * (b - a) - np.asarray(path[0])) > 0.31:  # start may sit in a margin
++                    assert nav.free[rc], (s, g, path, a + t * (b - a))
+     assert checked > 20
+--- tests/autonomy/test_scenarios.py	2026-10-17 13:04:18
++++ /private/tmp/claude-501/-Users-kaushiksivakumar/8458a793-b11c-4a8f-bd48-73a56d9f0a27/scratchpad/plannerfix/tests/autonomy/test_scenarios.py	2026-10-17 14:18:47
+@@ -153,10 +153,14 @@
+ 
+ 
+ def test_fully_blocked_route_reports_no_path():
+-    room = restaurant(start=Pose2D(2.0, 6.0, np.deg2rad(-20)))
+-    room.boxes.append(Box(60, "barrier", np.array([3.6, 4.5, 0.0]), np.array([4.6, 7.95, 0.9]), in_map=False))
++    room = restaurant(start=Pose2D(3.2, 5.0, np.deg2rad(-14)))  # west of the barrier, table 3 within 6 m sensing range
++    # Low barrier (0.5 m): the 1.1 m camera sees table 3 over it, but the robot cannot pass.
++    # (A 0.9 m barrier hid the tabletop, making the outcome depend on whether exploration ever
++    # glimpsed table 3: DESTINATION_NOT_FOUND is then the correct answer, not NO_PATH.)
++    room.boxes.append(Box(60, "barrier", np.array([3.6, 4.5, 0.0]), np.array([4.6, 7.95, 0.5]), in_map=False))
+     ex = make(room, ocr_range=10.0)
+     stop, _, _ = run(ex, room)
++    assert any("approach" in e.msg for e in ex.events), "premise: destination was confirmed"
+     assert ex.outcome == Outcome.NO_PATH
+ 
+ 

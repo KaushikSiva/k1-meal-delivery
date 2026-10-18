@@ -1,0 +1,65 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:34:09+00:00",
+  "query": "Gemini Robotics-ER pointing spatial reasoning navigation latency open weights fine-tuning",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Building the Next Generation of Physical Agents with Gemini ...",
+      "url": "https://developers.googleblog.com/building-the-next-generation-of-physical-agents-with-gemini-robotics-er-15/",
+      "description": "Gemini Robotics-ER 1.5, now available to developers, is a state-of-the-art embodied reasoning model for robots.",
+      "snippets": [
+        "Gemini Robotics-ER 1.5 is purpose-tuned for robotics applications and introduces several new capabilities: Fast and powerful spatial reasoning: Get state-of-the art spatial understanding at the low latency of a Gemini Flash model. The model excels at generating semantically-precise 2D points, grounded in reasoning about item sizes, weights, and affordances, enabling commands like 'point at anything you can pick up' for accurate, responsive interaction.",
+        "Below is a video of promoting the model to point to “green marker, brown tray, green notebook, laptop (open), laptop (closed), glasses case (open), glasses case (closed)”, which is a query that combines spatial understanding and state estimation. Sorry, your browser doesn't support playback for this video · While locating objects is essential, true spatial-temporal reasoning involves understanding the relationship between objects and actions as they unfold over time. Gemini Robotics-ER 1.5 excels at this by processing video to understand cause and effect in the physical world.",
+        "In order for robots to be able to interact with the physical world around them, they need to be able to perceive and understand the environment where they exist. Gemini Robotics-ER 1.5 is fine-tuned for producing high quality spatial results, allowing the model to generate precise 2D points for objects.",
+        "This is the first Gemini Robotics model to be made broadly available. It acts as a high-level reasoning model for a robot. This model specializes in capabilities critical for robotics, including visual and spatial understanding, task planning, and progress estimation."
+      ]
+    },
+    {
+      "title": "Gemini Robotics ER 1.6: Enhanced Embodied Reasoning — Google ...",
+      "url": "https://deepmind.google/blog/gemini-robotics-er-1-6/",
+      "description": "Gemini Robotics ER 1.6 upgrades spatial reasoning and multi-view understanding, unlocking new capabilities like instrument reading for autonomous robots.",
+      "snippets": [
+        "Gemini Robotics-ER 1.6 shows significant improvement over both Gemini Robotics-ER 1.5 and Gemini 3.0 Flash, specifically enhancing spatial and physical reasoning capabilities such as pointing, counting, and success detection.",
+        "The instrument reading evaluations were run with agentic vision enabled (except for Gemini Robotics-ER 1.5 which doesn’t support it). All other evals were run with agentic vision disabled. The single view and multiview success detection evaluations contain different examples so are not comparable. Pointing is a fundamental capability for an embodied reasoning model, evolving with each model generation. Points can be used to express many concepts, including: Spatial reasoning: Precision object detection and counting",
+        "This example demonstrates how the model uses pointing and code execution for zooming to derive the reading of gauge down to sub tick accuracy. Safety is integrated into every level of our embodied reasoning models. Gemini Robotics-ER 1.6 is our safest robotics model to date, demonstrating superior compliance with Gemini safety policies on adversarial spatial reasoning tasks compared to all previous generations.",
+        "For example, it makes safer decisions through spatial outputs like pointing regarding which objects can be safely manipulated under gripper or material constraints (e.g., “don't handle liquids”, “don't pick up objects heavier than 20kg“). We also tested how well the model identifies safety hazards in text and video scenarios based on real-life injury reports. On these tasks, our Gemini Robotics-ER models improve over baseline Gemini 3.0 Flash performance (+6% in text, +10% in video) in perceiving injury risks accurately."
+      ]
+    },
+    {
+      "title": "Gemini Robotics ER | Gemini API | Google AI for Developers",
+      "url": "https://ai.google.dev/gemini-api/docs/robotics-overview",
+      "description": "Overview of Gemini Robotics ER models and capabilities for building robotics applications.",
+      "snippets": [
+        "It specializes in embodied reasoning capabilities, such as agentic orchestration of robots (e.g. using VLAs), robot video understanding including progress understanding and success detection, instrument reading, pointing, and spatial reasoning. The Gemini Robotics ER 2 model introduces two model endpoints: gemini-robotics-er-2-preview: The standard ER 2 model. Builds on Gemini 3.5 Flash with improved spatial reasoning, video moment finding, video progress classification, multi-robot orchestration, and multi-step tool use. gemini-robotics-er-2-streaming-preview: Optimized for real-time streaming using the Live API. Use this model for low-latency robot agents that process continuous audio and video input.",
+        "The following image is an example of how these points can be displayed: Gemini Robotics ER takes image, video, or audio input with natural language prompts. It identifies objects, reasons about scene context and spatial relationships, and returns structured output like coordinates or bounding boxes.",
+        "Spatial reasoning — pointing, tracking, bounding boxes, trajectories.",
+        "Gemini Robotics ER (embodied reasoning) models are vision-language models (VLMs) that let robots perceive and interact with the physical world. They interpret visual data, perform spatial and temporal reasoning, plan multi-step tasks, and orchestrate robots and tools."
+      ]
+    },
+    {
+      "title": "Gemini Robotics: Bringing AI into the Physical World",
+      "url": "https://arxiv.org/html/2503.20020v1",
+      "description": "Gemini Robotics-ER (Embodied Reasoning) extends Gemini’s multimodal reasoning capabilities into the physical world, with enhanced spatial and temporal understanding. This enables capabilities relevant to robotics including object detection, pointing, trajectory and grasp prediction, as well ...",
+      "snippets": [
+        "Gemini Robotics-ER (Embodied Reasoning) extends Gemini’s multimodal reasoning capabilities into the physical world, with enhanced spatial and temporal understanding. This enables capabilities relevant to robotics including object detection, pointing, trajectory and grasp prediction, as well as 3D understanding in the form of multi-view correspondence and 3D bounding box predictions.",
+        "We also introduce Gemini Robotics-ER, a version of Gemini 2.0 Flash that has enhanced embodied reasoning. These can be used in robotics applications without the need for any additional robot-specific data or training. Gemini 2.0 can understand a variety of 2D spatial concepts in images. ... Object Detection: Gemini 2.0 can perform open-world 2D object detection, providing precise 2D bounding boxes with queries that can be explicit (e.g., describing an object name) or implicit (categories, attributes, or functions). ... Pointing: Given any natural language description, the model is able to point to explicit entities like objects and object parts, as well as implicit notions such as affordances (where to grasp, where to place), free space and spatial concepts.",
+        "Grasp Prediction: This is a new feature introduced in Gemini Robotics-ER. It extends Gemini 2.0’s pointing capabilities to predict top-down grasps. Gemini 2.0 is also capable of 3D spatial reasoning (Chen et al., 2024; Hwang et al., 2024).",
+        "In the bottom image pair, the model correctly predicts that the orange point is not visible in the second image. Such multi-view understanding is useful for robotics domains where a robot can use Gemini 2.0 to reason about multiple image streams (e.g., stereo views, head and wrist views) to better understand the 3D spatial relationships of its observations."
+      ]
+    },
+    {
+      "title": "Introducing Gemini Robotics ER 2",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-robotics-er-2/",
+      "description": "Gemini Robotics ER 2 is a step change in video understanding, tool orchestration, and multi-robot collaboration for robotic applications.",
+      "snippets": [
+        "It enables real-time spatial reasoning, multi-step task planning, and collaboration between different robots. You can access the model now via the Gemini API, Google AI Studio, or the Gemini Enterprise Agent Platform to start building your own physical AI agents.",
+        "Gemini Robotics ER 2 is our safest model, achieving significant gains on Safety Instruction Following and Human Proximity benchmarks, which evaluate how a model adheres to physical constraints during reasoning tasks and spatial awareness for detecting humans.",
+        "For robots to assist humans in everyday environments, accurate spatial reasoning is not enough.",
+        "In robotics, high-level reasoning depends on execution speed. Gemini Robotics ER 2 integrates into the Gemini Live API, using a bidirectional streaming endpoint optimized for latency-sensitive tasks. The result is fluid orchestration: Gemini Robotics ER 2 commands action models and robotics APIs to complete multi-step tasks without the jarring “stop-and-think” pauses."
+      ]
+    }
+  ]
+}

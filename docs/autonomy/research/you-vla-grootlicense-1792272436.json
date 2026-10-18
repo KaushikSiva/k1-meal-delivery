@@ -1,0 +1,61 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:27:17+00:00",
+  "query": "Isaac-GR00T N1.7 model weights license NVIDIA Open Model License commercial use",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "GitHub - NVIDIA/Isaac-GR00T: NVIDIA Isaac GR00T N1.7 - A Foundation ...",
+      "url": "https://github.com/Nvidia/Isaac-GR00T",
+      "description": "NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots. - NVIDIA/Isaac-GR00T",
+      "snippets": [
+        "GR00T N1.7 is fully commercially licensable under Apache 2.0.",
+        "Updated model interface: N1.7 moves to the gr00t_n1d7 model package, expands the state/action dimensions, and increases the model action horizon. More flexible dataset handling: Fine-tuning can use multiple dataset paths with mixture weighting, making multi-dataset training easier to configure.",
+        "Website | Model | Datasets (Physical AI) | Paper | NVIDIA Isaac | FAQ ... We just released GR00T N1.7 General Availability, the latest version of GR00T N1 with a new VLM backbone (Cosmos-Reason2-2B / Qwen3-VL) and improved performance.",
+        "NVIDIA Isaac GR00T N1.7 is an open vision-language-action (VLA) model for generalized humanoid robot skills."
+      ]
+    },
+    {
+      "title": "Licence clarification: N1.7 EA weights - derivative models fine-tuned ...",
+      "url": "https://github.com/NVIDIA/Isaac-GR00T/issues/789",
+      "description": "Hi - a licence question on GR00T N1.7 EA, asked here because the model card points to the NVIDIA Open Model License but is silent on two cases we run into. Context: we operate shared on-site GPU in...",
+      "snippets": [
+        "Hi - a licence question on GR00T N1.7 EA, asked here because the model card points to the NVIDIA Open Model License but is silent on two cases we run into. Context: we operate shared on-site GPU infrastructure for robot fleets. A custome...",
+        "Do the Open Model License terms on the nvidia/GR00T-N1.7-3B card (commercial use permitted; licensee owns its Derivative Models, s2.4) apply in full to N1.7 EA, or does the \"EA\" label carry additional restrictions (for example research/evaluation only, or no redistribution of derivatives)?"
+      ]
+    },
+    {
+      "title": "EARLY ACCESS: Isaac GR00T N1.7 - Open Reasoning VLA model for ...",
+      "url": "https://forums.developer.nvidia.com/t/early-access-isaac-gr00t-n1-7-open-reasoning-vla-model-for-humanoid-robotics/366916",
+      "description": "Isaac GR00T N1.7 - Open Reasoning VLA model for Humanoid Robotics - Now Available in Early Access We’re releasing Isaac GR00T N1.7 open reasoning VLA model in early access with a significant milestone: commercial licensing is now included, enabling production deployments of humanoid robot ...",
+      "snippets": [
+        "Isaac GR00T N1.7 - Open Reasoning VLA model for Humanoid Robotics - Now Available in Early Access We’re releasing Isaac GR00T N1.7 open reasoning VLA model in early access with a significant milestone: commercial licensing is now included, enabling production deployments of humanoid robot policies built on GR00T.",
+        "Isaac GR00T N1.7 - Open Reasoning VLA model for Humanoid Robotics - Now Available in Early Access We’re releasing Isaac GR00T N1.7 open reasoning VLA model in early access with a significant milestone: commercial lice…"
+      ]
+    },
+    {
+      "title": "NVIDIA Isaac GR00T N1 | AI Wiki",
+      "url": "https://aiwiki.ai/wiki/groot_n1",
+      "description": "The base GR00T N1.7 model supports ... sells [7][11]. GR00T N1 was the first major robot foundation model to be released under what is effectively a commercial open license. The model weights ship under the NVIDIA Open Model License Agreement, which permits commercial use with attribution and a small set of restrictions around model identification and acceptable use. The surrounding training, inference, and fine-tuning code in the NVIDIA/Isaac-GR00T GitHub ...",
+      "snippets": [
+        "The base GR00T N1.7 model supports NVIDIA Ampere, Hopper, Lovelace, Blackwell, and Jetson hardware, which covers basically the full generational range that NVIDIA currently sells [7][11]. GR00T N1 was the first major robot foundation model to be released under what is effectively a commercial open license. The model weights ship under the NVIDIA Open Model License Agreement, which permits commercial use with attribution and a small set of restrictions around model identification and acceptable use. The surrounding training, inference, and fine-tuning code in the NVIDIA/Isaac-GR00T GitHub repository is licensed under Apache 2.0 [8].",
+        "NVIDIA Isaac GR00T N1 is an open foundation model for humanoid robots developed by NVIDIA and unveiled by Jensen Huang on March 18, 2025 at the company's annual GTC conference in San Jose, California. NVIDIA describes...",
+        "The one wrinkle is that the original GR00T-N1-2B model card on Hugging Face was initially published under NVIDIA's older non-commercial license before being relicensed to the Open Model License Agreement. Later checkpoints, including N1.5, N1.6, and N1.7, were published under the Open Model License from day one. NVIDIA also publishes evaluation datasets and synthetic training corpora, most prominently the PhysicalAI-Robotics-GR00T-X-Embodiment-Sim dataset on Hugging Face, under release-specific data licenses that are generally permissive for research and commercial use [4][8].",
+        "The March 2025 GR00T N1 announcement listed 1X Technologies, Agility Robotics, Boston Dynamics, Mentee Robotics, and NEURA Robotics as the early-access partners with hands-on integration of the N1 weights [1]. By Computex 2025, the list of companies adopting Isaac and GR00T technologies had expanded to include Fourier, Foxlink, Galbot, General Robotics, Skild AI, XPENG Robotics, AeiRobot, and Lightwheel in addition to the original partners."
+      ]
+    },
+    {
+      "title": "NVIDIA Isaac GR00T N1.7: Open Reasoning VLA Model for Humanoid Robots",
+      "url": "https://huggingface.co/blog/nvidia/gr00t-n1-7",
+      "description": "We are releasing NVIDIA Isaac GR00T N1.7 (Early Access) — an open, commercially licensed Vision-Language-Action model for humanoid robots, built on a simple premise: human data is the most scalable source of robot intelligence.",
+      "snippets": [
+        "GR00T N1.7 is commercially licensed and supported on NVIDIA Ampere, Hopper, Lovelace, Blackwell, and Jetson platforms.",
+        "The central research that has been used for GR00T N1.7 is EgoScale — pre-training on 20,854 hours of human egocentric video spanning 20+ task categories, from manufacturing and retail to healthcare and home environments.",
+        "CUDA_VISIBLE_DEVICES=0 uv run python gr00t/experiment/launch_finetune.py \\ --base-model-path nvidia/GR00T-N1.7 \\ --dataset-path  \\ --embodiment-tag  \\ --modality-config-path  \\ --num-gpus 1 \\ --output-dir  \\ --max-steps 2000 \\ --global-batch-size 32 · Upgrading from N1.6?",
+        "GR00T N1.7 is a 3B-parameter open reasoning Vision-Language-Action (VLA) model that maps visual observations and natural language instructions to continuous robot actions."
+      ]
+    }
+  ]
+}

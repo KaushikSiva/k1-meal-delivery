@@ -1,0 +1,64 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:26:59+00:00",
+  "query": "openpi pi0 fine-tuning GPU memory requirements LoRA full fine-tune",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Physical Intelligence openpi (π0 / π0-FAST / π0.5) — Models ...",
+      "url": "https://agentspace.cc/tool/physical-intelligence-openpi-0-0-fast-0-5",
+      "description": "Physical Intelligence openpi (π0 / π0-FAST / π0.5): openpi is an open-source repository from Physical Intelligence containing models and packages for robotics, including the π0, π0-FAST, and π0.5 vision-lang…",
+      "snippets": [
+        "It provides pre-trained base models and fine-tuned checkpoints for tasks like table-top manipulation, and supports fine-tuning on custom datasets. It is intended for researchers and practitioners who want to experiment with VLA policies on their own robots. 🐙 View on GitHub ↗ Physical-Intelligence/openpi 📦 Install ... 🧰 Requirements: Requires an NVIDIA GPU with at least 8 GB VRAM for inference (RTX 4090 or better), 22.5 GB for LoRA fine-tuning, and 70 GB for full fine-tuning.",
+        "The repository includes π0, π0-FAST, and π0.5 models, each with base checkpoints and some fine-tuned checkpoints for specific robots. ... Inference requires >8 GB, fine-tuning with LoRA requires >22.5 GB, and full fine-tuning requires >70 GB. These assume a single GPU, but you can use multiple GPUs with model parallelism. ... Checkpoints are automatically downloaded from gs://openpi-assets and cached in ~/.cache/openpi when needed.",
+        "from openpi.training import config as _config from openpi.policies import policy_config from openpi.shared import download config = _config.get_config(\"pi05_droid\") checkpoint_dir = download.maybe_download(\"gs://openpi-assets/checkpoints/pi05_droid\") # Create a trained policy."
+      ]
+    },
+    {
+      "title": "GPU VRAM Requirements to Fine-Tune LLMs in 2026: Full, LoRA, and ...",
+      "url": "https://www.spheron.network/blog/gpu-vram-requirements-fine-tune-llm-2026/",
+      "description": "How much VRAM does fine-tuning actually require? Complete VRAM tables for 7B to 70B and MoE models across full, LoRA, and QLoRA - with GPU recommendations and real cost examples.",
+      "snippets": [
+        "GPU memory is the constraint that determines whether your fine-tuning job runs at all. Before writing a single line of training code, you need to know whether your chosen model and method fit the GPU you're renting. The answer varies by a factor of 16x depending on whether you use full fine-tuning, LoRA, or QLoRA.",
+        "Weight memory depends on param count and your training dtype. BF16 (standard for LoRA and full FT): 2 bytes per parameter.",
+        "Full fine-tuning: Gradient memory matches weight memory. A 70B model in BF16 needs another 140 GB for gradients. LoRA: Only adapter gradients are stored.",
+        "With 1% of parameters trainable, gradient memory drops to 1-3 GB for a 70B model. QLoRA: Same as LoRA - adapter gradients only."
+      ]
+    },
+    {
+      "title": "question about lora fine-tuning for pi0.5 · Issue #672 · ...",
+      "url": "https://github.com/Physical-Intelligence/openpi/issues/672",
+      "description": "hi, i do not see any exisiting config about fine tune pi0.5 in src/openpi/training/config.py under lora mode, but there is pi0's demonstration. is it fine to just replace pi0 with pi05 and set ...",
+      "snippets": [
+        "hi, i do not see any exisiting config about fine tune pi0.5 in src/openpi/training/config.py under lora mode, but there is pi0's demonstration. is it fine to just replace pi0 with pi05 and set weights url to be gs://openpi-assets/checkpo...",
+        "Besides, I want to make sure that the raw lerobot rlds dataset in https://github.com/Physical-Intelligence/openpi/blob/main/README.md#L133 is delta eef action, so we don't need this extra_delta_transform. Am i right? Quite thanks. ... @haofuly for libero dataset, yes, it is delta eef. so keep extra_delta_transform to false, for sure. ... @yanan1116 Hello. Thank you for providing the excellent config. I'm curious about how many steps it takes for the LIBERO success rate to converge with this LoRA setting?",
+        "is it fine to just replace pi0 with pi05 and set weights url to be gs://openpi-assets/checkpoints/pi05_base/params without any other changes ? thanks · TrainConfig( name=\"pi05_fast_libero_low_mem_finetune\", # Here is an example of loading a pi0-FAST model for LoRA finetuning.",
+        "# For setting action_dim, action_horizon, and max_token_len, see the comments above. model=pi0_fast.Pi0FASTConfig( action_dim=7, action_horizon=10, max_token_len=180, paligemma_variant=\"gemma_2b_lora\" ), data=LeRobotLiberoDataConfig( repo_id=\"physical-intelligence/libero\", base_config=DataConfig(prompt_from_task=True), extra_delta_transform=True, ), weight_loader=weight_loaders.CheckpointWeightLoader(\"gs://openpi-assets/checkpoints/pi05_base/params\"), num_train_steps=30_000, # Again, make sure to match the model config above when extracting the freeze filter # that specifies which parameters should be frozen during LoRA finetuning."
+      ]
+    },
+    {
+      "title": "GitHub - peek-robot/openpi: Pi0 training/inference code for PEEK ...",
+      "url": "https://github.com/peek-robot/openpi",
+      "description": "Pi0 training/inference code for PEEK. Contribute to peek-robot/openpi development by creating an account on GitHub.",
+      "snippets": [
+        "We trained full fine-tuning for pi-0 initially, but it was not noticeably different than LoRA, so we provide LoRA training instructions because it requires far less memory than FFT. You can train with PEEK on 4 GPUs and batch size of 256 (should work for 4 48GB GPUs) by running the following:",
+        "If you want to change the # of GPUs or batch size, modify the fsdp_devices and batch_size in the config file for pi0_lora_bridge_1_cam_path_masked or pi0_lora_bridge_1_cam at src/openpi/training/config.py.",
+        "Docker: As an alternative to uv installation, we provide instructions for installing openpi using Docker. If you encounter issues with your system setup, consider using Docker to simplify installation. See Docker Setup for more details. We provide multiple base VLA model checkpoints. These checkpoints have been pre-trained on 10k+ hours of robot data, and can be used for fine-tuning. ... We also provide \"expert\" checkpoints for various robot platforms and tasks. These models are fine-tuned from the base models above and intended to run directly on the target robot.",
+        "These estimations assume a single GPU, but you can also use multiple GPUs with model parallelism to reduce per-GPU memory requirements by configuring fsdp_devices in the training config. Please also note that the current training script does not yet support multi-node training. ... The repo has been tested with Ubuntu 22.04, we do not currently support other operating systems. When cloning this repo, make sure to update submodules: git clone --recurse-submodules git@github.com:Physical-Intelligence/openpi.git # Or if you already cloned the repo: git submodule update --init --recursive"
+      ]
+    },
+    {
+      "title": "GitHub - Maelic/openpi-SO100: Pi0 fine-tuning for the SO-100 and ...",
+      "url": "https://github.com/Maelic/openpi-SO100",
+      "description": "Pi0 fine-tuning for the SO-100 and SO-101 arms. Contribute to Maelic/openpi-SO100 development by creating an account on GitHub.",
+      "snippets": [
+        "[Jun 2025]: We have added instructions for using openpi to train VLAs on the full DROID dataset. This is an approximate open-source implementation of the training pipeline used to train pi0-FAST-DROID. To run the models in this repository, you will need an NVIDIA GPU with at least the following specifications. These estimations assume a single GPU, but you can also use multiple GPUs with model parallelism to reduce per-GPU memory requirements by configuring fsdp_devices in the training config.",
+        "The command will log training progress to the console and save checkpoints to the checkpoints directory. You can also monitor training progress on the Weights & Biases dashboard. For maximally using the GPU memory, set XLA_PYTHON_CLIENT_MEM_FRACTION=0.9 before running training -- this enables JAX to use up to 90% of the GPU memory (vs.",
+        "Make sure you set XLA_PYTHON_CLIENT_MEM_FRACTION=0.9 before running training to allow JAX to use more GPU memory.",
+        "Docker: As an alternative to uv installation, we provide instructions for installing openpi using Docker. If you encounter issues with your system setup, consider using Docker to simplify installation."
+      ]
+    }
+  ]
+}

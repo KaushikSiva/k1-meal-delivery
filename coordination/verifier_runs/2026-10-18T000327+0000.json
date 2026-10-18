@@ -1,0 +1,818 @@
+{
+ "at_utc": "2026-10-18T00:03:27+00:00",
+ "handoff": "coordination/CLAUDE_HANDOFF.md",
+ "section": "2026-10-17T20:12:47+00:00 \u2014 COMPLETE FREEZE (supersedes all my earlier pending freezes) + K1 camera\u2192walking diagnostic",
+ "model": null,
+ "provider": null,
+ "claims": {
+  "files": [
+   {
+    "sha256": "12b0e9299bb555f7d56dc715efbd17e785efe013cac48c909af203d84805bb37",
+    "path": "autonomy/executive.py"
+   },
+   {
+    "sha256": "a68dd346013a7940672703f588da4534d62be8e4ce2ae55bb6e1d550add0fef8",
+    "path": "autonomy/session.py"
+   },
+   {
+    "sha256": "0af098962425ecf9f5ae4b79d2191aed78fd837e47f788907513a3c2c5e558be",
+    "path": "docs/autonomy/figures/fig1_search_verify_deliver.png"
+   },
+   {
+    "sha256": "734fffaa2c13a66c70b342d45961c93a29bf6896146e45ad72091aed6f85a1b9",
+    "path": "docs/autonomy/figures/fig2_depth_obstacle_layer.png"
+   },
+   {
+    "sha256": "2de26135bf622f3821df955eda0bec0483ca14e11e225f93e8a408dcd2503f55",
+    "path": "docs/autonomy/figures/fig3_k1_headcam_placard_reading.png"
+   },
+   {
+    "sha256": "42c9c51d73eed49d0019920ab9b1be0aef50f02b3ce0c811ab832b8a93b0ac36",
+    "path": "docs/autonomy/figures/make_figures.py"
+   },
+   {
+    "sha256": "cd5cb8c67a4ee491c5fc00b90cab27445b1fae216995b1ccf05f05d8c1f57b5c",
+    "path": "docs/autonomy/figures/make_k1cam_figure.py"
+   },
+   {
+    "sha256": "e7709275d4549b67d74bf5ea8acb10da1075d7bc8d0fb0d7b14f1c048666b89a",
+    "path": "docs/autonomy/PRESENTATION_NOTES.md"
+   },
+   {
+    "sha256": "c1e1be93c14254b99275d704302c3c6c2228021c2f9e42ddc1ff22463d7fec02",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/contact_trial-B.png"
+   },
+   {
+    "sha256": "73e43b6827665d488a81302ab7aa68aa5c7359ce15f2bc48c96cf0a74a774610",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/k1_autonomy_trial.py"
+   },
+   {
+    "sha256": "42e98f03f473653e023a61d22767121b9510478a6cbc98d013dbc0389b5946fb",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/REPORT.md"
+   },
+   {
+    "sha256": "4b66c16b04f4665cad4593bb59fa19281d8e596f759cc80e01730086ae3232e3",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/evaluator_final.png"
+   },
+   {
+    "sha256": "6e2b35bfe65dcbdf996ea8cf78d2654bfa84d2b869da139519776c05400b11a6",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/evaluator_t000.png"
+   },
+   {
+    "sha256": "86c1d3b910af5605843638db2f0288cf6f39c08733581a8758c508c0abaaf65c",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/evaluator_t010.png"
+   },
+   {
+    "sha256": "96b58e71eacaadc6b44a01ec22f3c9f41ec8e91e5c6600e4976b59edf9bc2f6b",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/placard_1.png"
+   },
+   {
+    "sha256": "63da4bb6aa83dd652de8bdbc7337b257ba48e73064760ee6d99aa130938854ae",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/placard_3.png"
+   },
+   {
+    "sha256": "3b1e275d466b42e830365d3a59e3f70ff665917b399e437f2f8f7cd390143c50",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/result.json"
+   },
+   {
+    "sha256": "1f5b290fef25d166d904bdbfe9ddf138396b0a369d8d66758a9570d6369a8a35",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/robot_camera_final.png"
+   },
+   {
+    "sha256": "31ee12e41a987e4f47f118fd701a26959e819a60d47095e07a32534ba4f8eb82",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/robot_camera_t000.png"
+   },
+   {
+    "sha256": "3eaf081c2dd2919360f5552f8dedfb16a0f5adf752ab28d31d2272a708617205",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/robot_camera_t010.png"
+   },
+   {
+    "sha256": "a18a5e6ae093cbf5cf9441228b9f9560b6ce6f1806e7e2fbe38b1212e7c74fc7",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/states.txt"
+   },
+   {
+    "sha256": "ba6dedced012a9d62b8b2f806564cf5fae729eddfa70f4623b206844fd423796",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/evaluator_final.png"
+   },
+   {
+    "sha256": "0e4f215c650aa6e86dfbefde157d818cfcb820e9d1f7a1d0b6e4e181168a889e",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/evaluator_t000.png"
+   },
+   {
+    "sha256": "9e9f542e28bd7d432baaab8a55fa551700d77fca8561d406ced9be25f6aa4bd7",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/evaluator_t010.png"
+   },
+   {
+    "sha256": "ae6010cef93c13d38717c75e977a3e562d04f0292d53ef3b38e45e5f70ac213e",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/evaluator_t020.png"
+   },
+   {
+    "sha256": "96b58e71eacaadc6b44a01ec22f3c9f41ec8e91e5c6600e4976b59edf9bc2f6b",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/placard_1.png"
+   },
+   {
+    "sha256": "63da4bb6aa83dd652de8bdbc7337b257ba48e73064760ee6d99aa130938854ae",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/placard_3.png"
+   },
+   {
+    "sha256": "7e6f607f51a81173610db496094f7a2fb4c39ec806816e9aa3b979f65b955d1d",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/result.json"
+   },
+   {
+    "sha256": "9597e6aa054e3a4de615486c5a231317e1232abc278a8c803b392bb4fb77eb64",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/robot_camera_final.png"
+   },
+   {
+    "sha256": "2cabc53c024dc688524e019eef598f90f7cd4e3f9adb6eac5498848cde13465d",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/robot_camera_t000.png"
+   },
+   {
+    "sha256": "0aa59262386d490dee5b0d9f0acc5f095217c8e3fb18a12322d807695c68fa4b",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/robot_camera_t010.png"
+   },
+   {
+    "sha256": "ae6f1ac1a73279b8eab6dac12427fb62efa0695dbf4ed9ad6573668fc54a2885",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/robot_camera_t020.png"
+   },
+   {
+    "sha256": "82232c06fefcdbdef41e3c4f83dfff942744371480affe62fcded94062e08c91",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/states.txt"
+   },
+   {
+    "sha256": "6e2b35bfe65dcbdf996ea8cf78d2654bfa84d2b869da139519776c05400b11a6",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t000.png"
+   },
+   {
+    "sha256": "86c1d3b910af5605843638db2f0288cf6f39c08733581a8758c508c0abaaf65c",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t010.png"
+   },
+   {
+    "sha256": "b23d8131916e081fd6bb9152cc157fe7adbc06833748c2f428d5ae5b3ad88f0a",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t020.png"
+   },
+   {
+    "sha256": "767cb8aa9558107577a441dac512725bbe27574bc017337784946ed6b32195d4",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t030.png"
+   },
+   {
+    "sha256": "9e0e77666d6925827d69f794aa268b5965d5fca0d7b712726723960c82f084f0",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t040.png"
+   },
+   {
+    "sha256": "a47eb9076aa542cd97f6c8439af81ffda9cd5c0073c03083aad77d76d71657b9",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t050.png"
+   },
+   {
+    "sha256": "9904509a83bdbfdb509f645de7bf41680c9fb0370251d870eec053631b0d6cdd",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t060.png"
+   },
+   {
+    "sha256": "0d1b218fd11ddd07358a43cfb4899c3cdb2d18cf9b0c593916e9b6cae73a8b92",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t070.png"
+   },
+   {
+    "sha256": "99c506b90fa99e89de3d2eea13a84db384a284eff815da5a75c1ba6966e9f3c8",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t080.png"
+   },
+   {
+    "sha256": "b3c9c664d8a6a9d79ac513b20681938998a2c4e9adc03f733e2c2d38cb5a5ebb",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t090.png"
+   },
+   {
+    "sha256": "07f460fa381456251c6755b75f4b14d7b2c51e76b1cbbc0f646cff183b831d69",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t100.png"
+   },
+   {
+    "sha256": "ac0453c6e2b4108f5b879c14803ca23d4d5ef408b9f77edd3ced55c0b3fb283a",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t110.png"
+   },
+   {
+    "sha256": "96b58e71eacaadc6b44a01ec22f3c9f41ec8e91e5c6600e4976b59edf9bc2f6b",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/placard_1.png"
+   },
+   {
+    "sha256": "63da4bb6aa83dd652de8bdbc7337b257ba48e73064760ee6d99aa130938854ae",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/placard_3.png"
+   },
+   {
+    "sha256": "9be2c084f9802c660dde83b646d879a9234bf454a5ac800b2e708256945e0fd5",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/result.json"
+   },
+   {
+    "sha256": "31ee12e41a987e4f47f118fd701a26959e819a60d47095e07a32534ba4f8eb82",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t000.png"
+   },
+   {
+    "sha256": "3eaf081c2dd2919360f5552f8dedfb16a0f5adf752ab28d31d2272a708617205",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t010.png"
+   },
+   {
+    "sha256": "ff6e4286f15ec6f8d456066f4e5645e1a82f7219d4b540dabf213ab473d020a3",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t020.png"
+   },
+   {
+    "sha256": "fb16e8f13058d451cbc340cc5304ad5bc90a6c4fe78471dee6b4cdb659db3ba5",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t030.png"
+   },
+   {
+    "sha256": "c938b9b11f8bf11e462d8baae8208d495a31e9fbead49bccc63565ec80bd1a02",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t040.png"
+   },
+   {
+    "sha256": "95bc4b276bd87b2b6cea98fb900dd594022e5cbcb5d6b7796032b8fccd79e56d",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t050.png"
+   },
+   {
+    "sha256": "5f6e733d2f3dcfa517a679b2eb466e863c794b124c60eb940045847f583a2d91",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t060.png"
+   },
+   {
+    "sha256": "36cb6cabce65b2f26ea5d4427883808b2da7f1a8626a3df12434c9d0842e9dbb",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t070.png"
+   },
+   {
+    "sha256": "50927a391c407003a44a6a806ab04c321b1fe2db9f14e760f803132d90ace783",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t080.png"
+   },
+   {
+    "sha256": "b51da2a3336c153e6b2f41077905c425e0a92e792861f9138d7ce0ef3d7854fc",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t090.png"
+   },
+   {
+    "sha256": "52200813ff93b9f3aafe3a59c3ff37330a1ff2becdd1bbcd86b85be3104ded19",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t100.png"
+   },
+   {
+    "sha256": "c0803ba79f52ec7943ec204fac274a15c30d41b2c363d922293f476661228912",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t110.png"
+   },
+   {
+    "sha256": "e086fd9648168b036431668a4b808207e146b32bec49dc200fc2a39ef98148fa",
+    "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/states.txt"
+   },
+   {
+    "sha256": "bad08d4ca6b4c9d38a5bc6f25aa0c9c604681b45adc60fedd5148b37cc40a4ea",
+    "path": "memory/scene_memory.py"
+   },
+   {
+    "sha256": "917dd0a79308d58a198035ec9f971f7d90bbbdbb9f88ae4453d27c55ac3276a0",
+    "path": "navigation/depth_obstacles.py"
+   },
+   {
+    "sha256": "b0de96990252b5e5517110375e0237c37312b28bf624a5b42e97bde7f2786324",
+    "path": "navigation/follower.py"
+   },
+   {
+    "sha256": "c37cc8e0b0bf664383cd823b23f53ee0cd979d4eddce3b79443f05b7bb6f0d8e",
+    "path": "navigation/search.py"
+   },
+   {
+    "sha256": "ac366295d8b06be0af1bd1154369b4c037766db868038f976fa5e271c726d957",
+    "path": "perception/detectors.py"
+   },
+   {
+    "sha256": "c4d362b84dff3dd94a2691e62f36157afed0e2662ca9838d9c8dc945ce9d9d63",
+    "path": "perception/placard.py"
+   },
+   {
+    "sha256": "004e302e52258b0b73bcc4e2d613e099256617c2c2bd1491eb68d486bf530e1b",
+    "path": "perception/tabletop.py"
+   },
+   {
+    "sha256": "43887d28937aac117a3d4ff97e66cce8e49634c24071ad9448ad3c27b8b57b04",
+    "path": "tests/autonomy/fake_world.py"
+   },
+   {
+    "sha256": "b063488dedc0c45b854cd8d29fac12dfe794de254afa708abb2d7a9c9e1df0ea",
+    "path": "tests/autonomy/test_depth_obstacles.py"
+   },
+   {
+    "sha256": "c64afb3d7a39ad446ff24d66357f230f12d36d54a91616f6730216b70cd7de77",
+    "path": "tests/autonomy/test_follower.py"
+   },
+   {
+    "sha256": "2180638fcdddd44d59c8408c174feff8eb4b9e2b4396cfe1dc9355e368b2bad4",
+    "path": "tests/autonomy/test_nominal.py"
+   },
+   {
+    "sha256": "344d2be2ec41d0ead5b6f044b464565c242c2307c5da1c89fa7ca43113ad204f",
+    "path": "tests/autonomy/test_placard.py"
+   },
+   {
+    "sha256": "e37028abb68e04be549155ee1bb6bb6326333d9bb9859ce5681b83d2ccf40066",
+    "path": "tests/autonomy/test_scenarios.py"
+   },
+   {
+    "sha256": "b94f637670a133c56c9ecbd07239964de925d7727ca28e0845b47fbc0390f7a4",
+    "path": "tests/autonomy/test_session.py"
+   },
+   {
+    "sha256": "8e0a8c1c7ea8aae50ed7f99423d48a04c1a5ebae088c12534dac99c7ff04e64a",
+    "path": "tests/autonomy/test_tabletop.py"
+   },
+   {
+    "sha256": "41d939d847744b410ee3154841b323ca48958d4582a3201bb2688c9950c97c11",
+    "path": "tests/autonomy/test_vla.py"
+   },
+   {
+    "sha256": "9f93f11bf40bf69bccd8b5c3b4da437e938fad82aa05cd88c8d51579627338c0",
+    "path": "vla/recorder.py"
+   }
+  ],
+  "tests": [],
+  "evidence": [],
+  "statements": []
+ },
+ "checks": [
+  {
+   "check": "sha256",
+   "path": "autonomy/executive.py",
+   "ok": false,
+   "detail": "actual c31095d2556fbf45\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "autonomy/session.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "docs/autonomy/figures/fig1_search_verify_deliver.png",
+   "ok": false,
+   "detail": "missing or outside repo"
+  },
+  {
+   "check": "sha256",
+   "path": "docs/autonomy/figures/fig2_depth_obstacle_layer.png",
+   "ok": false,
+   "detail": "missing or outside repo"
+  },
+  {
+   "check": "sha256",
+   "path": "docs/autonomy/figures/fig3_k1_headcam_placard_reading.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "docs/autonomy/figures/make_figures.py",
+   "ok": false,
+   "detail": "actual ecc382ff469d2937\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "docs/autonomy/figures/make_k1cam_figure.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "docs/autonomy/PRESENTATION_NOTES.md",
+   "ok": false,
+   "detail": "actual b961464b8c662d73\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/contact_trial-B.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/k1_autonomy_trial.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/REPORT.md",
+   "ok": false,
+   "detail": "actual f25e5f6f2a6138cb\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/evaluator_final.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/evaluator_t000.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/evaluator_t010.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/placard_1.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/placard_3.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/result.json",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/robot_camera_final.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/robot_camera_t000.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/robot_camera_t010.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-A/states.txt",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/evaluator_final.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/evaluator_t000.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/evaluator_t010.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/evaluator_t020.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/placard_1.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/placard_3.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/result.json",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/robot_camera_final.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/robot_camera_t000.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/robot_camera_t010.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/robot_camera_t020.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-B/states.txt",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t000.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t010.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t020.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t030.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t040.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t050.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t060.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t070.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t080.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t090.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t100.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/evaluator_t110.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/placard_1.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/placard_3.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/result.json",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t000.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t010.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t020.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t030.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t040.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t050.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t060.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t070.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t080.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t090.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t100.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/robot_camera_t110.png",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/trial-C/states.txt",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "memory/scene_memory.py",
+   "ok": false,
+   "detail": "actual 2af2eab020bbb945\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "navigation/depth_obstacles.py",
+   "ok": false,
+   "detail": "actual 6cecd1bee8da8010\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "navigation/follower.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "navigation/search.py",
+   "ok": false,
+   "detail": "actual d5ef1a85c7345912\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "perception/detectors.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "perception/placard.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "perception/tabletop.py",
+   "ok": false,
+   "detail": "actual 1399a2071d4e7411\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "tests/autonomy/fake_world.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "tests/autonomy/test_depth_obstacles.py",
+   "ok": false,
+   "detail": "actual 6521478c76209f0d\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "tests/autonomy/test_follower.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "tests/autonomy/test_nominal.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "tests/autonomy/test_placard.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "tests/autonomy/test_scenarios.py",
+   "ok": false,
+   "detail": "actual df828d9c2c6bdde9\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "tests/autonomy/test_session.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "tests/autonomy/test_tabletop.py",
+   "ok": false,
+   "detail": "actual af2157d534dccef9\u2026"
+  },
+  {
+   "check": "sha256",
+   "path": "tests/autonomy/test_vla.py",
+   "ok": true,
+   "detail": "match"
+  },
+  {
+   "check": "sha256",
+   "path": "vla/recorder.py",
+   "ok": true,
+   "detail": "match"
+  }
+ ],
+ "verdict": {
+  "verdict": "FAIL",
+  "definition_of_done": [],
+  "overclaims": [],
+  "reasons": [
+   "sha256 failed: autonomy/executive.py (actual c31095d2556fbf45\u2026)",
+   "sha256 failed: docs/autonomy/figures/fig1_search_verify_deliver.png (missing or outside repo)",
+   "sha256 failed: docs/autonomy/figures/fig2_depth_obstacle_layer.png (missing or outside repo)",
+   "sha256 failed: docs/autonomy/figures/make_figures.py (actual ecc382ff469d2937\u2026)",
+   "sha256 failed: docs/autonomy/PRESENTATION_NOTES.md (actual b961464b8c662d73\u2026)",
+   "sha256 failed: experiments/claude-20261017T2008Z-k1-camera-autonomy-diagnostic/REPORT.md (actual f25e5f6f2a6138cb\u2026)",
+   "sha256 failed: memory/scene_memory.py (actual 2af2eab020bbb945\u2026)",
+   "sha256 failed: navigation/depth_obstacles.py (actual 6cecd1bee8da8010\u2026)",
+   "sha256 failed: navigation/search.py (actual d5ef1a85c7345912\u2026)",
+   "sha256 failed: perception/tabletop.py (actual 1399a2071d4e7411\u2026)",
+   "sha256 failed: tests/autonomy/test_depth_obstacles.py (actual 6521478c76209f0d\u2026)",
+   "sha256 failed: tests/autonomy/test_scenarios.py (actual df828d9c2c6bdde9\u2026)",
+   "sha256 failed: tests/autonomy/test_tabletop.py (actual af2157d534dccef9\u2026)",
+   "deterministic checks only (no model)"
+  ]
+ },
+ "next_action": "RETRY"
+}

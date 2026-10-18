@@ -1,0 +1,30 @@
+[
+ [
+  "n1_why",
+  "Restaurants are running out of hands. And the hardest part isn't the kitchen... it's the last ten meters. Finding the right table, without spilling a drop."
+ ],
+ [
+  "n2_name",
+  "So we built Tableside. A humanoid that hears \"table three\"... and gets it there."
+ ],
+ [
+  "n3_arch",
+  "It sees with its own camera, and remembers what it has seen, and how sure it is. When it isn't sure, it doesn't guess. It looks again."
+ ],
+ [
+  "n4_rl",
+  "Carrying is learned too: PPO cut tray slip from eight centimeters to three. And it carries with its own hands, under real contact physics."
+ ],
+ [
+  "n4b_vla",
+  "Then we fine-tuned two vision-language-action models on the robot's own sensor data. SmolVLA kept improving, step by step. NVIDIA's GR00T got worse on held-out data, and we're showing you that too. Neither beats our planner... yet."
+ ],
+ [
+  "n5_team",
+  "All built in one day, by two AI engineers: Codex on simulation and training, Claude on perception and navigation."
+ ],
+ [
+  "n6_demo",
+  "This is the real K1 walking policy in MuJoCo, carrying the tray in its own hands. No markers. No simulator position. Just its camera, a gyro, and its joints. It finds the table... slows down... and stops, without spilling a thing. Next stop: a real robot."
+ ]
+]

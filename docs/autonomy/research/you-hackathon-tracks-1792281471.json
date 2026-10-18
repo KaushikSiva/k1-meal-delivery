@@ -1,0 +1,73 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T23:57:52+00:00",
+  "query": "Crusoe Recursive Agents Hackathon tracks prizes Cerebral Valley NVIDIA Nemotron NemoClaw OpenShell",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "The Recursive Agents Hackathon – Cerebral Valley",
+      "url": "https://cerebralvalley.ai/e/crusoe-recursive-agents-hackathon",
+      "description": "Saturday, Oct 17, 2026 · San Francisco, CA: At the PyTorch Conference hackathon, teams of up to four will build persistent AI agent teams that plan, delegate…",
+      "snippets": [
+        "Build on Crusoe Managed Inference and put leading open models, including NVIDIA’s Nemotron family, into production on high-performance NVIDIA infrastructure.",
+        "Get a head start. Crusoe is hosting Field Day the day before the hackathon. You'll join a random team and race to take a model from raw data to production. Friday, Oct 16, 1-5pm."
+      ]
+    },
+    {
+      "title": "The Recursive Agents Hackathon",
+      "url": "https://cerebralvalley.ai/e/crusoe-recursive-agents-hackathon.md",
+      "description": "Build a team of agents you can walk away from · During the PyTorch* Conference in San Francisco, build agents that can *take a goal and run with it. Let them make the plan, spin up sub-agents, delegate work, communicate with each other, check their own progress, recover when things break, ...",
+      "snippets": [
+        "Build on Crusoe Managed Inference and put leading open models, including NVIDIA’s Nemotron family, into production on high-performance NVIDIA infrastructure.",
+        "Registration: Open (host approval required) — https://cerebralvalley.ai/e/crusoe-recursive-agents-hackathon",
+        "Page: https://cerebralvalley.ai/e/crusoe-recursive-agents-hackathon"
+      ]
+    },
+    {
+      "title": "NemoClaw NVIDIA x ASUS Hackathon @ UCSC: 24 Hours of Hacking. 40 ...",
+      "url": "https://nemoclaw.devpost.com/",
+      "description": "24 Hours of Hacking. 40 DGX Sparks. Build the Future.",
+      "snippets": [
+        "Deploy your agent using NVIDIA NemoClaw for an additional prize category. NemoClaw wraps your OpenClaw agent in a hardened sandbox with policy-based security and privacy guardrails, running Nemotron locally on-device. Teams that deploy via NemoClaw and demonstrate its security controls will be judged separately for this track.",
+        "​Your submission needs to be a deployed, working OpenClaw agent powered by Nemotron that autonomously handles a task with persistent memory, multi-step reasoning, and live tool use. Not a prototype. Not a pitch deck. Something that runs. ... ​Bonus Track (Best Use of NemoClaw): Want to go further?",
+        "Use of NVIDIA Nematron Models The team's effective, impactful, and innovative integration of NVIDIA's Nemotron models to enable sophisticated reasoning and agentic capabilities within their project.",
+        "​In this 24-hour hackathon hosted by NVIDIA, your challenge is to build a working autonomous agent application using OpenClaw and NVIDIA Nemotron models. We want agents that take action, handle live data, and execute complex multi-step workflows."
+      ]
+    },
+    {
+      "title": "Open Source AI Week 2026 — October 16–25",
+      "url": "https://opensourceaiweek.com/",
+      "description": "The Official Open Source AI Week - October 16-25, 2026 in the San Francisco Bay Area. A week long celebration of open source AI, organized by the community for the community.",
+      "snippets": [
+        "The ExecuTorch Hackathon — open models, local inference, on-device. Demo night closes Sunday. ... The 10th annual MIT AI conference: 500 executives, founders, researchers and investors for a day of workshops, demos, talks and networking, with 50+ speakers. ... Build a team of agents you can walk away from — persistent agent teams that plan, delegate, recover and keep going, on Crusoe Managed Inference with NVIDIA’s Nemotron models.",
+        "Crusoe takes over the Civil War Parade Lawn in the Presidio for a model-themed field day — race your team’s “model” from raw data to production through themed games, with food and prizes. ... The Fincantieri Maritime Dual-Use Hackathon crosses the Atlantic: 36 hours of teams building working solutions to real maritime and defense engineering challenges in the Bay Area’s deep-tech ecosystem.",
+        "Hosted by NVIDIA x Crusoe x Cerebral Valley · Community Event ... Join Arm and Meta for the ExecuTorch: Edge AI Challenge, a two-day, hands-on hackathon focused on building and deploying AI applications on Arm-powered devices.",
+        "After a full day at PyTorch Conference, unwind in San Jose with GPU experts, ML engineers and AI infra enthusiasts from dstack, Crusoe and SGLang — food and plenty of time to talk training, inference and open-source AI systems."
+      ]
+    },
+    {
+      "title": "Nebius x NVIDIA Global AI Hackathon: Build the next frontier of ...",
+      "url": "https://nebiusglobalaihackathon.devpost.com/",
+      "description": "Build the next frontier of AI on open infrastructure",
+      "snippets": [
+        "Use at least one NVIDIA open source model, and use tools such as NVIDIA NemoClaw, OpenShell, Hermes Agent, and Nebius Serverless to bring personal AI to assemble, secure, and run your own personal AI system. Physical AI Track Build embodied and edge agents that sense and act in the real world: robotics, IoT, and on-device intelligence, powered by Nemotron, GROOT, Cosmos and Sonic models and coordinated through an agent runtime.",
+        "Best Apps and Agents Track Build any app or agent someone would actually use, from a productivity tool or copilot to a workflow that runs itself. Power it with Nemotron models on Nebius through Token Factory. Reach for Nemotron 3 Ultra when you need serious reasoning, and let Nano or Super handle the fast, everyday calls, so your app stays responsive and your credits stretch further.",
+        "A working project. Build something with NVIDIA Nemotron or other NVIDIA open source models on either Nebius Token Factory or Nebius AI Cloud that meets the track requirements.",
+        "A demo video. Upload a 3-minute or shorter public YouTube video showing your project working — how you used Nebius Token Factory and NVIDIA Nemotron or other NVIDIA open source models."
+      ]
+    },
+    {
+      "title": "GitHub - NVIDIA/NemoClaw: Run agents like Hermes, LangChain Deep ...",
+      "url": "https://github.com/NVIDIA/NemoClaw/",
+      "description": "Run agents like Hermes, LangChain Deep Agents, and OpenClaw more securely inside NVIDIA OpenShell with managed inference - NVIDIA/NemoClaw",
+      "snippets": [
+        "What NemoClaw does and how it fits together. ... High-level overview of the host CLI, agent integration layer, blueprint, sandbox lifecycle, and protection layers. ... How OpenClaw, OpenShell, and NemoClaw form a stack and when to use NemoClaw versus OpenShell alone.",
+        "NVIDIA NemoClaw is an open source reference stack for running supported AI agents more safely inside NVIDIA OpenShell sandboxes.",
+        "It provides guided onboarding, managed inference, network policy, managed integrations, OpenShell-backed state persistence, and lifecycle operations through the NemoClaw CLI and its agent-specific aliases.",
+        "On a supported DGX or Windows Subsystem for Linux (WSL) host, press Enter at the Run express install with these settings? [Y/n]: prompt to use the recommended preset settings for that platform. Express install mode installs OpenClaw by default. If you accept, refer to NemoClaw Quickstart with OpenClaw."
+      ]
+    }
+  ]
+}

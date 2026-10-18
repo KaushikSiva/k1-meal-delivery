@@ -1,0 +1,65 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:23:46+00:00",
+  "query": "Crusoe Cloud object storage S3 compatible persistent disk shared filesystem",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Object storage overview | Crusoe Cloud",
+      "url": "https://docs.crusoecloud.com/storage/object-storage/overview/",
+      "description": "Learn about Crusoe Cloud Object Storage - S3-compatible object storage for AI/ML workloads",
+      "snippets": [
+        "Crusoe Cloud Object Storage provides high-performance, S3-compatible object storage designed for AI/ML workloads. Store and retrieve datasets, model checkpoints, training artifacts, and other unstructured data with the standard S3 format.",
+        "It is ideal for petabyte-scale datasets and can be used to migrate data from other cloud providers to Crusoe. S3-Compatible API: Use existing S3 tools and libraries (boto3, s3cmd, rclone, aws s3 cli) without modification",
+        "These are separate from your Crusoe Cloud API tokens and are managed through the Console or CLI. See Managing Object Storage API Keys for more information. ... Object Storage uses dedicated AWS S3 style API keys (an access key and secret key pair) for authentication.",
+        "Storage tiering is not supported currently in Crusoe Cloud Object Storage · Once versioning is enabled on a bucket, it cannot be disabled. Managing Object Storage API Keys - Create and manage authentication credentials · Managing Buckets - Create and configure storage buckets · Using S3 Tools - Configure s3cmd, rclone, boto3, and other clients"
+      ]
+    },
+    {
+      "title": "Overview | Crusoe Cloud",
+      "url": "https://docs.crusoecloud.com/storage/disks/overview",
+      "description": "Crusoe Cloud offers three types of disks: Ephemeral Disks, Persistent Disks and Shared Disks. Ephemeral Disks are local to the virtual machine (on the same physical server). Persistent Disks are remote block storage volumes that are attached to a virtual machine.",
+      "snippets": [
+        "Managed Kubernetes (CMK) — use Persistent and Shared Disks as PersistentVolumes via the Crusoe CSI driver.",
+        "Learn about Crusoe Cloud's disk types",
+        "Persistent Disks offer reasonable performance with high availability and durability. Persistent Disks have a lifecycle independent of any given virtual machine, and can be attached or detached while the VM is running or stopped.",
+        "Upon attaching a Shared Disk to one or more VMs, you can interface with the Shared Disk using standard NFS semantics. Like Persistent Disks, Shared Disks have a lifecycle independent of any given virtual machine, and can be attached or detached while the VM is running or stopped."
+      ]
+    },
+    {
+      "title": "Using S3 Tools | Crusoe Cloud",
+      "url": "https://docs.crusoecloud.com/storage/object-storage/using-s3-tools/",
+      "description": "Learn how to configure and use s3cmd, rclone, boto3, and other S3-compatible tools with Crusoe Cloud Object Storage",
+      "snippets": [
+        "Use the --resfile and --csvfile flags to persist benchmark results: ... To remove the bucket, either use the Crusoe Cloud Console as described here.",
+        "You can use standard S3 benchmarking tools to measure performance from within your Crusoe Cloud VMs. Below is an example using elbencho, a distributed storage benchmark for file systems, object stores, and block devices.",
+        "Once you have an Object Storage API key and at least one bucket, you can use standard S3-compatible tools to manage objects. All S3 operations are performed directly from your Crusoe Cloud VMs.",
+        "Set host_bucket to the same value as host_base (without a %(bucket)s prefix) because Crusoe Object Storage uses path-style URLs only."
+      ]
+    },
+    {
+      "title": "Managing Persistent Disks | Crusoe Cloud",
+      "url": "https://docs.crusoecloud.com/storage/disks/managing-persistent-disks",
+      "description": "Use the storage disks create command to create a disk with your size. In the example below we will create 100 GiB disk called \"data-1.\" · name, size, and location are required arguments. The block-size can be either 512B or 4096B (default). When attaching a disk to a VM, the disk must be in ...",
+      "snippets": [
+        "The Crusoe Terraform provider will apply the changes to the disk. ... Currently, only the \"size\" of the disk can be changed. Changes to the \"name\" or \"location\" of the disk will force a re-creation of the disk (deletion and then creation of a new disk). Resizing a Persistent Disk changes the size of the underlying block device, but does not automatically grow the filesystem inside the VM.",
+        "From the console, select Storage > Disks in the left nav. Click Create Disk. Input a name for the disk, using only letters, numbers, - and _. Set the desired size of the disk from 1GiB to 10TiB. Set the desired block size of the disk—either 512B or 4096B. Click Create. Although Crusoe VMs come enabled with a 128 GB OS disk that is persistent, this disk is often not large enough for most AI or ML applications.",
+        "To view a list of existing disks via the console, select Storage > Disks in the left nav. To list existing disks using Terraform, the following code snippet can be used to populate a Terraform data source using the Crusoe Terraform provider.",
+        "From the console, select Storage > Disks in the left nav. Navigate to the row of the disk you want to update. Click the plus (+) icon on the far right side of the row. Enter the new size of the disk (disk size can only be increased). Click Confirm. To update an existing disk using the Crusoe Terraform provider, you can change the fields of an existing disk resource and run terraform apply."
+      ]
+    },
+    {
+      "title": "Managing Shared Disks | Crusoe Cloud",
+      "url": "https://docs.crusoecloud.com/storage/disks/managing-shared-disks/",
+      "description": "If you're mounting shared disks on a CMK cluster using the CSI driver, your cluster must run Crusoe CSI driver v0.4.12 or newer before November 8, 2026. See Upgrade the Crusoe CSI driver · Use the storage disks create command and specify the type \"shared-volume\" to create a Shared Disk of ...",
+      "snippets": [
+        "If you're mounting shared disks on a CMK cluster using the CSI driver, your cluster must run Crusoe CSI driver v0.4.12 or newer before November 8, 2026. See Upgrade the Crusoe CSI driver. ... Use the storage disks create command and specify the type \"shared-volume\" to create a Shared Disk of your specified size.",
+        "From the console, select Storage > Disks in the left nav. Click Create Disk. Input a name for the disk, using only letters, numbers, - and _. Select the type Shared Volume. Set the desired size of the disk from 1TiB to 1000TiB. Click Create. The following is intended to help get you started in using Terraform to provision a Shared disk and attach the disk to a VM in Crusoe Cloud.",
+        "To view a list of existing disks via the console, select Storage > Disks in the left nav. To list existing disks using Terraform, the following code snippet can be used to populate a Terraform data source using the Crusoe Terraform provider.",
+        "From the console, select Storage > Disks in the left nav. Navigate to the row of the disk you wish to update. Click the plus (+) icon on the far right side of the row. Enter the new size of the disk. Click Confirm. To update an existing Shared Disk using the Crusoe Terraform provider, you can change the fields of an existing disk resource and run terraform apply."
+      ]
+    }
+  ]
+}

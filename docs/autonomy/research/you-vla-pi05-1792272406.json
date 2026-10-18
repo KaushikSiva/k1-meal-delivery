@@ -1,0 +1,62 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:26:47+00:00",
+  "query": "pi0.5 openpi open weights release fine-tuning Physical Intelligence",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "GitHub - Physical-Intelligence/openpi · GitHub",
+      "url": "https://github.com/Physical-Intelligence/openpi",
+      "description": "Contribute to Physical-Intelligence/openpi development by creating an account on GitHub.",
+      "snippets": [
+        "TrainConfig: Defines fine-tuning hyperparameters, data config, and weight loader. We provide example fine-tuning configs for π₀, π₀-FAST, and π₀.₅ on LIBERO data. Before we can run training, we need to compute the normalization statistics for the training data. Run the script below with the name of your training config: uv run scripts/compute_norm_stats.py --config-name pi05_libero",
+        "Now we can kick off training with the following command (the --overwrite flag is used to overwrite existing checkpoints if you rerun fine-tuning with the same config): XLA_PYTHON_CLIENT_MEM_FRACTION=0.9 uv run scripts/train.py pi05_libero --exp-name=my_experiment --overwrite · The command will log training progress to the console and save checkpoints to the checkpoints directory. You can also monitor training progress on the Weights & Biases dashboard.",
+        "Docker: As an alternative to uv installation, we provide instructions for installing openpi using Docker. If you encounter issues with your system setup, consider using Docker to simplify installation. See Docker Setup for more details. We provide multiple base VLA model checkpoints. These checkpoints have been pre-trained on 10k+ hours of robot data, and can be used for fine-tuning. ... We also provide \"expert\" checkpoints for various robot platforms and tasks. These models are fine-tuned from the base models above and intended to run directly on the target robot.",
+        "We provide more examples for how to fine-tune and run inference with our models on the ALOHA platform in the following READMEs: ... openpi now provides PyTorch implementations of π₀ and π₀.₅ models alongside the original JAX versions! The PyTorch implementation has been validated on the LIBERO benchmark (both inference and finetuning)."
+      ]
+    },
+    {
+      "title": "Open Sourcing π0",
+      "url": "https://www.pi.website/blog/openpi",
+      "description": "Physical Intelligence is bringing general-purpose AI into the physical world.",
+      "snippets": [
+        "We are releasing the weights and code for π0 as well as our new π0-FAST autoregressive model.",
+        "We believe that embodiment is key to this, and by making π0 available to everyone, we hope to contribute to progress toward broadly capable and general-purpose physical intelligence. ... several checkpoints that are fine-tuned for a few simple tasks on a few widely available platforms such as ALOHA and DROID · example code to run inference on several real-world and simulated robot platforms · code for fine-tuning the base π0 model for your own tasks and platforms · We expect that the main use-case for openpi will be to fine-tune π0 with small to medium amounts of data from your own platform.",
+        "See the openpi repository documentation for instructions about how to set up your ALOHA system to run these checkpoint correctly. These checkpoints might be quite sensitive to overall robot setup, though we were able to run them on an entirely new ALOHA station that did not appear in the training data. π0 Libero: This checkpoint is fine-tuned for the Libero benchmark, and can be evaluated on Libero tasks out of the box. At Physical Intelligence, we believe that general purpose models that can control any robot to perform any task will be the future of robotic control.",
+        "A few months ago we announced π0, our first general-purpose robotic foundation model that could be fine-tuned to a diverse range of tasks (folding laundry, cleaning a table, scooping coffee beans, etc) and that could control a variety of different robot type (robots with two arms, single-arm platforms, mobile robots, etc). Today, we are releasing the code and weights for the π0 as part of our experimental openpi repository."
+      ]
+    },
+    {
+      "title": "Physical Intelligence (π0.5): The Open Reference Point for ...",
+      "url": "https://blog.robo2u.com/posts/physical-intelligence-guide/",
+      "description": "What Physical Intelligence has actually demonstrated with π0.5, what stays a company claim, and why the open weights lag the flagship.",
+      "snippets": [
+        "What Physical Intelligence has actually demonstrated with π0.5, what stays a company claim, and why the open weights lag the flagship. ... Physical Intelligence is a robotics lab whose π0.5 model is the open reference point for generalist robot policies. Its best-documented result, arXiv 2504.16054, shows π0.5 cleaning kitchens and bedrooms in unseen homes, with real-world success self-reported. The openpi code is Apache 2.0, π0.5 base weights arrived in September 2025, and no later model has open weights.",
+        "The original release covered π0 base weights and code, fine-tuned ALOHA and DROID checkpoints, inference examples, and fine-tuning code. π0.5 weights came later: the README records \"[Sept 2025] We released pi05, an upgraded version of pi0 with better open-world generalization,\" with a base checkpoint at gs://openpi-assets/checkpoints/pi05_base.",
+        "pi05_base checkpoint on Hugging Face - the base weights added in September 2025, downloadable and checkable against the LIBERO scores. Apache License 2.0 - the licence that covers the openpi code, and only the code. LIBERO benchmark - the definition of the Spatial 98.8, Object 98.2, Goal 98.0 and Libero-10 92.4 suites. DROID dataset - one of the two fine-tuned checkpoint targets in the original openpi release.",
+        "No. π0.7, dated 16 April 2026, is the current flagship on the site, and π0.6 and π*0.6 came before it. π0.5 remains the most recent model with released weights. Can I download and run π0.5? Yes. The openpi repository's code is Apache 2.0 and the π0.5 base checkpoint was added in September 2025. Inference needs a GPU with more than 8 GB of memory; full fine-tuning needs more than 70 GB."
+      ]
+    },
+    {
+      "title": "Pi0 and Pi0.5 fine-tuning | EmbodiFlow",
+      "url": "https://io-ai.tech/platform/en/guides/Pipeline/LeRobot/Pi0/",
+      "description": "π0 and π0.5 are Vision-Language-Action (VLA) policies from Physical Intelligence, and their training pipeline comes from OpenPI. They are the openpi-0 and openpi-0.5 models of the OpenPI repository, written officially as π₀ and π₀.₅, registered under the model identifiers pi0 and pi05 ...",
+      "snippets": [
+        "π0 and π0.5 are Vision-Language-Action (VLA) policies from Physical Intelligence, and their training pipeline comes from OpenPI. They are the openpi-0 and openpi-0.5 models of the OpenPI repository, written officially as π₀ and π₀.₅, registered under the model identifiers pi0 and pi05 with base checkpoints pi0base and pi05base.",
+        "π0 and π0.5 are Vision-Language-Action (VLA) policies from Physical Intelligence, and their training pipeline comes from OpenPI. They are the openpi-0 and openpi-0.5 models of the OpenPI repository, written officially as π₀ and π₀.₅, registered under the model identifiers pi0 and pi05 with base checkpoints pi0_base and pi05_base.",
+        "The jax and lerobot frameworks use two separate parameter sets. The jax framework targets the OpenPI training entry point:",
+        "Under Selected Model, select pi0 or pi05."
+      ]
+    },
+    {
+      "title": "Rohan Paul on X: \"π0.5 weights + fine-tuning code are now ...",
+      "url": "https://x.com/rohanpaul_ai/status/1965269131827069377",
+      "description": "π0.5 weights + fine-tuning code are now open-source made by Physical-Intelligenc This is the open-sourced π0 from Physical Intelligence, its robotic foundation model, via the openpi repository. π0 is the most advanced Vision Language Action model. It takes natural language https://t.co/2W1YjMubTr",
+      "snippets": [
+        "- Task-specific fine-tuned models for DROID, ALOHA, and Libero. - @huggingface provides a PyTorch port, making it accessible beyond JAX users. Physical Intelligence aims to drive open-source robotics, akin to LLM and VLM progress. ... We've added pi-05 to the openpi repo: pi05-base, pi05-droid, pi05-libero."
+      ]
+    }
+  ]
+}

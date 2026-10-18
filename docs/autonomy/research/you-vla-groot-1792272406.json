@@ -1,0 +1,63 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:26:50+00:00",
+  "query": "NVIDIA GR00T N1.5 N1.6 humanoid foundation model fine-tuning open weights license",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "NVIDIA Isaac GR00T N1: An Open Foundation Model for Humanoid Robots ...",
+      "url": "https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots",
+      "description": "At NVIDIA, we are developing AI solutions to enable general-purpose humanoid robots to understand the human world, follow language instructions, and perform diverse tasks. A robust Vision-Language-Action (VLA) model is crucial for such advanced capabilities. To this end, we developed GR00T ...",
+      "snippets": [
+        "At NVIDIA, we are developing AI solutions to enable general-purpose humanoid robots to understand the human world, follow language instructions, and perform diverse tasks. A robust Vision-Language-Action (VLA) model is crucial for such advanced capabilities. To this end, we developed GR00T N1, a generalist robot model trained on a diverse dataset that includes egocentric human videos, real and simulated robot trajectories, and synthetic data.",
+        "GR00T N1 outperforms state-of-the-art imitation learning models in simulation benchmarks across multiple robot embodiments. Additionally, it demonstrates effective language-conditioned bimanual manipulation on the Fourier GR-1 and 1X humanoids in household tasks. To help Physical AI builders solve the most critical problems of our society, we make our models open-weight with permissive licenses available via NVIDIA Isaac GR00T."
+      ]
+    },
+    {
+      "title": "[2503.14734] GR00T N1: An Open Foundation Model for Generalist ...",
+      "url": "https://arxiv.org/abs/2503.14734",
+      "description": "General-purpose robots need a versatile body and an intelligent mind. Recent advancements in humanoid robots have shown great promise as a hardware platform for building generalist autonomy in the human world. A robot foundation model, trained on massive and diverse data sources, is essential ...",
+      "snippets": [
+        "General-purpose robots need a versatile body and an intelligent mind. Recent advancements in humanoid robots have shown great promise as a hardware platform for building generalist autonomy in the human world. A robot foundation model, trained on massive and diverse data sources, is essential for enabling the robots to reason about novel situations, robustly handle real-world variability, and rapidly learn new tasks.",
+        "Abstract page for arXiv paper 2503.14734: GR00T N1: An Open Foundation Model for Generalist Humanoid Robots",
+        "View a PDF of the paper titled GR00T N1: An Open Foundation Model for Generalist Humanoid Robots, by NVIDIA: Johan Bjorck and 40 other authors View PDF HTML (experimental)",
+        "Recent advancements in humanoid robots have shown great promise as a hardware platform for building generalist autonomy in the human world. A robot foundation model, trained on massive and diverse data sources, is essential for enabling the robots to reason about novel situations, robustly handle real-world variability, and rapidly learn new tasks. To this end, we introduce GR00T N1, an open foundation model for humanoid robots."
+      ]
+    },
+    {
+      "title": "GitHub - NVIDIA/Isaac-GR00T: NVIDIA Isaac GR00T N1.7 - A Foundation ...",
+      "url": "https://github.com/Nvidia/Isaac-GR00T",
+      "description": "NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots. - NVIDIA/Isaac-GR00T",
+      "snippets": [
+        "Fine-tune — Adapt the model to your robot using launch_finetune.py with your own data and modality config. Evaluate — Validate with open-loop evaluation, then test in simulation benchmarks or on real hardware via the Policy API. Deploy — Connect Gr00tPolicy to your robot controller, optionally accelerated with TensorRT. GR00T N1.7 builds on N1.6 with a new VLM backbone and code-level improvements.",
+        "New VLM backbone: Cosmos-Reason2-2B (Qwen3-VL architecture), replacing the Eagle backbone used in N1.6. Supports flexible resolution and encodes images in their native aspect ratio without padding. Updated model interface: N1.7 moves to the gr00t_n1d7 model package, expands the state/action dimensions, and increases the model action horizon. More flexible dataset handling: Fine-tuning can use multiple dataset paths with mixture weighting, making multi-dataset training easier to configure.",
+        "Add --use-wandb to enable Weights & Biases logging. For more extensive configuration, use gr00t/experiment/launch_train.py. Maximize batch size for your hardware and train for a few thousand steps. Users may observe 5-6% variance between runs due to non-deterministic image augmentations. Keep this in mind when comparing to reported benchmarks. --state_dropout_prob (model config default: 0.8; finetune CLI default: 0.2; see gr00t/configs/finetune_config.py): Randomly drops state inputs during training to improve generalization and reduce state-dependency.",
+        "GR00T N1.7 is trained on a diverse mixture of robot data including bimanual, semi-humanoid and an expansive humanoid dataset. It is adaptable through post-training for specific embodiments, tasks and environments. GR00T N1.7 is fully commercially licensable under Apache 2.0. It delivers comparable performance to N1.6, with improved generalization and language-following capabilities driven by the inclusion of 20K hours of EgoScale human video data in pretraining."
+      ]
+    },
+    {
+      "title": "GR00T N1.5 Explained: NVIDIA’s VLA Model for Humanoid Robots",
+      "url": "https://learnopencv.com/gr00t-n1_5-explained/",
+      "description": "Explore NVIDIA GR00T N1.5 for humanoid robots: its VLA architecture, real and synthetic training data, performance gains, and hands-on code pipeline.",
+      "snippets": [
+        "NVIDIA has made GR00T N1.5 an open foundation model, and the code is available on GitHub. This section will walk you through the general procedure to get up and running, assuming you’re keen to dive in. Think of this as your starter map for an adventure. The treasure? A powerful VLA model you can fine-tune and deploy!",
+        "AI Model for Robots, AI Robotics, Diffusion Transformer, DreamGen, FLARE Robot Learning, Foundation Model for Robotics, GR00T, GR00T N1.5, GR00T N1.5 Code, Humanoid Robots, NVIDIA GR00T, NVIDIA Isaac GR00T, Robotics, Vision-Language Model (VLM), VLA Model (Vision-Language-Action) 3D Computer Vision3D ReconstructionSegmentationSpatialAI-DepthVideo Analysis ... Reconstruct the 3D swing plane of Virat Kohli's flick shot from a single 2D video with off-the-shelf vision models. No… ... Learn how to fine-tune YOLO26 on your own data.",
+        "Now, GR00T N1.5 takes this solid foundation and makes some really smart enhancements: Keeping the Language Whiz Intact (Frozen VLM): One of the most significant changes in N1.5 is that the core Vision-Language Model (the “thinker” part) is kept frozen during both the initial large-scale training (pretraining) and the later specialized training (finetuning).",
+        "The model learns to process (annotated) video datasets, synthetic datasets, and real-robot trajectories by sampling training batches from this diverse mixture. This co-training strategy ensures that GR00T N1.5 develops broad visual and behavioral priors from the lower layers while being finely tuned for embodied, real-robot execution by the top layer."
+      ]
+    },
+    {
+      "title": "GR00T N1.5",
+      "url": "https://research.nvidia.com/labs/gear/gr00t-n1_5/",
+      "description": "We introduce GR00T N1.5, an upgraded version of the GR00T N1 foundation model for humanoid robots. With several architecture, data and modeling improvements, we find that N1.5 outperforms N1 on both simulated manipulation benchmarks and on the real GR-1 robot, detailed below.",
+      "snippets": [
+        "We attribute these improvements to the improved grounding capabilities, usage of the FLARE loss and the diverse data from DreamGen. The model will be open-sourced shortly, and we hope practitioners will observe improved results when finetuning GR00T-N1.5 on their own robots. Foundation ModelHumanoid RobotVLMLanguage Following",
+        "The VLM model is frozen during both pretraining and finetuning. The adapter MLP connecting the vision encoder to the LLM is simplified and adds layer normalization to both visual and text token embeddings input to the LLM. We found that these modifications greatly improved language following and generalization. We have updated the VLM of GR00T N1.5, starting from Eagle 2.5 and tuned for better grounding capabilities and physical understanding.",
+        "To generalize beyond the teleoperation data and enable humanoid robots to learn new tasks in new environments, we use DreamGen to generate synthetic robot data for training. Loading video... DreamGen 4-step pipeline. Through the DreamGen pipeline, we show that GR00T N1.5 can achieve non-trivial results on 12 new verbs (see the DreamGen blog post for task details), which were added to the pretraining data through our pipeline.",
+        "Distribution of training data in GR00T N1.5 pretraining. In order to tune the model architecture for N1.5, we trained policies from scratch on two sim robot benchmarks requiring language following: Language Table and a set of five simulated GR-1 tasks requring language (\"Sim GR-1 Language\")."
+      ]
+    }
+  ]
+}

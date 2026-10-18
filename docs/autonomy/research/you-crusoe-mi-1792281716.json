@@ -1,0 +1,73 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-18T00:01:57+00:00",
+  "query": "Crusoe Managed Inference API base URL OpenAI compatible chat completions Nemotron model id",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Quickstart: Hermes Agent on Crusoe Managed Inference",
+      "url": "https://www.crusoe.ai/resources/blog/running-nous-researchs-hermes-agent-on-crusoe-managed-inference",
+      "description": "See how to route Hermes Agent v0.12 through Crusoe's OpenAI-compatible endpoint, with Nemotron 3, Kimi K2.6, and GLM 5.2 doing reasoning for agentic tool calls.",
+      "snippets": [
+        "Hermes will pick up the OPENAI_BASE_URL and route requests to Crusoe. Hermes lets you pick two models: a primary model for the main agent loop, and an auxiliary model used by the Curator and other background skills. A good split for a Crusoe-backed Hermes: Primary: moonshotai/Kimi-K2.6: 256K context, built for agentic tool use. Good for agent loops that plan, decompose, and synthesize across long histories. Auxiliary: nvidia/Nemotron-3-Nano-Omni-Reasoning-30B-A3B: fast, cheap, and multimodal.",
+        "If you’ve trained Hermes’ tool schemas into a custom model, you can host it on Crusoe and point Hermes at it through the same OpenAI-compatible slot. Same code, your weights. The full stack (open agent, open weights, fast inference) is now cohesive enough to build on without the compromises that come with closed setups. The two pieces: Crusoe Managed Inference for the model brain. Generate an API key in the Intelligence Foundry and you’re hitting Nemotron 3, Kimi K2.6, GLM 5.2, and the rest of the catalog in minutes.",
+        "nvidia/Nemotron-3-Nano-Omni-Reasoning-30B-A3B: multimodal MoE with ~3B active parameters, 262K context, our fast-and-cheap default. Before configuring Hermes, confirm your key works against the OpenAI-compatible endpoint with a one-liner.",
+        "Mix models per turn. Use /model mid-conversation to switch between Kimi K2.6 for hard agentic reasoning, GLM 5.2 for long-context synthesis, Nemotron 3 Nano Omni for multimodal turns (it ingests images, video, and audio natively), and Nemotron 3 Nano 30B for cheap high-volume classification."
+      ]
+    },
+    {
+      "title": "Crusoe - TrueFoundry Docs",
+      "url": "https://www.truefoundry.com/docs/ai-gateway/crusoe",
+      "description": "Add and configure Crusoe Managed Inference models in TrueFoundry's AI Gateway using Custom Endpoints.",
+      "snippets": [
+        "TrueFoundry offers an enterprise-grade AI Gateway combining LLM, MCP, and Agent Gateways—empowering businesses to connect, monitor, and govern agentic AI applications across providers from a unified control plane.",
+        "Fetch the complete documentation index at: /llms.txt · Use this file to discover all available pages before exploring further. ... Add and configure Crusoe Managed Inference models in TrueFoundry’s AI Gateway using Custom Endpoints. ... Crusoe Managed Inference exposes an OpenAI-compatible API for open-weight models such as meta-llama/Llama-3.3-70B-Instruct, deepseek-ai/DeepSeek-V3-0324, and openai/gpt-oss-120b.",
+        "Crusoe hosts open-weight models such as meta-llama/Llama-3.3-70B-Instruct, deepseek-ai/DeepSeek-V3-0324, and openai/gpt-oss-120b. You do not need a separate custom endpoint per model — set the model field in the JSON request body to the Crusoe model ID you want. See the Crusoe serverless inference docs for the full list.",
+        "Replace crusoe and crusoe_managed_inference in the URL with your own Account Name and Display Name if you used different values during setup. ... Before you start: Replace {GATEWAY_BASE_URL} with your gateway base URL (how to find it) and set TFY_API_KEY to your TrueFoundry API key. Because Crusoe is OpenAI-compatible, you can point the OpenAI SDK at the AI Gateway proxy path:"
+      ]
+    },
+    {
+      "title": "Crusoe - vLLM",
+      "url": "https://docs.vllm.ai/en/latest/deployment/frameworks/crusoe/",
+      "description": "You are viewing the latest developer preview docs. Click here to view docs for the latest stable release · Crusoe provides Managed Inference, an OpenAI-compatible API for open-weight models, powered by vLLM. Because the service speaks the OpenAI API, code written against a self-hosted vLLM ...",
+      "snippets": [
+        "import os from openai import OpenAI client = OpenAI( base_url=\"https://api.inference.crusoecloud.com/v1\", api_key=os.environ[\"CRUSOE_API_KEY\"], ) response = client.chat.completions.create( model=\"zai/GLM-5.2\", messages=[{\"role\": \"user\", \"content\": \"Hello, how are you?\"}], ) print(response.choices[0].message.content)",
+        "curl https://api.inference.crusoecloud.com/v1/chat/completions \\ -H \"Authorization: Bearer $CRUSOE_API_KEY\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"model\": \"zai/GLM-5.2\", \"messages\": [ {\"role\": \"user\", \"content\": \"Hello, how are you?\"} ], \"max_tokens\": 50 }' ... For the full list of available models and API details, see the Crusoe Managed Inference docs."
+      ]
+    },
+    {
+      "title": "NVIDIA Nemotron 3 Nano Omni now available on Crusoe Managed Inference",
+      "url": "https://www.crusoe.ai/resources/blog/nvidia-nemotron-3-nano-omni-now-available",
+      "description": "NVIDIA Nemotron 3 Nano Omni and the full Nemotron 3 model family are now available on Crusoe Managed Inference. Here's a breakdown of what each model is built for and how to get started in Crusoe Intelligence Foundry.",
+      "snippets": [
+        "Here's a breakdown of what’s available, what each model is built for, and the benefits of using these models on Crusoe Managed Inference. NVIDIA Nemotron 3 Nano Omni is an open multimodal foundation model that unifies reasoning across video, audio, images, documents, and text, simplifying agentic AI development with leading efficiency and accuracy.",
+        "Crusoe's inference engine with MemoryAlloyTM technology is purpose-built for workloads like these. At 256K tokens of shared multimodal context, managing cached visual, audio, and document state across agent turns is a hard infrastructure challenge. MemoryAlloy technology handles this efficiently without recomputation, keeping latency low and throughput high. Try Nemotron 3 Nano Omni in the Crusoe Intelligence Foundry.",
+        "NVIDIA Nemotron 3 Nano is a highly compute-efficient, high-performance 30B parameter LLM. Utilizing a sparse Mixture-of-Experts (MoE) architecture, it activates ~3.2B parameters per forward pass, providing robust reasoning with lower inference cost.",
+        "If you're running dozens or hundreds of parallel agents and need maximum tokens per second at the lowest cost, Nemotron 3 Nano is the right starting point. Crusoe’s inference engine dramatically reduces KV cache overhead so you can run Nemotron 3 Nano with higher concurrent request throughput without sacrificing accuracy."
+      ]
+    },
+    {
+      "title": "Serverless Inference | Crusoe Cloud",
+      "url": "https://docs.crusoecloud.com/serverless-inference/",
+      "description": "Generate an API key and send requests to hosted models over an OpenAI-compatible API",
+      "snippets": [
+        "Log in to the Crusoe Cloud Console or Create an account. After you log in, switch to the Intelligence Foundry app in the bottom-left of the console. ... From the console, click Admin in the bottom-left corner. Select Security > Intelligence API keys from the left navigation. Click Create. ... Copy the API key. Make sure that you save the key in a secure location before leaving the page. For more information, see Manage API keys. You can use the OpenAI-API compatible endpoint at api.inference.crusoecloud.com to access the models below for Serverless Inference.",
+        "You can also interact with all of the models using the Intelligence Foundry's chat interface. All Meta models provided by Crusoe are \"Built with Llama\". For each model's pricing information, see pricing. Use the OpenAI-compatible endpoint at api.inference.crusoecloud.com.",
+        "Send requests to Crusoe-hosted models over an OpenAI-compatible API or interact with them directly using the Intelligence Foundry's chat interface."
+      ]
+    },
+    {
+      "title": "Pydantic AI adds Crusoe as a native model provider",
+      "url": "https://www.crusoe.ai/resources/blog/crusoe-is-now-a-pydantic-ai-model-provider",
+      "description": "Crusoe is now a native Pydantic AI model provider. See how to run agents with streaming, tool calling, and structured output on Crusoe Managed Inference.",
+      "snippets": [
+        "Open models are a fast-growing part of that picture, and they deserve infrastructure built for them. Crusoe Managed Inference serves the open catalog end to end on the Crusoe Intelligence Foundry: GLM, Llama, DeepSeek, Qwen, Gemma, gpt-oss, Kimi, and the NVIDIA Nemotron™ 3 family, with day-zero support for new releases.",
+        "It worked, but it meant wiring up OpenAIProvider with a custom base_url, managing the API key by hand, and losing model profile inference along the way. Model profiles matter more than they sound: they tell Pydantic AI how each model family handles JSON schemas, tool definitions, and output formats.",
+        "Under the hood, CrusoeProvider maps each model family Crusoe serves to its correct Pydantic AI profile: meta-llama, deepseek-ai, qwen, google (Gemma), moonshotai (Kimi), zai (GLM), and openai (gpt-oss, which uses the harmony profile). Tool schemas and JSON output behave correctly per family without any configuration on your side. What you get from the pairing is a short list with a lot behind it. Pydantic AI brings the agent framework: type-safe outputs, tools, streaming, and evals through Pydantic Evals, with tracing through Pydantic Logfire. Crusoe brings the inference layer built for agent workloads.",
+        "Two steps: grab a key from the Intelligence Foundry, then pip install \"pydantic-ai-slim[openai]\" and point an Agent at crusoe: plus any model in the catalog. If you build something interesting on this stack, we would love to hear about it. Reach the Crusoe developer community at devcommunity@crusoe.ai, and follow Crusoe for Developers on LinkedIn and @crusoedev on X for model launches, cookbook drops, and more walkthroughs. An agent framework with validation at its core, and inference built for agents underneath it."
+      ]
+    }
+  ]
+}

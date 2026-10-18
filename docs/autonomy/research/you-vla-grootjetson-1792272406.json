@@ -1,0 +1,61 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:26:53+00:00",
+  "query": "GR00T N1.6 Jetson Thor Orin inference latency",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Real-Time Inference on Thor & RTX Pi0.5/GR00T N1.6/1.7 Thor 23 ...",
+      "url": "https://forums.developer.nvidia.com/t/real-time-inference-on-thor-rtx-pi0-5-gr00t-n1-6-1-7-thor-23-hz-rtx-5090-50-80hz/368788",
+      "description": "Hi everyone, I’m an independent developer with a background in algorithms, HPC, and robotics infrastructure. Recently I’ve been working on a lightweight inference engine built around hand-written CUDA kernels, focusing on small-batch and real-time performance (especially for VLA and robotics ...",
+      "snippets": [
+        "Hi everyone, I’m an independent developer with a background in algorithms, HPC, and robotics infrastructure. Recently I’ve been working on a lightweight inference engine built around hand-written CUDA kernels, focusing on small-batch and real-time performance (especially for VLA and robotics workloads).",
+        "Hi everyone, I’m an independent developer with a background in algorithms, HPC, and robotics infrastructure. Recently I’ve been working on a lightweight inference engine built around hand-written CUDA kernels, focusing …"
+      ]
+    },
+    {
+      "title": "r/robotics on Reddit: Real-Time Inference on Thor & RTX Pi0.5/GR00T ...",
+      "url": "https://www.reddit.com/r/robotics/comments/1t4emw2/realtime_inference_on_thor_rtx_pi05gr00t_n1617/",
+      "description": "Hi everyone, I’m an independent developer with a background in algorithms, HPC, and robotics infrastructure. Recently I’ve been working on a…",
+      "snippets": [
+        "Posted by u/Diligent-End-2711 - 9 votes and 4 comments",
+        "Expect ~50% of 5090 performance Expectation: Pi0.5 ~31 Hz, GROOT ~42 Hz. Jetson Orin NX 16 GB – No FP8 hardware (Ampere sm_87). Falls back to FP16 → Pi0.5 ~4‑5 Hz, far from real‑time control (needs >20 Hz). ... LingBot-VLA vs π0.5 vs GR00T N1.6 vs WALL-OSS: 22,500 real-world trials across 3 platforms and 100 tasks"
+      ]
+    },
+    {
+      "title": "How Fast Can I Run My VLA? Demystifying VLA Inference Performance ...",
+      "url": "https://arxiv.org/html/2602.18397v1",
+      "description": "[6] J. Bjorck, F. Castañeda, N. Cherniadev, X. Da, R. Ding, L. Fan, Y. Fang, D. Fox, F. Hu, S. Huang, et al. (2025) Gr00t n1: an open foundation model for generalist humanoid robots. arXiv preprint arXiv:2503.14734.",
+      "snippets": [
+        "Inference systems. We evaluate a range of accelerators spanning high-end edge GPUs (e.g., NVIDIA Jetson Thor), consumer-grade GPUs commonly used in research experiments (e.g., RTX 4090), and high-end datacenter GPUs, including A100, H100, and B100. The GPUs can be mapped to various inference location as shown in Table 2.",
+        "This behavior closely mirrors LLM inference, where the prefill phase (prompt processing) is compute-intensive, while the decode phase (token generation) is memory-bound Patel et al. (2024). Jetson Thor, in contrast to the other evaluated GPUs, relies on LPDDR memory, which prioritizes low power consumption for embedded devices but provides substantially lower bandwidth (270 GB/s) than GDDR on RTX 4090 (1 TB/s) and HBM on B100 (8 TB/s).",
+        "B100 sustains 11.7 Hz inference with 1K past timesteps, whereas performance drops to 1.2 Hz at 10K steps, which no longer meets real-time requirements. For Jetson Thor and RTX 4090, real-time performance is only achievable when the context length is limited to roughly 100 timesteps (around 8 Hz).",
+        "We evaluate three classes of VLA inference systems with different GPU and network configurations. First, on-device inference, where inference is executed directly on an edge GPU integrated into the robot (e.g., Jetson Thor), as demonstrated by systems such as Figure AI’s Helix Figure AI (2025)."
+      ]
+    },
+    {
+      "title": "Isaac GR00T 1.7 on Jetson Thor | Jetson AI Lab",
+      "url": "https://www.jetson-ai-lab.com/tutorials/groot_n17_on_thor/",
+      "description": "Deploy NVIDIA Isaac GR00T 1.7 Vision-Language-Action (VLA) model on NVIDIA Jetson AGX Thor with TensorRT mixed NVFP4 quantization.",
+      "snippets": [
+        "Checkpoint ──► ONNX (per-component) ──► Calibrate (NVFP4/FP8) ──► TensorRT Engines ──► Inference · A single script (build_trt_pipeline.py) runs all five stages. Benchmarked on Jetson AGX Thor Developer Kit (JetPack 7.2, MAXN power mode), GR00T-N1.7-LIBERO/libero_10, 4 denoising steps, 1 camera, batch size 1.",
+        "# PyTorch reference python scripts/deployment/standalone_inference_script.py \\ --model-path checkpoints/GR00T-N1.7-LIBERO/libero_10 \\ --dataset-path demo_data/libero_demo \\ --embodiment-tag LIBERO_PANDA \\ --traj-ids 0 1 2 3 4 --inference-mode pytorch --execution-horizon 8 \\ --save-plot-path ./output/pytorch_inference.png # Optimized TensorRT engines python scripts/deployment/standalone_inference_script.py \\ --model-path checkpoints/GR00T-N1.7-LIBERO/libero_10 \\ --dataset-path demo_data/libero_demo \\ --embodiment-tag LIBERO_PANDA \\ --traj-ids 0 1 2 3 4 --inference-mode trt_full_pipeline --execution-horizon 8 \\ --trt-engine-path ./gr00t_trt_optimized_mixed_nvfp4/engines \\ --save-plot-path ./output/trt_nvfp4_inference.png",
+        "Left to interpreter shutdown, which frees module globals in an arbitrary order, the C++ destructors intermittently hang or segfault after the results have already printed. The patch therefore releases the engines explicitly at the end of main(), the same way benchmark_inference.py and verify_n1d7_trt.py already did, so this script now exits cleanly with status 0.",
+        "Deploy NVIDIA’s Isaac GR00T 1.7 Vision-Language-Action (VLA) model on NVIDIA Jetson AGX Thor with TensorRT mixed NVFP4 quantization, taking end-to-end inference from 125 ms down to 39.9 ms, a 3.1x speedup at 25 Hz, with no measurable loss in task success."
+      ]
+    },
+    {
+      "title": "Isaac-GR00T/scripts/deployment/README.md at main · NVIDIA/Isaac-GR00T",
+      "url": "https://github.com/NVIDIA/Isaac-GR00T/blob/main/scripts/deployment/README.md",
+      "description": "Run inference with PyTorch or TensorRT acceleration for the GR00T N1.7 policy. ... dGPU local environment: use the installation commands below, then use the PyTorch or TensorRT commands in this guide · Thor Docker or bare metal: skip to Jetson Thor Setup · Spark Docker or bare metal: skip to DGX Spark Setup · Orin ...",
+      "snippets": [
+        "Run inference with PyTorch or TensorRT acceleration for the GR00T N1.7 policy. ... dGPU local environment: use the installation commands below, then use the PyTorch or TensorRT commands in this guide · Thor Docker or bare metal: skip to Jetson Thor Setup · Spark Docker or bare metal: skip to DGX Spark Setup · Orin Docker or bare metal: skip to Jetson Orin Setup",
+        "NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots. - Isaac-GR00T/scripts/deployment/README.md at main · NVIDIA/Isaac-GR00T",
+        "NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots. - NVIDIA/Isaac-GR00T",
+        "Thor uses CUDA 13 and Python 3.12, which require a different dependency stack than x86 or Orin. Tested with JetPack 7.1. There are two ways to run on Thor: Docker (recommended) or bare metal. ... Then follow the Shared Docker Workflow (image gr00t-thor) to download the model and start the container. Inside the container, run the full TRT pipeline (export, build, verify, benchmark): python scripts/deployment/build_trt_pipeline.py \\ --model-path checkpoints/GR00T-N1.7-LIBERO/libero_10 \\ --dataset-path demo_data/libero_demo \\ --embodiment-tag LIBERO_PANDA"
+      ]
+    }
+  ]
+}

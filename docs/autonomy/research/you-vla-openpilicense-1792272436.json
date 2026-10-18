@@ -1,0 +1,61 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:27:18+00:00",
+  "query": "openpi pi05_base checkpoint license Apache 2.0 Gemma license weights",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "GitHub - arena-planners/pi05 · GitHub",
+      "url": "https://github.com/arena-planners/pi05",
+      "description": "Contribute to arena-planners/pi05 development by creating an account on GitHub.",
+      "snippets": [
+        "Physical Intelligence's pi0.5 base checkpoint (pi05_base, openpi) behind the arena_planners bridge, as a zero-shot navigation baseline. It drives the robot through the two action dims that command a mobile manipulator's base, [v, omega], from the front camera and a text instruction, the way VEGA (arXiv 2606.18426, sec.",
+        "OPENPI_DATA_HOME of the server. ... Server port on 127.0.0.1, 0 picks a free one. ... Time allowed for the server to load the checkpoint.",
+        "robot.planner:=pi05 selects robot.mobile:=vla. The planner accepts the instruction only (goal_inputs: [instruction]), the goal pose never reaches it and decides success alone. It has no stop head and sends no signals, Arena judges arrival. openpi's pi05_aloha inference config (openpi's own default serve_policy.py --env ALOHA, which also serves pi05_base) with two changes in server/serve.py: the Mobile ALOHA norm stats (trossen_mobile) instead of the static ALOHA ones, and an output transform that keeps the 16 action dims of that embodiment instead of the 14 arm dims (AlohaOutputs drops the base).",
+        "weights.yaml fetches the 12.4 GB gs://openpi-assets/checkpoints/pi05_base (params plus the trossen_mobile and arx_mobile norm stats) and the PaliGemma tokenizer from gs://big_vision. The pi0.5 weights derive from PaliGemma and are subject to the Gemma Terms of Use, see openpi's LICENSE_GEMMA.txt."
+      ]
+    },
+    {
+      "title": "yyshi0619/pi05-base-pytorch · Hugging Face",
+      "url": "https://huggingface.co/yyshi0619/pi05-base-pytorch",
+      "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+      "snippets": [
+        "This model is derived from PaliGemma/Gemma; any use must comply with the Gemma Terms of Use and the Gemma Prohibited Use Policy. The OpenPI code is released under the Apache License 2.0. All credit for the model belongs to Physical Intelligence and the OpenPI authors; please cite their work if you use these weights.",
+        "This repository contains the π0.5 base vision-language-action model by Physical Intelligence, converted from the original JAX checkpoint to a PyTorch safetensors file for OpenPI's PI0Pytorch model.",
+        "import safetensors.torch from openpi.models.pi0_config import Pi0Config from openpi.models_pytorch.pi0_pytorch import PI0Pytorch model = PI0Pytorch(Pi0Config(pi05=True, action_horizon=50, action_dim=32)) safetensors.torch.load_model(model, \"model.safetensors\", strict=True) Verify the download with sha256sum model.safetensors against the hash above. Gemma is provided under and subject to the Gemma Terms of Use found at ai.google.dev/gemma/terms."
+      ]
+    },
+    {
+      "title": "GitHub - Physical-Intelligence/openpi · GitHub",
+      "url": "https://github.com/Physical-Intelligence/openpi",
+      "description": "Contribute to Physical-Intelligence/openpi development by creating an account on GitHub.",
+      "snippets": [
+        "[Sept 2025] We released pi05, an upgraded version of pi0 with better open-world generalization.",
+        "uv run scripts/compute_norm_stats.py --config-name pi05_libero",
+        "XLA_PYTHON_CLIENT_MEM_FRACTION=0.9 uv run scripts/train.py pi05_libero --exp-name=my_experiment --overwrite",
+        "from openpi.training import config as _config from openpi.policies import policy_config from openpi.shared import download config = _config.get_config(\"pi05_droid\") checkpoint_dir = download.maybe_download(\"gs://openpi-assets/checkpoints/pi05_droid\") # Create a trained policy."
+      ]
+    },
+    {
+      "title": "maniguard-review/pi05-lid · Hugging Face",
+      "url": "https://huggingface.co/maniguard-review/pi05-lid",
+      "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+      "snippets": [
+        "hf download maniguard-review/pi05-lid --local-dir /path/to/pi05-lid python -m maniguard.serve.openpi_native --config pi05-base_datagen_v1_lid_joint_2cam_lora --checkpoint /path/to/pi05-lid --port 8000 · Normalization assets are under assets/maniguard/, matching the ManiGuard training configuration. Use the ManiGuard family evaluation configuration for camera and action decoding. The fine-tuned weights derive from a Physical Intelligence openpi base model whose VLM backbone is PaliGemma; use of these weights is therefore subject to the Gemma Terms of Use (including the Gemma Prohibited Use Policy), which downstream users must pass on."
+      ]
+    },
+    {
+      "title": "openpi/src/openpi/training/config.py at main · Physical-Intel...",
+      "url": "https://github.com/Physical-Intelligence/openpi/blob/main/src/openpi/training/config.py",
+      "description": "Contribute to Physical-Intelligence/openpi development by creating an account on GitHub.",
+      "snippets": [
+        "weight_loader=weight_loaders.CheckpointWeightLoader(\"gs://openpi-assets/checkpoints/pi05_base/params\"),",
+        "weight_loader=weight_loaders.CheckpointWeightLoader(\"gs://openpi-assets/checkpoints/pi05_droid/params\"),",
+        "model=pi0_config.Pi0Config(pi05=True, paligemma_variant=\"dummy\", action_expert_variant=\"dummy\"),",
+        "model=pi0_config.Pi0Config(paligemma_variant=\"gemma_2b_lora\", action_expert_variant=\"gemma_300m_lora\"),"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "provider": "You.com",
+  "endpoint": "https://ydc-index.io/v1/search",
+  "retrieved_at_utc": "2026-10-17T21:27:20+00:00",
+  "query": "GR00T N1.6 Jetson Orin inference Hz deployment",
+  "include_domains": [],
+  "evidence_kind": "web_search_leads_not_physical_measurements",
+  "results": [
+    {
+      "title": "Real-Time Inference on Thor & RTX Pi0.5/GR00T N1.6/1.7 Thor 23 ...",
+      "url": "https://forums.developer.nvidia.com/t/real-time-inference-on-thor-rtx-pi0-5-gr00t-n1-6-1-7-thor-23-hz-rtx-5090-50-80hz/368788",
+      "description": "Hi everyone, I’m an independent developer with a background in algorithms, HPC, and robotics infrastructure. Recently I’ve been working on a lightweight inference engine built around hand-written CUDA kernels, focusing on small-batch and real-time performance (especially for VLA and robotics ...",
+      "snippets": [
+        "Hi everyone, I’m an independent developer with a background in algorithms, HPC, and robotics infrastructure. Recently I’ve been working on a lightweight inference engine built around hand-written CUDA kernels, focusing on small-batch and real-time performance (especially for VLA and robotics workloads).",
+        "Hi everyone, I’m an independent developer with a background in algorithms, HPC, and robotics infrastructure. Recently I’ve been working on a lightweight inference engine built around hand-written CUDA kernels, focusing …"
+      ]
+    },
+    {
+      "title": "Isaac-GR00T/scripts/deployment/README.md at main · NVIDIA/Isaac-GR00T",
+      "url": "https://github.com/NVIDIA/Isaac-GR00T/blob/main/scripts/deployment/README.md",
+      "description": "Run inference with PyTorch or TensorRT acceleration for the GR00T N1.7 policy. ... dGPU local environment: use the installation commands below, then use the PyTorch or TensorRT commands in this guide · Thor Docker or bare metal: skip to Jetson Thor Setup · Spark Docker or bare metal: skip to DGX Spark Setup · Orin ...",
+      "snippets": [
+        "Run inference with PyTorch or TensorRT acceleration for the GR00T N1.7 policy. ... dGPU local environment: use the installation commands below, then use the PyTorch or TensorRT commands in this guide · Thor Docker or bare metal: skip to Jetson Thor Setup · Spark Docker or bare metal: skip to DGX Spark Setup · Orin Docker or bare metal: skip to Jetson Orin Setup",
+        "NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots. - Isaac-GR00T/scripts/deployment/README.md at main · NVIDIA/Isaac-GR00T",
+        "NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots. - NVIDIA/Isaac-GR00T",
+        "GR00T N1.7 Inference Timing (4 denoising steps, 1 camera): ... Note: Orin uses DiT-only TensorRT (--inference-mode tensorrt) because TRT 10.3 does not support the backbone engine."
+      ]
+    },
+    {
+      "title": "r/robotics on Reddit: Real-Time Inference on Thor & RTX Pi0.5/GR00T ...",
+      "url": "https://www.reddit.com/r/robotics/comments/1t4emw2/realtime_inference_on_thor_rtx_pi05gr00t_n1617/",
+      "description": "Expect ~50% of 5090 performance Expectation: Pi0.5 ~31 Hz, GROOT ~42 Hz. Jetson Orin NX 16 GB – No FP8 hardware (Ampere sm_87). Falls back to FP16 → Pi0.5 ~4‑5 Hz, far from real‑time control (needs >20 Hz). ... LingBot-VLA vs π0.5 vs GR00T N1.6 vs WALL-OSS: 22,500 real-world trials ...",
+      "snippets": [
+        "Expect ~50% of 5090 performance Expectation: Pi0.5 ~31 Hz, GROOT ~42 Hz. Jetson Orin NX 16 GB – No FP8 hardware (Ampere sm_87). Falls back to FP16 → Pi0.5 ~4‑5 Hz, far from real‑time control (needs >20 Hz). ... LingBot-VLA vs π0.5 vs GR00T N1.6 vs WALL-OSS: 22,500 real-world trials across 3 platforms and 100 tasks",
+        "Hi everyone, I’m an independent developer with a background in algorithms, HPC, and robotics infrastructure. Recently I’ve been working on a…",
+        "Posted by u/Diligent-End-2711 - 9 votes and 4 comments",
+        "Thor 23 Hz: bandwidth-bound, you're spot on."
+      ]
+    },
+    {
+      "title": "GitHub - NVIDIA/Isaac-GR00T: NVIDIA Isaac GR00T N1.7 - A Foundation ...",
+      "url": "https://github.com/Nvidia/Isaac-GR00T",
+      "description": "NVIDIA Isaac GR00T N1.7 - A Foundation Model for Generalist Robots. - NVIDIA/Isaac-GR00T",
+      "snippets": [
+        "CUDA / Python per platform: dGPU on CUDA 12.8 with Python 3.12; Jetson Thor and Orin on JetPack 7.2 / CUDA 13.2 with Python 3.12; DGX Spark on CUDA 13.0 with Python 3.12. The per-platform install scripts and Dockerfiles live under scripts/deployment/; see the Deployment & Inference Guide for the full matrix. GR00T relies on submodules for certain dependencies.",
+        "Inference: 1 GPU with 16 GB+ VRAM (e.g., RTX 4090, L40, H100, Jetson AGX Thor/Orin, DGX Spark).",
+        "Video Backend: GR00T uses torchcodec as its sole video decoding backend. Backends such as decord and pyav are no longer supported. The default dGPU install pins torchcodec 0.8.0, which requires FFmpeg 4-7 (FFmpeg 8 is not supported — see the FFmpeg version note above) and supports H.264 on all platforms; AV1 decoding is not guaranteed (convert AV1 datasets to H.264 with examples/SimplerEnv/convert_av1_to_h264.py). JetPack 7.2 Thor and Orin use the PyTorch cu132 torchcodec 0.15.0 wheel; Spark may build torchcodec from source during install_deps.sh when a platform wheel is not available.",
+        "Prepare data — Collect robot demonstrations (video, state, action) and convert them to the GR00T LeRobot format. Demo datasets are included for quick testing. Run inference — Try zero-shot inference with the base model on pretrain embodiments, or use a finetuned checkpoint for benchmark tasks."
+      ]
+    }
+  ]
+}
