@@ -86,6 +86,23 @@ payload state affect training rewards, not actor observations.
 [System architecture](docs/ARCHITECTURE.md) · [Autonomy contracts](docs/autonomy/CONTRACTS.md) ·
 [Carrying training](training/CARRYING_PLAN.md) · [Evaluation protocol](docs/EVALUATION.md)
 
+## Done Means Done: verification agent
+
+Tableside's submission track is **Done Means Done**. The [verifier](agents/verifier.py)
+rechecks claimed file hashes, allowlisted test commands and evidence paths, then asks
+a Nemotron judge on Crusoe Managed Inference to assess the claims. Failed checks force
+FAIL; missing checks or failed model calls cannot produce PASS. Repeated failures
+trigger a replan signal. The verifier records verdicts and reasons for review.
+
+**Implemented and software-tested: 14 tests using a fake model. Live Crusoe Managed
+Inference remains pending credentials and a verified request.** Dry runs do not
+establish sponsor API usage or robotics performance. The live Isaac desktop and
+model training use the separate Crusoe GPU VM through Brev.
+
+[Interactive demo instructions](demo/LIVE_DEMO.md) cover the local sensor-guided
+MuJoCo viewer and browser-connected Isaac café. The Isaac view uses the baseline
+controller; learned-controller results remain separate measured experiments.
+
 ## Reproduce
 
 Use [sim/README.md](sim/README.md) for pinned Booster assets and the isolated
