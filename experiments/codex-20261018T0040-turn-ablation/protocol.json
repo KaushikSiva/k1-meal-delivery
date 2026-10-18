@@ -1,0 +1,27 @@
+{
+  "frozen_at_utc": "2026-10-18T00:37:46.802939+00:00",
+  "conditions": [
+    "stock_unloaded",
+    "empty_carry_posture",
+    "loaded_nominal_arm_obs",
+    "loaded_physical_arm_obs"
+  ],
+  "yaw_rates": [
+    0.0,
+    -0.18,
+    0.18
+  ],
+  "duration_s": 8.0,
+  "move_interval_s": [
+    2.0,
+    6.0
+  ],
+  "seed": 9851,
+  "scope": "local development ablation; no held-out score or delivery claim",
+  "limits": [
+    "stock differs in arm gains, pose and model initialization; not a single-variable contrast",
+    "empty-carry payload bodies displaced 100m and do not touch robot; load feedforward zero",
+    "loaded physical-arm observation exposes actual encoders instead of nominal ablation",
+    "true root state is evaluation-only; no navigation, VLA or PPO"
+  ]
+}

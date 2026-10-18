@@ -8,7 +8,12 @@ from sim.k1_imu import MujocoHeadingAdapter
 
 
 class HandSensorController(ScriptedCommandController):
-    def __init__(self, cfg, spec, start=(0.,0.,0.), seed=8201, head_pitch=0.):
+    def __init__(self, cfg, spec, start=(0.,0.,0.), seed=8201, head_pitch=0.,
+                 load_mass_kg=1.98, nominal_arm_observation=True):
+        if not np.isfinite(load_mass_kg) or load_mass_kg<0:
+            raise ValueError('Expected a finite nonnegative supported load mass')
+        self.load_mass_kg=float(load_mass_kg)
+        self.nominal_arm_observation=bool(nominal_arm_observation)
         super().__init__(cfg)
         self.mj_model = spec.compile()
         m = self.mj_model
@@ -59,8 +64,9 @@ class HandSensorController(ScriptedCommandController):
         dst.root_quat_w = torch.from_numpy(d.qpos[3:7].astype(np.float32))
         dst.root_ang_vel_b = torch.from_numpy(d.qvel[3:6].astype(np.float32))
         # This explicit actor ablation never changes physical encoder telemetry.
-        dst.joint_pos[self.arm] = self.robot.default_joint_pos[self.arm]
-        dst.joint_vel[self.arm] = 0.
+        if self.nominal_arm_observation:
+            dst.joint_pos[self.arm] = self.robot.default_joint_pos[self.arm]
+            dst.joint_vel[self.arm] = 0.
 
     def ctrl_step(self, targets):
         target = targets.detach().cpu().numpy().copy(); target[self.arm] = self.arm_targets;target[self.head_index]=self.head_pitch
@@ -72,7 +78,7 @@ class HandSensorController(ScriptedCommandController):
                 point = d.xpos[bid]+d.xmat[bid].reshape(3,3)@np.array([0.,sign*.195,0.])
                 jp,jr = np.zeros((3,m.nv)),np.zeros((3,m.nv))
                 mujoco.mj_jac(m,d,jp,jr,point,bid)
-                tau[self.arm] += jp[:,self.vi[self.arm]].T@np.array([0.,0.,1.98*9.81/2])
+                tau[self.arm] += jp[:,self.vi[self.arm]].T@np.array([0.,0.,self.load_mass_kg*9.81/2])
             d.ctrl[:] = np.clip(tau,-self.limit,self.limit)
             mujoco.mj_step(m,d); mujoco.mj_forward(m,d); self.imu.sample(d)
             forces = [0.,0.]; hit = False; others = set()

@@ -1,6 +1,6 @@
 # Codex status
 
-Updated (UTC): 2026-10-18T00:35:35.993279+00:00
+Updated (UTC): 2026-10-18T00:42:57.616077+00:00
 State: ready for user demo; two short GR00T Isaac previews verified.
 
 ## Current task and claims
@@ -19,3 +19,11 @@ Restored live robot/camera and hidden Tableside panel. Codex claims sim/isaac_li
 ## Coordination and next action
 
 Read Claude handoff through direct user-authorized verifier commit3a2c89e and HEAD278114a. Acknowledge live Crusoe verifier evidence now committed, replacing prior pending-credential status. Leave user's interactive scene untouched. Publish the reviewed owned integration/evidence; then investigate controller turning and GR00T transfer without claiming delivery success. VM stays available through authorized demo window; do not shut it down due pause/idle alone.
+
+Previous goal turn: progress (d3c054e pushed, live controls restored and two measured GR00T previews). Active local diagnostic claims: sim/k1_hand_controller.py, evaluation/run_hand_turn_ablation.py, experiments/codex-20261018T0040-turn-ablation/. Isolate original unloaded actor vs empty carry posture vs loaded carry posture and actual-arm observation; do not change live GUI or promote an untested policy.
+
+2026-10-18T00:38:58.198318+00:00 —12 ablation runs completed: unloaded turning drift0.112/0.124m, empty carry1.671/1.705m, loaded1.787/1.698m. Actual arm observation fails at1.56s before commanded turn. Claim training/hand_carry_env.py and training/train_hand_carrying.py for explicit velocity_v2 reward, retaining tracking_v1 default; fresh128k-step local CPU training planned. Existing development failures inform this revision, so no held-out claim.
+
+2026-10-18T00:41:10.774403+00:00 — PPO02 running in exec39331; smoke8 transitions/4 updates strict reload passed. Claim tools/export_hand_wandb.py for unique export run ID, evaluation/HAND_PPO_TRANSFER_PROTOCOL.json and experiments/codex-20261018T0045-hand-ppo02/. Froze six extra transfer conditions before training finished; evaluate alongside unchanged eight-condition development protocol.12 ablation hashes verified and default two400-step regressions bit-exact.
+
+Zeroed previous-arm-action feature experiment completed: turn drift reduced to0.786/0.918m but zero-command standing drifted1.220m and final speed0.113m/s. Rejected, not deployed. Six hashes verified. PPO02 continues;131072 steps requested, at71936 last poll. Remote W&B has no persisted credential; existing ignored local .env key is available and will be passed only via stdin for private export.

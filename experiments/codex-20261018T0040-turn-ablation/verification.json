@@ -1,0 +1,18 @@
+{
+  "trajectory_files": {
+    "runs/hand-turn-ablation-01/stock_unloaded-0/trajectory.csv": "sha256 verified",
+    "runs/hand-turn-ablation-01/stock_unloaded-1/trajectory.csv": "sha256 verified",
+    "runs/hand-turn-ablation-01/stock_unloaded-2/trajectory.csv": "sha256 verified",
+    "runs/hand-turn-ablation-01/empty_carry_posture-0/trajectory.csv": "sha256 verified",
+    "runs/hand-turn-ablation-01/empty_carry_posture-1/trajectory.csv": "sha256 verified",
+    "runs/hand-turn-ablation-01/empty_carry_posture-2/trajectory.csv": "sha256 verified",
+    "runs/hand-turn-ablation-01/loaded_nominal_arm_obs-0/trajectory.csv": "sha256 verified",
+    "runs/hand-turn-ablation-01/loaded_nominal_arm_obs-1/trajectory.csv": "sha256 verified",
+    "runs/hand-turn-ablation-01/loaded_nominal_arm_obs-2/trajectory.csv": "sha256 verified",
+    "runs/hand-turn-ablation-01/loaded_physical_arm_obs-0/trajectory.csv": "sha256 verified",
+    "runs/hand-turn-ablation-01/loaded_physical_arm_obs-1/trajectory.csv": "sha256 verified",
+    "runs/hand-turn-ablation-01/loaded_physical_arm_obs-2/trajectory.csv": "sha256 verified"
+  },
+  "default_regression": "2 x 400 control steps exactly match prior baseline CSV",
+  "focused_tests": "3 passed"
+}

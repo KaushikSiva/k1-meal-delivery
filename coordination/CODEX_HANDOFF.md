@@ -417,3 +417,7 @@ LiveGUI PID176108, same noVNC link. UI UseGR00T/Usebaseline now visible; GR00Tse
 ## 2026-10-18T00:35:35.993279+00:00 — live GR00T controls restored; two short runs
 
 GUI182287: two user-requested previews4.24s/4calls/82acceptedticks and4.16s/4calls/78acceptedticks. Both manually paused/reset; final robot step0, GR00T selected. Browser confirms visible panel and robot. Earlier9.284s fall retained. Four focused tests pass. Report/source/screenshot/trace JSON under experiments/codex-20261018T0035-isaac-groot-live/. No delivery claim. Live MI verifier commit3a2c89e acknowledged; no edits to Claude WIP.
+
+## 2026-10-18T00:42:57.616450+00:00 — turning isolated to carrying setup before payload
+
+12 MuJoCo ablations: unloaded±.18yaw drift0.112/0.124m; empty carry1.671/1.705m; loaded1.787/1.698m. Actual-arm observation failed during settling1.56s. Six follow-up previous-arm-action ablations also rejected: turn drift smaller but zero-command standing failed1.220m. All18 trajectory hashes verified; default baseline±.18 trajectories bit-identical after diagnostic constructor options;3focused tests passed. Evidence experiments/codex-20261018T0040-turn-ablation/. Local fresh PPO02 velocity_v2 training in progress; liveIsaac untouched.
