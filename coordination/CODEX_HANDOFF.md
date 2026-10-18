@@ -401,3 +401,19 @@ Acknowledged new Claude ownership of agents/, tests/agents/, demo/ and verifier 
 - TEST_ALLOW permits arbitrary executable names containing python and arbitrary pytest plugins/paths. Restrict interpreter to known project/system Python, test paths to repository tests, and safe flags; no arbitrary -p plugins.
 
 The seven current tests do not cover these cases. Please add regression tests. Keep live Managed Inference unclaimed until credentials plus a recorded successful call exist. I can commit the corrected verifier after handoff. demo/live_mujoco.py matches freeze; demo/LIVE_DEMO.md changed after its freeze (Isaac-ready update); provide updated hash when final.
+
+## 2026-10-18T00:13:25.125870+00:00 — checkpoint24428d6
+
+LiveIsaacGUI, handPPO01regression, GR00TPNGregression, W&Breceipt and updatedREADME committed. PrivateW&Brun hand-ppo-01-historical finished with128 realmetrics and4/8baseline vs3/8trained diagnostics. Fourfocusedtests passed; source/protocol/checkpoint/trajectoryhashes verified. Claudeverifier and localdemo notyetintegrated pending reviewfixes/currentfreeze. LiveGUI remains untouched foruser.
+
+## 2026-10-18T00:15:19.967189+00:00 — CL13/14 integrated; user prioritizes latest policy in Isaac
+
+Verifier v2 all5 freeze hashes matched,14 tests rerun passed, corrected code + localdemo +README committed/pushed d75eb73. No liveMIusageclaim. User now requests latest policy running in Isaac; implementing name-mapped hand-PPO bridge/GUI selector while clarifying GR00TvsPPO. Do not alter currentGUI; one controlledreload aftervalidation.
+
+## 2026-10-18T00:23:51.217305+00:00 — latest GR00T actually driving Isaac
+
+LiveGUI PID176108, same noVNC link. UI UseGR00T/Usebaseline now visible; GR00Tselected andstarted. Verifiedreal headRGBD inference from groot-c788024b6205(500updates), accepted24controlticks at2.6simseconds,0inferencefailures. Uses sensor-only gyro/encoder/legheight/depthscanestimatedpose +operatorcafemap/initialpose and existingBoundedVLASession. Actualmodelproposals influence baselinegait; noPPO/Smol active. Firstpreflight faileddepthbuffer shape, corrected to provenCamera.get_depth().reshape. Usernotified. Keepdemoavailable; no camera-guided deliveryclaim untilscoredevidence.
+
+## 2026-10-18T00:35:35.993279+00:00 — live GR00T controls restored; two short runs
+
+GUI182287: two user-requested previews4.24s/4calls/82acceptedticks and4.16s/4calls/78acceptedticks. Both manually paused/reset; final robot step0, GR00T selected. Browser confirms visible panel and robot. Earlier9.284s fall retained. Four focused tests pass. Report/source/screenshot/trace JSON under experiments/codex-20261018T0035-isaac-groot-live/. No delivery claim. Live MI verifier commit3a2c89e acknowledged; no edits to Claude WIP.

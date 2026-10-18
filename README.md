@@ -44,7 +44,7 @@ No robot is present in this environment-preview frame.*
 | GR00T loaded comparison | [3/4 with GR00T;3/4 executive-only](experiments/codex-20261017T2355-groot-loaded/REPORT.md); remote latency rejected many proposals, no overall improvement |
 | GR00T with lossless image transport | [2/4 versus baseline3/4](experiments/codex-20261017T2355-groot-loaded/png/REPORT.md); greater proposal participation did not improve delivery |
 | PPO for hand-supported carrying | [32,768 real control steps;1,024 updates](experiments/codex-20261018T0000-hand-ppo/REPORT.md); matched diagnostics regressed to3/8 versus baseline4/8, not promoted |
-| Interactive Isaac desktop | [Live café scene with Start/Pause/Reset](docs/hardware/ISAAC_LIVE.md); real PhysX contact baseline, browser controls verified, no PPO/VLA active |
+| Interactive Isaac desktop | [Live café with GR00T selector and Start/Pause/Reset](docs/hardware/ISAAC_LIVE.md); real head-camera proposals drive the baseline gait; experimental transfer, first longer run fell at 9.284s |
 | Hardware delivery | Not completed |
 
 An integrated camera-guided loaded delivery now passes in one MuJoCo development
@@ -110,8 +110,9 @@ checks engineering handoffs and does not measure robot performance. The live Isa
 model training use the separate Crusoe GPU VM through Brev.
 
 [Interactive demo instructions](demo/LIVE_DEMO.md) cover the local sensor-guided
-MuJoCo viewer and browser-connected Isaac café. The Isaac view uses the baseline
-controller; learned-controller results remain separate measured experiments.
+MuJoCo viewer and browser-connected Isaac café. The Isaac panel selects GR00T
+camera-guided proposals or baseline straight walking. Both use the baseline gait;
+hand-PPO is not enabled in the live launch. See the [Isaac controls and limitations](docs/hardware/ISAAC_LIVE.md).
 
 ## Reproduce
 

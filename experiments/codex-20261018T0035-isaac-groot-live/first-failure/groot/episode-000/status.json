@@ -1,0 +1,13 @@
+{
+  "model_id": "groot-c788024b6205",
+  "inference_calls": 13,
+  "accepted_ticks": 271,
+  "state": "search",
+  "command": [
+    0.0,
+    0.0,
+    0.02
+  ],
+  "last_decision": "proposal expired on control clock",
+  "inference_failures": 0
+}

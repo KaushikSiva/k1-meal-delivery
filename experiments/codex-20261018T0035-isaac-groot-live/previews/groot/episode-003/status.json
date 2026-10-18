@@ -1,0 +1,13 @@
+{
+  "model_id": "groot-c788024b6205",
+  "inference_calls": 4,
+  "accepted_ticks": 71,
+  "state": "search",
+  "command": [
+    0.0,
+    0.0,
+    0.1
+  ],
+  "last_decision": "vla hold",
+  "inference_failures": 0
+}

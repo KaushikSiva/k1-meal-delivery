@@ -19,7 +19,10 @@ parser.add_argument('--speed', type=float, default=.35)
 parser.add_argument('--tracking-evaluator', action='store_true', help='Evaluation-only camera follows measured root position')
 parser.add_argument('--wide-evaluator', action='store_true', help='Wider fixed view covering the full straight route')
 parser.add_argument('--interactive', action='store_true', help='Keep the Isaac GUI open with live run/pause/reset controls')
+parser.add_argument('--hand-residual-checkpoint', type=Path, help='Verified hand PPO checkpoint directory; experimental transfer')
+parser.add_argument('--groot-endpoint', help='Local GR00T proposal server for interactive camera-guided control')
 args = parser.parse_args()
+assert not args.groot_endpoint or (args.interactive and not args.hand_residual_checkpoint)
 args.reference_colors=True;args.realistic_payload=True
 assert 5 <= args.duration <= 60 and 0 <= args.speed <= .5
 args.output = args.output.resolve()
@@ -64,6 +67,7 @@ try:
     handmodel=HandCarryModel(args.output/'hand-model.xml')
     joints = nominal['joints']
     for n,v in ARM_POSE.items():joints[n].update(position=v,stiffness=80.,damping=3.)
+    if args.groot_endpoint:joints['aahead_pitch_joint']['position']=-.2
     armature={j.attrib['name']:float(j.attrib['armature']) for j in ET.parse(ROOT/'sim/vendor/booster_assets/robots/K1/K1_22dof.xml').iter('joint') if 'armature' in j.attrib}
     assert set(armature)==set(joints)
     cfg = ArticulationCfg(prim_path='/World/K1',
@@ -173,13 +177,26 @@ try:
         dst.joint_vel[arm]=0.
         return original_observation()
     bridge.controller.policy.compute_observation=nominal_arm_observation
+    residual_policy=None;residual_bridge=None
+    if args.hand_residual_checkpoint:
+        from deployment.hand_residual import HandResidualPolicy
+        from sim.k1_isaac_hand_residual import IsaacHandResidual
+        residual_policy=HandResidualPolicy(args.hand_residual_checkpoint)
+        residual_bridge=IsaacHandResidual(robot,bridge,residual_policy)
+        report['hand_residual']=dict(checkpoint_sha256=residual_policy.sha256,
+            optimizer_updates=residual_policy.report['optimizer_updates'],
+            training_simulator=residual_policy.report['simulator'],
+            residual_bound_rad=.08,experimental_transfer=True)
     if args.interactive:
         from sim.isaac_live_session import run_live_session
-        report.update(status='interactive',evidence_kind='live_isaac_hand_contact_baseline',
+        report.update(status='interactive',evidence_kind='live_isaac_hand_contact',
+                      groot_endpoint=args.groot_endpoint,
                       limits=['interactive development session, not a scored delivery trial',
-                              'scripted walking baseline; no PPO or VLA active'])
+                              'GR00T camera-guided proposals with baseline gait' if args.groot_endpoint else
+                              'scripted velocity; baseline or experimental hand PPO selectable; no VLA active'])
         manifest.write_text(json.dumps(report,indent=2)+'\n')
-        run_live_session(app,sim,robot,payload,handmodel,cam,args.speed,args.duration,args.output/'live_state.json')
+        run_live_session(app,sim,robot,payload,handmodel,cam,args.speed,args.duration,args.output/'live_state.json',residual_policy,
+                         head_camera=head,groot_endpoint=args.groot_endpoint)
         report['status']='interactive_closed'
         raise SystemExit(0)
     report['actor_steps']=0
@@ -195,6 +212,7 @@ try:
             if step%10==0:
                 try:
                     targets=bridge.step(command)
+                    if residual_bridge is not None:targets=residual_bridge.apply(targets,command)
                     report['walking_policy_executed']=True
                     report['actor_steps']+=1
                 except RuntimeError as exc:
@@ -267,6 +285,9 @@ try:
     np.savetxt(args.output/'payload_contacts.csv',np.array(payload_rows),delimiter=',',header='t,tray_x,tray_y,tray_z,tray_tilt,box_x,box_y,box_z,box_shift,drink_x,drink_y,drink_z,drink_shift,'+','.join(robot_paths),comments='')
     report.update(max_payload_displacement_xy_m=max_payload_displacement,payload_drop=payload_drop,final_root_speed_m_s=float(torch.linalg.vector_norm(robot.data.root_lin_vel_w[0])))
     report['limits']=['scripted velocity, not vision-guided delivery','no PPO residual or VLA in this trial','preloaded tray with physical underside seats and cup holder','sealed rigid drink, no fluid simulation','model-based arm gravity/load compensation via joint torques','material/geometry assumptions, no hardware verification']
+    if residual_bridge is not None:
+        report['limits'][1]='Experimental MuJoCo-trained hand PPO transfer; no VLA in this trial'
+        report['hand_residual'].update(inference_steps=residual_bridge.steps,max_abs_residual_rad=residual_bridge.max_abs_residual)
     report['source_hashes'].update({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [ROOT/'sim/k1_hand_isaac.py',ROOT/'sim/k1_hand_carry.py']})
 
 except Exception as exc:

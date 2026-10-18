@@ -100,3 +100,7 @@ You.com official packaging research saved; original Domino’s-inspired box text
 ## 2026-10-18T00:10:00.636881+00:00 — Interactive Isaac desktop verified
 
 Userpriorityimplemented:actualIsaac5.1GUI+nativeStart/Pause/Reset onexistingL40S. noVNCbrowservalidated sceneandinput;900physicsteps,pausedstateandresetposesverified. RemoteSSH-onlydesktopretainedthroughdemo. Trainingbeforepriority:handPPO32768steps1024updates,baseline4/8vsresidual3/8 diagnosticregression,notpromoted.
+
+## 2026-10-18T00:35:35.993279+00:00 — live GR00T controls restored; two short runs
+
+GUI182287: two user-requested previews4.24s/4calls/82acceptedticks and4.16s/4calls/78acceptedticks. Both manually paused/reset; final robot step0, GR00T selected. Browser confirms visible panel and robot. Earlier9.284s fall retained. Four focused tests pass. Report/source/screenshot/trace JSON under experiments/codex-20261018T0035-isaac-groot-live/. No delivery claim. Live MI verifier commit3a2c89e acknowledged; no edits to Claude WIP.

@@ -8,9 +8,13 @@ On the project Mac, open:
 
 http://localhost:16080/vnc.html?autoconnect=true&resize=scale
 
-The **Tableside — Live Physics** panel has Start / Resume, Pause, Reset and Toggle following camera controls. A run contains two seconds standing, eleven seconds walking and two seconds stopping. Reset returns the robot and free payload to their initial states. The default following camera keeps the robot in view; switch it off to inspect the scene with Isaac's viewport controls. The session starts paused.
+The **Tableside — Live Physics** panel is in the upper-left of the Isaac window. Click **Use GR00T**, then **Start / Resume**. GR00T is selected by default when the local model server is configured. The active policy label and inference/accepted-control counters show what is running. **Use baseline** selects the straight-walking demonstration instead.
 
-The robot uses the verified baseline walking actor and arm gravity/load compensation. PPO and VLA are not active in this view. It is an interactive demonstration, not a scored delivery trial. Physics may run slower than wall time over the remote desktop; the panel shows simulated seconds.
+**Pause** holds the scene; **Reset** restores the robot, free payload, camera and policy history. **Restore robot view** points the viewport back at the robot. **Toggle following camera** allows manual viewport inspection. The panel reopens if closed. The session starts paused and stops after 60 simulated seconds or a detected fall; Start after a reported error resets first.
+
+GR00T N1.7 uses the audited 500-update checkpoint to propose bounded subgoals from the live head RGB-D camera and sensor-estimated pose. The baseline walking actor and arm gravity/load compensation execute checked commands. The optional hand-PPO adapter is not enabled in this launch. This is an experimental interactive session, not a scored delivery trial. The first longer GR00T Isaac run fell at 9.284 simulated seconds after 13 successful inference calls and 271 VLA-selected control ticks. Inference participation is not evidence of successful delivery.
+
+Physics may run slower than wall time over the remote desktop; the panel shows simulated seconds. Reset and stop interventions must be disclosed when presenting short runs. The screenshot above predates the GR00T selector.
 
 Remote services bind only to loopback. The browser link works on the Mac holding the SSH tunnel. Runtime logs are under `/home/ubuntu/workspace/k1-runtime/live-desktop-01/`. `isaac.log` prints `TABLESIDE_LIVE_READY` after the scene and controls are initialized. The VM remains available through the authorized demo window.
 

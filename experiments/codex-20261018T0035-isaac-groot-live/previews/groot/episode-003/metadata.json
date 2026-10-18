@@ -1,0 +1,31 @@
+{
+  "health": {
+    "model_id": "groot-c788024b6205",
+    "checkpoint_shards": {
+      "checkpoint/model-00002-of-00003.safetensors": "18d46685c33977b8a97aae6f2fd844fffcdfa951a70f8b3a1c4d44fc065f2364",
+      "checkpoint/model-00001-of-00003.safetensors": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+      "checkpoint/model-00003-of-00003.safetensors": "2c8843e7044929448768faa30caf850ee016d26c0124df687b2f454ed53b9267"
+    },
+    "optimizer_updates": 500,
+    "seed": 9701,
+    "server_source_sha256": "891fbcfd9fd0966ddf4c0ba91705a6266efb427743a0bc242db2e073cb1772ce",
+    "actuator_api": false
+  },
+  "prior_initial_pose": [
+    1,
+    0,
+    0
+  ],
+  "floor_plan": "operator-supplied conservative cafe design",
+  "actor_inputs": [
+    "head RGB-D",
+    "joint encoders",
+    "emulated noisy body gyro",
+    "estimated map pose and memory"
+  ],
+  "limits": [
+    "first Isaac transfer; not delivery validation",
+    "MuJoCo-trained checkpoint",
+    "synchronous inference with measured delay applied on control clock"
+  ]
+}

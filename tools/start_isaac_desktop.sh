@@ -3,6 +3,12 @@ set -euo pipefail
 task_root=/home/ubuntu/workspace/k1-runtime
 live_root="$task_root/live-desktop-01"
 mkdir -p "$live_root"
+is_alive() {
+  test -f "$1" || return 1
+  local task_process_state
+  task_process_state=$(ps -p "$(cat "$1")" -o stat= 2>/dev/null) || return 1
+  [[ -n "$task_process_state" && "$task_process_state" != Z* ]]
+}
 export DISPLAY=:99
 if ! xdpyinfo -display :99 >/dev/null 2>&1; then
   nohup Xvfb :99 -screen 0 1600x900x24 -ac -nolisten tcp > "$live_root/xvfb.log" 2>&1 < /dev/null &
@@ -22,11 +28,12 @@ if ! test -f "$live_root/web.pid" || ! kill -0 "$(cat "$live_root/web.pid")" 2>/
   nohup websockify --web=/usr/share/novnc 127.0.0.1:6080 127.0.0.1:5900 > "$live_root/web.log" 2>&1 < /dev/null &
   echo $! > "$live_root/web.pid"
 fi
-if ! test -f "$live_root/isaac.pid" || ! kill -0 "$(cat "$live_root/isaac.pid")" 2>/dev/null; then
+if ! is_alive "$live_root/isaac.pid"; then
   cd "$task_root/project"
   export ACCEPT_EULA=Y OMNI_KIT_ACCEPT_EULA=YES
   nohup "$task_root/.venv/bin/python" sim/run_k1_hand_carry_isaac.py \
-    --output "$live_root/scene-$(date -u +%Y%m%dT%H%M%S)" --duration 15 --speed .4 --interactive \
+    --output "$live_root/scene-$(date -u +%Y%m%dT%H%M%S)" --duration 60 --speed .4 --interactive \
+    --groot-endpoint http://127.0.0.1:8767/propose \
     > "$live_root/isaac.log" 2>&1 < /dev/null &
   echo $! > "$live_root/isaac.pid"
 fi

@@ -1,40 +1,21 @@
 # Codex status
 
-Updated (UTC): 2026-10-18T00:12:39.198159+00:00
-State: working — live Isaac desktop ready; publishing evidence, then carrying-control work.
-Previous goal turn: progress. Implemented and verified an interactive Isaac GUI and completed a new hand-contact PPO training/evaluation.
+Updated (UTC): 2026-10-18T00:35:35.993279+00:00
+State: ready for user demo; two short GR00T Isaac previews verified.
 
-## Current claims
+## Current task and claims
 
-Codex retains ownership from OWNERSHIP.md. Active files: sim/isaac_live_session.py,
-sim/run_k1_hand_carry_isaac.py, tools/start_isaac_desktop.sh,
-docs/hardware/ISAAC_LIVE.md, docs/hardware/isaac-live-desktop.png,
-training/hand_carry_env.py, training/train_hand_carrying.py,
-deployment/hand_residual.py, tests/sim/test_hand_residual.py,
-evaluation/HAND_PPO_PROTOCOL.json, evaluation/evaluate_hand_residual.py,
-evaluation/plot_hand_training.py, tools/export_hand_wandb.py,
-experiments/codex-20261018T0000-hand-ppo/,
-experiments/codex-20261017T2355-groot-loaded/png/,
-README.md, .gitignore, coordination/OWNERSHIP.md and own coordination files.
+Restored live robot/camera and hidden Tableside panel. Codex claims sim/isaac_live_session.py, sim/isaac_groot_session.py, sim/k1_isaac_hand_residual.py, sim/run_k1_hand_carry_isaac.py, related tests/sim/, tools/start_isaac_desktop.sh, docs/hardware/ISAAC_LIVE.md, README.md, own coordination, and experiments/codex-20261018T0035-isaac-groot-live/. No Claude WIP changes.
 
-## Verified live demo
+## Evidence
 
-- Browser URL: http://localhost:16080/vnc.html?autoconnect=true&resize=scale on this Mac.
-- Actual Isaac Sim 5.1 café GUI on L40S, process165918. Browser screenshot verified robot, printed pizza/Coke and physical hand-supported tray.
-- Browser Start advanced900 physics steps/1.8 simulated seconds; Pause held state; Reset returned step0 and initial root/payload poses. Left paused for the user. Native Start/Resume, Pause, Reset and following-camera controls. No replay, PPO or VLA active.
-- Xvfb/openbox/x11vnc/noVNC services bind loopback; local16080 forwards to remote6080 through SSH. Do not restart or manipulate the user's active session without need.
-- L40S remains available through17:15–18:30 PDT demo. GR00T server157043 also remains available. Last free disk7.6GB.
+- Isaac GUI PID182287 and GR00T server remain live on existing L40S. Link: http://localhost:16080/vnc.html?autoconnect=true&resize=scale . Browser screenshot confirms robot, realistic payload, panel and Use GR00T button.
+- Two actual short runs:4.24s/4 calls/82 accepted ticks;4.16s/4 calls/78 accepted ticks.0 inference errors. Manually paused/reset; not full deliveries or stable-stop evaluations. Final step0 paused with GR00T selected, initial root/tray restored.
+- Earlier longer GR00T run fell at9.284s after13 calls/271 accepted ticks. Failure preserved; turning drift remains unresolved. GUI reset restores camera and error after falls; closed controls reopen.
+- Four focused boundary/mapping tests passed; syntax passed. Optional hand-PPO bridge software-tested but NOT enabled or physically validated in Isaac. No new training.
+- Earlier hand PPO matched evaluation remained3/8 vsbaseline4/8; no promotion. GR00T PNG loaded evaluation2/4vsbaseline3/4. Robust delivery and hardware validation remain unfinished.
+- Minor UI limitation: reset clears actual counters but displayed GR00T counter refreshes on next control tick.
 
-## New evidence
+## Coordination and next action
 
-- Hand PPO01:32768 actual control transitions,327680 physics steps,1024 updates,81 completed episodes/1 early termination,77.6s CPU training. Frozen base unchanged, residual weights changed and strict reload passed.
-- Matched sixteen physical runs: baseline4/8, residual3/8. Pure-turn drift worsened; trained policy not promoted. Evaluation protocol frozen before training, with actual motion and stable-stop gates.
-- W&B hand-ppo-01-historical API-verified finished,128 actual metric rows and evaluation totals; all exported file hashes match local evidence.
-- GR00T PNG batch2/4 vs baseline3/4; first condition physically failed despite executive delivery; second dropped. All749 recorded artifact hashes verified. Raw transport batch remains3/4 vs3/4.
-- Earlier recorded Isaac baseline and camera-guided MuJoCo delivery evidence remain available; hardware unverified.
-
-## Integration and next actions
-
-Public HEAD before this checkpoint:d9b4c12. Commit only reviewed owned files. Never stage navigation/localization.py or other Claude WIP.
-Read Claude handoffs through CL14 local demo freeze00:07:22. Acknowledged Claude ownership of agents/, tests/agents/, demo/ and verifier outputs. CL13 verifier review found fail-open completion checks; requested fixes and new tests/hashes before integration. No live Crusoe Managed Inference call yet verified.
-Finish coherent evidence push, keep live GUI available, then address carrying-controller failures. Goal remains active: robust varied delivery, improved learned control and hardware validation are unfinished.
+Read Claude handoff through direct user-authorized verifier commit3a2c89e and HEAD278114a. Acknowledge live Crusoe verifier evidence now committed, replacing prior pending-credential status. Leave user's interactive scene untouched. Publish the reviewed owned integration/evidence; then investigate controller turning and GR00T transfer without claiming delivery success. VM stays available through authorized demo window; do not shut it down due pause/idle alone.

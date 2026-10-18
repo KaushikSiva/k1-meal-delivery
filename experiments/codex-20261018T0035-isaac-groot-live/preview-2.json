@@ -1,0 +1,35 @@
+{
+  "running": false,
+  "reset": false,
+  "step": 2080,
+  "follow": true,
+  "closed": false,
+  "policy": "groot",
+  "residual_inference_steps": 0,
+  "max_abs_residual_rad": 0,
+  "checkpoint_sha256": null,
+  "groot": {
+    "model_id": "groot-c788024b6205",
+    "inference_calls": 4,
+    "accepted_ticks": 78,
+    "state": "search",
+    "command": [
+      0,
+      0,
+      0
+    ],
+    "last_decision": "vla hold",
+    "inference_failures": 0
+  },
+  "simulated_seconds": 4.16,
+  "root_xyz": [
+    0.6576706171035767,
+    0.04342753067612648,
+    0.46092960238456726
+  ],
+  "tray_xyz": [
+    0.9470688700675964,
+    0.019091103225946426,
+    0.6175528764724731
+  ]
+}

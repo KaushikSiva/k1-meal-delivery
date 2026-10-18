@@ -1,0 +1,13 @@
+{
+  "model_id": "groot-c788024b6205",
+  "inference_calls": 0,
+  "accepted_ticks": 0,
+  "state": "search",
+  "command": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "last_decision": "settling",
+  "inference_failures": 0
+}
